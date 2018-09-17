@@ -1,0 +1,22 @@
+name: azure_automl2
+dependencies:
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- python=3.6
+- nb_conda
+- matplotlib
+- seaborn
+- numpy>=1.11.0,<1.16.0
+- scipy>=0.19.0,<0.20.0
+- scikit-learn>=0.18.0,<=0.19.1
+- pandas>=0.19.0,<0.23.0
+
+- pip:
+    # Required packages for AzureML execution, history, and data preparation.
+  - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Candidate/604C89A437BA41BD942B4F46D9A3591D
+  - --extra-index-url https://pypi.python.org/simple
+  - azureml-sdk[automl]
+  - azureml-train-widgets
+  - azure-cli
+  - pandas_ml
+  
