@@ -1,12 +1,10 @@
 # Table of Contents
 1. [Auto ML Introduction](#introduction)
-2. [Prerequisites](#prerequisites)
-3. [Running samples in Azure Notebooks](#azurenotebooks)
-4. [Running samples in a Local Conda environment](#localconda)
-5. [Auto ML SDK Sample Notebooks](#samples)
-6. [Documentation](#documentation)
-7. [Running using python command](#pythoncommand)
-8. [Troubleshooting](#troubleshooting)
+2. [Running samples in a Local Conda environment](#localconda)
+3. [Auto ML SDK Sample Notebooks](#samples)
+4. [Documentation](#documentation)
+5. [Running using python command](#pythoncommand)
+6. [Troubleshooting](#troubleshooting)
 
 # Auto ML Introduction <a name="introduction"></a>
 AutoML builds high quality Machine Learning model for you by automating model selection and hyper parameter selection for you. Bring a labelled dataset that you want to build a model for, AutoML will give you a high quality machine learning model that you can use for predictions.
@@ -14,37 +12,6 @@ AutoML builds high quality Machine Learning model for you by automating model se
 If you are new to Data Science, AutoML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyper parameter selection and in one step creates a high quality trained model for you to use.
 
 If you are an experienced data scientist, AutoML will help increase your productivity by intelligently performing the model selection, hyper parameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. AutoML provides visibility and access to all the training jobs and the performance characteristics of the models and help you further tune the pipeline if you desire.
-
-# Prerequisites <a name="prerequisites"></a>
-### 1. Whitelist your subscription
-The first thing you need is to get your subscription whitelisted. Please email your Azure Subscription Id (NOT your alias) to viennawhitelist@service.microsoft.com. Expect to receive response within 2 business days.
-
-### 2. Enable Your Subscription to access EUAP (optional)
-Some SDK functionalities might initially be only available in the Azure Canary Region (eastus2euap, aka EUAP). To gain access to this region, please submit a request here: https://aka.ms/canaryintwhitelist.
-
-Note it appears that only subscriptions belonging to Microsoft tenant are approved. MSDN-based personal Azure subscriptions appeared to be not allowed.
-
-# Running samples in Azure Notebooks <a name="azurenotebooks"></a>
-
-The simplest way to get started with using Auto ML and trying out the sample notebooks is with [Azure Notebooks](https://notebooks.azure.com/). 
-
-### 1. Sign up with Azure Notebooks 
-- Browse to https://notebooks.azure.com and login using your [Microsoft account](https://account.microsoft.com/account). If you are a Microsoft employee you can use your @microsoft account.
-
-### 2. Create a Library
-- Create a new library. This will host the sample notebooks. **Important:** Mark the library private. The default is public.
-
-### 3. Upload the samples to the Library
-- [Download the samples](https://github.com/Azure/ViennaDocs/blob/master/PrivatePreview/notebooks/downloads/auto-ml-scenarios.zip) as zip and extract the contents to a local directory
-- Click on **+New** link to Add items to the library and choose to upload **From Computer**. Upload all the files from the zip to the library.
-
-### 4. Running setup.ipynb
-- Before running any samples you would need to run the configuration notebook. Click on 00.configuration.ipynb notebook
-- If asked set the Kernel to Python 3.6
-- Execute the cells in the notebook to install the SDK and create a workspace. (*instructions in notebook*)
-
-### 5. Running Samples
-- Follow the instructions in the individual notebooks to explore various features in AutoML
 
 # Running samples in a Local Conda environment <a name="localconda"></a>
 
@@ -55,18 +22,18 @@ It is best if you create a new conda environment locally to try this SDK, so it 
 There's no need to install mini-conda specifically.
 
 ### 2. Dowloading the sample notebooks
-- [Download the samples](https://github.com/Azure/ViennaDocs/blob/master/PrivatePreview/notebooks/downloads/auto-ml-scenarios.zip) as zip and extract the contents to a local directory
+- Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) as zip and extract the contents to a local directory.  The AutoML sample notebooks are in the "automl" folder.
 
 ### 3. Setup a new conda environment
 The automl_setup script creates a new conda environment, installs the necessary packages, configures the widget and starts jupyter notebook.
 It takes the conda environment name as an optional parameter.  The default conda environment name is azure_automl.  The exact command depends on the operating system.  It can take about 30 minutes to execute.
 ## Windows
-Start a conda command windows, cd to the folder where the sample notebooks were extracted and then run: automl_setup
+Start a conda command windows, cd to the "automl" folder where the sample notebooks were extracted and then run: automl_setup
 ## Mac
 Install "Command line developer tools" if it is not already installed (you can use the command: xcode-select --install).
-Start a Terminal windows, cd to the folder where the sample notebooks were extracted and then run: bash automl_setup_mac.sh
+Start a Terminal windows, cd to the "automl" folder where the sample notebooks were extracted and then run: bash automl_setup_mac.sh
 ## Linux
-cd to the folder where the sample notebooks were extracted and then run: automl_setup_linux.sh
+cd to the "automl" folder where the sample notebooks were extracted and then run: automl_setup_linux.sh
 
 ### 4. Running configuration.ipynb
 - Before running any samples you would need to run the configuration notebook. Click on 00.configuration.ipynb notebook
@@ -178,7 +145,7 @@ cd to the folder where the sample notebooks were extracted and then run: automl_
 |**preprocess**|*True/False* <br>Setting this to *True* enables preprocessing <br>on the input to handle *missing data*, and perform some common *feature extraction*<br>*Note: If input data is Sparse you cannot use preprocess=True*|False|
 |**max_cores_per_iteration**| Indicates how many cores on the compute target would be used to train a single pipeline.<br> You can set it to *-1* to use all cores|1|
 |**exit_score**|*double* value indicating the target for *primary_metric*. <br> Once the target is surpassed the run terminates|None|
-|**blacklist_algos**|*Array* of *strings* indicating pipelines to ignore for Auto ML.<br><br> Allowed values for **Classification**<br><i>logistic regression</i><br><i>SGD classifier</i><br><i>MultinomialNB</i><br><i>BernoulliNB</i><br><i>SVM</i><br><i>LinearSVM</i><br><i>kNN</i><br><i>DT</i><br><i>RF</i><br><i>extra trees</i><br><i>gradient boosting</i><br><i>lgbm_classifier</i><br><br>Allowed values for **Regression**<br><i>Elastic net</i><br><i>Gradient boosting regressor</i><br><i>DT regressor</i><br><i>kNN regressor</i><br><i>Lasso lars</i><br><i>SGD regressor</i><br><i>RF regressor</i><br><i>extra trees regressor</i><br><i>lightGBM regressor</i>|None|
+|**blacklist_algos**|*Array* of *strings* indicating pipelines to ignore for Auto ML.<br><br> Allowed values for **Classification**<br><i>LogisticRegression</i><br><i>SGDClassifierWrapper</i><br><i>NBWrapper</i><br><i>BernoulliNB</i><br><i>SVCWrapper</i><br><i>LinearSVMWrapper</i><br><i>KNeighborsClassifier</i><br><i>DecisionTreeClassifier</i><br><i>RandomForestClassifier</i><br><i>ExtraTreesClassifier</i><br><i>gradient boosting</i><br><i>LightGBMClassifier</i><br><br>Allowed values for **Regression**<br><i>ElasticNet</i><br><i>GradientBoostingRegressor</i><br><i>DecisionTreeRegressor</i><br><i>KNeighborsRegressor</i><br><i>LassoLars</i><br><i>SGDRegressor</i><br><i>RandomForestRegressor</i><br><i>ExtraTreesRegressor</i>|None|
 
 ## Cross validation split options <a name="cvsplits"></a>
 ### K-Folds Cross Validation

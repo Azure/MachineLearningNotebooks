@@ -5,7 +5,6 @@ dependencies:
 - python=3.6
 - nb_conda
 - matplotlib
-- seaborn
 - numpy>=1.11.0,<1.16.0
 - scipy>=0.19.0,<0.20.0
 - scikit-learn>=0.18.0,<=0.19.1
@@ -13,7 +12,7 @@ dependencies:
 
 - pip:
     # Required packages for AzureML execution, history, and data preparation.
-  - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Candidate/604C89A437BA41BD942B4F46D9A3591D
+  - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
   - --extra-index-url https://pypi.python.org/simple
   - azureml-sdk[automl]
   - azureml-train-widgets
