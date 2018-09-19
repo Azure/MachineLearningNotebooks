@@ -9,7 +9,7 @@ fi
 
 if source activate $CONDA_ENV_NAME 2> /dev/null
 then
-   conda env update -f automl_env.yml -n $CONDA_ENV_NAME
+   conda env update -file automl_env.yml -n $CONDA_ENV_NAME
 else
    conda env create -f automl_env.yml -n $CONDA_ENV_NAME &&
    source activate $CONDA_ENV_NAME &&
