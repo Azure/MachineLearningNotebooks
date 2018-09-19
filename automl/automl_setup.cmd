@@ -6,11 +6,10 @@ IF "%conda_env_name%"=="" SET conda_env_name="azure_automl"
 call conda activate %conda_env_name% 2>nul:
 
 if not errorlevel 1 (
-  call conda env update -f automl_env.yml -n %conda_env_name%
+  call conda env update --file automl_env.yml -n %conda_env_name%
   if errorlevel 1 goto ErrorExit
 ) else (
   call conda env create -f automl_env.yml -n %conda_env_name%
-  if errorlevel 1 goto ErrorExit
 )
 
 call conda activate %conda_env_name% 2>nul:

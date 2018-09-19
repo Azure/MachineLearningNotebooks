@@ -138,7 +138,7 @@ cd to the "automl" folder where the sample notebooks were extracted and then run
 |-|-|-|
 |**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>balanced_accuracy</i><br><i>average_precision_score_weighted</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
 |**max_time_sec**|Time limit in seconds for each iterations|None|
-|**iterations**|Number of iterations. In each iteration trains the data with a specific pipeline|25|
+|**iterations**|Number of iterations. In each iteration trains the data with a specific pipeline.  To get the best result, use at least 100. |25|
 |**n_cross_validations**|Number of cross validation splits|None|
 |**validation_size**|Size of validation set as percentage of all training samples|None|
 |**concurrent_iterations**|Max number of iterations that would be executed in parallel|1|
@@ -186,7 +186,7 @@ The main code of the file must be indented so that it is under this condition.
 # Troubleshooting <a name="troubleshooting"></a>
 ## Iterations fail and the log contains "MemoryError"
 This can be caused by insufficient memory on the DSVM.  AutoML loads all training data into memory.  So, the available memory should be more than the training data size.
-If you are using a remote DSVM, memory is needed for each concurrent iteration.  The concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the trinaing data size is 8Gb and concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
+If you are using a remote DSVM, memory is needed for each concurrent iteration.  The concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
 To resolve this issue, allocate a DSVM with more memory or reduce the value specified for concurrent_iterations.
 
 ## Iterations show as "Not Responding" in the RunDetails widget.
