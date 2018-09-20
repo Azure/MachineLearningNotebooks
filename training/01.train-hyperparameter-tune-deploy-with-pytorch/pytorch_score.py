@@ -3,9 +3,7 @@
 
 import torch
 import torch.nn as nn
-import torchvision
 from torchvision import transforms
-import os
 import json
 import base64
 from io import BytesIO
