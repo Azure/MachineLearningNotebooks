@@ -1,4 +1,4 @@
-name: azure_automl2
+name: azure_automl
 dependencies:
   # The python interpreter version.
   # Currently Azure ML only supports 3.5.2 and later.
@@ -12,7 +12,6 @@ dependencies:
 
 - pip:
     # Required packages for AzureML execution, history, and data preparation.
-  - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
   - --extra-index-url https://pypi.python.org/simple
   - azureml-sdk[automl]
   - azureml-train-widgets
