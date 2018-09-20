@@ -7,21 +7,21 @@
 6. [Troubleshooting](#troubleshooting)
 
 # Auto ML Introduction <a name="introduction"></a>
-AutoML builds high quality Machine Learning model for you by automating model selection and hyper parameter selection for you. Bring a labelled dataset that you want to build a model for, AutoML will give you a high quality machine learning model that you can use for predictions.
+AutoML builds high quality Machine Learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, AutoML will give you a high quality machine learning model that you can use for predictions.
 
-If you are new to Data Science, AutoML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyper parameter selection and in one step creates a high quality trained model for you to use.
+If you are new to Data Science, AutoML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
 
-If you are an experienced data scientist, AutoML will help increase your productivity by intelligently performing the model selection, hyper parameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. AutoML provides visibility and access to all the training jobs and the performance characteristics of the models and help you further tune the pipeline if you desire.
+If you are an experienced data scientist, AutoML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. AutoML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
 # Running samples in a Local Conda environment <a name="localconda"></a>
 
 It is best if you create a new conda environment locally to try this SDK, so it doesn't mess up with your existing Python environment. 
 
 ### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose Python 3.7 or higher. 
-- **Note**: if you already have conda installed, you can keep using it but it must be version 5.2 or later.  If you have an previous version installed, you can update it using the command: conda update conda.
+- **Note**: if you already have conda installed, you can keep using it but it should be version 4.4.10 or later (as shown by: conda -V).  If you have a previous version installed, you can update it using the command: conda update conda.
 There's no need to install mini-conda specifically.
 
-### 2. Dowloading the sample notebooks
+### 2. Downloading the sample notebooks
 - Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) as zip and extract the contents to a local directory.  The AutoML sample notebooks are in the "automl" folder.
 
 ### 3. Setup a new conda environment
@@ -127,6 +127,12 @@ cd to the "automl" folder where the sample notebooks were extracted and then run
 - [13.auto-ml-dataprep.ipynb](13.auto-ml-dataprep.ipynb)
     - Using DataPrep for reading data
 
+- [14a.auto-ml-classification-ensemble.ipynb](14a.auto-ml-classification-ensemble.ipynb)
+    - Classification with ensembling
+
+- [14b.auto-ml-regression-ensemble.ipynb](14b.auto-ml-regression-ensemble.ipynb)
+    - Regression with ensembling
+
 # Documentation <a name="documentation"></a>
 ## Table of Contents
 1. [Auto ML Settings ](#automlsettings)
@@ -137,12 +143,12 @@ cd to the "automl" folder where the sample notebooks were extracted and then run
 |Property|Description|Default|
 |-|-|-|
 |**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>balanced_accuracy</i><br><i>average_precision_score_weighted</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
-|**max_time_sec**|Time limit in seconds for each iterations|None|
-|**iterations**|Number of iterations. In each iteration trains the data with a specific pipeline.  To get the best result, use at least 100. |25|
+|**max_time_sec**|Time limit in seconds for each iteration|None|
+|**iterations**|Number of iterations. In each iteration trains the data with a specific pipeline.  To get the best result, use at least 100. |100|
 |**n_cross_validations**|Number of cross validation splits|None|
 |**validation_size**|Size of validation set as percentage of all training samples|None|
 |**concurrent_iterations**|Max number of iterations that would be executed in parallel|1|
-|**preprocess**|*True/False* <br>Setting this to *True* enables preprocessing <br>on the input to handle *missing data*, and perform some common *feature extraction*<br>*Note: If input data is Sparse you cannot use preprocess=True*|False|
+|**preprocess**|*True/False* <br>Setting this to *True* enables preprocessing <br>on the input to handle missing data, and perform some common feature extraction<br>*Note: If input data is Sparse you cannot use preprocess=True*|False|
 |**max_cores_per_iteration**| Indicates how many cores on the compute target would be used to train a single pipeline.<br> You can set it to *-1* to use all cores|1|
 |**exit_score**|*double* value indicating the target for *primary_metric*. <br> Once the target is surpassed the run terminates|None|
 |**blacklist_algos**|*Array* of *strings* indicating pipelines to ignore for Auto ML.<br><br> Allowed values for **Classification**<br><i>LogisticRegression</i><br><i>SGDClassifierWrapper</i><br><i>NBWrapper</i><br><i>BernoulliNB</i><br><i>SVCWrapper</i><br><i>LinearSVMWrapper</i><br><i>KNeighborsClassifier</i><br><i>DecisionTreeClassifier</i><br><i>RandomForestClassifier</i><br><i>ExtraTreesClassifier</i><br><i>gradient boosting</i><br><i>LightGBMClassifier</i><br><br>Allowed values for **Regression**<br><i>ElasticNet</i><br><i>GradientBoostingRegressor</i><br><i>DecisionTreeRegressor</i><br><i>KNeighborsRegressor</i><br><i>LassoLars</i><br><i>SGDRegressor</i><br><i>RandomForestRegressor</i><br><i>ExtraTreesRegressor</i>|None|
@@ -166,8 +172,8 @@ The *get_data()* function can be used to return a dictionary with these values:
 |y|Pandas Dataframe or Numpy Array|X|label|Label data to train with.  For classification, this should be an array of integers. |
 |X_valid|Pandas Dataframe or Numpy Array|X, y, y_valid|data_train, label|*Optional* All features to validate with.  If this is not specified, X is split between train and validate|
 |y_valid|Pandas Dataframe or Numpy Array|X, y, X_valid|data_train, label|*Optional* The label data to validate with.  If this is not specified, y is split between train and validate|
-|sample_weight|Pandas Dataframe or Numpy Array|y|data_train, label, columns|*Optional*A weight value for each label. Higher values indicate that the sample is more important.|
-|sample_weight_valid|Pandas Dataframe or Numpy Array|y_valid|data_train, label, columns|*Optional*A weight value for each validation label. Higher values indicate that the sample is more important.  If this is not specified, sample_weight is split between train and validate|
+|sample_weight|Pandas Dataframe or Numpy Array|y|data_train, label, columns|*Optional* A weight value for each label. Higher values indicate that the sample is more important.|
+|sample_weight_valid|Pandas Dataframe or Numpy Array|y_valid|data_train, label, columns|*Optional* A weight value for each validation label. Higher values indicate that the sample is more important.  If this is not specified, sample_weight is split between train and validate|
 |data_train|Pandas Dataframe|label|X, y, X_valid, y_valid|All data (features+label) to train with|
 |label|string|data_train|X, y, X_valid, y_valid|Which column in data_train represents the label|
 |columns|Array of strings|data_train||*Optional* Whitelist of columns to use for features|
@@ -193,5 +199,3 @@ To resolve this issue, allocate a DSVM with more memory or reduce the value spec
 This can be caused by too many concurrent iterations for a remote DSVM.  Each concurrent iteration usually takes 100% of a core when it is running.  Some iterations can use multiple cores.  So, the concurrent_iterations setting should always be less than the number of cores of the DSVM.
 To resolve this issue, try reducing the value specified for the concurrent_iterations setting.
 
-## Workspace.create gives the error "The resource type could not be found in the namespace 'Microsoft.MachineLearningServices' for api version '2018-03-01-preview'."
-This can indicate that the Azure Subscription has not been whitelisted for AutoML.

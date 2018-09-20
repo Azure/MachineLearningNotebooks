@@ -1,21 +1,23 @@
 # Copyright (c) 2017, PyTorch contributors
+# Modifications copyright (C) Microsoft Corporation
 # Licensed under the BSD license
-
 # Adapted from https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
 
 from __future__ import print_function, division
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.optim import lr_scheduler
-import torchvision
 from torchvision import datasets, models, transforms
 import numpy as np
 import time
 import os
 import copy
 import argparse
+
+from azureml.core.run import Run
+# get the Azure ML run object
+run = Run.get_submitted_run()
 
 
 def load_data(data_dir):
@@ -112,6 +114,9 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs, data_dir):
                 best_acc = epoch_acc
                 best_model_wts = copy.deepcopy(model.state_dict())
 
+            # log the best val accuracy to AML run
+            run.log('best_val_acc', np.float(best_acc))
+
         print()
 
     time_elapsed = time.time() - since
@@ -124,8 +129,12 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs, data_dir):
     return model
 
 
-def fine_tune_model(num_epochs, data_dir):
+def fine_tune_model(num_epochs, data_dir, learning_rate, momentum):
     """Load a pretrained model and reset the final fully connected layer."""
+
+    # log the hyperparameter metrics to the AML run
+    run.log('lr', np.float(learning_rate))
+    run.log('momentum', np.float(momentum))
 
     model_ft = models.resnet18(pretrained=True)
     num_ftrs = model_ft.fc.in_features
@@ -137,7 +146,7 @@ def fine_tune_model(num_epochs, data_dir):
     criterion = nn.CrossEntropyLoss()
 
     # Observe that all parameters are being optimized
-    optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.001, momentum=0.9)
+    optimizer_ft = optim.SGD(model_ft.parameters(), lr=learning_rate, momentum=momentum)
 
     # Decay LR by a factor of 0.1 every 7 epochs
     exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=7, gamma=0.1)
@@ -148,19 +157,17 @@ def fine_tune_model(num_epochs, data_dir):
 
 
 def main():
-    for root, dirs, files in os.walk("."):
-        print(root)
-        print(dirs)
-
     # get command-line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_dir', type=str, help='directory of training data')
     parser.add_argument('--num_epochs', type=int, default=25, help='number of epochs to train')
     parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float, help='learning rate')
+    parser.add_argument('--momentum', type=float, help='momentum')
     args = parser.parse_args()
 
     print("data directory is: " + args.data_dir)
-    model = fine_tune_model(args.num_epochs, args.data_dir)
+    model = fine_tune_model(args.num_epochs, args.data_dir, args.learning_rate, args.momentum)
     os.makedirs(args.output_dir, exist_ok=True)
     torch.save(model, os.path.join(args.output_dir, 'model.pt'))
 

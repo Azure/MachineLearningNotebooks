@@ -1,0 +1,92 @@
+{
+  "help": {
+    "notebooks": {
+      "id": "define every notebook under the ID in a case to be added into a test suite",
+      "path": "path to the notebooks",
+      "name": "name of the notebook in the same folder",
+      "dependencies": "notebook dependencies needed for execution, these will be uploaded into Git repo with the notebook",
+      "widget": "list widgets to be installed for notebook execution",
+      "requirements": "additional packages to pip install for the execution"
+    },
+    "uploads": "TODO: list files that are not notebooks or notebook dependencies to be updated in the Git repo",
+    "include": "Nested release.json files id: nested folder. Same logic applied"
+  },
+
+  "include": {
+    "intro": "01.getting-started",
+    "automl-intro": "00.AutoML.Getting Started",
+    "onnx": "onnx",
+    "pipeline": "pipeline",
+    "training": "training",
+    "fr": "functionalreadiness"
+  },
+
+  "channels": {
+    "master": [
+      "sample-00",
+      "tutorial-01",
+      "tutorial-02",
+      "tutorial-03"
+    ],
+    "candidate": [
+      "sample-00",     
+      "tutorial-01",
+      "tutorial-02",
+      "tutorial-03"
+    ],
+    "preview": [
+      "sample-00",
+      "tutorial-01",
+      "tutorial-02",
+      "tutorial-03"
+    ],
+    "automl-test": [
+      "tutorial-03"
+    ]
+  },
+
+  "notebooks": {
+    "sample-00": {
+      "name": "00.configuration.ipynb"
+    },
+    "tutorial-01": {
+      "path": "tutorials",
+      "name": "01.train-models.ipynb",
+      "widgets": [ "azureml.train.widgets" ],
+      "dependencies": [ "utils.py" ],
+      "conda": [ "matplotlib", "scikit-learn" ],
+      "requirements": ["azureml-train-widgets"]
+    },
+    "tutorial-02": {
+      "path": "tutorials",
+      "name": "02.deploy-models.ipynb",
+      "widgets": [],
+      "dependencies": [ "utils.py", "sklearn_mnist_model.pkl" ],
+      "conda": [ "matplotlib", "scikit-learn" ]
+    },
+    "tutorial-03": {
+      "path": "tutorials",
+      "name": "03.auto-train-models.ipynb",
+      "widgets": [ "azureml.train.widgets" ],
+      "dependencies": [  ],
+      "requirements": [ "matplotlib", "numpy", "scipy", "scikit-learn", "pandas", "azureml-train-automl", "azureml-train-widgets" ]
+    },
+    "azurenotebook-01": {
+      "path": "azurenotebooks",
+      "name": "01.run-experiment.ipynb",
+      "widgets": [],
+      "dependencies": [],
+      "requirements": []
+    },
+    "azurenotebook-02": {
+      "path": "azurenotebooks",
+      "name": "02.deploy-web-service.ipynb",
+      "widgets": [],
+      "dependencies": [],
+      "requirements": []
+    }
+  },
+  "uploads": [
+    "README.md"
+  ]
+}
