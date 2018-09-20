@@ -1,3 +1,23 @@
+# Azure Machine Learning service sample notebooks
+
+Use either of these methods to run the notebooks in this repository:
+
+* **Azure Notebooks** - Jupyter based notebooks in the Azure cloud
+    1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
+    [Import sample notebooks into Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks).
+    1.  Create a workspace and its configuration file (**config.json**) using [these instructions](https://aka.ms/aml-how-to-configure-environment).
+    1. Select `+New` in the toolbar to add your **config.json** file to the same folder as the notebook.
+    1. Open the notebook.
+
+* **Your own notebook server**
+
+    1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
+        * Create a workspace and its configuration file (**config.json**).
+        * Configure your notebook server.
+    1. Clone this repository.
+    1. Add your **config.json** file to the cloned folder - you may need to install other packages for specific notebooks.
+    1. Start your notebook server.
+    1. Open the notebook you want to run.
 
 # Contributing
 
