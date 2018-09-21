@@ -6,14 +6,17 @@
 5. [Running using python command](#pythoncommand)
 6. [Troubleshooting](#troubleshooting)
 
-# Auto ML Introduction <a name="introduction"></a>
-AutoML builds high quality Machine Learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, AutoML will give you a high quality machine learning model that you can use for predictions.
+# Automated machine learning introduction <a name="introduction"></a>
+Automated machine learning (automated ML) builds high quality machine learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, automated ML will give you a high quality machine learning model that you can use for predictions.
 
-If you are new to Data Science, AutoML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
+If you are new to Data Science, automated ML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
 
-If you are an experienced data scientist, AutoML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. AutoML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
+If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
+
 
 # Running samples in a Local Conda environment <a name="localconda"></a>
+
+You can run these notebooks in Azure Notebooks without any extra installation.  To run these notebook on your own notebook server, use these installation instructions.
 
 It is best if you create a new conda environment locally to try this SDK, so it doesn't mess up with your existing Python environment. 
 
@@ -22,27 +25,40 @@ It is best if you create a new conda environment locally to try this SDK, so it 
 There's no need to install mini-conda specifically.
 
 ### 2. Downloading the sample notebooks
-- Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) as zip and extract the contents to a local directory.  The AutoML sample notebooks are in the "automl" folder.
+- Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) as zip and extract the contents to a local directory.  The automated ML sample notebooks are in the "automl" folder.
 
 ### 3. Setup a new conda environment
-The automl_setup script creates a new conda environment, installs the necessary packages, configures the widget and starts jupyter notebook.
+The **automl/automl_setup** script creates a new conda environment, installs the necessary packages, configures the widget and starts a jupyter notebook.
 It takes the conda environment name as an optional parameter.  The default conda environment name is azure_automl.  The exact command depends on the operating system.  It can take about 30 minutes to execute.
 ## Windows
-Start a conda command windows, cd to the "automl" folder where the sample notebooks were extracted and then run: automl_setup
+Start a conda command windows, cd to the **automl** folder where the sample notebooks were extracted and then run: 
+```
+automl_setup
+```
 ## Mac
-Install "Command line developer tools" if it is not already installed (you can use the command: xcode-select --install).
-Start a Terminal windows, cd to the "automl" folder where the sample notebooks were extracted and then run: bash automl_setup_mac.sh
+Install "Command line developer tools" if it is not already installed (you can use the command: `xcode-select --install`).
+
+Start a Terminal windows, cd to the **automl** folder where the sample notebooks were extracted and then run: 
+
+```
+bash automl_setup_mac.sh
+```
+
 ## Linux
-cd to the "automl" folder where the sample notebooks were extracted and then run: automl_setup_linux.sh
+cd to the **automl** folder where the sample notebooks were extracted and then run: 
+
+```
+automl_setup_linux.sh
+```
 
 ### 4. Running configuration.ipynb
-- Before running any samples you would need to run the configuration notebook. Click on 00.configuration.ipynb notebook
+- Before running any samples you next need to run the configuration notebook. Click on 00.configuration.ipynb notebook
 - Please make sure you use the Python [conda env:azure_automl] kernel when running this notebook.
 - Execute the cells in the notebook to Register Machine Learning Services Resource Provider and create a workspace. (*instructions in notebook*)
 
 ### 5. Running Samples
 - Please make sure you use the Python [conda env:azure_automl] kernel when trying the sample Notebooks.
-- Follow the instructions in the individual notebooks to explore various features in AutoML
+- Follow the instructions in the individual notebooks to explore various features in automated ML
 
 # Auto ML SDK Sample Notebooks <a name="samples"></a>
 - [00.configuration.ipynb](00.configuration.ipynb)
@@ -97,8 +113,8 @@ cd to the "automl" folder where the sample notebooks were extracted and then run
 
 - [07.auto-ml-exploring-previous-runs.ipynb](07.auto-ml-exploring-previous-runs)
     - List all projects for the workspace
-    - List all AutoML Runs for a given project
-    - Get details for a AutoML Run. (Automl settings, run widget & all metrics)
+    - List all automated ML Runs for a given project
+    - Get details for a automated ML Run. (Automl settings, run widget & all metrics)
     - Downlaod fitted pipeline for any iteration
 
 - [08.auto-ml-remote-execution-with-text-file-on-DSVM](08.auto-ml-remote-execution-with-text-file-on-DSVM.ipynb)
@@ -135,11 +151,11 @@ cd to the "automl" folder where the sample notebooks were extracted and then run
 
 # Documentation <a name="documentation"></a>
 ## Table of Contents
-1. [Auto ML Settings ](#automlsettings)
+1. [Automated ML Settings ](#automlsettings)
 2. [Cross validation split options](#cvsplits)
 3. [Get Data Syntax](#getdata)
 
-## Auto ML Settings <a name="automlsettings"></a>
+## Automated ML Settings <a name="automlsettings"></a>
 |Property|Description|Default|
 |-|-|-|
 |**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>balanced_accuracy</i><br><i>average_precision_score_weighted</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
@@ -191,7 +207,7 @@ The main code of the file must be indented so that it is under this condition.
 
 # Troubleshooting <a name="troubleshooting"></a>
 ## Iterations fail and the log contains "MemoryError"
-This can be caused by insufficient memory on the DSVM.  AutoML loads all training data into memory.  So, the available memory should be more than the training data size.
+This can be caused by insufficient memory on the DSVM.  Automated ML loads all training data into memory.  So, the available memory should be more than the training data size.
 If you are using a remote DSVM, memory is needed for each concurrent iteration.  The concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
 To resolve this issue, allocate a DSVM with more memory or reduce the value specified for concurrent_iterations.
 

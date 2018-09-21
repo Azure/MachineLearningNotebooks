@@ -11,6 +11,9 @@ Use either of these methods to run the notebooks in this repository:
 
 * **Your own notebook server**
 
+    > Note: **Looking for automated machine learning samples?**
+    > For your convenience, you can use a script to install instead. Go to the [automl folder README](automl/readme.md) and follow the instructions.
+
     1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
         * Create a workspace and its configuration file (**config.json**).
         * Configure your notebook server.
