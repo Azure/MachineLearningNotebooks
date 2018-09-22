@@ -28,7 +28,7 @@ To run the notebooks in this repository use one of these methods:
 1. Open the notebook you want to run.
 
 > Note: **Looking for automated machine learning samples?**
-> For your convenience, you can use an installation script instead of the steps below for the automated ML notebooks. Go to the [automl folder README](automl/readme.md) and follow the instructions.  The script installs all  packages needed for notebooks in that folder.
+> For your convenience, you can use an installation script instead of the steps below for the automated ML notebooks. Go to the [automl folder README](automl/README.md) and follow the instructions.  The script installs all  packages needed for notebooks in that folder.
 
 # Contributing
 
