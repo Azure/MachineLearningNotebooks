@@ -1,10 +1,11 @@
 # Table of Contents
 1. [Automated ML Introduction](#introduction)
-2. [Running samples in a Local Conda environment](#localconda)
-3. [Auto ML SDK Sample Notebooks](#samples)
-4. [Documentation](#documentation)
-5. [Running using python command](#pythoncommand)
-6. [Troubleshooting](#troubleshooting)
+1. [Running samples in Azure Notebooks](#jupyter)
+1. [Running samples in a Local Conda environment](#localconda)
+1. [Auto ML SDK Sample Notebooks](#samples)
+1. [Documentation](#documentation)
+1. [Running using python command](#pythoncommand)
+1. [Troubleshooting](#troubleshooting)
 
 # Automated ML introduction <a name="introduction"></a>
 Automated machine learning (automated ML) builds high quality machine learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, automated ML will give you a high quality machine learning model that you can use for predictions.
@@ -13,7 +14,7 @@ If you are new to Data Science, automated ML will help you get jumpstarted by si
 
 If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
-## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud
+## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud <a name="jupyter"></a>
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
 [Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks if they are not already there.
