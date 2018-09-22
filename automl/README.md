@@ -2,19 +2,21 @@
 1. [Automated ML Introduction](#introduction)
 1. [Running samples in Azure Notebooks](#jupyter)
 1. [Running samples in a Local Conda environment](#localconda)
-1. [Auto ML SDK Sample Notebooks](#samples)
+1. [Automated ML SDK Sample Notebooks](#samples)
 1. [Documentation](#documentation)
 1. [Running using python command](#pythoncommand)
 1. [Troubleshooting](#troubleshooting)
 
-# Automated ML introduction <a name="introduction"></a>
+<a name="introduction"></a>
+# Automated ML introduction 
 Automated machine learning (automated ML) builds high quality machine learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, automated ML will give you a high quality machine learning model that you can use for predictions.
 
 If you are new to Data Science, automated ML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
 
 If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
-## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud <a name="jupyter"></a>
+ <a name="jupyter"></a>
+## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
 [Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks if they are not already there.
@@ -27,7 +29,8 @@ If you are an experienced data scientist, automated ML will help increase your p
     
     ![set kernal to Python 3.6](../images/python36.png)
 
-## Running samples in a Local Conda environment <a name="localconda"></a>
+<a name="localconda"></a>
+## Running samples in a Local Conda environment 
 
 To run these notebook on your own notebook server, use these installation instructions.
 
@@ -73,7 +76,8 @@ automl_setup_linux.sh
 - Please make sure you use the Python [conda env:azure_automl] kernel when trying the sample Notebooks.
 - Follow the instructions in the individual notebooks to explore various features in automated ML
 
-# Auto ML SDK Sample Notebooks <a name="samples"></a>
+<a name="samples"></a>
+# Automated ML SDK Sample Notebooks 
 - [00.configuration.ipynb](00.configuration.ipynb)
     - Register Machine Learning Services Resource Provider
     - Create new Azure ML Workspace
@@ -100,7 +104,7 @@ automl_setup_linux.sh
 
 - [03b.auto-ml-remote-batchai.ipynb](03b.auto-ml-remote-batchai.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Example of using Auto ML for classification using a remote Batch AI compute for training
+    - Example of using automated ML for classification using a remote Batch AI compute for training
     - Parallel execution of iterations
     - Async tracking of progress
     - Cancelling individual iterations or entire run
@@ -156,14 +160,15 @@ automl_setup_linux.sh
 - [13.auto-ml-dataprep.ipynb](13.auto-ml-dataprep.ipynb)
     - Using DataPrep for reading data
 
-
-# Documentation <a name="documentation"></a>
+<a name="documentation"></a>
+# Documentation 
 ## Table of Contents
 1. [Automated ML Settings ](#automlsettings)
 2. [Cross validation split options](#cvsplits)
 3. [Get Data Syntax](#getdata)
 
-## Automated ML Settings <a name="automlsettings"></a>
+<a name="automlsettings"></a>
+## Automated ML Settings 
 |Property|Description|Default|
 |-|-|-|
 |**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>balanced_accuracy</i><br><i>average_precision_score_weighted</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
@@ -177,7 +182,8 @@ automl_setup_linux.sh
 |**exit_score**|*double* value indicating the target for *primary_metric*. <br> Once the target is surpassed the run terminates|None|
 |**blacklist_algos**|*Array* of *strings* indicating pipelines to ignore for Auto ML.<br><br> Allowed values for **Classification**<br><i>LogisticRegression</i><br><i>SGDClassifierWrapper</i><br><i>NBWrapper</i><br><i>BernoulliNB</i><br><i>SVCWrapper</i><br><i>LinearSVMWrapper</i><br><i>KNeighborsClassifier</i><br><i>DecisionTreeClassifier</i><br><i>RandomForestClassifier</i><br><i>ExtraTreesClassifier</i><br><i>gradient boosting</i><br><i>LightGBMClassifier</i><br><br>Allowed values for **Regression**<br><i>ElasticNet</i><br><i>GradientBoostingRegressor</i><br><i>DecisionTreeRegressor</i><br><i>KNeighborsRegressor</i><br><i>LassoLars</i><br><i>SGDRegressor</i><br><i>RandomForestRegressor</i><br><i>ExtraTreesRegressor</i>|None|
 
-## Cross validation split options <a name="cvsplits"></a>
+ <a name="cvsplits"></a>
+## Cross validation split options
 ### K-Folds Cross Validation
 Use *n_cross_validations* setting to specify the number of cross validations. The training data set will be randomly split into *n_cross_validations* folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for *n_cross_validations* rounds until each fold is used once as validation set. Finally, the average scores accross all *n_cross_validations* rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
@@ -187,7 +193,8 @@ Use *validation_size* to specify the percentage of the training data set that sh
 ### Custom train and validation set
 You can specify seperate train and validation set either through the get_data() or directly to the fit method.
 
-## get_data() syntax <a name="getdata"></a>
+<a name="getdata"></a>
+## get_data() syntax 
 The *get_data()* function can be used to return a dictionary with these values:
 
 |Key|Type|Dependency|Mutually Exclusive with|Description|
@@ -203,7 +210,8 @@ The *get_data()* function can be used to return a dictionary with these values:
 |columns|Array of strings|data_train||*Optional* Whitelist of columns to use for features|
 |cv_splits_indices|Array of integers|data_train||*Optional* List of indexes to split the data for cross validation|
 
-# Running using python command <a name="pythoncommand"></a>
+<a name="pythoncommand"></a>
+# Running using python command 
 Jupyter notebook provides a File / Download as / Python (.py) option for saving the notebook as a Python file.
 You can then run this file using the python command.
 However, on Windows the file needs to be modified before it can be run.
@@ -213,7 +221,8 @@ The following condition must be added to the main code in the file:
 
 The main code of the file must be indented so that it is under this condition.
 
-# Troubleshooting <a name="troubleshooting"></a>
+<a name="troubleshooting"></a>
+# Troubleshooting 
 ## Iterations fail and the log contains "MemoryError"
 This can be caused by insufficient memory on the DSVM.  Automated ML loads all training data into memory.  So, the available memory should be more than the training data size.
 If you are using a remote DSVM, memory is needed for each concurrent iteration.  The concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
