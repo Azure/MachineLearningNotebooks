@@ -1,22 +1,34 @@
 # Table of Contents
-1. [Auto ML Introduction](#introduction)
+1. [Automated ML Introduction](#introduction)
 2. [Running samples in a Local Conda environment](#localconda)
 3. [Auto ML SDK Sample Notebooks](#samples)
 4. [Documentation](#documentation)
 5. [Running using python command](#pythoncommand)
 6. [Troubleshooting](#troubleshooting)
 
-# Automated machine learning introduction <a name="introduction"></a>
+# Automated ML introduction <a name="introduction"></a>
 Automated machine learning (automated ML) builds high quality machine learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, automated ML will give you a high quality machine learning model that you can use for predictions.
 
 If you are new to Data Science, automated ML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
 
 If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
+## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud
 
-# Running samples in a Local Conda environment <a name="localconda"></a>
+1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
+[Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks if they are not already there.
+1.  Create a workspace and its configuration file (**config.json**) using [these instructions](https://aka.ms/aml-how-to-configure-environment).
+1. Select `+New` in the Azure Notebook toolbar to add your **config.json** file to the imported folder.
+    ![upload config file to notebook folder](../images/additems.png)
+1. Open the notebook.
+    
+    **Make sure the Azure Notebook kernal is set to `Python 3.6`** when you open a notebook. 
+    
+    ![set kernal to Python 3.6](../images/python36.png)
 
-You can run these notebooks in Azure Notebooks without any extra installation.  To run these notebook on your own notebook server, use these installation instructions.
+## Running samples in a Local Conda environment <a name="localconda"></a>
+
+To run these notebook on your own notebook server, use these installation instructions.
 
 It is best if you create a new conda environment locally to try this SDK, so it doesn't mess up with your existing Python environment. 
 
@@ -143,11 +155,6 @@ automl_setup_linux.sh
 - [13.auto-ml-dataprep.ipynb](13.auto-ml-dataprep.ipynb)
     - Using DataPrep for reading data
 
-- [14a.auto-ml-classification-ensemble.ipynb](14a.auto-ml-classification-ensemble.ipynb)
-    - Classification with ensembling
-
-- [14b.auto-ml-regression-ensemble.ipynb](14b.auto-ml-regression-ensemble.ipynb)
-    - Regression with ensembling
 
 # Documentation <a name="documentation"></a>
 ## Table of Contents
