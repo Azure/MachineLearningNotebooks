@@ -225,7 +225,7 @@ The *get_data()* function can be used to return a dictionary with these values:
 
 <a name="preprocessing"></a>
 ## Data pre-processing and featurization 
-If you use "preprocess=True", the following data preprocessing steps are performed automatically for you:
+If you use `preprocess=True`, the following data preprocessing steps are performed automatically for you:
 
 1. Dropping high cardinality or no variance features
     - Features with no useful information are dropped from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (e.g., hashes, IDs or GUIDs).
