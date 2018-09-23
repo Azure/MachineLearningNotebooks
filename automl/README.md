@@ -11,9 +11,10 @@
 # Automated ML introduction 
 Automated machine learning (automated ML) builds high quality machine learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, automated ML will give you a high quality machine learning model that you can use for predictions.
 
-If you are new to Data Science, automated ML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
 
-If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
+If you are new to Data Science, AutoML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
+
+If you are an experienced data scientist, AutoML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. AutoML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
  <a name="jupyter"></a>
 ## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud
@@ -54,7 +55,7 @@ jupyter notebook
 There's no need to install mini-conda specifically.
 
 ### 2. Downloading the sample notebooks
-- Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) as zip and extract the contents to a local directory.  The automated ML sample notebooks are in the "automl" folder.
+- Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) as zip and extract the contents to a local directory.  The AutoML sample notebooks are in the "automl" folder.
 
 ### 3. Setup a new conda environment
 The **automl/automl_setup** script creates a new conda environment, installs the necessary packages, configures the widget and starts a jupyter notebook.
@@ -86,7 +87,7 @@ bash automl_setup_linux.sh
 
 ### 5. Running Samples
 - Please make sure you use the Python [conda env:azure_automl] kernel when trying the sample Notebooks.
-- Follow the instructions in the individual notebooks to explore various features in automated ML
+- Follow the instructions in the individual notebooks to explore various features in AutoML
 
 <a name="samples"></a>
 # Automated ML SDK Sample Notebooks 
@@ -142,8 +143,8 @@ bash automl_setup_linux.sh
 
 - [07.auto-ml-exploring-previous-runs.ipynb](07.auto-ml-exploring-previous-runs)
     - List all projects for the workspace
-    - List all automated ML Runs for a given project
-    - Get details for a automated ML Run. (Automl settings, run widget & all metrics)
+    - List all AutoML Runs for a given project
+    - Get details for a AutoML Run. (Automl settings, run widget & all metrics)
     - Downlaod fitted pipeline for any iteration
 
 - [08.auto-ml-remote-execution-with-text-file-on-DSVM](08.auto-ml-remote-execution-with-text-file-on-DSVM.ipynb)
@@ -182,6 +183,7 @@ bash automl_setup_linux.sh
 
 <a name="automlsettings"></a>
 ## Automated ML Settings 
+
 |Property|Description|Default|
 |-|-|-|
 |**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>balanced_accuracy</i><br><i>average_precision_score_weighted</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
@@ -252,7 +254,7 @@ The main code of the file must be indented so that it is under this condition.
 <a name="troubleshooting"></a>
 # Troubleshooting 
 ## Iterations fail and the log contains "MemoryError"
-This can be caused by insufficient memory on the DSVM.  Automated ML loads all training data into memory.  So, the available memory should be more than the training data size.
+This can be caused by insufficient memory on the DSVM.  AutoML loads all training data into memory.  So, the available memory should be more than the training data size.
 If you are using a remote DSVM, memory is needed for each concurrent iteration.  The concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
 To resolve this issue, allocate a DSVM with more memory or reduce the value specified for concurrent_iterations.
 

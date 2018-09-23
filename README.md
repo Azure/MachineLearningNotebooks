@@ -1,4 +1,4 @@
-# Azure Machine Learning service sample notebooks
+# Sample notebooks for Azure Machine Learning service
 
 To run the notebooks in this repository use one of these methods:
 
