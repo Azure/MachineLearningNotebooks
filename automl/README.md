@@ -34,7 +34,20 @@ If you are an experienced data scientist, automated ML will help increase your p
 
 To run these notebook on your own notebook server, use these installation instructions.
 
-It is best if you create a new conda environment locally to try this SDK, so it doesn't mess up with your existing Python environment. 
+The instructions below will install everything you need and then start a Jupyter notebook.  To start your Jupyter notebook manually, use:
+
+```
+conda activate azure_automl
+jupyter notebook
+```
+
+or on Mac:
+
+```
+source activate azure_automl
+jupyter notebook
+```
+
 
 ### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose Python 3.7 or higher. 
 - **Note**: if you already have conda installed, you can keep using it but it should be version 4.4.10 or later (as shown by: conda -V).  If you have a previous version installed, you can update it using the command: conda update conda.
@@ -64,12 +77,11 @@ bash automl_setup_mac.sh
 cd to the **automl** folder where the sample notebooks were extracted and then run: 
 
 ```
-automl_setup_linux.sh
+bash automl_setup_linux.sh
 ```
 
 ### 4. Running configuration.ipynb
 - Before running any samples you next need to run the configuration notebook. Click on 00.configuration.ipynb notebook
-- Please make sure you use the Python [conda env:azure_automl] kernel when running this notebook.
 - Execute the cells in the notebook to Register Machine Learning Services Resource Provider and create a workspace. (*instructions in notebook*)
 
 ### 5. Running Samples
@@ -164,8 +176,9 @@ automl_setup_linux.sh
 # Documentation 
 ## Table of Contents
 1. [Automated ML Settings ](#automlsettings)
-2. [Cross validation split options](#cvsplits)
-3. [Get Data Syntax](#getdata)
+1. [Cross validation split options](#cvsplits)
+1. [Get Data Syntax](#getdata)
+1. [Data pre-processing and featurization](#preprocessing)
 
 <a name="automlsettings"></a>
 ## Automated ML Settings 
@@ -209,6 +222,21 @@ The *get_data()* function can be used to return a dictionary with these values:
 |label|string|data_train|X, y, X_valid, y_valid|Which column in data_train represents the label|
 |columns|Array of strings|data_train||*Optional* Whitelist of columns to use for features|
 |cv_splits_indices|Array of integers|data_train||*Optional* List of indexes to split the data for cross validation|
+
+<a name="preprocessing"></a>
+## Data pre-processing and featurization 
+If you use "preprocess=True", the following data preprocessing steps are performed automatically for you:
+
+1. Dropping high cardinality or no variance features
+    - Features with no useful information are dropped from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (e.g., hashes, IDs or GUIDs).
+2. Missing value imputation
+    - For numerical features, missing values are imputed with average of values in the column.
+    - For categorical features, missing values are imputed with most frequent value.
+3. Generating additional features
+    - For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
+    - For Text features: Term frequency based on bi-grams and tri-grams, Count vectorizer.
+4. Transformations and encodings
+    - Numeric features with very few unique values are transformed into categorical features.
 
 <a name="pythoncommand"></a>
 # Running using python command 
