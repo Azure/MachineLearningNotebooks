@@ -143,11 +143,6 @@ automl_setup_linux.sh
 - [13.auto-ml-dataprep.ipynb](13.auto-ml-dataprep.ipynb)
     - Using DataPrep for reading data
 
-- [14a.auto-ml-classification-ensemble.ipynb](14a.auto-ml-classification-ensemble.ipynb)
-    - Classification with ensembling
-
-- [14b.auto-ml-regression-ensemble.ipynb](14b.auto-ml-regression-ensemble.ipynb)
-    - Regression with ensembling
 
 # Documentation <a name="documentation"></a>
 ## Table of Contents
