@@ -9,7 +9,6 @@ from azureml.core.run import Run
 from sklearn.externals import joblib
 import os
 import numpy as np
-import mylib
 
 os.makedirs('./outputs', exist_ok=True)
 
@@ -24,7 +23,7 @@ data = {"train": {"X": X_train, "y": y_train},
         "test": {"X": X_test, "y": y_test}}
 
 # list of numbers from 0.0 to 1.0 with a 0.05 interval
-alphas = mylib.get_alphas()
+alphas = np.arange(0.0, 1.0, 0.05)
 
 for alpha in alphas:
     # Use Ridge algorithm to create a regression model
