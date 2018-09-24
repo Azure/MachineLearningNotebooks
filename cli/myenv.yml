@@ -1,7 +1,5 @@
 name: project_environment
 dependencies:
-  # The python interpreter version.
-  # Currently Azure ML Workbench only supports 3.5.2 and later.
   - python=3.6.2
   - scikit-learn
   - numpy
