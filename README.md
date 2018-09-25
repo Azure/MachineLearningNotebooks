@@ -6,25 +6,21 @@ To run the notebooks in this repository use one of these methods:
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
 [Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks if they are not already there.
-1.  Create a workspace and its configuration file (**config.json**) using [these instructions](https://aka.ms/aml-how-to-configure-environment).
-1. Select `+New` in the Azure Notebook toolbar to add your **config.json** file to the imported folder.
-    ![upload config file to notebook folder](images/additems.png)
+1. Follow the instructions in the [00.configuration](00.configuration.ipynb) notebook to create and connect to a workspace.
 1. Open the notebook.
     
-    **Make sure the Azure Notebook kernal is set to `Python 3.6`** when you open a notebook. 
+    **If you are using Azure Notebooks, make sure the kernal is set to `Python 3.6`** when you open a notebook. 
     
     ![set kernal to Python 3.6](images/python36.png)
 
 
 ## **Use your own notebook server**
 
-1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
-    * Create a workspace and its configuration file (**config.json**).
-    * Configure your notebook server.
+1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to  configure your notebook server.
 1. Clone [this repository](https://aka.ms/aml-notebooks).
-1. Add your **config.json** file to the cloned folder
 1. You may need to install other packages for specific notebooks
 1. Start your notebook server.
+1. Follow the instructions in the 00.configuration notebook to create and connect to a workspace.
 1. Open the notebook you want to run.
 
 > Note: **Looking for automated machine learning samples?**
