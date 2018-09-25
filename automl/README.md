@@ -20,14 +20,13 @@ If you are an experienced data scientist, AutoML will help increase your product
 ## Use Azure Notebooks - Jupyter based notebooks in the Azure cloud
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks if they are not already there.
+[Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
 1. Follow the instructions in the [../00.configuration](00.configuration.ipynb) notebook to create and connect to a workspace.
-1. Open the notebook.
-
+1. Open one of the sample notebooks.
     
     **Make sure the Azure Notebook kernel is set to `Python 3.6`** when you open a notebook. 
     
-    ![set kernal to Python 3.6](../images/python36.png)
+    ![set kernel to Python 3.6](../images/python36.png)
 
 <a name="localconda"></a>
 ## Running samples in a Local Conda environment 
