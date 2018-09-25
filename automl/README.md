@@ -25,7 +25,7 @@ If you are an experienced data scientist, AutoML will help increase your product
 1. Open the notebook.
 
     
-    **Make sure the Azure Notebook kernal is set to `Python 3.6`** when you open a notebook. 
+    **Make sure the Azure Notebook kernel is set to `Python 3.6`** when you open a notebook. 
     
     ![set kernal to Python 3.6](../images/python36.png)
 
