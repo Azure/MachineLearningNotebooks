@@ -17,7 +17,7 @@ If you are new to Data Science, AutoML will help you get jumpstarted by simplify
 If you are an experienced data scientist, AutoML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. AutoML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
  <a name="jupyter"></a>
-## Use Azure Notebooks - Jupyter based notebooks in the Azure cloud
+## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud 
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
 [Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
