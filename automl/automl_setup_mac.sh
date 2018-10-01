@@ -9,7 +9,8 @@ fi
 
 if source activate $CONDA_ENV_NAME 2> /dev/null
 then
-   conda env update -file automl_env.yml -n $CONDA_ENV_NAME
+   echo "Upgrading azureml-sdk[automl] in existing conda environment" $CONDA_ENV_NAME
+   pip install --upgrade azureml-sdk[automl]
 else
    conda env create -f automl_env.yml -n $CONDA_ENV_NAME &&
    source activate $CONDA_ENV_NAME &&
