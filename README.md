@@ -16,7 +16,7 @@ To run the notebooks in this repository use one of these methods:
 
 ## **Use your own notebook server**
 
-1. Setup a Jupyter Notebook server and [install the Azure Machine Learning SDK](https://aka.ms/aml-how-to-configure-environment).
+1. Setup a Jupyter Notebook server and [install the Azure Machine Learning SDK](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python).
 1. Clone [this repository](https://aka.ms/aml-notebooks).
 1. You may need to install other packages for specific notebooks
 1. Start your notebook server.
