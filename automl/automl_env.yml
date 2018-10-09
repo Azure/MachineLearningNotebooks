@@ -15,6 +15,5 @@ dependencies:
   - --extra-index-url https://pypi.python.org/simple
   - azureml-sdk[automl]
   - azureml-train-widgets
-  - azure-cli
   - pandas_ml
   
