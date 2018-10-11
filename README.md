@@ -1,5 +1,8 @@
 For the full documentation for Azure Machine Learning service, visit:
+
 https://docs.microsoft.com/azure/machine-learning/service/
+
+<br>
 
 # Sample notebooks for Azure Machine Learning service
 
