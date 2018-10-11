@@ -1,3 +1,6 @@
+For the full documentation for Azure Machine Learning service, visit:
+https://docs.microsoft.com/azure/machine-learning/service/
+
 # Sample notebooks for Azure Machine Learning service
 
 To run the notebooks in this repository use one of these methods:
