@@ -1,4 +1,4 @@
-For the full documentation for Azure Machine Learning service, visit:
+Get the full documentation for Azure Machine Learning service at:
 
 https://docs.microsoft.com/azure/machine-learning/service/
 
