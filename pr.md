@@ -18,7 +18,7 @@
 - [How Azure ML Streamlines Cloud-based Machine Learning](https://thenewstack.io/how-the-azure-ml-streamlines-cloud-based-machine-learning/)(The New Stack)
 
 ## Community Projects
-- Fashion MNIST
+- [Fashion MNIST](https://github.com/amynic/azureml-sdk-fashion)
 - Keras on Databricks
 - Samples from CSS
 
