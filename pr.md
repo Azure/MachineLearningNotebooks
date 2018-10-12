@@ -16,7 +16,7 @@
 - [Azure’s new machine learning features embrace Python](https://www.infoworld.com/article/3306840/azure/azures-new-machine-learning-features-embrace-python.html) (InfoWorld)
 - [How to use Azure ML in Windows 10](https://www.infoworld.com/article/3308381/azure/how-to-use-azure-ml-in-windows-10.html) (InfoWorld)
 - [How Azure ML Streamlines Cloud-based Machine Learning](https://thenewstack.io/how-the-azure-ml-streamlines-cloud-based-machine-learning/)(The New Stack)
-- [Facebook launches PyTorch 1.0 with integrations for Google Cloud, AWS, and Azure Machine Learning]https://venturebeat.com/2018/10/02/facebook-launches-pytorch-1-0-integrations-for-google-cloud-aws-and-azure-machine-learning/)
+- [Facebook launches PyTorch 1.0 with integrations for Google Cloud, AWS, and Azure Machine Learning](https://venturebeat.com/2018/10/02/facebook-launches-pytorch-1-0-integrations-for-google-cloud-aws-and-azure-machine-learning/) (VentureBeat)
 
 ## Community Projects
 - [Fashion MNIST](https://github.com/amynic/azureml-sdk-fashion)
