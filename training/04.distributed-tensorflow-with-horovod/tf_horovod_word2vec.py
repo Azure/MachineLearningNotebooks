@@ -222,7 +222,7 @@ with tf.Session(graph=graph, config=config) as session:
     init.run()
     bcast.run()
     print('Initialized')
-    run = Run.get_submitted_run()
+    run = Run.get_context()
     average_loss = 0
     for step in xrange(num_steps):
         # simulate various sentence length by randomization

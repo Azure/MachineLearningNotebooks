@@ -263,7 +263,7 @@ def main(unused_argv):
         print("After %d training step(s), validation cross entropy = %g" %
               (FLAGS.train_steps, val_xent))
         if job_name == "worker" and task_index == 0:
-            run = Run.get_submitted_run()
+            run = Run.get_context()
             run.log("CrossEntropy", val_xent)
 
 
