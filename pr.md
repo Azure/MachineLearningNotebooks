@@ -29,3 +29,7 @@
 - [How to Become A Data Scientist Using Azure Machine Learning](https://www.udemy.com/azure-machine-learning-introduction/)
 - [Learn Azure Machine Learning from scratch](https://www.udemy.com/learn-azure-machine-learning-from-scratch/)
 - [Azure Machine Learning Studio PowerShell Module](https://aka.ms/amlps)
+
+## Forum Help
+- [Azure Machine Learning service](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureMachineLearningService)
+- [Azure Machine Learning Studio](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MachineLearning)
