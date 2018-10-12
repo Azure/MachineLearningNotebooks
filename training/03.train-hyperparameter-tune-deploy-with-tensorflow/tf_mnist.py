@@ -64,7 +64,7 @@ init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
 # start an Azure ML run
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 with tf.Session() as sess:
     init.run()

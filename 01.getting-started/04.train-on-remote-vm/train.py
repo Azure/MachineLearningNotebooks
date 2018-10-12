@@ -24,7 +24,7 @@ print('List all files: ', os.listdir(args.data_folder))
 X = np.load(os.path.join(args.data_folder, 'features.npy'))
 y = np.load(os.path.join(args.data_folder, 'labels.npy'))
 
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=0)

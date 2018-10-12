@@ -17,7 +17,7 @@ import argparse
 
 from azureml.core.run import Run
 # get the Azure ML run object
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 
 def load_data(data_dir):
@@ -162,8 +162,8 @@ def main():
     parser.add_argument('--data_dir', type=str, help='directory of training data')
     parser.add_argument('--num_epochs', type=int, default=25, help='number of epochs to train')
     parser.add_argument('--output_dir', type=str, help='output directory')
-    parser.add_argument('--learning_rate', type=float, help='learning rate')
-    parser.add_argument('--momentum', type=float, help='momentum')
+    parser.add_argument('--learning_rate', type=float, default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
     args = parser.parse_args()
 
     print("data directory is: " + args.data_dir)

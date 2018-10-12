@@ -18,7 +18,7 @@ from pyspark.sql.types import DoubleType, IntegerType, StringType
 from azureml.core.run import Run
 
 # initialize logger
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 # start Spark session
 spark = pyspark.sql.SparkSession.builder.appName('Iris').getOrCreate()

@@ -15,7 +15,7 @@ os.makedirs('./outputs', exist_ok=True)
 
 X, y = load_diabetes(return_X_y=True)
 
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     test_size=0.2,
