@@ -18,6 +18,8 @@
 - [How Azure ML Streamlines Cloud-based Machine Learning](https://thenewstack.io/how-the-azure-ml-streamlines-cloud-based-machine-learning/) (The New Stack)
 - [Facebook launches PyTorch 1.0 with integrations for Google Cloud, AWS, and Azure Machine Learning](https://venturebeat.com/2018/10/02/facebook-launches-pytorch-1-0-integrations-for-google-cloud-aws-and-azure-machine-learning/) (VentureBeat)
 - [How Microsoft Uses Machine Learning to Help You Build Machine Learning Pipelines](https://towardsdatascience.com/how-microsoft-uses-machine-learning-to-help-you-build-machine-learning-pipelines-be75f710613b) (Towards Data Science)
+- [Microsoft's Machine Learning Tools for Developers Get Smarter](https://techcrunch.com/2018/09/24/microsofts-machine-learning-tools-for-developers-get-smarter/) (TechCrunch)
+- [Microsoft introduces Azure service to automatically build AI models](https://venturebeat.com/2018/09/24/microsoft-introduces-azure-service-to-automatically-build-ai-models/) (VentureBeat)
 
 ## Community Projects
 - [Fashion MNIST](https://github.com/amynic/azureml-sdk-fashion)
