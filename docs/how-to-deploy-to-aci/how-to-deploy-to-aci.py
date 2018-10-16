@@ -164,8 +164,9 @@ prediction = service.run(input_data = test_samples)
 print(prediction)
 # </test-service>
 
+# <delete-service>
 service.delete()
-
+# </delete-service>
 
 
 
