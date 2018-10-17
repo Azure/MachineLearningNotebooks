@@ -6,10 +6,10 @@ print('SDK version' + azureml.core.VERSION)
 
 # PREREQ: load workspace info
 # import azureml.core
-# <load-workspace>
+#region load-workspace
 from azureml.core import Workspace
 ws = Workspace.from_config()
-# </load-workspace>
+#endregion
 
 scorepy_content = "import json\nimport numpy as np\nimport os\nimport pickle\nfrom sklearn.externals import joblib\nfrom sklearn.linear_model import LogisticRegression\n\nfrom azureml.core.model import Model\n\ndef init():\n    global model\n    # retreive the path to the model file using the model name\n    model_path = Model.get_model_path('sklearn_mnist')\n    model = joblib.load(model_path)\n\ndef run(raw_data):\n    data = np.array(json.loads(raw_data)['data'])\n    # make prediction\n    y_hat = model.predict(data)\n    return json.dumps(y_hat.tolist())"
 print(scorepy_content)
@@ -26,7 +26,7 @@ myenv.add_conda_package("scikit-learn")
 with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
 
-# <config-image>
+#Region config-image
 from azureml.core.image import ContainerImage
 
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
@@ -35,7 +35,7 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                   description = "Image with mnist model",
                                                   tags = {"data": "mnist", "type": "classification"}
                                                  )
-# </config-image>
+#End Region
 
 # <config-aci>
 from azureml.core.webservice import AciWebservice
@@ -46,7 +46,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Handwriting recognition')
 # </config-aci>
 
-# <register-model>
+#<register-model>
 from azureml.core.model import Model
 
 model_name = "sklearn_mnist"
@@ -55,7 +55,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         tags = {"data": "mnist", "type": "classification"},
                         description = "Mnist handwriting recognition",
                         workspace = ws)
-# </register-model>
+#</register-model>
 
 # <retrieve-model>
 from azureml.core.model import Model
