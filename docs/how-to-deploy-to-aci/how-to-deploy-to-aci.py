@@ -7,10 +7,10 @@ print('SDK version' + azureml.core.VERSION)
 # PREREQ: load workspace info
 # import azureml.core
 
-# <load>
+# <loadWorkspace>
 from azureml.core import Workspace
 ws = Workspace.from_config()
-# </load>
+# </loadWorkspace>
 
 scorepy_content = "import json\nimport numpy as np\nimport os\nimport pickle\nfrom sklearn.externals import joblib\nfrom sklearn.linear_model import LogisticRegression\n\nfrom azureml.core.model import Model\n\ndef init():\n    global model\n    # retreive the path to the model file using the model name\n    model_path = Model.get_model_path('sklearn_mnist')\n    model = joblib.load(model_path)\n\ndef run(raw_data):\n    data = np.array(json.loads(raw_data)['data'])\n    # make prediction\n    y_hat = model.predict(data)\n    return json.dumps(y_hat.tolist())"
 print(scorepy_content)
