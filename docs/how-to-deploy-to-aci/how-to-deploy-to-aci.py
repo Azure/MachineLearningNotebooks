@@ -27,7 +27,7 @@ myenv.add_conda_package("scikit-learn")
 with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
 
-#<config-image?
+#<configImage>
 from azureml.core.image import ContainerImage
 
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
@@ -36,18 +36,18 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                   description = "Image with mnist model",
                                                   tags = {"data": "mnist", "type": "classification"}
                                                  )
-#</config-image>
+#</configImage>
 
-# <config-aci>
+# <configAci>
 from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
                                                memory_gb = 1, 
                                                tags = {"data": "mnist", "type": "classification"}, 
                                                description = 'Handwriting recognition')
-# </config-aci>
+# </configAci>
 
-#<register-model>
+#<registerModel>
 from azureml.core.model import Model
 
 model_name = "sklearn_mnist"
@@ -56,19 +56,19 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         tags = {"data": "mnist", "type": "classification"},
                         description = "Mnist handwriting recognition",
                         workspace = ws)
-#</register-model>
+#</registerModel>
 
-# <retrieve-model>
+# <retrieveModel>
 from azureml.core.model import Model
 
 model_name = "sklearn_mnist"
 model=Model(ws, model_name)
-# </retrieve-model>
+# </retrieveModel>
 
 
 # ## DEPLOY FROM REGISTERED MODEL
 
-# <option2-deploy>
+# <option2Deploy>
 from azureml.core.webservice import Webservice
 
 service_name = 'aci-mnist-2'
@@ -79,14 +79,14 @@ service = Webservice.deploy_from_model(deployment_config = aciconfig,
                                        workspace = ws)
 service.wait_for_deployment(show_output = True)
 print(service.state)
-# </option2-deploy>
+# </option2Deploy>
 
 service.delete()
 
 # ## DEPLOY FROM IMAGE
 
 
-# <option3-create-image>
+# <option3CreateImage>
 from azureml.core.image import ContainerImage
 
 image = ContainerImage.create(name = "myimage1",
@@ -95,9 +95,9 @@ image = ContainerImage.create(name = "myimage1",
                               workspace = ws)
 
 image.wait_for_creation(show_output = True)
-# </option3-create-image>
+# </option3CreateImage>
 
-# <option3-deploy>
+# <option3Deploy>
 from azureml.core.webservice import Webservice
 
 service_name = 'aci-mnist-13'
@@ -107,7 +107,7 @@ service = Webservice.deploy_from_image(deployment_config = aciconfig,
                                             workspace = ws)
 service.wait_for_deployment(show_output = True)
 print(service.state)
-# </option3-deploy>
+# </option3Deploy>
 
 service.delete()
 
@@ -123,7 +123,7 @@ with open("score.py","w") as f:
 
 
 
-# <option1-deploy>
+# <option1Deploy>
 from azureml.core.webservice import Webservice
 
 service_name = 'aci-mnist-1'
@@ -135,9 +135,9 @@ service = Webservice.deploy(deployment_config = aciconfig,
 
 service.wait_for_deployment(show_output = True)
 print(service.state)
-# </option1-deploy>
+# </option1Deploy>
 
-# <test-service>
+# <testService>
 # Load Data
 import os
 import urllib
@@ -163,11 +163,11 @@ test_samples = bytes(test_samples, encoding = 'utf8')
 # predict using the deployed model
 prediction = service.run(input_data = test_samples)
 print(prediction)
-# </test-service>
+# </testService>
 
-# <delete-service>
+# <deleteService>
 service.delete()
-# </delete-service>
+# </deleteService>
 
 
 
