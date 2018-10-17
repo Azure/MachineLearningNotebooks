@@ -1,16 +1,21 @@
 @echo off
 set conda_env_name=%1
+set automl_env_file=%2
+set PIP_NO_WARN_SCRIPT_LOCATION=0
 
 IF "%conda_env_name%"=="" SET conda_env_name="azure_automl"
+IF "%automl_env_file%"=="" SET automl_env_file="automl_env.yml"
+
+IF NOT EXIST %automl_env_file% GOTO YmlMissing
 
 call conda activate %conda_env_name% 2>nul:
 
 if not errorlevel 1 (
   echo Upgrading azureml-sdk[automl] in existing conda environment %conda_env_name%
-  call pip install --upgrade azureml-sdk[automl]
+  call pip install --upgrade azureml-sdk[automl,notebooks]
   if errorlevel 1 goto ErrorExit
 ) else (
-  call conda env create -f automl_env.yml -n %conda_env_name%
+  call conda env create -f %automl_env_file% -n %conda_env_name%
 )
 
 call conda activate %conda_env_name% 2>nul:
@@ -18,10 +23,10 @@ if errorlevel 1 goto ErrorExit
 
 call pip install psutil
 
-call jupyter nbextension install --py azureml.train.widgets
+call jupyter nbextension install --py azureml.train.widgets --user
 if errorlevel 1 goto ErrorExit
 
-call jupyter nbextension enable --py azureml.train.widgets
+call jupyter nbextension enable --py azureml.train.widgets --user
 if errorlevel 1 goto ErrorExit
 
 echo.
@@ -35,6 +40,9 @@ echo.
 jupyter notebook --log-level=50
 
 goto End
+
+:YmlMissing
+echo File %automl_env_file% not found.
 
 :ErrorExit
 echo Install failed
