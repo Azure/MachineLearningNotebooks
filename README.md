@@ -1,5 +1,5 @@
 For full documentation for Azure Machine Learning service, visit **https://aka.ms/aml-docs**.
-# Sample notebooks for Azure Machine Learning service
+# Sample Notebooks for Azure Machine Learning service
 
 To run the notebooks in this repository use one of these methods:
 
