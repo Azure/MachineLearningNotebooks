@@ -29,7 +29,7 @@ To run the notebooks in this repository use one of these methods:
 1. Follow the instructions in the [00.configuration](00.configuration.ipynb) notebook to create and connect to a workspace.
 1. Open one of the sample notebooks.
 
-![images/ytimg.png](https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6)
+![images/ytimg_png.PNG](https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6)
 
 > Note: **Looking for automated machine learning samples?**
 > For your convenience, you can use an installation script instead of the steps below for the automated ML notebooks. Go to the [automl folder README](automl/README.md) and follow the instructions.  The script installs all  packages needed for notebooks in that folder.
