@@ -12,12 +12,17 @@
 ## Community Blogs
 - [Power Bat – How Spektacom is Powering the Game of Cricket with Microsoft AI](https://blogs.technet.microsoft.com/machinelearning/2018/10/11/power-bat-how-spektacom-is-powering-the-game-of-cricket-with-microsoft-ai/)
 
-## Ignite Presentations
+## Ignite 2018 Public Preview Launch Sessions
 - [AI with Azure Machine Learning services: Simplifying the data science process](https://myignite.techcommunity.microsoft.com/sessions/66248)
 - [AI TechTalk: Azure Machine Learning SDK - a walkthrough](https://myignite.techcommunity.microsoft.com/sessions/66265) 
 - [AI for an intelligent cloud and intelligent edge: Discover, deploy, and manage with Azure ML services](https://myignite.techcommunity.microsoft.com/sessions/65389)
 - [Generating high quality models efficiently using Automated ML and Hyperparameter Tuning](https://myignite.techcommunity.microsoft.com/sessions/66245)
 - [AI for pros: Deep learning with PyTorch using the Azure Data Science Virtual Machine and scaling training with Azure ML](https://myignite.techcommunity.microsoft.com/sessions/66244)
+
+## Get-started Videos on YouTube
+- [Get started with Python SDK](https://youtu.be/VIsXeTuW3FU)
+- [Get started from Azure Portal](https://youtu.be/lCkYUHV86Mk)
+
 
 ## Third Party Articles
 - [Azure’s new machine learning features embrace Python](https://www.infoworld.com/article/3306840/azure/azures-new-machine-learning-features-embrace-python.html) (InfoWorld)
