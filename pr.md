@@ -1,5 +1,3 @@
-[![IMAGE ALT TEXT HERE](images/ytimg_png.PNG)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
-
 # Azure Machine Learning Resources & Links
 ## Product Documentation
 - [Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
