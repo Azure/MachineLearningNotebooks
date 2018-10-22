@@ -36,7 +36,7 @@
 ## Community Projects
 - [Fashion MNIST](https://github.com/amynic/azureml-sdk-fashion)
 - Keras on Databricks
-- Samples from CSS
+- [Samples from CSS](https://github.com/Azure/AMLSamples)
 
 
 ## Azure Machine Learning Studio Resources
