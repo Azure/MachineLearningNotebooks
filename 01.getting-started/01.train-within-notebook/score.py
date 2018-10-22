@@ -21,7 +21,9 @@ def run(raw_data):
         data = json.loads(raw_data)['data']
         data = np.array(data)
         result = model.predict(data)
-        return json.dumps({"result": result.tolist()})
+
+        # you can return any data type as long as it is JSON-serializable
+        return result.tolist()
     except Exception as e:
         result = str(e)
-        return json.dumps({"error": result})
+        return result
