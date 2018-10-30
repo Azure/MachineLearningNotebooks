@@ -1,6 +1,4 @@
 # Azure Machine Learning Resources & Links
-<div class="embeddedvideo"><iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6" frameborder="0" allowfullscreen="true"></iframe></div>
-
 ## Product Documentation
 - [Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
 - [Azure Machine Learning Studio](https://docs.microsoft.com/en-us/azure/machine-learning/studio/)
