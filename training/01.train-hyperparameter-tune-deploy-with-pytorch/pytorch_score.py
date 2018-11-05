@@ -53,5 +53,5 @@ def run(input_data):
     pred_probs = softmax(model(img)).detach().numpy()[0]
     index = torch.argmax(output, 1)
 
-    result = json.dumps({"label": classes[index], "probability": str(pred_probs[index])})
+    result = {"label": classes[index], "probability": str(pred_probs[index])}
     return result

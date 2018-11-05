@@ -1,24 +1,52 @@
 # Table of Contents
-1. [Auto ML Introduction](#introduction)
-2. [Running samples in a Local Conda environment](#localconda)
-3. [Auto ML SDK Sample Notebooks](#samples)
-4. [Documentation](#documentation)
-5. [Running using python command](#pythoncommand)
-6. [Troubleshooting](#troubleshooting)
+1. [Automated ML Introduction](#introduction)
+1. [Running samples in Azure Notebooks](#jupyter)
+1. [Running samples in a Local Conda environment](#localconda)
+1. [Automated ML SDK Sample Notebooks](#samples)
+1. [Documentation](#documentation)
+1. [Running using python command](#pythoncommand)
+1. [Troubleshooting](#troubleshooting)
 
-# Auto ML Introduction <a name="introduction"></a>
-AutoML builds high quality Machine Learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, AutoML will give you a high quality machine learning model that you can use for predictions.
+<a name="introduction"></a>
+# Automated ML introduction 
+Automated machine learning (automated ML) builds high quality machine learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, automated ML will give you a high quality machine learning model that you can use for predictions.
+
 
 If you are new to Data Science, AutoML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
 
 If you are an experienced data scientist, AutoML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. AutoML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
+ <a name="jupyter"></a>
+## Running samples in Azure Notebooks - Jupyter based notebooks in the Azure cloud 
 
-# Running samples in a Local Conda environment <a name="localconda"></a>
+1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
+[Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
+1. Follow the instructions in the [../00.configuration](00.configuration.ipynb) notebook to create and connect to a workspace.
+1. Open one of the sample notebooks.
+    
+    **Make sure the Azure Notebook kernel is set to `Python 3.6`** when you open a notebook. 
+    
+    ![set kernel to Python 3.6](../images/python36.png)
 
-You can run these notebooks in Azure Notebooks without any extra installation.  To run these notebook on your own notebook server, use these installation instructions.
+<a name="localconda"></a>
+## Running samples in a Local Conda environment 
 
-It is best if you create a new conda environment locally to try this SDK, so it doesn't mess up with your existing Python environment. 
+To run these notebook on your own notebook server, use these installation instructions.
+
+The instructions below will install everything you need and then start a Jupyter notebook.  To start your Jupyter notebook manually, use:
+
+```
+conda activate azure_automl
+jupyter notebook
+```
+
+or on Mac:
+
+```
+source activate azure_automl
+jupyter notebook
+```
+
 
 ### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose Python 3.7 or higher. 
 - **Note**: if you already have conda installed, you can keep using it but it should be version 4.4.10 or later (as shown by: conda -V).  If you have a previous version installed, you can update it using the command: conda update conda.
@@ -29,7 +57,7 @@ There's no need to install mini-conda specifically.
 
 ### 3. Setup a new conda environment
 The **automl/automl_setup** script creates a new conda environment, installs the necessary packages, configures the widget and starts a jupyter notebook.
-It takes the conda environment name as an optional parameter.  The default conda environment name is azure_automl.  The exact command depends on the operating system.  It can take about 30 minutes to execute.
+It takes the conda environment name as an optional parameter.  The default conda environment name is azure_automl.  The exact command depends on the operating system.  It can take about 10 minutes to execute.
 ## Windows
 Start a conda command windows, cd to the **automl** folder where the sample notebooks were extracted and then run: 
 ```
@@ -48,19 +76,19 @@ bash automl_setup_mac.sh
 cd to the **automl** folder where the sample notebooks were extracted and then run: 
 
 ```
-automl_setup_linux.sh
+bash automl_setup_linux.sh
 ```
 
 ### 4. Running configuration.ipynb
 - Before running any samples you next need to run the configuration notebook. Click on 00.configuration.ipynb notebook
-- Please make sure you use the Python [conda env:azure_automl] kernel when running this notebook.
 - Execute the cells in the notebook to Register Machine Learning Services Resource Provider and create a workspace. (*instructions in notebook*)
 
 ### 5. Running Samples
 - Please make sure you use the Python [conda env:azure_automl] kernel when trying the sample Notebooks.
 - Follow the instructions in the individual notebooks to explore various features in AutoML
 
-# Auto ML SDK Sample Notebooks <a name="samples"></a>
+<a name="samples"></a>
+# Automated ML SDK Sample Notebooks 
 - [00.configuration.ipynb](00.configuration.ipynb)
     - Register Machine Learning Services Resource Provider
     - Create new Azure ML Workspace
@@ -87,7 +115,7 @@ automl_setup_linux.sh
 
 - [03b.auto-ml-remote-batchai.ipynb](03b.auto-ml-remote-batchai.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Example of using Auto ML for classification using a remote Batch AI compute for training
+    - Example of using automated ML for classification using a remote Batch AI compute for training
     - Parallel execution of iterations
     - Async tracking of progress
     - Cancelling individual iterations or entire run
@@ -106,7 +134,7 @@ automl_setup_linux.sh
     - Specify a target metrics to indicate stopping criteria
     - Handling Missing Data in the input
 
-- [06.auto-ml-sparse-data-custom-cv-split.ipynb](06.auto-ml-sparse-data-custom-cv-split.ipynb)
+- [06.auto-ml-sparse-data-train-test-split.ipynb](06.auto-ml-sparse-data-train-test-split.ipynb)
     - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html) 
     - Handle sparse datasets
     - Specify custom train and validation set
@@ -115,11 +143,11 @@ automl_setup_linux.sh
     - List all projects for the workspace
     - List all AutoML Runs for a given project
     - Get details for a AutoML Run. (Automl settings, run widget & all metrics)
-    - Downlaod fitted pipeline for any iteration
+    - Download fitted pipeline for any iteration
 
-- [08.auto-ml-remote-execution-with-text-file-on-DSVM](08.auto-ml-remote-execution-with-text-file-on-DSVM.ipynb)
+- [08.auto-ml-remote-execution-with-DataStore.ipynb](08.auto-ml-remote-execution-with-DataStore.ipynb)
     - Dataset: scikit learn's [digit dataset](https://innovate.burningman.org/datasets-page/)
-    - Download the data and store it in the DSVM to improve performance.
+    - Download the data and store it in DataStore.
 
 - [09.auto-ml-classification-with-deployment.ipynb](09.auto-ml-classification-with-deployment.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
@@ -143,20 +171,32 @@ automl_setup_linux.sh
 - [13.auto-ml-dataprep.ipynb](13.auto-ml-dataprep.ipynb)
     - Using DataPrep for reading data
 
-- [14a.auto-ml-classification-ensemble.ipynb](14a.auto-ml-classification-ensemble.ipynb)
-    - Classification with ensembling
+- [14.auto-ml-model-explanation.ipynb](14.auto-ml-model-explanation.ipynb)
+    - Dataset: seaborn's [iris dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html)
+    - Explaining the AutoML classification pipeline
+    - Visualizing feature importance in widget
+    
+- [15a.auto-ml-classification-ensemble.ipynb](15a.auto-ml-classification-ensemble.ipynb)
+    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
+    - Enables an extra iteration for generating an Ensemble of models
+    - Uses local compute for training
 
-- [14b.auto-ml-regression-ensemble.ipynb](14b.auto-ml-regression-ensemble.ipynb)
-    - Regression with ensembling
+- [15b.auto-ml-regression-ensemble.ipynb](15b.auto-ml-regression-ensemble.ipynb)
+    - Dataset: scikit learn's [diabetes dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html)
+    - Enables an extra iteration for generating an Ensemble of models
+    - Uses remote Linux DSVM for training
 
-# Documentation <a name="documentation"></a>
+<a name="documentation"></a>
+# Documentation 
 ## Table of Contents
-1. [Auto ML Settings ](#automlsettings)
-2. [Cross validation split options](#cvsplits)
-3. [Get Data Syntax](#getdata)
-4. [Data pre-processing and featurization](#preprocessing)
+1. [Automated ML Settings ](#automlsettings)
+1. [Cross validation split options](#cvsplits)
+1. [Get Data Syntax](#getdata)
+1. [Data pre-processing and featurization](#preprocessing)
 
-## Auto ML Settings <a name="automlsettings"></a>
+<a name="automlsettings"></a>
+## Automated ML Settings 
+
 |Property|Description|Default|
 |-|-|-|
 |**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>balanced_accuracy</i><br><i>average_precision_score_weighted</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
@@ -168,9 +208,10 @@ automl_setup_linux.sh
 |**preprocess**|*True/False* <br>Setting this to *True* enables preprocessing <br>on the input to handle missing data, and perform some common feature extraction<br>*Note: If input data is Sparse you cannot use preprocess=True*|False|
 |**max_cores_per_iteration**| Indicates how many cores on the compute target would be used to train a single pipeline.<br> You can set it to *-1* to use all cores|1|
 |**exit_score**|*double* value indicating the target for *primary_metric*. <br> Once the target is surpassed the run terminates|None|
-|**blacklist_algos**|*Array* of *strings* indicating pipelines to ignore for Auto ML.<br><br> Allowed values for **Classification**<br><i>LogisticRegression</i><br><i>SGDClassifierWrapper</i><br><i>NBWrapper</i><br><i>BernoulliNB</i><br><i>SVCWrapper</i><br><i>LinearSVMWrapper</i><br><i>KNeighborsClassifier</i><br><i>DecisionTreeClassifier</i><br><i>RandomForestClassifier</i><br><i>ExtraTreesClassifier</i><br><i>gradient boosting</i><br><i>LightGBMClassifier</i><br><br>Allowed values for **Regression**<br><i>ElasticNet</i><br><i>GradientBoostingRegressor</i><br><i>DecisionTreeRegressor</i><br><i>KNeighborsRegressor</i><br><i>LassoLars</i><br><i>SGDRegressor</i><br><i>RandomForestRegressor</i><br><i>ExtraTreesRegressor</i>|None|
+|**blacklist_algos**|*Array* of *strings* indicating pipelines to ignore for Auto ML.<br><br> Allowed values for **Classification**<br><i>LogisticRegression</i><br><i>SGDClassifierWrapper</i><br><i>NBWrapper</i><br><i>BernoulliNB</i><br><i>SVCWrapper</i><br><i>LinearSVMWrapper</i><br><i>KNeighborsClassifier</i><br><i>DecisionTreeClassifier</i><br><i>RandomForestClassifier</i><br><i>ExtraTreesClassifier</i><br><i>LightGBMClassifier</i><br><br>Allowed values for **Regression**<br><i>ElasticNet</i><br><i>GradientBoostingRegressor</i><br><i>DecisionTreeRegressor</i><br><i>KNeighborsRegressor</i><br><i>LassoLars</i><br><i>SGDRegressor</i><br><i>RandomForestRegressor</i><br><i>ExtraTreesRegressor</i>|None|
 
-## Cross validation split options <a name="cvsplits"></a>
+ <a name="cvsplits"></a>
+## Cross validation split options
 ### K-Folds Cross Validation
 Use *n_cross_validations* setting to specify the number of cross validations. The training data set will be randomly split into *n_cross_validations* folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for *n_cross_validations* rounds until each fold is used once as validation set. Finally, the average scores accross all *n_cross_validations* rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
@@ -180,7 +221,8 @@ Use *validation_size* to specify the percentage of the training data set that sh
 ### Custom train and validation set
 You can specify seperate train and validation set either through the get_data() or directly to the fit method.
 
-## get_data() syntax <a name="getdata"></a>
+<a name="getdata"></a>
+## get_data() syntax 
 The *get_data()* function can be used to return a dictionary with these values:
 
 |Key|Type|Dependency|Mutually Exclusive with|Description|
@@ -196,21 +238,23 @@ The *get_data()* function can be used to return a dictionary with these values:
 |columns|Array of strings|data_train||*Optional* Whitelist of columns to use for features|
 |cv_splits_indices|Array of integers|data_train||*Optional* List of indexes to split the data for cross validation|
 
-## Data pre-processing and featurization <a name="preprocessing"></a>
-If you use "preprocess=True", the following data preprocessing steps are performed automatically for you:
-### 1. Dropping high cardinality or no variance features
-- Features with no useful information are dropped from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (e.g., hashes, IDs or GUIDs).
-### 2. Missing value imputation
-- For numerical features, missing values are imputed with average of values in the column.
-- For categorical features, missing values are imputed with most frequent value.
-### 3. Generating additional features
-- For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
-- For Text features: Term frequency based on bi-grams and tri-grams, Count vectorizer.
-### 4. Transformations and encodings
-- Numeric features with very few unique values are transformed into categorical features.
-- Depending on cardinality of categorical features label encoding or (hashing) one-hot encoding is performed.
+<a name="preprocessing"></a>
+## Data pre-processing and featurization 
+If you use `preprocess=True`, the following data preprocessing steps are performed automatically for you:
 
-# Running using python command <a name="pythoncommand"></a>
+1. Dropping high cardinality or no variance features
+    - Features with no useful information are dropped from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (e.g., hashes, IDs or GUIDs).
+2. Missing value imputation
+    - For numerical features, missing values are imputed with average of values in the column.
+    - For categorical features, missing values are imputed with most frequent value.
+3. Generating additional features
+    - For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
+    - For Text features: Term frequency based on bi-grams and tri-grams, Count vectorizer.
+4. Transformations and encodings
+    - Numeric features with very few unique values are transformed into categorical features.
+
+<a name="pythoncommand"></a>
+# Running using python command 
 Jupyter notebook provides a File / Download as / Python (.py) option for saving the notebook as a Python file.
 You can then run this file using the python command.
 However, on Windows the file needs to be modified before it can be run.
@@ -220,7 +264,8 @@ The following condition must be added to the main code in the file:
 
 The main code of the file must be indented so that it is under this condition.
 
-# Troubleshooting <a name="troubleshooting"></a>
+<a name="troubleshooting"></a>
+# Troubleshooting 
 ## Iterations fail and the log contains "MemoryError"
 This can be caused by insufficient memory on the DSVM.  AutoML loads all training data into memory.  So, the available memory should be more than the training data size.
 If you are using a remote DSVM, memory is needed for each concurrent iteration.  The concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
