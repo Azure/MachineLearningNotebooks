@@ -11,7 +11,7 @@ fi
 
 if [ "$AUTOML_ENV_FILE" == "" ]
 then
-  AUTOML_ENV_FILE="automl_env.yml"
+  AUTOML_ENV_FILE="automl_env_mac.yml"
 fi
 
 if [ ! -f $AUTOML_ENV_FILE ]; then
@@ -29,6 +29,7 @@ else
    conda install lightgbm -c conda-forge -y &&
    jupyter nbextension install --py azureml.train.widgets --user &&
    jupyter nbextension enable --py azureml.train.widgets --user &&
+   pip install numpy==1.15.3
    echo "" &&
    echo "" &&
    echo "***************************************" &&
@@ -44,5 +45,3 @@ if [ $? -gt 0 ]
 then
    echo "Installation failed"
 fi
-
-
