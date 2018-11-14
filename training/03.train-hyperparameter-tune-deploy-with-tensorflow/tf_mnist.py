@@ -97,7 +97,6 @@ with tf.Session() as sess:
         run.log('training_acc', np.float(acc_train))
         run.log('validation_acc', np.float(acc_val))
         print(epoch, '-- Training accuracy:', acc_train, '\b Validation accuracy:', acc_val)
-        y_hat = np.argmax(output.eval(feed_dict={X: X_test}), axis=1)
 
     run.log('final_acc', np.float(acc_val))
 
