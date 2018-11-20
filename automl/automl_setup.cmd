@@ -23,10 +23,12 @@ if errorlevel 1 goto ErrorExit
 
 call pip install psutil
 
-call jupyter nbextension install --py azureml.train.widgets --user
+call python -m ipykernel install --user --name %conda_env_name% --display-name "Python (%conda_env_name%)"
+
+call jupyter nbextension install --py azureml.widgets --user
 if errorlevel 1 goto ErrorExit
 
-call jupyter nbextension enable --py azureml.train.widgets --user
+call jupyter nbextension enable --py azureml.widgets --user
 if errorlevel 1 goto ErrorExit
 
 echo.

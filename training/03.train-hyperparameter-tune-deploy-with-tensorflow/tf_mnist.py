@@ -39,7 +39,7 @@ n_h1 = args.n_hidden_1
 n_h2 = args.n_hidden_2
 n_outputs = 10
 learning_rate = args.learning_rate
-n_epochs = 50
+n_epochs = 20
 batch_size = args.batch_size
 
 with tf.name_scope('network'):

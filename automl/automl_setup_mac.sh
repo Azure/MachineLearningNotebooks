@@ -27,8 +27,9 @@ else
    conda env create -f $AUTOML_ENV_FILE -n $CONDA_ENV_NAME &&
    source activate $CONDA_ENV_NAME &&
    conda install lightgbm -c conda-forge -y &&
-   jupyter nbextension install --py azureml.train.widgets --user &&
-   jupyter nbextension enable --py azureml.train.widgets --user &&
+   python -m ipykernel install --user --name $CONDA_ENV_NAME --display-name "Python ($CONDA_ENV_NAME)" &&
+   jupyter nbextension install --py azureml.widgets --user &&
+   jupyter nbextension enable --py azureml.widgets --user &&
    pip install numpy==1.15.3
    echo "" &&
    echo "" &&
@@ -45,3 +46,6 @@ if [ $? -gt 0 ]
 then
    echo "Installation failed"
 fi
+
+
+
