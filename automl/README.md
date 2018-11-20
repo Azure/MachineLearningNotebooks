@@ -172,7 +172,7 @@ bash automl_setup_linux.sh
     - Using DataPrep for reading data
 
 - [14.auto-ml-model-explanation.ipynb](14.auto-ml-model-explanation.ipynb)
-    - Dataset: seaborn's [iris dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html)
+    - Dataset: sklearn's [iris dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html)
     - Explaining the AutoML classification pipeline
     - Visualizing feature importance in widget
     
@@ -200,17 +200,46 @@ bash automl_setup_linux.sh
 |Property|Description|Default|
 |-|-|-|
 |**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>balanced_accuracy</i><br><i>average_precision_score_weighted</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
-|**max_time_sec**|Time limit in seconds for each iteration|None|
+|**iteration_timeout_minutes**|Time limit in minutes for each iteration|None|
 |**iterations**|Number of iterations. In each iteration trains the data with a specific pipeline.  To get the best result, use at least 100. |100|
 |**n_cross_validations**|Number of cross validation splits|None|
 |**validation_size**|Size of validation set as percentage of all training samples|None|
-|**concurrent_iterations**|Max number of iterations that would be executed in parallel|1|
+|**max_concurrent_iterations**|Max number of iterations that would be executed in parallel|1|
 |**preprocess**|*True/False* <br>Setting this to *True* enables preprocessing <br>on the input to handle missing data, and perform some common feature extraction<br>*Note: If input data is Sparse you cannot use preprocess=True*|False|
 |**max_cores_per_iteration**| Indicates how many cores on the compute target would be used to train a single pipeline.<br> You can set it to *-1* to use all cores|1|
-|**exit_score**|*double* value indicating the target for *primary_metric*. <br> Once the target is surpassed the run terminates|None|
-|**blacklist_algos**|*Array* of *strings* indicating pipelines to ignore for Auto ML.<br><br> Allowed values for **Classification**<br><i>LogisticRegression</i><br><i>SGDClassifierWrapper</i><br><i>NBWrapper</i><br><i>BernoulliNB</i><br><i>SVCWrapper</i><br><i>LinearSVMWrapper</i><br><i>KNeighborsClassifier</i><br><i>DecisionTreeClassifier</i><br><i>RandomForestClassifier</i><br><i>ExtraTreesClassifier</i><br><i>LightGBMClassifier</i><br><br>Allowed values for **Regression**<br><i>ElasticNet</i><br><i>GradientBoostingRegressor</i><br><i>DecisionTreeRegressor</i><br><i>KNeighborsRegressor</i><br><i>LassoLars</i><br><i>SGDRegressor</i><br><i>RandomForestRegressor</i><br><i>ExtraTreesRegressor</i>|None|
-
+|**experiment_exit_score**|*double* value indicating the target for *primary_metric*. <br> Once the target is surpassed the run terminates|None|
+|**blacklist_models**|*Array* of *strings* indicating models to ignore for Auto ML from the list of models.|None|
+|**whilelist_models**|*Array* of *strings* use only models listed for Auto ML from the list of models..|None|
  <a name="cvsplits"></a>
+## List of models for white list/blacklist
+**Classification**
+<br><i>LogisticRegression</i>
+<br><i>SGD</i>
+<br><i>MultinomialNaiveBayes</i>
+<br><i>BernoulliNaiveBayes</i>
+<br><i>SVM</i>
+<br><i>LinearSVM</i>
+<br><i>KNN</i>
+<br><i>DecisionTree</i>
+<br><i>RandomForest</i>
+<br><i>ExtremeRandomTrees</i>
+<br><i>LightGBM</i>
+<br><i>GradientBoosting</i>
+<br><i>TensorFlowDNN</i>
+<br><i>TensorFlowLinearClassifier</i>
+<br><br>**Regression**
+<br><i>ElasticNet</i>
+<br><i>GradientBoosting</i>
+<br><i>DecisionTree</i>
+<br><i>KNN</i>
+<br><i>LassoLars</i>
+<br><i>SGD</i>
+<br><i>RandomForest</i>
+<br><i>ExtremeRandomTrees</i>
+<br><i>LightGBM</i>
+<br><i>TensorFlowLinearRegressor</i>
+<br><i>TensorFlowDNN</i>
+
 ## Cross validation split options
 ### K-Folds Cross Validation
 Use *n_cross_validations* setting to specify the number of cross validations. The training data set will be randomly split into *n_cross_validations* folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for *n_cross_validations* rounds until each fold is used once as validation set. Finally, the average scores accross all *n_cross_validations* rounds will be reported, and the corresponding model will be retrained on the whole training data set.
@@ -268,10 +297,10 @@ The main code of the file must be indented so that it is under this condition.
 # Troubleshooting 
 ## Iterations fail and the log contains "MemoryError"
 This can be caused by insufficient memory on the DSVM.  AutoML loads all training data into memory.  So, the available memory should be more than the training data size.
-If you are using a remote DSVM, memory is needed for each concurrent iteration.  The concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
-To resolve this issue, allocate a DSVM with more memory or reduce the value specified for concurrent_iterations.
+If you are using a remote DSVM, memory is needed for each concurrent iteration.  The max_concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and max_concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
+To resolve this issue, allocate a DSVM with more memory or reduce the value specified for max_concurrent_iterations.
 
 ## Iterations show as "Not Responding" in the RunDetails widget.
-This can be caused by too many concurrent iterations for a remote DSVM.  Each concurrent iteration usually takes 100% of a core when it is running.  Some iterations can use multiple cores.  So, the concurrent_iterations setting should always be less than the number of cores of the DSVM.
-To resolve this issue, try reducing the value specified for the concurrent_iterations setting.
+This can be caused by too many concurrent iterations for a remote DSVM.  Each concurrent iteration usually takes 100% of a core when it is running.  Some iterations can use multiple cores.  So, the max_concurrent_iterations setting should always be less than the number of cores of the DSVM.
+To resolve this issue, try reducing the value specified for the max_concurrent_iterations setting.
 
