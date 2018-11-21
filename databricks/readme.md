@@ -5,7 +5,7 @@ Please remove the previous SDK version and install the latest SDK by installing 
 
 **NOTE**: Please create your Azure Databricks cluster as v4.x (high concurrency preferred) with **Python 3** (dropdown).
 
-**NOTE**: Some packages like psutil upgrade libs that can cause a conflict, please install such packages by freezing lib version. Eg. "psutil **cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0**" to avoid install error. This issue is related to Databricks and not related to AML SDK.
+**NOTE**: Some packages like psutil upgrade libs that can cause a conflict, please install such packages by freezing lib version. Eg. "psutil **cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0**" to avoid install error. This issue is related to Databricks and not related to AML SDK.
 
 **NOTE**: You should at least have contributor access to your Azure subcription to run some of the notebooks.
 
