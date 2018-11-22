@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS oneboxtest01;
+
+
+@resourcereader =
+    EXTRACT query string
+    FROM "@@script_input@@"
+USING Extractors.Csv();
+
+
+OUTPUT @resourcereader
+TO "@@script_output@@"
+USING Outputters.Csv();
