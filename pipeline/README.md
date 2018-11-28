@@ -36,13 +36,13 @@ In this directory, there are two types of notebooks:
 
 * The first type of notebooks will introduce you to core Azure Machine Learning Pipelines features. The notebooks below belong in this category, and are designed to go in sequence:
 
-1. aml-pipelines-getting-started.ipynb
-2. aml-pipelines-with-data-dependency-steps.ipynb
-3. aml-pipelines-publish-and-run-using-rest-endpoint.ipynb
-4. aml-pipelines-data-transfer.ipynb
-5. aml-pipelines-use-databricks-as-compute-target.ipynb
-6. aml-pipelines-use-adla-as-compute-target.ipynb
+1. [aml-pipelines-getting-started.ipynb](aml-pipelines-getting-started.ipynb)
+2. [aml-pipelines-with-data-dependency-steps.ipynb](aml-pipelines-with-data-dependency-steps.ipynb)
+3. [aml-pipelines-publish-and-run-using-rest-endpoint.ipynb](aml-pipelines-publish-and-run-using-rest-endpoint.ipynb)
+4. [aml-pipelines-data-transfer.ipynb](aml-pipelines-data-transfer.ipynb)
+5. [aml-pipelines-use-databricks-as-compute-target.ipynb](aml-pipelines-use-databricks-as-compute-target.ipynb)
+6. [aml-pipelines-use-adla-as-compute-target.ipynb](aml-pipelines-use-adla-as-compute-target.ipynb)
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
-  - pipeline-batch-scoring.ipynb
-  - pipeline-style-transfer.ipynb
+  - [pipeline-batch-scoring.ipynb](pipeline-batch-scoring.ipynb)
+  - [pipeline-style-transfer.ipynb](pipeline-style-transfer.ipynb)
