@@ -1,0 +1,33 @@
+name: azure_automl
+dependencies:
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- python=3.6
+- nb_conda
+- matplotlib==2.1.0
+- numpy>=1.15.3
+- cython
+- urllib3<1.24
+- scipy>=1.0.0,<=1.1.0
+- scikit-learn>=0.18.0,<=0.19.1
+- pandas>=0.22.0,<0.23.0
+- tensorflow>=1.12.0
+
+# Required for azuremlftk
+- dill
+- pyodbc
+- statsmodels 
+- numexpr  
+- keras
+- distributed>=1.21.5,<1.24
+  
+- pip:
+
+  # Required for azuremlftk
+  - https://azuremlpackages.blob.core.windows.net/forecasting/azuremlftk-0.1.18323.5a1-py3-none-any.whl
+
+  # Required packages for AzureML execution, history, and data preparation.
+  - azureml-sdk[automl,notebooks,explain]
+  - pandas_ml
+  
+

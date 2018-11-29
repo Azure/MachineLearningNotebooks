@@ -1,0 +1,16 @@
+## Examples to get started with Azure Machine Learning service
+
+Learn how to use Azure Machine Learning services for experimentation and model management.
+
+As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) notebook first to set up your Azure ML Workspace. Then, run the notebooks in following recommended order.
+
+ * [train-within-notebook](train-within-notebook/train-within-notebook.ipynb): Train a model hile tracking run history, and learn how to deploy the model as web service to Azure Container Instance.
+ * [train-on-local](train-on-local/train-on-local.ipynb): Learn how to submit a run and use Azure ML managed run configuration.
+* [train-on-aci](train-on-aci/train-on-aci.ipynb): Submit a remote run on serverless Docker-based compute.
+* [train-on-remote-vm](train-on-remote-vm/train-on-remote-vm.ipynb): Use Data Science Virtual Machine as a target for remote runs.
+* [logging-api](logging-api/logging-api.ipynb): Learn about the details of logging metrics to run history.
+* [register-model-create-image-deploy-service](register-model-create-image-deploy-service/register-model-create-image-deploy-service.ipynb): Learn about the details of model management.
+* [production-deploy-to-aks](production-deploy-to-aks/production-deploy-to-aks.ipynb) Deploy a model to production at scale on Azure Kubernetes Service.
+* [enable-data-collection-for-models-in-aks](enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) Learn about data collection APIs for deployed model.
+* [enable-app-insights-in-production-service](enable-app-insights-in-production-serviceenable-app-insights-in-production-service.ipynb) Learn how to use App Insights with production web service.
+ 
