@@ -17,22 +17,21 @@ Select New Cluster and fill in following detail:
  - Databricks Runtime: Any 4.* runtime (NO GPU) or Recommended: 4.3(includes Apache spark 2.3.1, Scala 2.11))
  - Python version: **3**
  - Driver type – you may select a small driver node size (eg. Standard_DS3_v2 0.75 DBU)
- - Worker node VM types: Memory optimized preferred. Please follow this table.
+ - Worker node VM types: **Memory optimized VM** preferred. Please follow this table.
  
  |**Dataset type**  | **Dataset size** |**Preprocessed dataset size**  | **Number of cross validations (cv)** |**Recommended memory per concurrency for VM**|**Total memory required for cluster** |
 |--|--|--|--|--|--|
-|String & Numeric  | X |3X  | 3 * X * cv |3 * X * cv * 3  | 3 * X * cv  * 3 * number of concurrent runs  |
-|Numeric  | Y |Y| Y |3Y| 3 * Y * number of concurrent runs  |
+|String & Numeric (preprocessing True)  | X |5 * X  | 5 * X * cv |5 * X * cv * 3  | 5 * X * cv  * 3 * number of concurrent runs  |
+|Numeric (preprocessing False)  | Y |1.5 * Y| 1.5 *  Y |5 * Y| 5 * Y * number of concurrent runs  |
+|Numeric (preprocessing True)  | Y |1.5 * Y| 1.5 * Y * cv |5 * Y * cv| 5 * cv * Y * number of concurrent runs  |
 
-- Number of concurrent runs should be less than or equal to the number
-of cores in your Databricks cluster.
+- Number of concurrent runs should be less than or equal to the number of cores in your Databricks cluster.
 - For a 1 GB numeric only dataset, to do 10 cross validations with run 16 concurrent runs, the minimum usable cluster memory should be 1
 GB X 16 concurrent runs X 3 = 48 GB. This is in addition to what
 Spark itself will use on your cluster.
--   For text dataset, with featurization (eg. one hot encoding) & cross validation this requirement is much higher. For a 500 MB
-string+numeric dataset, to do 5 cross validation with 4 concurrent
-runs, the minimum usable cluster memory should be 0.5 GB X 4
+-   For string & numeric dataset, with featurization (eg. one hot encoding) & cross validation this requirement is much higher. For a 500 MB string+numeric dataset, to do 5 cross validation with 4 concurrent runs, the minimum usable cluster memory should be 0.5 GB X 4
 concurrent runs X 3 X 5 cross validations X 3 = 90 GB
+- For text dataset, TBD.
 - Uncheck _Enable Autoscaling_
 - Workers: 2 or higher
 
