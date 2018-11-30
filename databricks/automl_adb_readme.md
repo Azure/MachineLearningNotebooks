@@ -17,7 +17,7 @@ Select New Cluster and fill in following detail:
  - Databricks Runtime: Any 4.x runtime.
  - Python version: **3**
  - Workers: 2 or higher.  
- - Max. number of concurrent runs in Automated ML settings is <= to the number of **worker nodes** in your Databricks cluster.
+ - Max. number of **concurrent iterations** in Automated ML settings is **<=** to the number of **worker nodes** in your Databricks cluster.
  - Worker node VM types: **Memory optimized VM** preferred. 
  - Uncheck _Enable Autoscaling_
 
