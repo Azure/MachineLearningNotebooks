@@ -25,7 +25,7 @@ Below are the three execution environments supported by AutoML.
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
 [Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
-1. Follow the instructions in the [../00.configuration](00.configuration.ipynb) notebook to create and connect to a workspace.
+1. Follow the instructions in the [configuration](configuration.ipynb) notebook to create and connect to a workspace.
 1. Open one of the sample notebooks.
 
  <a name="databricks"></a>
@@ -89,7 +89,7 @@ bash automl_setup_linux.sh
 ```
 
 ### 4. Running configuration.ipynb
-- Before running any samples you next need to run the configuration notebook. Click on 00.configuration.ipynb notebook
+- Before running any samples you next need to run the configuration notebook. Click on configuration.ipynb notebook
 - Execute the cells in the notebook to Register Machine Learning Services Resource Provider and create a workspace. (*instructions in notebook*)
 
 ### 5. Running Samples
@@ -98,22 +98,21 @@ bash automl_setup_linux.sh
 
 <a name="samples"></a>
 # Automated ML SDK Sample Notebooks
-- [00.configuration.ipynb](00.configuration.ipynb)
-    - Register Machine Learning Services Resource Provider
+- [configuration.ipynb](configuration.ipynb)
     - Create new Azure ML Workspace
     - Save Workspace configuration file
 
-- [01.auto-ml-classification.ipynb](01.auto-ml-classification.ipynb)
+- [auto-ml-classification.ipynb](classification/auto-ml-classification.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Simple example of using Auto ML for classification
     - Uses local compute for training
 
-- [02.auto-ml-regression.ipynb](02.auto-ml-regression.ipynb)
+- [auto-ml-regression.ipynb](regression/auto-ml-regression.ipynb)
     - Dataset: scikit learn's [diabetes dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html)
     - Simple example of using Auto ML for regression
     - Uses local compute for training
 
-- [03.auto-ml-remote-execution.ipynb](03.auto-ml-remote-execution.ipynb)
+- [auto-ml-remote-execution.ipynb](remote-execution/auto-ml-remote-execution.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Example of using Auto ML for classification using a remote linux DSVM for training
     - Parallel execution of iterations
@@ -122,7 +121,7 @@ bash automl_setup_linux.sh
     - Retrieving models for any iteration or logged metric
     - Specify automl settings as kwargs
 
-- [03b.auto-ml-remote-batchai.ipynb](03b.auto-ml-remote-batchai.ipynb)
+- [auto-ml-remote-batchai.ipynb](remote-batchai/auto-ml-remote-batchai.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Example of using automated ML for classification using a remote Batch AI compute for training
     - Parallel execution of iterations
@@ -131,80 +130,60 @@ bash automl_setup_linux.sh
     - Retrieving models for any iteration or logged metric
     - Specify automl settings as kwargs
 
-- [04.auto-ml-remote-execution-text-data-blob-store.ipynb](04.auto-ml-remote-execution-text-data-blob-store.ipynb)
+- [auto-ml-remote-attach.ipynb](remote-attach/auto-ml-remote-attach.ipynb)
     - Dataset: [Burning Man 2016 dataset](https://innovate.burningman.org/datasets-page/)
     - handling text data with preprocess flag
     - Reading data from a blob store for remote executions
     - using pandas dataframes for reading data
 
-- [05.auto-ml-missing-data-blacklist-early-termination.ipynb](05.auto-ml-missing-data-blacklist-early-termination.ipynb)
+- [auto-ml-missing-data-blacklist-early-termination.ipynb](missing-data-blacklist-early-termination/auto-ml-missing-data-blacklist-early-termination.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Blacklist certain pipelines
     - Specify a target metrics to indicate stopping criteria
     - Handling Missing Data in the input
 
-- [06.auto-ml-sparse-data-train-test-split.ipynb](06.auto-ml-sparse-data-train-test-split.ipynb)
+- [auto-ml-sparse-data-train-test-split.ipynb](sparse-data-train-test-split/auto-ml-sparse-data-train-test-split.ipynb)
     - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
     - Handle sparse datasets
     - Specify custom train and validation set
 
-- [07.auto-ml-exploring-previous-runs.ipynb](07.auto-ml-exploring-previous-runs)
+- [auto-ml-exploring-previous-runs.ipynb](exploring-previous-runs/auto-ml-exploring-previous-runs.ipynb)
     - List all projects for the workspace
     - List all AutoML Runs for a given project
     - Get details for a AutoML Run. (Automl settings, run widget & all metrics)
     - Download fitted pipeline for any iteration
 
-- [08.auto-ml-remote-execution-with-DataStore.ipynb](08.auto-ml-remote-execution-with-DataStore.ipynb)
+- [auto-ml-remote-execution-with-datastore.ipynb](remote-execution-with-datastore/auto-ml-remote-execution-with-datastore.ipynb)
     - Dataset: scikit learn's [digit dataset](https://innovate.burningman.org/datasets-page/)
     - Download the data and store it in DataStore.
 
-- [09.auto-ml-classification-with-deployment.ipynb](09.auto-ml-classification-with-deployment.ipynb)
+- [auto-ml-classification-with-deployment.ipynb](classification-with-deployment/auto-ml-classification-with-deployment.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Simple example of using Auto ML for classification
     - Registering the model
     - Creating Image and creating aci service
     - Testing the aci service
 
-- [10.auto-ml-multi-output-example.ipynb](10.auto-ml-multi-output-example.ipynb)
-    - Dataset: scikit learn's random example using multi-output pipeline(http://scikit-learn.org/stable/auto_examples/ensemble/plot_random_forest_regression_multioutput.html#sphx-glr-auto-examples-ensemble-plot-random-forest-regression-multioutput-py)
-    - Simple example of using Auto ML for multi output regression
-    - Handle both the dense and sparse metrix
-
-- [11.auto-ml-sample-weight.ipynb](11.auto-ml-sample-weight.ipynb)
+- [auto-ml-sample-weight.ipynb](sample-weight/auto-ml-sample-weight.ipynb)
     - How to specifying sample_weight
     - The difference that it makes to test results
 
-- [12.auto-ml-retrieve-the-training-sdk-versions.ipynb](12.auto-ml-retrieve-the-training-sdk-versions.ipynb)
-    - How to get current and training env SDK versions
-
-- [13.auto-ml-dataprep.ipynb](13.auto-ml-dataprep.ipynb)
+- [auto-ml-dataprep.ipynb](dataprep/auto-ml-dataprep.ipynb)
     - Using DataPrep for reading data
 
-- [14.auto-ml-model-explanation.ipynb](14.auto-ml-model-explanation.ipynb)
-    - Dataset: sklearn's [iris dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html)
-    - Explaining the AutoML classification pipeline
-    - Visualizing feature importance in widget
+- [auto-ml-dataprep-remote-execution.ipynb](dataprep-remote-execution/auto-ml-dataprep-remote-execution.ipynb)
+    - Using DataPrep for reading data with remote execution
 
-- [15a.auto-ml-classification-ensemble.ipynb](15a.auto-ml-classification-ensemble.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Enables an extra iteration for generating an Ensemble of models
-    - Uses local compute for training
-
-- [15b.auto-ml-regression-ensemble.ipynb](15b.auto-ml-regression-ensemble.ipynb)
-    - Dataset: scikit learn's [diabetes dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html)
-    - Enables an extra iteration for generating an Ensemble of models
-    - Uses remote Linux DSVM for training
-
-- [16a.auto-ml-classification-local-azuredatabricks.ipynb](16a.auto-ml-classification-local-azuredatabricks.ipynb)
+- [auto-ml-classification-local-azuredatabricks.ipynb](classification-local-azuredatabricks/auto-ml-classification-local-azuredatabricks.ipynb)
     - Dataset: scikit learn's [digit dataset](https://innovate.burningman.org/datasets-page/)
     - Example of using AutoML for classification using Azure Databricks as the platform for training
 
-- [17.auto-ml-classification_with_tensorflow.ipynb](17.auto-ml-classification_with_tensorflow.ipynb)
+- [auto-ml-classification_with_tensorflow.ipynb](classification_with_tensorflow/auto-ml-classification_with_tensorflow.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Simple example of using Auto ML for classification with whitelisting tensorflow models.checkout
     - Uses local compute for training
 
-- [18.auto-ml-timeseries.ipynb](18.auto-ml-timeseries.ipynb)
+- [auto-ml-timeseries.ipynb](timeseries/auto-ml-timeseries.ipynb)
     - Dataset: NYC energy demanding data
     - Example of using AutoML for timeseries data training
 
