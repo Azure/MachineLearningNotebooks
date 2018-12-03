@@ -1,53 +1,40 @@
-For full documentation for Azure Machine Learning service, visit **https://aka.ms/aml-docs**.
-# Sample Notebooks for Azure Machine Learning service
+# Azure Machine Learning service sample notebooks
 
-To run the notebooks in this repository use one of these methods:
+---
 
-## Use Azure Notebooks - Jupyter based notebooks in the Azure cloud
+This repository contains example notebooks demonstrating the [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning-service/) Python SDK
+which allows you to build, train, deploy and manage machine learning solutions using Azure.  The AML SDK
+allows you the choice of using local or cloud compute resources, while managing
+and maintaining the complete data science workflow from the cloud.
 
-1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
-1. Follow the instructions in the [00.configuration](00.configuration.ipynb) notebook to create and connect to a workspace.
-1. Open one of the sample notebooks.
-    
-    **Make sure the Azure Notebook kernel is set to `Python 3.6`** when you open a notebook.  
-    
-    ![set kernel to Python 3.6](images/python36.png)
+You can find instructions on setting up notebooks [here](./NBSETUP.md)
 
+You can find full documentation for Azure Machine Learning [here](https://aka.ms/aml-docs)
 
-## **Use your own notebook server**
+## Getting Started
 
-Video walkthrough:
+These examples will provide you with an effective way to get started using AML.  Once you're familiar with
+some of the capabilities, explore the repository for specific topics.
 
-[![get started video](images/yt_cover.png)](https://youtu.be/VIsXeTuW3FU)
+- [Configuration](configuration.ipnyb) configures your notebook library to easily connect to an
+    Azure Machine Learning workspace, and sets up your workspace to be used by many of the other examples.  You should
+    always run this first when setting up a notebook library on a new machine or in a new environment
+- [Train in notebook](./how-to-use-azureml/training/train-within-notebook) shows how to create a model directly in a notebook while recording
+    metrics and deploy that model to a test service
+- [Train on remote](./how-to-use-azureml/training/train-on-remote-vm) takes the previous example and shows how to create the model on a cloud compute target
+- [Production deploy to AKS](./tutorials/deployment/production-deploy-to-aks) shows how to create a production grade inferencing webservice
 
-1. Setup a Jupyter Notebook server and [install the Azure Machine Learning SDK](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python).
-1. Clone [this repository](https://aka.ms/aml-notebooks).
-1. You may need to install other packages for specific notebook. 
-    - For example, to run the Azure Machine Learning Data Prep notebooks, install the extra dataprep SDK:
-    ```
-     pip install --upgrade azureml-dataprep
-    ```
+## Tutorials
 
-1. Start your notebook server.
-1. Follow the instructions in the [00.configuration](00.configuration.ipynb) notebook to create and connect to a workspace.
-1. Open one of the sample notebooks.
+The [Tutorials](./tutorials) folder contains notebooks for the tutorials described in the [Azure Machine Learning documentation](https://aka.ms/aml-docs)
+  
+## How to use AML
 
+The [How to use AML](./how-to-use-aml) folder contains specific examples demonstrating the features of the Azure Machine Learning SDK
 
-
-> Note: **Looking for automated machine learning samples?**
-> For your convenience, you can use an installation script instead of the steps below for the automated ML notebooks. Go to the [automl folder README](automl/README.md) and follow the instructions.  The script installs all  packages needed for notebooks in that folder.
-
-# Contributing
-
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
-
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+- [Training](./how-to-use-azureml/training) - Examples of how to build models using Azure ML's logging and execution capabilities on local and remote compute targets.
+- [Training with Deep Learning](./how-to-use-azureml/training-with-deep-learning) - Examples demonstrating how to build deep learning models using estimators and parameter sweeps
+- [Automated Machine Learning](./how-to-use-azureml/automated-machine-learning) - Examples using Automated Machine Learning to automatically generate optimal machine learning pipelines and models
+- [Machine Learning Pipelines](./how-to-use-azureml/machine-learning-pipelines) - Examples showing how to create and use reusable pipelines for training and batch scoring
+- [Deployment](./how-to-use-azureml/deployment) - Examples showing how to deploy and manage machine learning models and solutions
+- [Azure Databricks](./how-to-use-azureml/azure-databricks) - Examples showing how to use Azure ML with Azure Databricks
