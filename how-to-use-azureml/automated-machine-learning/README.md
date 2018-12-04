@@ -183,9 +183,13 @@ bash automl_setup_linux.sh
     - Simple example of using Auto ML for classification with whitelisting tensorflow models.checkout
     - Uses local compute for training
 
-- [auto-ml-timeseries.ipynb](timeseries/auto-ml-timeseries.ipynb)
-    - Dataset: NYC energy demanding data
-    - Example of using AutoML for timeseries data training
+- [auto-ml-forecasting-a.ipynb](forecasting-a/auto-ml-forecasting-a.ipynb)
+    - Dataset: [NYC energy demand data](forecasting-a/nyc_energy.csv)
+    - Example of using AutoML for training a forecasting model
+
+- [auto-ml-forecasting-b.ipynb](forecasting-b/auto-ml-forecasting-b.ipynb)
+    - Dataset: [Dominick's grocery sales of orange juice](forecasting-b/dominicks_OJ.csv)
+    - Example of training an AutoML forecasting model on multiple time-series
 
 <a name="documentation"></a>
 # Documentation
