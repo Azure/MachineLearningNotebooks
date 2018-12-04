@@ -30,7 +30,9 @@ It will take few minutes to create the cluster. Please ensure that the cluster s
 
 - Source: Upload Python Egg or PyPI
 
-- PyPi Name: **azureml-sdk[automl_databricks]**
+- PyPi Name (_with_ Automated ML capability): **azureml-sdk[automl_databricks]**
+
+- PyPi Name (_without_ Automated ML capability): **azureml-sdk[databricks]**
 
 - Click Install Library
 
