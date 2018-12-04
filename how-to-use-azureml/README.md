@@ -6,7 +6,6 @@ As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) not
 
  * [train-within-notebook](train-within-notebook/train-within-notebook.ipynb): Train a model hile tracking run history, and learn how to deploy the model as web service to Azure Container Instance.
  * [train-on-local](train-on-local/train-on-local.ipynb): Learn how to submit a run and use Azure ML managed run configuration.
-* [train-on-aci](train-on-aci/train-on-aci.ipynb): Submit a remote run on serverless Docker-based compute.
 * [train-on-remote-vm](train-on-remote-vm/train-on-remote-vm.ipynb): Use Data Science Virtual Machine as a target for remote runs.
 * [logging-api](logging-api/logging-api.ipynb): Learn about the details of logging metrics to run history.
 * [register-model-create-image-deploy-service](register-model-create-image-deploy-service/register-model-create-image-deploy-service.ipynb): Learn about the details of model management.
