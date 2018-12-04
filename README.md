@@ -16,7 +16,7 @@ You can find full documentation for Azure Machine Learning [here](https://aka.ms
 These examples will provide you with an effective way to get started using AML.  Once you're familiar with
 some of the capabilities, explore the repository for specific topics.
 
-- [Configuration](./configuration.ipynyb) configures your notebook library to easily connect to an
+- [Configuration](./configuration.ipynb) configures your notebook library to easily connect to an
     Azure Machine Learning workspace, and sets up your workspace to be used by many of the other examples.  You should
     always run this first when setting up a notebook library on a new machine or in a new environment
 - [Train in notebook](./how-to-use-azureml/training/train-within-notebook) shows how to create a model directly in a notebook while recording
