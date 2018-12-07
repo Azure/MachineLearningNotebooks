@@ -68,21 +68,21 @@ There's no need to install mini-conda specifically.
 The **automl/automl_setup** script creates a new conda environment, installs the necessary packages, configures the widget and starts a jupyter notebook.
 It takes the conda environment name as an optional parameter.  The default conda environment name is azure_automl.  The exact command depends on the operating system.  See the specific sections below for Windows, Mac and Linux.  It can take about 10 minutes to execute.
 ## Windows
-Start an **Anaconda Prompt** window, cd to the **automl** folder where the sample notebooks were extracted and then run:
+Start an **Anaconda Prompt** window, cd to the **how-to-use-azureml/automated-machine-learning** folder where the sample notebooks were extracted and then run:
 ```
 automl_setup
 ```
 ## Mac
 Install "Command line developer tools" if it is not already installed (you can use the command: `xcode-select --install`).
 
-Start a Terminal windows, cd to the **automl** folder where the sample notebooks were extracted and then run:
+Start a Terminal windows, cd to the **how-to-use-azureml/automated-machine-learning** folder where the sample notebooks were extracted and then run:
 
 ```
 bash automl_setup_mac.sh
 ```
 
 ## Linux
-cd to the **automl** folder where the sample notebooks were extracted and then run:
+cd to the **how-to-use-azureml/automated-machine-learning** folder where the sample notebooks were extracted and then run:
 
 ```
 bash automl_setup_linux.sh
@@ -131,7 +131,7 @@ bash automl_setup_linux.sh
     - Specify automl settings as kwargs
 
 - [auto-ml-remote-attach.ipynb](remote-attach/auto-ml-remote-attach.ipynb)
-    - Dataset: [Burning Man 2016 dataset](https://innovate.burningman.org/datasets-page/)
+    - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
     - handling text data with preprocess flag
     - Reading data from a blob store for remote executions
     - using pandas dataframes for reading data
@@ -154,7 +154,7 @@ bash automl_setup_linux.sh
     - Download fitted pipeline for any iteration
 
 - [auto-ml-remote-execution-with-datastore.ipynb](remote-execution-with-datastore/auto-ml-remote-execution-with-datastore.ipynb)
-    - Dataset: scikit learn's [digit dataset](https://innovate.burningman.org/datasets-page/)
+    - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
     - Download the data and store it in DataStore.
 
 - [auto-ml-classification-with-deployment.ipynb](classification-with-deployment/auto-ml-classification-with-deployment.ipynb)
@@ -300,11 +300,57 @@ The main code of the file must be indented so that it is under this condition.
 
 <a name="troubleshooting"></a>
 # Troubleshooting
-## Iterations fail and the log contains "MemoryError"
+## automl_setup fails
+1. On windows, make sure that you are running automl_setup from an Anconda Prompt window rather than a regular cmd window.  You can launch the "Anaconda Prompt" window by hitting the Start button and typing "Anaconda Prompt".  If you don't see the application "Anaconda Prompt", you might not have conda or mini conda installed.  In that case, you can install it [here](https://conda.io/miniconda.html)
+2. Check that you have conda 4.4.10 or later.  You can check the version with the command `conda -V`.  If you have a previous version installed, you can update it using the command: `conda update conda`.
+3. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`. 
+
+## configuration.ipynb fails
+1) For local conda, make sure that you have susccessfully run automl_setup first.
+2) Check that the subscription_id is correct.  You can find the subscription_id in the Azure Portal by selecting All Service and then Subscriptions. The characters "<" and ">" should not be included in the subscription_id value.  For example, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` has the valid format.
+3) Check that you have Contributor or Owner access to the Subscription.
+4) Check that the region is one of the supported regions: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`
+5) Check that you have access to the region using the Azure Portal.
+
+## workspace.from_config fails
+If the call `ws = Workspace.from_config()` fails:
+1) Make sure that you have run the `configuration.ipynb` notebook successfully.
+2) If you are running a notebook from a folder that is not under the folder where you ran `configuration.ipynb`, copy the folder aml_config and the file config.json that it contains to the new folder.  Workspace.from_config reads the config.json for the notebook folder or it parent folder.
+3) If you are switching to a new subscription, resource group, workspace or region, make sure that you run the `configuration.ipynb` notebook again.  Changing config.json directly will only work if the workspace already exists in the specified resource group under the specified subscription.
+4) If you want to change the region, please change the workspace, resource group or subscription.  `Workspace.create` will not create or update a workspace if it already exists, even if the region specified is different.
+
+## Sample notebook fails
+If a sample notebook fails with an error that property, method or library does not exist:
+1) Check that you have selected correct kernel in jupyter notebook.  The kernel is displayed in the top right of the notebook page.  It can be changed using the `Kernel | Change Kernel` menu option.  For Azure Notebooks, it should be `Python 3.6`.  For local conda environments, it should be the conda envioronment name that you specified in automl_setup.  The default is azure_automl.  Note that the kernel is saved as part of the notebook.  So, if you switch to a new conda environment, you will have to select the new kernel in the notebook.
+2) Check that the notebook is for the SDK version that you are using.  You can check the SDK version by executing `azureml.core.VERSION` in a jupyter notebook cell.  You can download previous version of the sample notebooks from GitHub by clicking the `Branch` button, selecting the `Tags` tab and then selecting the version.
+
+## Remote run: DsvmCompute.create fails 
+There are several reasons why the DsvmCompute.create can fail.  The reason is usually in the error message but you have to look at the end of the error message for the detailed reason.  Some common reasons are:
+1) `Compute name is invalid, it should start with a letter, be between 2 and 16 character, and only include letters (a-zA-Z), numbers (0-9) and \'-\'.`  Note that underscore is not allowed in the name.
+2) `The requested VM size xxxxx is not available in the current region.`  You can select a different region or vm_size. 
+
+## Remote run: Unable to establish SSH connection
+AutoML uses the SSH protocol to communicate with remote DSVMs.  This defaults to port 22.  Possible causes for this error are:
+1) The DSVM is not ready for SSH connections.  When DSVM creation completes, the DSVM might still not be ready to acceept SSH connections.  The sample notebooks have a one minute delay to allow for this.
+2) Your Azure Subscription may restrict the IP address ranges that can access the DSVM on port 22.  You can check this in the Azure Portal by selecting the Virtual Machine and then clicking Networking.  The Virtual Machine name is the name that you provided in the notebook plus 10 alpha numeric characters to make the name unique.  The Inbound Port Rules define what can access the VM on specific ports.  Note that there is a priority priority order.  So, a Deny entry with a low priority number will override a Allow entry with a higher priority number.
+
+## Remote run: setup iteration fails
+This is often an issue with the `get_data` method.
+1) Check that the `get_data` method is valid by running it locally.
+2) Make sure that `get_data` isn't referring to any local files.  `get_data` is executed on the remote DSVM.  So, it doesn't have direct access to local data files.  Instead you can store the data files with DataStore.  See [auto-ml-remote-execution-with-datastore.ipynb](remote-execution-with-datastore/auto-ml-remote-execution-with-datastore.ipynb)
+3) You can get to the error log for the setup iteration by clicking the `Click here to see the run in Azure portal` link, click `Back to Experiment`, click on the highest run number and then click on Logs.
+
+## Remote run: disk full
+AutoML creates files under /tmp/azureml_runs for each iteration that it runs.  It creates a folder with the iteration id.  For example: AutoML_9a038a18-77cc-48f1-80fb-65abdbc33abe_93.  Under this, there is a azureml-logs folder, which contains logs.  If you run too many iterations on the same DSVM, these files can fill the disk.
+You can delete the files under /tmp/azureml_runs or just delete the VM and create a new one.
+If your get_data downloads files, make sure the delete them or they can use disk space as well.
+When using DataStore, it is good to specify an absolute path for the files so that they are downloaded just once.  If you specify a relative path, it will download a file for each iteration.
+
+## Remote run: Iterations fail and the log contains "MemoryError"
 This can be caused by insufficient memory on the DSVM.  AutoML loads all training data into memory.  So, the available memory should be more than the training data size.
 If you are using a remote DSVM, memory is needed for each concurrent iteration.  The max_concurrent_iterations setting specifies the maximum concurrent iterations.  For example, if the training data size is 8Gb and max_concurrent_iterations is set to 10, the minimum memory required is at least 80Gb.
 To resolve this issue, allocate a DSVM with more memory or reduce the value specified for max_concurrent_iterations.
 
-## Iterations show as "Not Responding" in the RunDetails widget.
+## Remote run: Iterations show as "Not Responding" in the RunDetails widget.
 This can be caused by too many concurrent iterations for a remote DSVM.  Each concurrent iteration usually takes 100% of a core when it is running.  Some iterations can use multiple cores.  So, the max_concurrent_iterations setting should always be less than the number of cores of the DSVM.
 To resolve this issue, try reducing the value specified for the max_concurrent_iterations setting.

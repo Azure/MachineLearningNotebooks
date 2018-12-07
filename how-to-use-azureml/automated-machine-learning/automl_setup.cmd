@@ -11,8 +11,8 @@ IF NOT EXIST %automl_env_file% GOTO YmlMissing
 call conda activate %conda_env_name% 2>nul:
 
 if not errorlevel 1 (
-  echo Upgrading azureml-sdk[automl] in existing conda environment %conda_env_name%
-  call pip install --upgrade azureml-sdk[automl,notebooks]
+  echo Upgrading azureml-sdk[automl,notebooks,explain] in existing conda environment %conda_env_name%
+  call pip install --upgrade azureml-sdk[automl,notebooks,explain]
   if errorlevel 1 goto ErrorExit
 ) else (
   call conda env create -f %automl_env_file% -n %conda_env_name%
