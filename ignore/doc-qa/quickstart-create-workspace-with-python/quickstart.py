@@ -7,7 +7,7 @@ print(azureml.core.VERSION)
 # this is NOT a snippet.  If this code changes, go fix it in the article!
 from azureml.core import Workspace
 ws = Workspace.create(name='myworkspace',
-                      subscription_id='<subscription-id',
+                      subscription_id='<subscription-id>',
                       resource_group='myresourcegroup',
                       create_resource_group=True,
                       location='eastus2' # or other supported Azure region
