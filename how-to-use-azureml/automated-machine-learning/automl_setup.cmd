@@ -21,15 +21,7 @@ if not errorlevel 1 (
 call conda activate %conda_env_name% 2>nul:
 if errorlevel 1 goto ErrorExit
 
-call pip install psutil
-
 call python -m ipykernel install --user --name %conda_env_name% --display-name "Python (%conda_env_name%)"
-
-call jupyter nbextension install --py azureml.widgets --user
-if errorlevel 1 goto ErrorExit
-
-call jupyter nbextension enable --py azureml.widgets --user
-if errorlevel 1 goto ErrorExit
 
 echo.
 echo.
@@ -39,7 +31,7 @@ echo ***************************************
 echo.
 echo Starting jupyter notebook - please run the configuration notebook 
 echo.
-jupyter notebook --log-level=50
+jupyter notebook --log-level=50 --notebook-dir='..\..'
 
 goto End
 

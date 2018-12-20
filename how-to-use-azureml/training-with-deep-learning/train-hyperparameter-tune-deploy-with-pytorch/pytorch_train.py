@@ -182,6 +182,8 @@ def download_data():
 
 
 def main():
+    print("Torch version:", torch.__version__)
+
     # get command-line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_epochs', type=int, default=25,

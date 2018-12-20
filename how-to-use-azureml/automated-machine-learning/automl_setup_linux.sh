@@ -27,8 +27,6 @@ else
    conda env create -f $AUTOML_ENV_FILE -n $CONDA_ENV_NAME &&
    source activate $CONDA_ENV_NAME &&
    python -m ipykernel install --user --name $CONDA_ENV_NAME --display-name "Python ($CONDA_ENV_NAME)" &&
-   jupyter nbextension install --py azureml.widgets --user &&
-   jupyter nbextension enable --py azureml.widgets --user &&
    echo "" &&
    echo "" &&
    echo "***************************************" &&
@@ -37,7 +35,7 @@ else
    echo "" &&
    echo "Starting jupyter notebook - please run the configuration notebook" &&
    echo "" &&
-   jupyter notebook --log-level=50
+   jupyter notebook --log-level=50 --notebook-dir '../..'
 fi
 
 if [ $? -gt 0 ]

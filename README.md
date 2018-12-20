@@ -7,9 +7,9 @@ which allows you to build, train, deploy and manage machine learning solutions u
 allows you the choice of using local or cloud compute resources, while managing
 and maintaining the complete data science workflow from the cloud.
 
-You can find instructions on setting up notebooks [here](./NBSETUP.md)
+* Read [instructions on setting up notebooks](./NBSETUP.md) to run these notebooks.
 
-You can find full documentation for Azure Machine Learning [here](https://aka.ms/aml-docs)
+* Find quickstarts, end-to-end tutorials, and how-tos on the [official documentation site for Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/).
 
 ## Getting Started
 

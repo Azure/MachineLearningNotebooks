@@ -1,3 +1,8 @@
+# Copyright (c) 2017, PyTorch contributors
+# Modifications copyright (C) Microsoft Corporation
+# Licensed under the BSD license
+# Adapted from https://github.com/uber/horovod/blob/master/examples/pytorch_mnist.py
+
 from __future__ import print_function
 import argparse
 import torch.nn as nn
@@ -10,6 +15,8 @@ import horovod.torch as hvd
 from azureml.core.run import Run
 # get the Azure ML run object
 run = Run.get_context()
+
+print("Torch version:", torch.__version__)
 
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
