@@ -8,6 +8,8 @@ The Python-based Azure Machine Learning Pipeline SDK provides interfaces to work
 
 Data management and reuse across pipelines and pipeline runs is simplified using named and strictly versioned data sources and named inputs and outputs for processing tasks. Pipelines enable collaboration across teams of data scientists by recording all intermediate tasks and data.
 
+Learn more about how to [create your first machine learning pipeline](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-your-first-pipeline).
+
 ### Why build pipelines?
 
 With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on what you know best — machine learning — rather than infrastructure.
@@ -41,9 +43,9 @@ In this directory, there are two types of notebooks:
 3. [aml-pipelines-publish-and-run-using-rest-endpoint.ipynb](https://aka.ms/pl-pub-rep)
 4. [aml-pipelines-data-transfer.ipynb](https://aka.ms/pl-data-trans)
 5. [aml-pipelines-use-databricks-as-compute-target.ipynb](https://aka.ms/pl-databricks)
-6. [aml-pipelines-use-adla-as-compute-target.ipynb] (https://aka.ms/pl-adla)
+6. [aml-pipelines-use-adla-as-compute-target.ipynb](https://aka.ms/pl-adla)
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
 
 1. [pipeline-batch-scoring.ipynb](https://aka.ms/pl-batch-score)
-2. [pipeline-style-transfer.ipynb] (https://aka.ms/pl-style-trans)
+2. [pipeline-style-transfer.ipynb](https://aka.ms/pl-style-trans)

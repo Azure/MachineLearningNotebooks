@@ -34,7 +34,8 @@ Below are the three execution environments supported by AutoML.
 **NOTE**: Please create your Azure Databricks cluster as v4.x (high concurrency preferred) with **Python 3** (dropdown).
 **NOTE**: You should at least have contributor access to your Azure subcription to run the notebook.
 - Please remove the previous SDK version if there is any and install the latest SDK by installing **azureml-sdk[automl_databricks]** as a PyPi library in Azure Databricks workspace.
-- Download the sample notebook 16a.auto-ml-classification-local-azuredatabricks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) and import into the Azure databricks workspace.
+- You can find the detail Readme instructions at [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks).
+- Download the sample notebook AutoML_Databricks_local_06.ipynb from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks) and import into the Azure databricks workspace.
 - Attach the notebook to the cluster.
 
 <a name="localconda"></a>
@@ -57,7 +58,7 @@ jupyter notebook
 ```
 
 
-### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose Python 3.7 or higher.
+### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose 64-bit Python 3.7 or higher.
 - **Note**: if you already have conda installed, you can keep using it but it should be version 4.4.10 or later (as shown by: conda -V).  If you have a previous version installed, you can update it using the command: conda update conda.
 There's no need to install mini-conda specifically.
 
@@ -123,7 +124,7 @@ bash automl_setup_linux.sh
 
 - [auto-ml-remote-batchai.ipynb](remote-batchai/auto-ml-remote-batchai.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Example of using automated ML for classification using a remote Batch AI compute for training
+    - Example of using automated ML for classification using remote AmlCompute for training
     - Parallel execution of iterations
     - Async tracking of progress
     - Cancelling individual iterations or entire run
@@ -178,114 +179,21 @@ bash automl_setup_linux.sh
     - Dataset: scikit learn's [digit dataset](https://innovate.burningman.org/datasets-page/)
     - Example of using AutoML for classification using Azure Databricks as the platform for training
 
-- [auto-ml-classification_with_tensorflow.ipynb](classification_with_tensorflow/auto-ml-classification_with_tensorflow.ipynb)
+- [auto-ml-classification-with-whitelisting.ipynb](classification-with-whitelisting/auto-ml-classification-with-whitelisting.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Simple example of using Auto ML for classification with whitelisting tensorflow models.checkout
+    - Simple example of using Auto ML for classification with whitelisting tensorflow models.
     - Uses local compute for training
 
-- [auto-ml-forecasting-a.ipynb](forecasting-a/auto-ml-forecasting-a.ipynb)
+- [auto-ml-forecasting-energy-demand.ipynb](forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
     - Dataset: [NYC energy demand data](forecasting-a/nyc_energy.csv)
     - Example of using AutoML for training a forecasting model
 
-- [auto-ml-forecasting-b.ipynb](forecasting-b/auto-ml-forecasting-b.ipynb)
+- [auto-ml-forecasting-orange-juice-sales.ipynb](forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
     - Dataset: [Dominick's grocery sales of orange juice](forecasting-b/dominicks_OJ.csv)
     - Example of training an AutoML forecasting model on multiple time-series
 
 <a name="documentation"></a>
-# Documentation
-## Table of Contents
-1. [Automated ML Settings ](#automlsettings)
-1. [Cross validation split options](#cvsplits)
-1. [Get Data Syntax](#getdata)
-1. [Data pre-processing and featurization](#preprocessing)
-
-<a name="automlsettings"></a>
-## Automated ML Settings
-
-|Property|Description|Default|
-|-|-|-|
-|**primary_metric**|This is the metric that you want to optimize.<br><br> Classification supports the following primary metrics <br><i>accuracy</i><br><i>AUC_weighted</i><br><i>average_precision_score_weighted</i><br><i>norm_macro_recall</i><br><i>precision_score_weighted</i><br><br> Regression supports the following primary metrics <br><i>spearman_correlation</i><br><i>normalized_root_mean_squared_error</i><br><i>r2_score</i><br><i>normalized_mean_absolute_error</i><br><i>normalized_root_mean_squared_log_error</i>| Classification: accuracy <br><br> Regression: spearman_correlation
-|**iteration_timeout_minutes**|Time limit in minutes for each iteration|None|
-|**iterations**|Number of iterations. In each iteration trains the data with a specific pipeline.  To get the best result, use at least 100. |100|
-|**n_cross_validations**|Number of cross validation splits|None|
-|**validation_size**|Size of validation set as percentage of all training samples|None|
-|**max_concurrent_iterations**|Max number of iterations that would be executed in parallel|1|
-|**preprocess**|*True/False* <br>Setting this to *True* enables preprocessing <br>on the input to handle missing data, and perform some common feature extraction<br>*Note: If input data is Sparse you cannot use preprocess=True*|False|
-|**max_cores_per_iteration**| Indicates how many cores on the compute target would be used to train a single pipeline.<br> You can set it to *-1* to use all cores|1|
-|**experiment_exit_score**|*double* value indicating the target for *primary_metric*. <br> Once the target is surpassed the run terminates|None|
-|**blacklist_models**|*Array* of *strings* indicating models to ignore for Auto ML from the list of models.|None|
-|**whitelist_models**|*Array* of *strings* use only models listed for Auto ML from the list of models..|None|
- <a name="cvsplits"></a>
-## List of models for white list/blacklist
-**Classification**
-<br><i>LogisticRegression</i>
-<br><i>SGD</i>
-<br><i>MultinomialNaiveBayes</i>
-<br><i>BernoulliNaiveBayes</i>
-<br><i>SVM</i>
-<br><i>LinearSVM</i>
-<br><i>KNN</i>
-<br><i>DecisionTree</i>
-<br><i>RandomForest</i>
-<br><i>ExtremeRandomTrees</i>
-<br><i>LightGBM</i>
-<br><i>GradientBoosting</i>
-<br><i>TensorFlowDNN</i>
-<br><i>TensorFlowLinearClassifier</i>
-<br><br>**Regression**
-<br><i>ElasticNet</i>
-<br><i>GradientBoosting</i>
-<br><i>DecisionTree</i>
-<br><i>KNN</i>
-<br><i>LassoLars</i>
-<br><i>SGD</i>
-<br><i>RandomForest</i>
-<br><i>ExtremeRandomTrees</i>
-<br><i>LightGBM</i>
-<br><i>TensorFlowLinearRegressor</i>
-<br><i>TensorFlowDNN</i>
-
-## Cross validation split options
-### K-Folds Cross Validation
-Use *n_cross_validations* setting to specify the number of cross validations. The training data set will be randomly split into *n_cross_validations* folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for *n_cross_validations* rounds until each fold is used once as validation set. Finally, the average scores accross all *n_cross_validations* rounds will be reported, and the corresponding model will be retrained on the whole training data set.
-
-### Monte Carlo Cross Validation (a.k.a. Repeated Random Sub-Sampling)
-Use *validation_size* to specify the percentage of the training data set that should be used for validation, and use *n_cross_validations* to specify the number of cross validations. During each cross validation round, a subset of size *validation_size* will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores accross all *n_cross_validations* rounds will be reported, and the corresponding model will be retrained on the whole training data set.
-
-### Custom train and validation set
-You can specify seperate train and validation set either through the get_data() or directly to the fit method.
-
-<a name="getdata"></a>
-## get_data() syntax
-The *get_data()* function can be used to return a dictionary with these values:
-
-|Key|Type|Dependency|Mutually Exclusive with|Description|
-|:-|:-|:-|:-|:-|
-|X|Pandas Dataframe or Numpy Array|y|data_train, label, columns|All features to train with|
-|y|Pandas Dataframe or Numpy Array|X|label|Label data to train with.  For classification, this should be an array of integers. |
-|X_valid|Pandas Dataframe or Numpy Array|X, y, y_valid|data_train, label|*Optional* All features to validate with.  If this is not specified, X is split between train and validate|
-|y_valid|Pandas Dataframe or Numpy Array|X, y, X_valid|data_train, label|*Optional* The label data to validate with.  If this is not specified, y is split between train and validate|
-|sample_weight|Pandas Dataframe or Numpy Array|y|data_train, label, columns|*Optional* A weight value for each label. Higher values indicate that the sample is more important.|
-|sample_weight_valid|Pandas Dataframe or Numpy Array|y_valid|data_train, label, columns|*Optional* A weight value for each validation label. Higher values indicate that the sample is more important.  If this is not specified, sample_weight is split between train and validate|
-|data_train|Pandas Dataframe|label|X, y, X_valid, y_valid|All data (features+label) to train with|
-|label|string|data_train|X, y, X_valid, y_valid|Which column in data_train represents the label|
-|columns|Array of strings|data_train||*Optional* Whitelist of columns to use for features|
-|cv_splits_indices|Array of integers|data_train||*Optional* List of indexes to split the data for cross validation|
-
-<a name="preprocessing"></a>
-## Data pre-processing and featurization
-If you use `preprocess=True`, the following data preprocessing steps are performed automatically for you:
-
-1. Dropping high cardinality or no variance features
-    - Features with no useful information are dropped from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (e.g., hashes, IDs or GUIDs).
-2. Missing value imputation
-    - For numerical features, missing values are imputed with average of values in the column.
-    - For categorical features, missing values are imputed with most frequent value.
-3. Generating additional features
-    - For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
-    - For Text features: Term frequency based on bi-grams and tri-grams, Count vectorizer.
-4. Transformations and encodings
-    - Numeric features with very few unique values are transformed into categorical features.
+See [Configure automated machine learning experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) to learn how more about the the settings and features available for automated machine learning experiments.
 
 <a name="pythoncommand"></a>
 # Running using python command
@@ -302,8 +210,9 @@ The main code of the file must be indented so that it is under this condition.
 # Troubleshooting
 ## automl_setup fails
 1. On windows, make sure that you are running automl_setup from an Anconda Prompt window rather than a regular cmd window.  You can launch the "Anaconda Prompt" window by hitting the Start button and typing "Anaconda Prompt".  If you don't see the application "Anaconda Prompt", you might not have conda or mini conda installed.  In that case, you can install it [here](https://conda.io/miniconda.html)
-2. Check that you have conda 4.4.10 or later.  You can check the version with the command `conda -V`.  If you have a previous version installed, you can update it using the command: `conda update conda`.
-3. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`. 
+2. Check that you have conda 64-bit installed rather than 32-bit.  You can check this with the command `conda info`.  The `platform` should be `win-64` for Windows or `osx-64` for Mac.
+3. Check that you have conda 4.4.10 or later.  You can check the version with the command `conda -V`.  If you have a previous version installed, you can update it using the command: `conda update conda`.
+4. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`. 
 
 ## configuration.ipynb fails
 1) For local conda, make sure that you have susccessfully run automl_setup first.

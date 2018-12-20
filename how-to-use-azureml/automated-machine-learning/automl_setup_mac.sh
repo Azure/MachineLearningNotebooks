@@ -28,8 +28,6 @@ else
    source activate $CONDA_ENV_NAME &&
    conda install lightgbm -c conda-forge -y &&
    python -m ipykernel install --user --name $CONDA_ENV_NAME --display-name "Python ($CONDA_ENV_NAME)" &&
-   jupyter nbextension install --py azureml.widgets --user &&
-   jupyter nbextension enable --py azureml.widgets --user &&
    pip install numpy==1.15.3
    echo "" &&
    echo "" &&
@@ -39,7 +37,7 @@ else
    echo "" &&
    echo "Starting jupyter notebook - please run the configuration notebook" &&
    echo "" &&
-   jupyter notebook --log-level=50
+   jupyter notebook --log-level=50 --notebook-dir '../..'
 fi
 
 if [ $? -gt 0 ]
