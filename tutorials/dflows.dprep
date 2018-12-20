@@ -1,0 +1,3032 @@
+{
+  "schemaVersion": 63,
+  "id": "6af23880-a2ee-4f5a-b466-fa2e5c4da9bc",
+  "activities": [
+    {
+      "id": "6d218b59-f9fa-44d1-a6ea-6c517e78e7aa",
+      "name": "dataflow",
+      "blocks": [
+        {
+          "id": "49fe4a0c-a2ac-4251-9f68-391769e3b93a",
+          "type": "Microsoft.DPrep.GetFilesBlock",
+          "arguments": {
+            "isArchive": false,
+            "path": {
+              "target": 1,
+              "resourceDetails": [
+                {
+                  "path": "https://dprepdata.blob.core.windows.net/demo/green-small/*",
+                  "sas": null,
+                  "storageAccountName": null,
+                  "storageAccountKey": null
+                }
+              ]
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "11e29fa4-5020-454a-99ef-946130ff11d8",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "columnHeadersMode": 2,
+            "fileEncoding": 0,
+            "handleQuotedLineBreaks": false,
+            "preview": false,
+            "separator": ",",
+            "skipRows": 0,
+            "skipRowsMode": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "8f05426b-938f-4c99-bad4-58d26923f4ba",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Path"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "a93911be-db18-4517-9e17-0e8ca76dbb97",
+          "type": "Microsoft.DPrep.ReplaceNaBlock",
+          "arguments": {
+            "columns": {
+              "type": 1,
+              "details": {
+                "ignoreCase": false,
+                "term": ".*",
+                "useRegex": true,
+                "matchWholeWord": false,
+                "invert": false
+              }
+            },
+            "useDefaultNaList": true,
+            "useEmptyStringAsNa": true,
+            "useNanAsNa": true
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "3964eb98-15ea-49aa-b1a4-d749f4855ce6",
+          "type": "Microsoft.DPrep.DropNullsBlock",
+          "arguments": {
+            "columnRelationship": 0,
+            "columns": {
+              "type": 1,
+              "details": {
+                "ignoreCase": false,
+                "term": ".*",
+                "useRegex": true,
+                "matchWholeWord": false,
+                "invert": false
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "ee9f3a23-6bc5-4822-8a8b-da412e7ab691",
+          "type": "Microsoft.DPrep.RenameColumnsBlock",
+          "arguments": {
+            "columnPairs": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "VendorID"
+                  }
+                },
+                "newColumnId": "vendor"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "lpep_pickup_datetime"
+                  }
+                },
+                "newColumnId": "pickup_datetime"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Lpep_dropoff_datetime"
+                  }
+                },
+                "newColumnId": "dropoff_datetime"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "lpep_dropoff_datetime"
+                  }
+                },
+                "newColumnId": "dropoff_datetime"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Store_and_fwd_flag"
+                  }
+                },
+                "newColumnId": "store_forward"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "store_and_fwd_flag"
+                  }
+                },
+                "newColumnId": "store_forward"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Pickup_longitude"
+                  }
+                },
+                "newColumnId": "pickup_longitude"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Pickup_latitude"
+                  }
+                },
+                "newColumnId": "pickup_latitude"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Dropoff_longitude"
+                  }
+                },
+                "newColumnId": "dropoff_longitude"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Dropoff_latitude"
+                  }
+                },
+                "newColumnId": "dropoff_latitude"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Passenger_count"
+                  }
+                },
+                "newColumnId": "passengers"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Fare_amount"
+                  }
+                },
+                "newColumnId": "cost"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Trip_distance"
+                  }
+                },
+                "newColumnId": "distance"
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "10118a40-ab49-476d-8d66-d34631c8671a",
+          "type": "Microsoft.DPrep.KeepColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "cost",
+                  "distance",
+                  "dropoff_datetime",
+                  "dropoff_latitude",
+                  "dropoff_longitude",
+                  "passengers",
+                  "pickup_datetime",
+                  "pickup_latitude",
+                  "pickup_longitude",
+                  "store_forward",
+                  "vendor"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c7ffca78-04ec-45b6-a0bc-d1ec17cc7113",
+          "type": "Microsoft.DPrep.AppendRowsBlock",
+          "arguments": {
+            "dataflows": [
+              {
+                "referenceType": 2,
+                "referenceContainerPath": null,
+                "referencedActivityId": null,
+                "referencedBranchId": null,
+                "referencedStep": null,
+                "anonymousSteps": [
+                  {
+                    "id": "2be4b61e-5d90-4fbb-a71c-72c243d2660b",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 0,
+                      "supportedTargets": [
+                        4
+                      ],
+                      "supportedFieldTypes": null,
+                      "supportedMessages": [],
+                      "allowDefaultAdd": true,
+                      "documentation": "Expands the path specified by reading globs and files in folders and outputs one record per file found.",
+                      "type": "Microsoft.DPrep.GetFilesBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "path",
+                          "type": 11,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 7,
+                            "details": {
+                              "allowMultiple": true,
+                              "allowedSources": [
+                                0,
+                                1,
+                                2
+                              ],
+                              "allowedSourceType": 2
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 1,
+                          "condition": null,
+                          "documentation": "The path or paths to expand."
+                        },
+                        {
+                          "name": "isArchive",
+                          "type": 4,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": false,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": "Whether the path or paths point to archive files."
+                        },
+                        {
+                          "name": "archiveOptions",
+                          "type": 7,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 0,
+                            "details": [
+                              {
+                                "name": "archiveType",
+                                "type": 6,
+                                "multipleValues": false,
+                                "domain": {
+                                  "type": 1,
+                                  "details": {
+                                    "enumName": "ArchiveType",
+                                    "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                                    "enumValues": [
+                                      0
+                                    ]
+                                  }
+                                },
+                                "multiValueDetails": null,
+                                "isRequired": true,
+                                "origin": 1,
+                                "defaultValue": null,
+                                "initializeFromProperty": null,
+                                "telemetryStrategy": 0,
+                                "condition": null,
+                                "documentation": "The type of archive file"
+                              },
+                              {
+                                "name": "entryGlob",
+                                "type": 1,
+                                "multipleValues": false,
+                                "domain": null,
+                                "multiValueDetails": null,
+                                "isRequired": false,
+                                "origin": 0,
+                                "defaultValue": null,
+                                "initializeFromProperty": null,
+                                "telemetryStrategy": 0,
+                                "condition": null,
+                                "documentation": "The glob pattern for entries in archive file"
+                              }
+                            ]
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": {
+                            "condition": {
+                              "property": {
+                                "propertyPath": [
+                                  "isArchive"
+                                ]
+                              },
+                              "comparison": 0,
+                              "value": true
+                            },
+                            "aggregate": null
+                          },
+                          "documentation": "Options for archive file"
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "dataEffect": 1
+                      }
+                    },
+                    "type": "Microsoft.DPrep.GetFilesBlock",
+                    "dataEffectDetails": {
+                      "dataEffect": 1
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "path",
+                        "type": 11,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 7,
+                          "details": {
+                            "allowMultiple": true,
+                            "allowedSources": [
+                              0,
+                              1,
+                              2
+                            ],
+                            "allowedSourceType": 2
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 1,
+                        "condition": null,
+                        "documentation": "The path or paths to expand."
+                      },
+                      {
+                        "name": "isArchive",
+                        "type": 4,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": false,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": "Whether the path or paths point to archive files."
+                      },
+                      {
+                        "name": "archiveOptions",
+                        "type": 7,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 0,
+                          "details": [
+                            {
+                              "name": "archiveType",
+                              "type": 6,
+                              "multipleValues": false,
+                              "domain": {
+                                "type": 1,
+                                "details": {
+                                  "enumName": "ArchiveType",
+                                  "enumType": "Microsoft.DPrep.Engine.ArchiveType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                                  "enumValues": [
+                                    0
+                                  ]
+                                }
+                              },
+                              "multiValueDetails": null,
+                              "isRequired": true,
+                              "origin": 1,
+                              "defaultValue": null,
+                              "initializeFromProperty": null,
+                              "telemetryStrategy": 0,
+                              "condition": null,
+                              "documentation": "The type of archive file"
+                            },
+                            {
+                              "name": "entryGlob",
+                              "type": 1,
+                              "multipleValues": false,
+                              "domain": null,
+                              "multiValueDetails": null,
+                              "isRequired": false,
+                              "origin": 0,
+                              "defaultValue": null,
+                              "initializeFromProperty": null,
+                              "telemetryStrategy": 0,
+                              "condition": null,
+                              "documentation": "The glob pattern for entries in archive file"
+                            }
+                          ]
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": {
+                          "condition": {
+                            "property": {
+                              "propertyPath": [
+                                "isArchive"
+                              ]
+                            },
+                            "comparison": 0,
+                            "value": true
+                          },
+                          "aggregate": null
+                        },
+                        "documentation": "Options for archive file"
+                      }
+                    ],
+                    "arguments": {
+                      "isArchive": false,
+                      "path": {
+                        "target": 1,
+                        "resourceDetails": [
+                          {
+                            "path": "https://dprepdata.blob.core.windows.net/demo/yellow-small/*",
+                            "sas": null,
+                            "storageAccountName": null,
+                            "storageAccountKey": null
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "id": "e6b4a5b2-d80d-4b0f-acfa-42890ff78f9d",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 0,
+                      "supportedTargets": [
+                        5
+                      ],
+                      "supportedFieldTypes": null,
+                      "supportedMessages": [],
+                      "allowDefaultAdd": true,
+                      "documentation": null,
+                      "type": "Microsoft.DPrep.ParseDelimitedBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "maxRows",
+                          "type": 2,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 2,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        },
+                        {
+                          "name": "preview",
+                          "type": 4,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 2,
+                          "defaultValue": false,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        },
+                        {
+                          "name": "columnHeadersMode",
+                          "type": 6,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 1,
+                            "details": {
+                              "enumName": "PromoteHeadersMode",
+                              "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                              "enumValues": [
+                                0,
+                                1,
+                                2,
+                                3
+                              ]
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": 1,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        },
+                        {
+                          "name": "separator",
+                          "type": 0,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 6,
+                            "details": {
+                              "values": [
+                                {
+                                  "value": ",",
+                                  "id": 0
+                                },
+                                {
+                                  "value": "\t",
+                                  "id": 1
+                                },
+                                {
+                                  "value": ":",
+                                  "id": 2
+                                },
+                                {
+                                  "value": ";",
+                                  "id": 3
+                                },
+                                {
+                                  "value": " ",
+                                  "id": 5
+                                },
+                                {
+                                  "value": "=",
+                                  "id": 4
+                                },
+                                {
+                                  "value": "—",
+                                  "id": 7
+                                }
+                              ],
+                              "allowCustom": true,
+                              "customEnumValue": 6
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": ",",
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        },
+                        {
+                          "name": "commentLineCharacter",
+                          "type": 0,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        },
+                        {
+                          "name": "fileEncoding",
+                          "type": 6,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 1,
+                            "details": {
+                              "enumName": "FileEncoding",
+                              "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                              "enumValues": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7
+                              ]
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": 0,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        },
+                        {
+                          "name": "skipRowsMode",
+                          "type": 6,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 1,
+                            "details": {
+                              "enumName": "SkipMode",
+                              "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                              "enumValues": [
+                                0,
+                                1,
+                                2
+                              ]
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": 0,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        },
+                        {
+                          "name": "skipRows",
+                          "type": 2,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 4,
+                            "details": {
+                              "min": 0.0,
+                              "max": 1.7976931348623157E+308
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": {
+                            "condition": {
+                              "property": {
+                                "propertyPath": [
+                                  "skipRowsMode"
+                                ]
+                              },
+                              "comparison": 1,
+                              "value": 0
+                            },
+                            "aggregate": null
+                          },
+                          "documentation": null
+                        },
+                        {
+                          "name": "handleQuotedLineBreaks",
+                          "type": 4,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": false,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "dataEffect": 1
+                      }
+                    },
+                    "type": "Microsoft.DPrep.ParseDelimitedBlock",
+                    "dataEffectDetails": {
+                      "dataEffect": 1
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "maxRows",
+                        "type": 2,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 2,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      },
+                      {
+                        "name": "preview",
+                        "type": 4,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 2,
+                        "defaultValue": false,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      },
+                      {
+                        "name": "columnHeadersMode",
+                        "type": 6,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 1,
+                          "details": {
+                            "enumName": "PromoteHeadersMode",
+                            "enumType": "Microsoft.DPrep.Engine.PromoteHeadersMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                            "enumValues": [
+                              0,
+                              1,
+                              2,
+                              3
+                            ]
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": 1,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      },
+                      {
+                        "name": "separator",
+                        "type": 0,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 6,
+                          "details": {
+                            "values": [
+                              {
+                                "value": ",",
+                                "id": 0
+                              },
+                              {
+                                "value": "\t",
+                                "id": 1
+                              },
+                              {
+                                "value": ":",
+                                "id": 2
+                              },
+                              {
+                                "value": ";",
+                                "id": 3
+                              },
+                              {
+                                "value": " ",
+                                "id": 5
+                              },
+                              {
+                                "value": "=",
+                                "id": 4
+                              },
+                              {
+                                "value": "—",
+                                "id": 7
+                              }
+                            ],
+                            "allowCustom": true,
+                            "customEnumValue": 6
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": ",",
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      },
+                      {
+                        "name": "commentLineCharacter",
+                        "type": 0,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      },
+                      {
+                        "name": "fileEncoding",
+                        "type": 6,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 1,
+                          "details": {
+                            "enumName": "FileEncoding",
+                            "enumType": "Microsoft.DPrep.Engine.FileEncoding, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                            "enumValues": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              6,
+                              7
+                            ]
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": 0,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      },
+                      {
+                        "name": "skipRowsMode",
+                        "type": 6,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 1,
+                          "details": {
+                            "enumName": "SkipMode",
+                            "enumType": "Microsoft.DPrep.Engine.SkipMode, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                            "enumValues": [
+                              0,
+                              1,
+                              2
+                            ]
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": 0,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      },
+                      {
+                        "name": "skipRows",
+                        "type": 2,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 4,
+                          "details": {
+                            "min": 0.0,
+                            "max": 1.7976931348623157E+308
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": {
+                          "condition": {
+                            "property": {
+                              "propertyPath": [
+                                "skipRowsMode"
+                              ]
+                            },
+                            "comparison": 1,
+                            "value": 0
+                          },
+                          "aggregate": null
+                        },
+                        "documentation": null
+                      },
+                      {
+                        "name": "handleQuotedLineBreaks",
+                        "type": 4,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": false,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      }
+                    ],
+                    "arguments": {
+                      "columnHeadersMode": 3,
+                      "fileEncoding": 0,
+                      "handleQuotedLineBreaks": false,
+                      "preview": false,
+                      "separator": ",",
+                      "skipRows": 0,
+                      "skipRowsMode": 0
+                    }
+                  },
+                  {
+                    "id": "e2b1ec33-0362-496f-af1a-e5c3daad511d",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 6,
+                      "supportedTargets": [
+                        2,
+                        3
+                      ],
+                      "supportedFieldTypes": null,
+                      "supportedMessages": [],
+                      "allowDefaultAdd": true,
+                      "documentation": "Drops the specified columns.",
+                      "type": "Microsoft.DPrep.DropColumnsBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "columns",
+                          "type": 5,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 12,
+                            "details": {
+                              "selectorDomainType": 1,
+                              "fieldTypes": []
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 0,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 1,
+                          "condition": null,
+                          "documentation": "The source columns."
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "columnsRemovedProperties": [
+                          {
+                            "propertyPath": [
+                              "columns"
+                            ]
+                          }
+                        ],
+                        "dataEffect": 4
+                      }
+                    },
+                    "type": "Microsoft.DPrep.DropColumnsBlock",
+                    "dataEffectDetails": {
+                      "columnsRemovedProperties": [
+                        {
+                          "propertyPath": [
+                            "columns"
+                          ]
+                        }
+                      ],
+                      "dataEffect": 4
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "columns",
+                        "type": 5,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 12,
+                          "details": {
+                            "selectorDomainType": 1,
+                            "fieldTypes": []
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 0,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 1,
+                        "condition": null,
+                        "documentation": "The source columns."
+                      }
+                    ],
+                    "arguments": {
+                      "columns": {
+                        "type": 0,
+                        "details": {
+                          "selectedColumns": [
+                            "Path"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "9e460167-3692-4b15-a6bc-dede61bf2ea2",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 7,
+                      "supportedTargets": [
+                        5
+                      ],
+                      "supportedFieldTypes": null,
+                      "supportedMessages": [],
+                      "allowDefaultAdd": true,
+                      "documentation": null,
+                      "type": "Microsoft.DPrep.SetColumnTypesBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "columnConversion",
+                          "type": 7,
+                          "multipleValues": true,
+                          "domain": {
+                            "type": 0,
+                            "details": [
+                              {
+                                "name": "column",
+                                "type": 5,
+                                "multipleValues": false,
+                                "domain": {
+                                  "type": 12,
+                                  "details": {
+                                    "selectorDomainType": 0,
+                                    "fieldTypes": []
+                                  }
+                                },
+                                "multiValueDetails": null,
+                                "isRequired": true,
+                                "origin": 0,
+                                "defaultValue": null,
+                                "initializeFromProperty": null,
+                                "telemetryStrategy": 1,
+                                "condition": null,
+                                "documentation": "The source column."
+                              },
+                              {
+                                "name": "typeProperty",
+                                "type": 6,
+                                "multipleValues": false,
+                                "domain": {
+                                  "type": 1,
+                                  "details": {
+                                    "enumName": "FieldType",
+                                    "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                                    "enumValues": [
+                                      0,
+                                      1,
+                                      3,
+                                      4,
+                                      10
+                                    ]
+                                  }
+                                },
+                                "multiValueDetails": null,
+                                "isRequired": true,
+                                "origin": 0,
+                                "defaultValue": 0,
+                                "initializeFromProperty": null,
+                                "telemetryStrategy": 0,
+                                "condition": null,
+                                "documentation": null
+                              },
+                              {
+                                "name": "typeArguments",
+                                "type": 7,
+                                "multipleValues": false,
+                                "domain": {
+                                  "type": 0,
+                                  "details": [
+                                    {
+                                      "name": "dateTimeFormats",
+                                      "type": 1,
+                                      "multipleValues": true,
+                                      "domain": null,
+                                      "multiValueDetails": {
+                                        "isOrdered": false
+                                      },
+                                      "isRequired": false,
+                                      "origin": 1,
+                                      "defaultValue": null,
+                                      "initializeFromProperty": null,
+                                      "telemetryStrategy": 0,
+                                      "condition": null,
+                                      "documentation": null
+                                    }
+                                  ]
+                                },
+                                "multiValueDetails": null,
+                                "isRequired": false,
+                                "origin": 0,
+                                "defaultValue": null,
+                                "initializeFromProperty": null,
+                                "telemetryStrategy": 0,
+                                "condition": null,
+                                "documentation": null
+                              }
+                            ]
+                          },
+                          "multiValueDetails": {
+                            "isOrdered": false
+                          },
+                          "isRequired": false,
+                          "origin": 0,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": null
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "dataEffect": 1
+                      }
+                    },
+                    "type": "Microsoft.DPrep.SetColumnTypesBlock",
+                    "dataEffectDetails": {
+                      "dataEffect": 1
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "columnConversion",
+                        "type": 7,
+                        "multipleValues": true,
+                        "domain": {
+                          "type": 0,
+                          "details": [
+                            {
+                              "name": "column",
+                              "type": 5,
+                              "multipleValues": false,
+                              "domain": {
+                                "type": 12,
+                                "details": {
+                                  "selectorDomainType": 0,
+                                  "fieldTypes": []
+                                }
+                              },
+                              "multiValueDetails": null,
+                              "isRequired": true,
+                              "origin": 0,
+                              "defaultValue": null,
+                              "initializeFromProperty": null,
+                              "telemetryStrategy": 1,
+                              "condition": null,
+                              "documentation": "The source column."
+                            },
+                            {
+                              "name": "typeProperty",
+                              "type": 6,
+                              "multipleValues": false,
+                              "domain": {
+                                "type": 1,
+                                "details": {
+                                  "enumName": "FieldType",
+                                  "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                                  "enumValues": [
+                                    0,
+                                    1,
+                                    3,
+                                    4,
+                                    10
+                                  ]
+                                }
+                              },
+                              "multiValueDetails": null,
+                              "isRequired": true,
+                              "origin": 0,
+                              "defaultValue": 0,
+                              "initializeFromProperty": null,
+                              "telemetryStrategy": 0,
+                              "condition": null,
+                              "documentation": null
+                            },
+                            {
+                              "name": "typeArguments",
+                              "type": 7,
+                              "multipleValues": false,
+                              "domain": {
+                                "type": 0,
+                                "details": [
+                                  {
+                                    "name": "dateTimeFormats",
+                                    "type": 1,
+                                    "multipleValues": true,
+                                    "domain": null,
+                                    "multiValueDetails": {
+                                      "isOrdered": false
+                                    },
+                                    "isRequired": false,
+                                    "origin": 1,
+                                    "defaultValue": null,
+                                    "initializeFromProperty": null,
+                                    "telemetryStrategy": 0,
+                                    "condition": null,
+                                    "documentation": null
+                                  }
+                                ]
+                              },
+                              "multiValueDetails": null,
+                              "isRequired": false,
+                              "origin": 0,
+                              "defaultValue": null,
+                              "initializeFromProperty": null,
+                              "telemetryStrategy": 0,
+                              "condition": null,
+                              "documentation": null
+                            }
+                          ]
+                        },
+                        "multiValueDetails": {
+                          "isOrdered": false
+                        },
+                        "isRequired": false,
+                        "origin": 0,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": null
+                      }
+                    ],
+                    "arguments": {
+                      "columnConversion": [
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Trip_Pickup_DateTime"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Trip_Distance"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Rate_Code"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "End_Lat"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "surcharge"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Tip_Amt"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Total_Amt"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Trip_Dropoff_DateTime"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Start_Lon"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "store_and_forward"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Payment_Type"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Passenger_Count"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Start_Lat"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "End_Lon"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Fare_Amt"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "mta_tax"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Tolls_Amt"
+                            }
+                          },
+                          "typeProperty": 0
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "vendor_name"
+                            }
+                          },
+                          "typeProperty": 0
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "4d34ed25-e396-48b0-abc1-ea998518564d",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 3,
+                      "supportedTargets": [
+                        2,
+                        3
+                      ],
+                      "supportedFieldTypes": [
+                        1,
+                        4,
+                        3,
+                        2,
+                        0,
+                        5
+                      ],
+                      "supportedMessages": [],
+                      "allowDefaultAdd": true,
+                      "documentation": "Replaces values in the specified columns with nulls. You can choose to use the default list, supply your own, or both.",
+                      "type": "Microsoft.DPrep.ReplaceNaBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "useDefaultNaList",
+                          "type": 4,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": true,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": "Use the default list and replace 'null', 'NaN', 'NA', and 'N/A' with null."
+                        },
+                        {
+                          "name": "useEmptyStringAsNa",
+                          "type": 4,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": true,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": "Replace empty strings with null."
+                        },
+                        {
+                          "name": "useNanAsNa",
+                          "type": 4,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": true,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": "Replace NaNs with Null."
+                        },
+                        {
+                          "name": "customNaList",
+                          "type": 1,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": "Provide a comma separated list of values to replace with null."
+                        },
+                        {
+                          "name": "columns",
+                          "type": 5,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 12,
+                            "details": {
+                              "selectorDomainType": 1,
+                              "fieldTypes": []
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 0,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 1,
+                          "condition": null,
+                          "documentation": "The source columns."
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "columnsTransformedProperties": [
+                          {
+                            "propertyPath": [
+                              "columns"
+                            ]
+                          }
+                        ],
+                        "dataEffect": 5
+                      }
+                    },
+                    "type": "Microsoft.DPrep.ReplaceNaBlock",
+                    "dataEffectDetails": {
+                      "columnsTransformedProperties": [
+                        {
+                          "propertyPath": [
+                            "columns"
+                          ]
+                        }
+                      ],
+                      "dataEffect": 5
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "useDefaultNaList",
+                        "type": 4,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": true,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": "Use the default list and replace 'null', 'NaN', 'NA', and 'N/A' with null."
+                      },
+                      {
+                        "name": "useEmptyStringAsNa",
+                        "type": 4,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": true,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": "Replace empty strings with null."
+                      },
+                      {
+                        "name": "useNanAsNa",
+                        "type": 4,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": true,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": "Replace NaNs with Null."
+                      },
+                      {
+                        "name": "customNaList",
+                        "type": 1,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": "Provide a comma separated list of values to replace with null."
+                      },
+                      {
+                        "name": "columns",
+                        "type": 5,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 12,
+                          "details": {
+                            "selectorDomainType": 1,
+                            "fieldTypes": []
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 0,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 1,
+                        "condition": null,
+                        "documentation": "The source columns."
+                      }
+                    ],
+                    "arguments": {
+                      "columns": {
+                        "type": 1,
+                        "details": {
+                          "ignoreCase": false,
+                          "term": ".*",
+                          "useRegex": true,
+                          "matchWholeWord": false,
+                          "invert": false
+                        }
+                      },
+                      "useDefaultNaList": true,
+                      "useEmptyStringAsNa": true,
+                      "useNanAsNa": true
+                    }
+                  },
+                  {
+                    "id": "a06211f4-2967-4f9e-aeb4-f57008de312d",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 5,
+                      "supportedTargets": [
+                        2,
+                        3
+                      ],
+                      "supportedFieldTypes": null,
+                      "supportedMessages": [],
+                      "allowDefaultAdd": false,
+                      "documentation": "Drops rows where all or any of the selected columns are null.",
+                      "type": "Microsoft.DPrep.DropNullsBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "columns",
+                          "type": 5,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 12,
+                            "details": {
+                              "selectorDomainType": 1,
+                              "fieldTypes": []
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 0,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 1,
+                          "condition": null,
+                          "documentation": "The source columns."
+                        },
+                        {
+                          "name": "columnRelationship",
+                          "type": 6,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 1,
+                            "details": {
+                              "enumName": "ColumnRelationship",
+                              "enumType": "Microsoft.DPrep.Engine.ColumnRelationship, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                              "enumValues": [
+                                0,
+                                1
+                              ]
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": 0,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": "Whether all or any of the selected columns must be null."
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "dataEffect": 6
+                      }
+                    },
+                    "type": "Microsoft.DPrep.DropNullsBlock",
+                    "dataEffectDetails": {
+                      "dataEffect": 6
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "columns",
+                        "type": 5,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 12,
+                          "details": {
+                            "selectorDomainType": 1,
+                            "fieldTypes": []
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 0,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 1,
+                        "condition": null,
+                        "documentation": "The source columns."
+                      },
+                      {
+                        "name": "columnRelationship",
+                        "type": 6,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 1,
+                          "details": {
+                            "enumName": "ColumnRelationship",
+                            "enumType": "Microsoft.DPrep.Engine.ColumnRelationship, Microsoft.DPrep.EngineAPI, Version=0.1.1811.29023, Culture=neutral, PublicKeyToken=null",
+                            "enumValues": [
+                              0,
+                              1
+                            ]
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": 0,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": "Whether all or any of the selected columns must be null."
+                      }
+                    ],
+                    "arguments": {
+                      "columnRelationship": 0,
+                      "columns": {
+                        "type": 1,
+                        "details": {
+                          "ignoreCase": false,
+                          "term": ".*",
+                          "useRegex": true,
+                          "matchWholeWord": false,
+                          "invert": false
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "1e7bc495-fab4-4462-9518-4145c87f0640",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 6,
+                      "supportedTargets": [
+                        2,
+                        3
+                      ],
+                      "supportedFieldTypes": null,
+                      "supportedMessages": [],
+                      "allowDefaultAdd": true,
+                      "documentation": "Renames the specified columns.",
+                      "type": "Microsoft.DPrep.RenameColumnsBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "columnPairs",
+                          "type": 7,
+                          "multipleValues": true,
+                          "domain": {
+                            "type": 0,
+                            "details": [
+                              {
+                                "name": "column",
+                                "type": 5,
+                                "multipleValues": false,
+                                "domain": {
+                                  "type": 12,
+                                  "details": {
+                                    "selectorDomainType": 0,
+                                    "fieldTypes": []
+                                  }
+                                },
+                                "multiValueDetails": null,
+                                "isRequired": true,
+                                "origin": 0,
+                                "defaultValue": null,
+                                "initializeFromProperty": null,
+                                "telemetryStrategy": 1,
+                                "condition": null,
+                                "documentation": "The source column."
+                              },
+                              {
+                                "name": "newColumnId",
+                                "type": 1,
+                                "multipleValues": false,
+                                "domain": {
+                                  "type": 3,
+                                  "details": null
+                                },
+                                "multiValueDetails": null,
+                                "isRequired": true,
+                                "origin": 1,
+                                "defaultValue": null,
+                                "initializeFromProperty": null,
+                                "telemetryStrategy": 0,
+                                "condition": null,
+                                "documentation": null
+                              }
+                            ]
+                          },
+                          "multiValueDetails": {
+                            "isOrdered": false
+                          },
+                          "isRequired": true,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 0,
+                          "condition": null,
+                          "documentation": "The columns to rename and the desired new names."
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "columnsChangedProperties": [
+                          {
+                            "propertyPath": [
+                              "columnPairs",
+                              "column"
+                            ]
+                          },
+                          {
+                            "propertyPath": [
+                              "columnPairs",
+                              "newColumnId"
+                            ]
+                          }
+                        ],
+                        "dataEffect": 2
+                      }
+                    },
+                    "type": "Microsoft.DPrep.RenameColumnsBlock",
+                    "dataEffectDetails": {
+                      "columnsChangedProperties": [
+                        {
+                          "propertyPath": [
+                            "columnPairs",
+                            "column"
+                          ]
+                        },
+                        {
+                          "propertyPath": [
+                            "columnPairs",
+                            "newColumnId"
+                          ]
+                        }
+                      ],
+                      "dataEffect": 2
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "columnPairs",
+                        "type": 7,
+                        "multipleValues": true,
+                        "domain": {
+                          "type": 0,
+                          "details": [
+                            {
+                              "name": "column",
+                              "type": 5,
+                              "multipleValues": false,
+                              "domain": {
+                                "type": 12,
+                                "details": {
+                                  "selectorDomainType": 0,
+                                  "fieldTypes": []
+                                }
+                              },
+                              "multiValueDetails": null,
+                              "isRequired": true,
+                              "origin": 0,
+                              "defaultValue": null,
+                              "initializeFromProperty": null,
+                              "telemetryStrategy": 1,
+                              "condition": null,
+                              "documentation": "The source column."
+                            },
+                            {
+                              "name": "newColumnId",
+                              "type": 1,
+                              "multipleValues": false,
+                              "domain": {
+                                "type": 3,
+                                "details": null
+                              },
+                              "multiValueDetails": null,
+                              "isRequired": true,
+                              "origin": 1,
+                              "defaultValue": null,
+                              "initializeFromProperty": null,
+                              "telemetryStrategy": 0,
+                              "condition": null,
+                              "documentation": null
+                            }
+                          ]
+                        },
+                        "multiValueDetails": {
+                          "isOrdered": false
+                        },
+                        "isRequired": true,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 0,
+                        "condition": null,
+                        "documentation": "The columns to rename and the desired new names."
+                      }
+                    ],
+                    "arguments": {
+                      "columnPairs": [
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "vendor_name"
+                            }
+                          },
+                          "newColumnId": "vendor"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "VendorID"
+                            }
+                          },
+                          "newColumnId": "vendor"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "vendor_id"
+                            }
+                          },
+                          "newColumnId": "vendor"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Trip_Pickup_DateTime"
+                            }
+                          },
+                          "newColumnId": "pickup_datetime"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "tpep_pickup_datetime"
+                            }
+                          },
+                          "newColumnId": "pickup_datetime"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Trip_Dropoff_DateTime"
+                            }
+                          },
+                          "newColumnId": "dropoff_datetime"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "tpep_dropoff_datetime"
+                            }
+                          },
+                          "newColumnId": "dropoff_datetime"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "store_and_forward"
+                            }
+                          },
+                          "newColumnId": "store_forward"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "store_and_fwd_flag"
+                            }
+                          },
+                          "newColumnId": "store_forward"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Start_Lon"
+                            }
+                          },
+                          "newColumnId": "pickup_longitude"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Start_Lat"
+                            }
+                          },
+                          "newColumnId": "pickup_latitude"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "End_Lon"
+                            }
+                          },
+                          "newColumnId": "dropoff_longitude"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "End_Lat"
+                            }
+                          },
+                          "newColumnId": "dropoff_latitude"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Passenger_Count"
+                            }
+                          },
+                          "newColumnId": "passengers"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "passenger_count"
+                            }
+                          },
+                          "newColumnId": "passengers"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Fare_Amt"
+                            }
+                          },
+                          "newColumnId": "cost"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "fare_amount"
+                            }
+                          },
+                          "newColumnId": "cost"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "Trip_Distance"
+                            }
+                          },
+                          "newColumnId": "distance"
+                        },
+                        {
+                          "column": {
+                            "type": 2,
+                            "details": {
+                              "selectedColumn": "trip_distance"
+                            }
+                          },
+                          "newColumnId": "distance"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "82b89518-036c-4e83-84b8-4d25e0d5467b",
+                    "description": {
+                      "localDataProperties": [],
+                      "blockGroup": 6,
+                      "supportedTargets": [
+                        2,
+                        3
+                      ],
+                      "supportedFieldTypes": null,
+                      "supportedMessages": [],
+                      "allowDefaultAdd": true,
+                      "documentation": "Keeps the specified columns and drops all others.",
+                      "type": "Microsoft.DPrep.KeepColumnsBlock",
+                      "propertyDescriptions": [
+                        {
+                          "name": "columns",
+                          "type": 5,
+                          "multipleValues": false,
+                          "domain": {
+                            "type": 12,
+                            "details": {
+                              "selectorDomainType": 1,
+                              "fieldTypes": []
+                            }
+                          },
+                          "multiValueDetails": null,
+                          "isRequired": true,
+                          "origin": 0,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 1,
+                          "condition": null,
+                          "documentation": "The source columns."
+                        }
+                      ],
+                      "dataEffectDetails": {
+                        "dataEffect": 1
+                      }
+                    },
+                    "type": "Microsoft.DPrep.KeepColumnsBlock",
+                    "dataEffectDetails": {
+                      "dataEffect": 1
+                    },
+                    "propertyDescriptions": [
+                      {
+                        "name": "columns",
+                        "type": 5,
+                        "multipleValues": false,
+                        "domain": {
+                          "type": 12,
+                          "details": {
+                            "selectorDomainType": 1,
+                            "fieldTypes": []
+                          }
+                        },
+                        "multiValueDetails": null,
+                        "isRequired": true,
+                        "origin": 0,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 1,
+                        "condition": null,
+                        "documentation": "The source columns."
+                      }
+                    ],
+                    "arguments": {
+                      "columns": {
+                        "type": 0,
+                        "details": {
+                          "selectedColumns": [
+                            "cost",
+                            "distance",
+                            "dropoff_datetime",
+                            "dropoff_latitude",
+                            "dropoff_longitude",
+                            "passengers",
+                            "pickup_datetime",
+                            "pickup_latitude",
+                            "pickup_longitude",
+                            "store_forward",
+                            "vendor"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9aa2386e-a0b5-4902-898f-f68fce4df3e3",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_longitude"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_latitude"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_longitude"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_latitude"
+                  }
+                },
+                "typeProperty": 3
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "40be5ddb-6b3b-4635-ba81-b9684a60d3dd",
+          "type": "Microsoft.DPrep.DropNullsBlock",
+          "arguments": {
+            "columnRelationship": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "pickup_longitude",
+                  "pickup_latitude",
+                  "dropoff_longitude",
+                  "dropoff_latitude"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "6e953e1a-c92f-4efc-a923-77425754a392",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["And",[{"r":["And",[{"r":["And",[{"r":["And",[{"r":["And",[{"r":["And",[{"r":["And",[{"r":["Invoke",[{"r":["Identifier","Value_LE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"pickup_longitude"]]},-73.72]]]},{"r":["Invoke",[{"r":["Identifier","Value_GE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"pickup_longitude"]]},-74.09]]]}]]},{"r":["Invoke",[{"r":["Identifier","Value_LE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"pickup_latitude"]]},40.88]]]}]]},{"r":["Invoke",[{"r":["Identifier","Value_GE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"pickup_latitude"]]},40.53]]]}]]},{"r":["Invoke",[{"r":["Identifier","Value_LE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"dropoff_longitude"]]},-73.72]]]}]]},{"r":["Invoke",[{"r":["Identifier","Value_GE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"dropoff_longitude"]]},-74.09]]]}]]},{"r":["Invoke",[{"r":["Identifier","Value_LE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"dropoff_latitude"]]},40.88]]]}]]},{"r":["Invoke",[{"r":["Identifier","Value_GE"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"dropoff_latitude"]]},40.53]]]}]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "6f518359-02e0-4856-81ff-e21afd566bdb",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "store_forward"
+                ]
+              }
+            },
+            "replaceWithType": 0,
+            "stringReplaceWith": "N",
+            "stringValueToFind": "0",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "809bc4ca-62a3-4eb9-b396-205e2c3bc520",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "store_forward"
+                ]
+              }
+            },
+            "replaceWithType": 0,
+            "stringReplaceWith": "N",
+            "valueToFindType": 7
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "439b2d5c-e945-46e3-be0e-1014460a429a",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "distance"
+                ]
+              }
+            },
+            "doubleReplaceWith": 0.0,
+            "replaceWithType": 3,
+            "stringValueToFind": ".00",
+            "valueToFindType": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "a5b90169-202f-4bfc-8b6c-fa980ff852d9",
+          "type": "Microsoft.DPrep.ReplaceBlock",
+          "arguments": {
+            "booleanReplaceWith": 1,
+            "booleanValueToFind": 1,
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "distance"
+                ]
+              }
+            },
+            "doubleReplaceWith": 0.0,
+            "replaceWithType": 3,
+            "valueToFindType": 7
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "b023a494-62dc-4929-9209-6222c44db46e",
+          "type": "Microsoft.DPrep.ToNumberBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "distance"
+                ]
+              }
+            },
+            "decimalPoint": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "292ce841-201f-4a59-8e85-e680c22d1271",
+          "type": "Microsoft.DPrep.SplitColumnByExampleBlock",
+          "arguments": {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "pickup_datetime"
+              }
+            },
+            "delimiters": [],
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGUAZwBpAG8AbgBTAHAAbABpAHQAIgAgAHIAdQBsAGUAPQAiAFMAcABsAGkAdABSAGUAZwBpAG8AbgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHAAbABpAHQATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AcwBwAGwAaQB0AE0AYQB0AGMAaABlAHMAXwBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AbQB1AGwAdABpAHAAbABlAE0AYQB0AGMAaABlAHMAXwBkACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAIgAgAHIAdQBsAGUAPQAiAEwAbwBvAGsAQQByAG8AdQBuAGQAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAIgAgAHIAdQBsAGUAPQAiAEMAbwBuAHMAdABTAHQAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwAiAD4APAAhAFsAQwBEAEEAVABBAFsAIgAgACIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAGcAbgBvAHIAZQBJAG4AZABlAHgAZQBzACIAPgA8AEEAcgByAGEAeQAgAHMAaQB6AGUAPQAiADAAIgAgAC8APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAbgB1AG0AUwBwAGwAaQB0AHMAIgA+ADwAIQBbAEMARABBAFQAQQBbADIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAZQBsAGkAbQBpAHQAZQByAFMAdABhAHIAdAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBkAGUAbABpAG0AaQB0AGUAcgBFAG4AZAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AYwBsAHUAZABlAEQAZQBsAGkAbQBpAHQAZQByAHMAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZgBpAGwAbABTAHQAcgBhAHQAZQBnAHkAIgA+ADwAIQBbAEMARABBAFQAQQBbAE4AdQBsAGwAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+AA==",
+            "examples": "[]",
+            "fillStrategy": 0,
+            "keepDelimiter": false,
+            "newColumnsBaseName": "pickup_datetime_"
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "59fcfefa-b315-4d31-85cb-e7398e348fa3",
+          "type": "Microsoft.DPrep.SplitColumnByExampleBlock",
+          "arguments": {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "dropoff_datetime"
+              }
+            },
+            "delimiters": [],
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGUAZwBpAG8AbgBTAHAAbABpAHQAIgAgAHIAdQBsAGUAPQAiAFMAcABsAGkAdABSAGUAZwBpAG8AbgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHAAbABpAHQATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AcwBwAGwAaQB0AE0AYQB0AGMAaABlAHMAXwBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AbQB1AGwAdABpAHAAbABlAE0AYQB0AGMAaABlAHMAXwBkACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAIgAgAHIAdQBsAGUAPQAiAEwAbwBvAGsAQQByAG8AdQBuAGQAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAIgAgAHIAdQBsAGUAPQAiAEMAbwBuAHMAdABTAHQAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwAiAD4APAAhAFsAQwBEAEEAVABBAFsAIgAgACIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAGcAbgBvAHIAZQBJAG4AZABlAHgAZQBzACIAPgA8AEEAcgByAGEAeQAgAHMAaQB6AGUAPQAiADAAIgAgAC8APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAbgB1AG0AUwBwAGwAaQB0AHMAIgA+ADwAIQBbAEMARABBAFQAQQBbADIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAZQBsAGkAbQBpAHQAZQByAFMAdABhAHIAdAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBkAGUAbABpAG0AaQB0AGUAcgBFAG4AZAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AYwBsAHUAZABlAEQAZQBsAGkAbQBpAHQAZQByAHMAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZgBpAGwAbABTAHQAcgBhAHQAZQBnAHkAIgA+ADwAIQBbAEMARABBAFQAQQBbAE4AdQBsAGwAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+AA==",
+            "examples": "[]",
+            "fillStrategy": 0,
+            "keepDelimiter": false,
+            "newColumnsBaseName": "dropoff_datetime_"
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "af910662-a6cf-4b51-be2e-bf83baeb50f7",
+          "type": "Microsoft.DPrep.RenameColumnsBlock",
+          "arguments": {
+            "columnPairs": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_datetime_1"
+                  }
+                },
+                "newColumnId": "pickup_date"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_datetime_2"
+                  }
+                },
+                "newColumnId": "pickup_time"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_datetime_1"
+                  }
+                },
+                "newColumnId": "dropoff_date"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_datetime_2"
+                  }
+                },
+                "newColumnId": "dropoff_time"
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "eb066c51-2446-407f-9f2f-ed1275c4f910",
+          "type": "Microsoft.DPrep.DeriveColumnByExample",
+          "arguments": {
+            "anchorColumnId": "pickup_date",
+            "columnId": "pickup_weekday",
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHcAaQB0AGMAaAAiACAAcgB1AGwAZQA9ACIAUwBpAG4AZwBsAGUAQgByAGEAbgBjAGgAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwB0ACIAIAByAHUAbABlAD0AIgBUAHIAYQBuAHMAZgBvAHIAbQBhAHQAaQBvAG4AIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZQAiACAAcgB1AGwAZQA9ACIAQQB0AG8AbQAiAD4APABMAGUAdABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGYAIgAgAGkAZAA9ACIATABlAHQAQwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABWAGEAcgBpAGEAYgBsAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBkAHgAIgA+ADwAIQBbAEMARABBAFQAQQBbACIAcABpAGMAawB1AHAAXwBkAGEAdABlACIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBWAGEAcgBpAGEAYgBsAGUAPgA8AEwAZQB0AE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAbABlAHQATwBwAHQAaQBvAG4AcwAiACAAaQBkAD0AIgBMAGUAdABYACIAPgA8AFYAYQByAGkAYQBiAGwAZQAgAHMAeQBtAGIAbwBsAD0AIgB4ACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAHIAdQBsAGUAPQAiAEMAaABvAG8AcwBlAEkAbgBwAHUAdAAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2AHMAIgAgAC8APgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAbwBsAHUAbQBuAE4AYQBtAGUAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8AVgBhAHIAaQBhAGIAbABlAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBjAG8AbgB2ACIAIAByAHUAbABlAD0AIgBGAG8AcgBtAGEAdABQAGEAcgB0AGkAYQBsAEQAYQB0AGUAVABpAG0AZQAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBkAGEAdABlAHQAaQBtAGUAIgAgAHIAdQBsAGUAPQAiAH4AYwBvAG4AdgBlAHIAdABfAGQAYQB0AGUAdABpAG0AZQBfAGkAbgBwAHUAdABEAGEAdABlAFQAaQBtAGUAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBuAHAAdQB0AEQAYQB0AGUAVABpAG0AZQAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AaQBuAHAAdQB0AEQAYQB0AGUAVABpAG0AZQBfAHAAYQByAHMAZQBkAEQAYQB0AGUAVABpAG0AZQAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBwAGEAcgBzAGUAZABEAGEAdABlAFQAaQBtAGUAIgAgAHIAdQBsAGUAPQAiAFAAYQByAHMAZQBQAGEAcgB0AGkAYQBsAEQAYQB0AGUAVABpAG0AZQAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBTAFMAIgAgAHIAdQBsAGUAPQAiAFcAaABvAGwAZQBDAG8AbAB1AG0AbgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB4ACIAIAAvAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBuAHAAdQB0AEQAdABGAG8AcgBtAGEAdABzACIAPgA8AEEAcgByAGEAeQAgAHMAaQB6AGUAPQAiADEAIgA+ADwASQB0AGUAbQAgAGkAPQAiADAAIgA+ADwARABhAHQAZQBUAGkAbQBlAEYAbwByAG0AYQB0ACAAZgBvAHIAbQBhAHQAPQAiAHkAeQB5AHkAXAAtAE0ATQBcAC0AZABkACIAPgA8AE4AdQBtAGUAcgBpAGMARgBvAHIAbQBhAHQAUABhAHIAdAAgAEIAYQBzAGUARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAHkAeQB5AHkAIgAgAEYAdQBsAGwARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAHkAeQB5AHkAIgAgAEQAYQB0AGUAVABpAG0AZQBQAGEAcgB0AD0AIgBZAGUAYQByACIAIAAvAD4APABDAG8AbgBzAHQAYQBuAHQARgBvAHIAbQBhAHQAUABhAHIAdAA+ADwAIQBbAEMARABBAFQAQQBbAC0AXQBdAD4APAAvAEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APABOAHUAbQBlAHIAaQBjAEYAbwByAG0AYQB0AFAAYQByAHQAIABCAGEAcwBlAEYAbwByAG0AYQB0AFMAdAByAGkAbgBnAD0AIgBNAE0AIgAgAEYAdQBsAGwARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAE0ATQAiACAARABhAHQAZQBUAGkAbQBlAFAAYQByAHQAPQAiAE0AbwBuAHQAaAAiACAALwA+ADwAQwBvAG4AcwB0AGEAbgB0AEYAbwByAG0AYQB0AFAAYQByAHQAPgA8ACEAWwBDAEQAQQBUAEEAWwAtAF0AXQA+ADwALwBDAG8AbgBzAHQAYQBuAHQARgBvAHIAbQBhAHQAUABhAHIAdAA+ADwATgB1AG0AZQByAGkAYwBGAG8AcgBtAGEAdABQAGEAcgB0ACAAQgBhAHMAZQBGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAZABkACIAIABGAHUAbABsAEYAbwByAG0AYQB0AFMAdAByAGkAbgBnAD0AIgBkAGQAIgAgAEQAYQB0AGUAVABpAG0AZQBQAGEAcgB0AD0AIgBEAGEAeQAiACAALwA+ADwALwBEAGEAdABlAFQAaQBtAGUARgBvAHIAbQBhAHQAPgA8AC8ASQB0AGUAbQA+ADwALwBBAHIAcgBhAHkAPgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAbwB1AHQAcAB1AHQARAB0AEYAbwByAG0AYQB0ACIAPgA8AEQAYQB0AGUAVABpAG0AZQBGAG8AcgBtAGEAdAAgAGYAbwByAG0AYQB0AD0AIgBkAGQAZABkACIAPgA8AFMAdAByAGkAbgBnAEYAbwByAG0AYQB0AFAAYQByAHQAIABCAGEAcwBlAEYAbwByAG0AYQB0AFMAdAByAGkAbgBnAD0AIgBkAGQAZABkACIAIABGAHUAbABsAEYAbwByAG0AYQB0AFMAdAByAGkAbgBnAD0AIgBkAGQAZABkACIAIABEAGEAdABlAFQAaQBtAGUAUABhAHIAdAA9ACIARABhAHkATwBmAFcAZQBlAGsAIgA+ADwATABvAG8AawB1AHAAIABzAHQAcgBpAG4AZwA9ACIAUwB1AG4AZABhAHkAIgAgAHYAYQBsAHUAZQA9ACIAMAAiACAALwA+ADwATABvAG8AawB1AHAAIABzAHQAcgBpAG4AZwA9ACIATQBvAG4AZABhAHkAIgAgAHYAYQBsAHUAZQA9ACIAMQAiACAALwA+ADwATABvAG8AawB1AHAAIABzAHQAcgBpAG4AZwA9ACIAVAB1AGUAcwBkAGEAeQAiACAAdgBhAGwAdQBlAD0AIgAyACIAIAAvAD4APABMAG8AbwBrAHUAcAAgAHMAdAByAGkAbgBnAD0AIgBXAGUAZABuAGUAcwBkAGEAeQAiACAAdgBhAGwAdQBlAD0AIgAzACIAIAAvAD4APABMAG8AbwBrAHUAcAAgAHMAdAByAGkAbgBnAD0AIgBUAGgAdQByAHMAZABhAHkAIgAgAHYAYQBsAHUAZQA9ACIANAAiACAALwA+ADwATABvAG8AawB1AHAAIABzAHQAcgBpAG4AZwA9ACIARgByAGkAZABhAHkAIgAgAHYAYQBsAHUAZQA9ACIANQAiACAALwA+ADwATABvAG8AawB1AHAAIABzAHQAcgBpAG4AZwA9ACIAUwBhAHQAdQByAGQAYQB5ACIAIAB2AGEAbAB1AGUAPQAiADYAIgAgAC8APgA8AC8AUwB0AHIAaQBuAGcARgBvAHIAbQBhAHQAUABhAHIAdAA+ADwALwBEAGEAdABlAFQAaQBtAGUARgBvAHIAbQBhAHQAPgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAEwAZQB0AE4AbwBkAGUAPgA8AC8ATABlAHQATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+AA==",
+            "examples": "{\"-1\": {\"row\": -1, \"sourceData\": {\"pickup_date\": \"2009-01-04\"}, \"example\": \"Sunday\"}, \"-2\": {\"row\": -2, \"sourceData\": {\"pickup_date\": \"2013-08-22\"}, \"example\": \"Thursday\"}}",
+            "outputType": 2,
+            "priorColumnIds": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "pickup_date"
+                ]
+              }
+            },
+            "sourceColumnIds": [
+              "pickup_date"
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "34daaec6-92b5-477f-90f1-2e5c6946db33",
+          "type": "Microsoft.DPrep.DeriveColumnByExample",
+          "arguments": {
+            "anchorColumnId": "dropoff_date",
+            "columnId": "dropoff_weekday",
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHcAaQB0AGMAaAAiACAAcgB1AGwAZQA9ACIAUwBpAG4AZwBsAGUAQgByAGEAbgBjAGgAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwB0ACIAIAByAHUAbABlAD0AIgBUAHIAYQBuAHMAZgBvAHIAbQBhAHQAaQBvAG4AIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZQAiACAAcgB1AGwAZQA9ACIAQQB0AG8AbQAiAD4APABMAGUAdABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGYAIgAgAGkAZAA9ACIATABlAHQAQwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABWAGEAcgBpAGEAYgBsAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAGwAdQBtAG4ATgBhAG0AZQAiAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBkAHgAIgA+ADwAIQBbAEMARABBAFQAQQBbACIAZAByAG8AcABvAGYAZgBfAGQAYQB0AGUAIgBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APAAvAFYAYQByAGkAYQBiAGwAZQA+ADwATABlAHQATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBsAGUAdABPAHAAdABpAG8AbgBzACIAIABpAGQAPQAiAEwAZQB0AFgAIgA+ADwAVgBhAHIAaQBhAGIAbABlACAAcwB5AG0AYgBvAGwAPQAiAHgAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAdgAiACAAcgB1AGwAZQA9ACIAQwBoAG8AbwBzAGUASQBuAHAAdQB0ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAcwAiACAALwA+ADwAVgBhAHIAaQBhAGIAbABlAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAYwBvAGwAdQBtAG4ATgBhAG0AZQAiACAALwA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwALwBWAGEAcgBpAGEAYgBsAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAbwBuAHYAIgAgAHIAdQBsAGUAPQAiAEYAbwByAG0AYQB0AFAAYQByAHQAaQBhAGwARABhAHQAZQBUAGkAbQBlACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAYQB0AGUAdABpAG0AZQAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AZABhAHQAZQB0AGkAbQBlAF8AaQBuAHAAdQB0AEQAYQB0AGUAVABpAG0AZQAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AcAB1AHQARABhAHQAZQBUAGkAbQBlACIAIAByAHUAbABlAD0AIgB+AGMAbwBuAHYAZQByAHQAXwBpAG4AcAB1AHQARABhAHQAZQBUAGkAbQBlAF8AcABhAHIAcwBlAGQARABhAHQAZQBUAGkAbQBlACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHAAYQByAHMAZQBkAEQAYQB0AGUAVABpAG0AZQAiACAAcgB1AGwAZQA9ACIAUABhAHIAcwBlAFAAYQByAHQAaQBhAGwARABhAHQAZQBUAGkAbQBlACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAFMAUwAiACAAcgB1AGwAZQA9ACIAVwBoAG8AbABlAEMAbwBsAHUAbQBuACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHgAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AcAB1AHQARAB0AEYAbwByAG0AYQB0AHMAIgA+ADwAQQByAHIAYQB5ACAAcwBpAHoAZQA9ACIAMQAiAD4APABJAHQAZQBtACAAaQA9ACIAMAAiAD4APABEAGEAdABlAFQAaQBtAGUARgBvAHIAbQBhAHQAIABmAG8AcgBtAGEAdAA9ACIAeQB5AHkAeQBcAC0ATQBNAFwALQBkAGQAIgA+ADwATgB1AG0AZQByAGkAYwBGAG8AcgBtAGEAdABQAGEAcgB0ACAAQgBhAHMAZQBGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAeQB5AHkAeQAiACAARgB1AGwAbABGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIAeQB5AHkAeQAiACAARABhAHQAZQBUAGkAbQBlAFAAYQByAHQAPQAiAFkAZQBhAHIAIgAgAC8APgA8AEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APAAhAFsAQwBEAEEAVABBAFsALQBdAF0APgA8AC8AQwBvAG4AcwB0AGEAbgB0AEYAbwByAG0AYQB0AFAAYQByAHQAPgA8AE4AdQBtAGUAcgBpAGMARgBvAHIAbQBhAHQAUABhAHIAdAAgAEIAYQBzAGUARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAE0ATQAiACAARgB1AGwAbABGAG8AcgBtAGEAdABTAHQAcgBpAG4AZwA9ACIATQBNACIAIABEAGEAdABlAFQAaQBtAGUAUABhAHIAdAA9ACIATQBvAG4AdABoACIAIAAvAD4APABDAG8AbgBzAHQAYQBuAHQARgBvAHIAbQBhAHQAUABhAHIAdAA+ADwAIQBbAEMARABBAFQAQQBbAC0AXQBdAD4APAAvAEMAbwBuAHMAdABhAG4AdABGAG8AcgBtAGEAdABQAGEAcgB0AD4APABOAHUAbQBlAHIAaQBjAEYAbwByAG0AYQB0AFAAYQByAHQAIABCAGEAcwBlAEYAbwByAG0AYQB0AFMAdAByAGkAbgBnAD0AIgBkAGQAIgAgAEYAdQBsAGwARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAGQAZAAiACAARABhAHQAZQBUAGkAbQBlAFAAYQByAHQAPQAiAEQAYQB5ACIAIAAvAD4APAAvAEQAYQB0AGUAVABpAG0AZQBGAG8AcgBtAGEAdAA+ADwALwBJAHQAZQBtAD4APAAvAEEAcgByAGEAeQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBvAHUAdABwAHUAdABEAHQARgBvAHIAbQBhAHQAIgA+ADwARABhAHQAZQBUAGkAbQBlAEYAbwByAG0AYQB0ACAAZgBvAHIAbQBhAHQAPQAiAGQAZABkAGQAIgA+ADwAUwB0AHIAaQBuAGcARgBvAHIAbQBhAHQAUABhAHIAdAAgAEIAYQBzAGUARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAGQAZABkAGQAIgAgAEYAdQBsAGwARgBvAHIAbQBhAHQAUwB0AHIAaQBuAGcAPQAiAGQAZABkAGQAIgAgAEQAYQB0AGUAVABpAG0AZQBQAGEAcgB0AD0AIgBEAGEAeQBPAGYAVwBlAGUAawAiAD4APABMAG8AbwBrAHUAcAAgAHMAdAByAGkAbgBnAD0AIgBTAHUAbgBkAGEAeQAiACAAdgBhAGwAdQBlAD0AIgAwACIAIAAvAD4APABMAG8AbwBrAHUAcAAgAHMAdAByAGkAbgBnAD0AIgBNAG8AbgBkAGEAeQAiACAAdgBhAGwAdQBlAD0AIgAxACIAIAAvAD4APABMAG8AbwBrAHUAcAAgAHMAdAByAGkAbgBnAD0AIgBUAHUAZQBzAGQAYQB5ACIAIAB2AGEAbAB1AGUAPQAiADIAIgAgAC8APgA8AEwAbwBvAGsAdQBwACAAcwB0AHIAaQBuAGcAPQAiAFcAZQBkAG4AZQBzAGQAYQB5ACIAIAB2AGEAbAB1AGUAPQAiADMAIgAgAC8APgA8AEwAbwBvAGsAdQBwACAAcwB0AHIAaQBuAGcAPQAiAFQAaAB1AHIAcwBkAGEAeQAiACAAdgBhAGwAdQBlAD0AIgA0ACIAIAAvAD4APABMAG8AbwBrAHUAcAAgAHMAdAByAGkAbgBnAD0AIgBGAHIAaQBkAGEAeQAiACAAdgBhAGwAdQBlAD0AIgA1ACIAIAAvAD4APABMAG8AbwBrAHUAcAAgAHMAdAByAGkAbgBnAD0AIgBTAGEAdAB1AHIAZABhAHkAIgAgAHYAYQBsAHUAZQA9ACIANgAiACAALwA+ADwALwBTAHQAcgBpAG4AZwBGAG8AcgBtAGEAdABQAGEAcgB0AD4APAAvAEQAYQB0AGUAVABpAG0AZQBGAG8AcgBtAGEAdAA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATABlAHQATgBvAGQAZQA+ADwALwBMAGUAdABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4APAAvAE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlAD4A",
+            "examples": "{\"-1\": {\"row\": -1, \"sourceData\": {\"dropoff_date\": \"2013-08-22\"}, \"example\": \"Thursday\"}, \"-2\": {\"row\": -2, \"sourceData\": {\"dropoff_date\": \"2013-11-03\"}, \"example\": \"Sunday\"}}",
+            "outputType": 2,
+            "priorColumnIds": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "dropoff_date"
+                ]
+              }
+            },
+            "sourceColumnIds": [
+              "dropoff_date"
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "93abe985-7723-4a42-b37d-f4e760c87f95",
+          "type": "Microsoft.DPrep.SplitColumnByExampleBlock",
+          "arguments": {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "pickup_time"
+              }
+            },
+            "delimiters": [],
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGUAZwBpAG8AbgBTAHAAbABpAHQAIgAgAHIAdQBsAGUAPQAiAFMAcABsAGkAdABSAGUAZwBpAG8AbgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHAAbABpAHQATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AcwBwAGwAaQB0AE0AYQB0AGMAaABlAHMAXwBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AbQB1AGwAdABpAHAAbABlAE0AYQB0AGMAaABlAHMAXwBkACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAIgAgAHIAdQBsAGUAPQAiAEwAbwBvAGsAQQByAG8AdQBuAGQAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAIgAgAHIAdQBsAGUAPQAiAEMAbwBuAHMAdABTAHQAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwAiAD4APAAhAFsAQwBEAEEAVABBAFsAIgA6ACIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAGcAbgBvAHIAZQBJAG4AZABlAHgAZQBzACIAPgA8AEEAcgByAGEAeQAgAHMAaQB6AGUAPQAiADEAIgA+ADwASQB0AGUAbQAgAGkAPQAiADAAIgA+ADwAIQBbAEMARABBAFQAQQBbADAAXQBdAD4APAAvAEkAdABlAG0APgA8AC8AQQByAHIAYQB5AD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAG4AdQBtAFMAcABsAGkAdABzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwAyAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBkAGUAbABpAG0AaQB0AGUAcgBTAHQAYQByAHQAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZABlAGwAaQBtAGkAdABlAHIARQBuAGQAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBuAGMAbAB1AGQAZQBEAGUAbABpAG0AaQB0AGUAcgBzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwBmAGEAbABzAGUAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGYAaQBsAGwAUwB0AHIAYQB0AGUAZwB5ACIAPgA8ACEAWwBDAEQAQQBUAEEAWwBOAHUAbABsAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA=",
+            "examples": "[]",
+            "fillStrategy": 0,
+            "keepDelimiter": false,
+            "newColumnsBaseName": "pickup_time_"
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9df4ba6e-7399-4299-8610-19956c839af7",
+          "type": "Microsoft.DPrep.SplitColumnByExampleBlock",
+          "arguments": {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "dropoff_time"
+              }
+            },
+            "delimiters": [],
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGUAZwBpAG8AbgBTAHAAbABpAHQAIgAgAHIAdQBsAGUAPQAiAFMAcABsAGkAdABSAGUAZwBpAG8AbgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHAAbABpAHQATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AcwBwAGwAaQB0AE0AYQB0AGMAaABlAHMAXwBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AbQB1AGwAdABpAHAAbABlAE0AYQB0AGMAaABlAHMAXwBkACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAIgAgAHIAdQBsAGUAPQAiAEwAbwBvAGsAQQByAG8AdQBuAGQAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAIgAgAHIAdQBsAGUAPQAiAEMAbwBuAHMAdABTAHQAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwAiAD4APAAhAFsAQwBEAEEAVABBAFsAIgA6ACIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAGcAbgBvAHIAZQBJAG4AZABlAHgAZQBzACIAPgA8AEEAcgByAGEAeQAgAHMAaQB6AGUAPQAiADEAIgA+ADwASQB0AGUAbQAgAGkAPQAiADAAIgA+ADwAIQBbAEMARABBAFQAQQBbADAAXQBdAD4APAAvAEkAdABlAG0APgA8AC8AQQByAHIAYQB5AD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAG4AdQBtAFMAcABsAGkAdABzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwAyAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBkAGUAbABpAG0AaQB0AGUAcgBTAHQAYQByAHQAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZABlAGwAaQBtAGkAdABlAHIARQBuAGQAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAaQBuAGMAbAB1AGQAZQBEAGUAbABpAG0AaQB0AGUAcgBzACIAPgA8ACEAWwBDAEQAQQBUAEEAWwBmAGEAbABzAGUAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGYAaQBsAGwAUwB0AHIAYQB0AGUAZwB5ACIAPgA8ACEAWwBDAEQAQQBUAEEAWwBOAHUAbABsAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA=",
+            "examples": "[]",
+            "fillStrategy": 0,
+            "keepDelimiter": false,
+            "newColumnsBaseName": "dropoff_time_"
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "d6fa1270-fe48-4995-85ec-f79823589553",
+          "type": "Microsoft.DPrep.SplitColumnByExampleBlock",
+          "arguments": {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "pickup_time_1"
+              }
+            },
+            "delimiters": [],
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGUAZwBpAG8AbgBTAHAAbABpAHQAIgAgAHIAdQBsAGUAPQAiAFMAcABsAGkAdABSAGUAZwBpAG8AbgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHAAbABpAHQATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AcwBwAGwAaQB0AE0AYQB0AGMAaABlAHMAXwBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AbQB1AGwAdABpAHAAbABlAE0AYQB0AGMAaABlAHMAXwBkACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAIgAgAHIAdQBsAGUAPQAiAEwAbwBvAGsAQQByAG8AdQBuAGQAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAIgAgAHIAdQBsAGUAPQAiAEMAbwBuAHMAdABTAHQAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwAiAD4APAAhAFsAQwBEAEEAVABBAFsAIgA6ACIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAGcAbgBvAHIAZQBJAG4AZABlAHgAZQBzACIAPgA8AEEAcgByAGEAeQAgAHMAaQB6AGUAPQAiADAAIgAgAC8APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAbgB1AG0AUwBwAGwAaQB0AHMAIgA+ADwAIQBbAEMARABBAFQAQQBbADIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAZQBsAGkAbQBpAHQAZQByAFMAdABhAHIAdAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBkAGUAbABpAG0AaQB0AGUAcgBFAG4AZAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AYwBsAHUAZABlAEQAZQBsAGkAbQBpAHQAZQByAHMAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZgBpAGwAbABTAHQAcgBhAHQAZQBnAHkAIgA+ADwAIQBbAEMARABBAFQAQQBbAE4AdQBsAGwAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+AA==",
+            "examples": "[]",
+            "fillStrategy": 0,
+            "keepDelimiter": false,
+            "newColumnsBaseName": "pickup_time_1_"
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "1d7d70f5-f7d4-4907-a400-3ef9baa7b754",
+          "type": "Microsoft.DPrep.SplitColumnByExampleBlock",
+          "arguments": {
+            "column": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "dropoff_time_1"
+              }
+            },
+            "delimiters": [],
+            "dsl": "PABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgByAGUAZwBpAG8AbgBTAHAAbABpAHQAIgAgAHIAdQBsAGUAPQAiAFMAcABsAGkAdABSAGUAZwBpAG8AbgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBzAHAAbABpAHQATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AcwBwAGwAaQB0AE0AYQB0AGMAaABlAHMAXwBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiAD4APABOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBtAHUAbAB0AGkAcABsAGUATQBhAHQAYwBoAGUAcwAiACAAcgB1AGwAZQA9ACIAfgBjAG8AbgB2AGUAcgB0AF8AbQB1AGwAdABpAHAAbABlAE0AYQB0AGMAaABlAHMAXwBkACIAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAIgAgAHIAdQBsAGUAPQAiAEwAbwBvAGsAQQByAG8AdQBuAGQAIgA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AE4AbwBuAHQAZQByAG0AaQBuAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGMAIgAgAHIAdQBsAGUAPQAiAEMAbwBuAHMAdABTAHQAcgAiAD4APABWAGEAcgBpAGEAYgBsAGUATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgB2ACIAIAAvAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcwAiAD4APAAhAFsAQwBEAEEAVABBAFsAIgA6ACIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+ADwATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAcgAiACAAcgB1AGwAZQA9ACIARQBtAHAAdAB5ACIAPgA8AFYAYQByAGkAYQBiAGwAZQBOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAHYAIgAgAC8APgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AC8ATgBvAG4AdABlAHIAbQBpAG4AYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAGcAbgBvAHIAZQBJAG4AZABlAHgAZQBzACIAPgA8AEEAcgByAGEAeQAgAHMAaQB6AGUAPQAiADAAIgAgAC8APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAbgB1AG0AUwBwAGwAaQB0AHMAIgA+ADwAIQBbAEMARABBAFQAQQBbADIAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwATABpAHQAZQByAGEAbABOAG8AZABlACAAcwB5AG0AYgBvAGwAPQAiAGQAZQBsAGkAbQBpAHQAZQByAFMAdABhAHIAdAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBkAGUAbABpAG0AaQB0AGUAcgBFAG4AZAAiAD4APAAhAFsAQwBEAEEAVABBAFsAZgBhAGwAcwBlAF0AXQA+ADwALwBMAGkAdABlAHIAYQBsAE4AbwBkAGUAPgA8AEwAaQB0AGUAcgBhAGwATgBvAGQAZQAgAHMAeQBtAGIAbwBsAD0AIgBpAG4AYwBsAHUAZABlAEQAZQBsAGkAbQBpAHQAZQByAHMAIgA+ADwAIQBbAEMARABBAFQAQQBbAGYAYQBsAHMAZQBdAF0APgA8AC8ATABpAHQAZQByAGEAbABOAG8AZABlAD4APABMAGkAdABlAHIAYQBsAE4AbwBkAGUAIABzAHkAbQBiAG8AbAA9ACIAZgBpAGwAbABTAHQAcgBhAHQAZQBnAHkAIgA+ADwAIQBbAEMARABBAFQAQQBbAE4AdQBsAGwAXQBdAD4APAAvAEwAaQB0AGUAcgBhAGwATgBvAGQAZQA+ADwALwBOAG8AbgB0AGUAcgBtAGkAbgBhAGwATgBvAGQAZQA+AA==",
+            "examples": "[]",
+            "fillStrategy": 0,
+            "keepDelimiter": false,
+            "newColumnsBaseName": "dropoff_time_1_"
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "bee58b74-72e1-4dfb-acde-1a14889c2805",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "pickup_date",
+                  "pickup_time",
+                  "dropoff_date",
+                  "dropoff_time",
+                  "pickup_date_1",
+                  "dropoff_date_1",
+                  "pickup_time_1",
+                  "dropoff_time_1"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "dcda6db8-866f-4e18-8460-2b92ae38c3a6",
+          "type": "Microsoft.DPrep.RenameColumnsBlock",
+          "arguments": {
+            "columnPairs": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_date_2"
+                  }
+                },
+                "newColumnId": "pickup_month"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_date_3"
+                  }
+                },
+                "newColumnId": "pickup_monthday"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_time_1_1"
+                  }
+                },
+                "newColumnId": "pickup_hour"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_time_1_2"
+                  }
+                },
+                "newColumnId": "pickup_minute"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_time_2"
+                  }
+                },
+                "newColumnId": "pickup_second"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_date_2"
+                  }
+                },
+                "newColumnId": "dropoff_month"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_date_3"
+                  }
+                },
+                "newColumnId": "dropoff_monthday"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_time_1_1"
+                  }
+                },
+                "newColumnId": "dropoff_hour"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_time_1_2"
+                  }
+                },
+                "newColumnId": "dropoff_minute"
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_time_2"
+                  }
+                },
+                "newColumnId": "dropoff_second"
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f320919e-de1d-4a7f-9955-efde73b36231",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "pickup_datetime",
+                  "dropoff_datetime"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9c844277-6394-40b8-971d-86015c9782dd",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_weekday"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_hour"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_minute"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_second"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_hour"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_minute"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_second"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "store_forward"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_longitude"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_longitude"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "passengers"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "distance"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "vendor"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_weekday"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "pickup_latitude"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "dropoff_latitude"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "cost"
+                  }
+                },
+                "typeProperty": 3
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "3e100d7a-1ed9-4ec9-b4eb-79c64f0b9e35",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_GT"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"distance"]]},0]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "abdbfa65-9f62-4326-8e25-a8801f7c3ef2",
+          "type": "Microsoft.DPrep.ExpressionFilterBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","Value_GT"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"cost"]]},0]]]}
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        }
+      ],
+      "inspectors": []
+    }
+  ],
+  "runConfigurations": []
+}
