@@ -35,7 +35,7 @@ Below are the three execution environments supported by AutoML.
 **NOTE**: You should at least have contributor access to your Azure subcription to run the notebook.
 - Please remove the previous SDK version if there is any and install the latest SDK by installing **azureml-sdk[automl_databricks]** as a PyPi library in Azure Databricks workspace.
 - You can find the detail Readme instructions at [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks).
-- Download the sample notebook AutoML_Databricks_local_06.ipynb from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks) and import into the Azure databricks workspace.
+- Download the sample notebook automl-databricks-local-01.ipynb from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks) and import into the Azure databricks workspace.
 - Attach the notebook to the cluster.
 
 <a name="localconda"></a>
@@ -174,10 +174,6 @@ bash automl_setup_linux.sh
 
 - [auto-ml-dataprep-remote-execution.ipynb](dataprep-remote-execution/auto-ml-dataprep-remote-execution.ipynb)
     - Using DataPrep for reading data with remote execution
-
-- [auto-ml-classification-local-azuredatabricks.ipynb](classification-local-azuredatabricks/auto-ml-classification-local-azuredatabricks.ipynb)
-    - Dataset: scikit learn's [digit dataset](https://innovate.burningman.org/datasets-page/)
-    - Example of using AutoML for classification using Azure Databricks as the platform for training
 
 - [auto-ml-classification-with-whitelisting.ipynb](classification-with-whitelisting/auto-ml-classification-with-whitelisting.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
