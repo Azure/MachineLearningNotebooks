@@ -18,7 +18,7 @@ script_folder= "./"
 exp = Experiment(workspace=ws, name=experiment_name)
 
 
-#<amlcompute_temp>
+#<run_temp_compute>
 from azureml.core.compute import ComputeTarget, AmlCompute
 
 # First, list the supported VM families for Azure Machine Learning Compute
@@ -34,7 +34,7 @@ run_temp_compute.target = "amlcompute"
 # AmlCompute is created in the same region as your workspace
 # Set the VM size for AmlCompute from the list of supported_vmsizes
 run_temp_compute.amlcompute.vm_size = 'STANDARD_D2_V2'
-#</amlcompute_temp>
+#</run_temp_compute>
 
 
 # Submit the experiment using the run configuration

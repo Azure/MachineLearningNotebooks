@@ -16,7 +16,7 @@ script_folder= "./"
 
 exp = Experiment(workspace=ws, name=experiment_name)
 
-#<cpu_basic>
+#<cpu_cluster>
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 
@@ -33,9 +33,9 @@ except ComputeTargetException:
     cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
 
 cpu_cluster.wait_for_completion(show_output=True)
-#</cpu_basic>
+#</cpu_cluster>
 
-#<aml_runconfig>
+#<run_amlcompute>
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_CPU_IMAGE
@@ -60,7 +60,7 @@ run_amlcompute.auto_prepare_environment = True
 
 # Specify CondaDependencies obj, add necessary packages
 run_amlcompute.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-#</aml_runconfig>
+#</run_amlcompute>
 
 # Submit the experiment using the run configuration
 #<amlcompute_submit>
