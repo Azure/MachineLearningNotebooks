@@ -12,9 +12,6 @@ from azureml.core.runconfig import RunConfiguration
 run_local = RunConfiguration()
 
 run_local.environment.python.user_managed_dependencies = True
-
-# Choose a specific Python environment by pointing to a Python path. For example:
-# run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 #</run_local>
 
 from azureml.core import Workspace
