@@ -1,6 +1,6 @@
 # Code for Remote virtual machines
 
-compute_target_name = "sheri-linuxvm"
+    compute_target_name = "sheri-linuxvm"
 
 #<run_dsvm>  
 import azureml.core
