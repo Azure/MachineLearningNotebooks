@@ -4,7 +4,7 @@ These tutorials show how to create and deploy Open Neural Network eXchange ([ONN
 
 ## Tutorials
 
-0. [Configure your Azure Machine Learning Workspace](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb)
+0. [Configure your Azure Machine Learning Workspace](../../../configuration.ipynb)
 
 #### Obtain models from the [ONNX Model Zoo](https://github.com/onnx/models) and deploy with ONNX Runtime Inference
 1. [Handwritten Digit Classification (MNIST)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/onnx-inference-mnist-deploy.ipynb)

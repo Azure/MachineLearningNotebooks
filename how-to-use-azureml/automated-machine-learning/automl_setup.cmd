@@ -23,6 +23,10 @@ if errorlevel 1 goto ErrorExit
 
 call python -m ipykernel install --user --name %conda_env_name% --display-name "Python (%conda_env_name%)"
 
+REM azureml.widgets is now installed as part of the pip install under the conda env.
+REM Removing the old user install so that the notebooks will use the latest widget.
+call jupyter nbextension uninstall --user --py azureml.widgets
+
 echo.
 echo.
 echo ***************************************
