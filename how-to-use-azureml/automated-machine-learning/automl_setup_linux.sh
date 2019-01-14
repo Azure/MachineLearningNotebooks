@@ -22,11 +22,13 @@ fi
 if source activate $CONDA_ENV_NAME 2> /dev/null
 then
    echo "Upgrading azureml-sdk[automl,notebooks,explain] in existing conda environment" $CONDA_ENV_NAME
-   pip install --upgrade azureml-sdk[automl,notebooks,explain]
+   pip install --upgrade azureml-sdk[automl,notebooks,explain] &&
+   jupyter nbextension uninstall --user --py azureml.widgets
 else
    conda env create -f $AUTOML_ENV_FILE -n $CONDA_ENV_NAME &&
    source activate $CONDA_ENV_NAME &&
    python -m ipykernel install --user --name $CONDA_ENV_NAME --display-name "Python ($CONDA_ENV_NAME)" &&
+   jupyter nbextension uninstall --user --py azureml.widgets &&
    echo "" &&
    echo "" &&
    echo "***************************************" &&
