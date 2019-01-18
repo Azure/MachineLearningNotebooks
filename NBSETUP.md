@@ -1,8 +1,8 @@
-# Notebook setup
+# Setting up environment
 
 ---
 
-To run the notebooks in this repository use one of these methods:
+To run the notebooks in this repository use one of the two options.
 
 ## Option 1: Use Azure Notebooks
 Azure Notebooks is a hosted Jupyter-based notebook service in the Azure cloud. Azure Machine Learning Python SDK is already pre-installed in the Azure Notebooks `Python 3.6` kernel.
@@ -17,10 +17,17 @@ Azure Notebooks is a hosted Jupyter-based notebook service in the Azure cloud. A
     ![set kernel to Python 3.6](images/python36.png)
 
 ## **Option 2: Use your own notebook server**
+
+### Quick installation
+We recommend you create a Python virtual environment ([Miniconda](https://conda.io/miniconda.html) preferred but [virtualenv](https://virtualenv.pypa.io/en/latest/) works too) and install the SDK in it.
 ```sh
 # install just the base SDK
 pip install azureml-sdk
 
+# clone the sample repoistory
+git clone https://github.com/Azure/MachineLearningNotebooks.git
+
+# below steps are optional
 # install the base SDK and a Jupyter notebook server
 pip install azureml-sdk[notebooks]
 
@@ -35,13 +42,10 @@ pip install azureml-sdk[automl]
 
 # install experimental features (not ready for production use)
 pip install azureml-sdk[contrib]
-
-# clone the sample repoistory
-git clone https://github.com/Azure/MachineLearningNotebooks.git
 ```
 
 ### Full instructions
-[install the Azure Machine Learning SDK](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python)
+[Install the Azure Machine Learning SDK](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python)
 
 Please make sure you start with the [Configuration](configuration.ipynb) notebook to create and connect to a workspace.
 
