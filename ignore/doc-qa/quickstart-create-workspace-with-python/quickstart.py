@@ -29,19 +29,19 @@ ws.write_config()
 # <useWs>
 from azureml.core import Experiment
 
-# create a new experiment
+# Create a new experiment in your workspace.
 exp = Experiment(workspace=ws, name='myexp')
 
-# start a run
+# Start a run and start the logging service.
 run = exp.start_logging()
 
-# log a number
+# Log a single  number.
 run.log('my magic number', 42)
 
-# log a list (Fibonacci numbers)
+# Log a list (Fibonacci numbers).
 run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
 
-# finish the run
+# Finish the run.
 run.complete()
 # </useWs>
 
