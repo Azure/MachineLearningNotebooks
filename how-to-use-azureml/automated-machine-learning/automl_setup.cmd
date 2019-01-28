@@ -1,6 +1,7 @@
 @echo off
 set conda_env_name=%1
 set automl_env_file=%2
+set options=%3
 set PIP_NO_WARN_SCRIPT_LOCATION=0
 
 IF "%conda_env_name%"=="" SET conda_env_name="azure_automl"
@@ -32,10 +33,12 @@ echo.
 echo ***************************************
 echo * AutoML setup completed successfully *
 echo ***************************************
-echo.
-echo Starting jupyter notebook - please run the configuration notebook 
-echo.
-jupyter notebook --log-level=50 --notebook-dir='..\..'
+IF NOT "%options%"=="nolaunch" (
+  echo.
+  echo Starting jupyter notebook - please run the configuration notebook 
+  echo.
+  jupyter notebook --log-level=50 --notebook-dir='..\..'
+)
 
 goto End
 
