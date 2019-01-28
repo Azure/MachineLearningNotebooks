@@ -6,4 +6,5 @@ Follow these sample notebooks to learn:
 2. [Train on local](train-on-local): train a model using local computer as compute target.
 3. [Train on remote VM](train-on-remote-vm): train a model using a remote Azure VM as compute target.
 4. [Train on AmlCompute](train-on-amlcompute): train a model using an AmlCompute cluster as compute target.
-5. [Logging API](logging-api): experiment with various logging functions to create runs and automatically generate graphs.
+5. [Train in an HDI Spark cluster](train-in-spark): train a Spark ML model using an HDInsight Spark cluster as compute target.
+6. [Logging API](logging-api): experiment with various logging functions to create runs and automatically generate graphs.

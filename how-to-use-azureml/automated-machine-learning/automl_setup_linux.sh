@@ -2,6 +2,7 @@
 
 CONDA_ENV_NAME=$1
 AUTOML_ENV_FILE=$2
+OPTIONS=$3
 PIP_NO_WARN_SCRIPT_LOCATION=0
 
 if [ "$CONDA_ENV_NAME" == "" ]
@@ -34,10 +35,13 @@ else
    echo "***************************************" &&
    echo "* AutoML setup completed successfully *" &&
    echo "***************************************" &&
-   echo "" &&
-   echo "Starting jupyter notebook - please run the configuration notebook" &&
-   echo "" &&
-   jupyter notebook --log-level=50 --notebook-dir '../..'
+   if [ "$OPTIONS" != "nolaunch" ]
+   then
+      echo "" &&
+      echo "Starting jupyter notebook - please run the configuration notebook" &&
+      echo "" &&
+      jupyter notebook --log-level=50 --notebook-dir '../..'
+   fi
 fi
 
 if [ $? -gt 0 ]

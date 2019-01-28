@@ -10,52 +10,7 @@ In this section, you will find sample notebooks on how to use Azure Machine Lear
 - Every run (including the best run) is available as a pipeline, which you can tune further if needed. 
 - The model trained using Azure Databricks can be registered in Azure ML SDK workspace and then deployed to Azure managed compute (ACI or AKS) using the Azure Machine learning SDK.
 
-
-**Create Azure Databricks Cluster:**
-
-Select New Cluster and fill in following detail:
- - Cluster name: _yourclustername_
- - Databricks Runtime: Any **non ML** runtime (non ML 4.x, 5.x)
- - Python version: **3**
- - Workers: 2 or higher.  
-
-These settings are only for using Automated Machine Learning on Databricks.
- - Max. number of **concurrent iterations** in Automated ML settings is **<=** to the number of **worker nodes** in your Databricks cluster.
- - Worker node VM types: **Memory optimized VM** preferred. 
- - Uncheck _Enable Autoscaling_
-
-
-It will take few minutes to create the cluster. Please ensure that the cluster state is running before proceeding further.
-
-**Install Azure ML SDK without Automated ML capability on your Azure Databricks cluster**
-
-- Select Import library
-
-- Source: Upload Python Egg or PyPI
-
-- PyPi Name: **azureml-sdk[databricks]**
-
-**Install Azure ML with Automated ML SDK on your Azure Databricks cluster**
-
-- Select Import library
-
-- Source: Upload Python Egg or PyPI
-
-- PyPi Name: **azureml-sdk[automl_databricks]**
-
-**For installation with or without Automated ML**
-
-- Click Install Library
-
-- Do not select _Attach automatically to all clusters_. In case you selected this earlier, please go to your Home folder and deselect it.
-
-- Select the check box _Attach_ next to your cluster name
-
-(More details on how to attach and detach libs are here - [https://docs.databricks.com/user-guide/libraries.html#attach-a-library-to-a-cluster](https://docs.databricks.com/user-guide/libraries.html#attach-a-library-to-a-cluster) )
-
-- Ensure that there are no errors until Status changes to _Attached_. It may take a couple of minutes.
-
-**Note** - If you have an old SDK version, please deselect it from cluster’s installed libs > move to trash. Install the new SDK verdion and restart the cluster. If there is an issue after this, please detach and reattach your cluster.
+Please follow our [Azure doc](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#azure-databricks) to install the sdk in your Azure Databricks cluster before trying any of the sample notebooks.
 
 **Single file** - 
 The following archive contains all the sample notebooks. You can the run notebooks after importing [DBC](Databricks_AMLSDK_1-4_6.dbc) in your Databricks workspace instead of downloading individually.
