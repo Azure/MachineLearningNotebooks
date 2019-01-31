@@ -1,20 +1,19 @@
 FROM continuumio/miniconda:4.5.11
-MAINTAINER mit_hai@hotmail.com
-
-# create a new conda environment named azureml
-RUN conda create -n azureml -y  Python=3.6
-
-# install azurmel-sdk components
-RUN ["/bin/bash", "-c", "source activate azureml && pip install azureml-sdk[notebooks]==1.0.6"]
-
-# install additional packages used by sample notebooks. this is optional
-RUN ["/bin/bash", "-c", "source activate azureml && conda install -y tqdm cython matplotlib scikit-learn"]
 
 # install git
 RUN apt-get update && apt-get upgrade -y && apt-get install -y git
 
+# create a new conda environment named azureml
+RUN conda create -n azureml -y -q Python=3.6
+
+# install additional packages used by sample notebooks. this is optional
+RUN ["/bin/bash", "-c", "source activate azureml && conda install -y tqdm cython matplotlib scikit-learn"]
+
+# install azurmel-sdk components
+RUN ["/bin/bash", "-c", "source activate azureml && pip install azureml-sdk[notebooks]==1.0.10"]
+
 # clone Azure ML GitHub sample notebooks
-RUN cd /home && git clone -b "azureml-sdk-1.0.10" --single-branch git@github.com:Azure/MachineLearningNotebooks.git
+RUN cd /home && git clone -b "azureml-sdk-1.0.10" --single-branch https://github.com/Azure/MachineLearningNotebooks.git
 
 # generate jupyter configuration file
 RUN ["/bin/bash", "-c", "source activate azureml && mkdir ~/.jupyter && cd ~/.jupyter && jupyter notebook --generate-config"]
