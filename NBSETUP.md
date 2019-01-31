@@ -81,7 +81,7 @@ docker run -it -p 8887:8887 azuremlsdk:1.0.10
 
 Now you can point your browser to http://localhost:8887 and start from the `configuration.ipynb` notebook.
 
-If you need additional Azure ML SDK components, you can either modify the Docker files, or install them through command line in the live container.
+If you need additional Azure ML SDK components, you can either modify the Docker files before you build the Docker images, or install them through command line in the live container after you build the Docker image. For example:
 
 ```sh
 # install dataprep components
