@@ -2,9 +2,9 @@
 
 ---
 
-To run the notebooks in this repository use one of the two options.
+To run the notebooks in this repository use one of following options.
 
-## Option 1: Use Azure Notebooks
+## **Option 1: Use Azure Notebooks**
 Azure Notebooks is a hosted Jupyter-based notebook service in the Azure cloud. Azure Machine Learning Python SDK is already pre-installed in the Azure Notebooks `Python 3.6` kernel.
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
@@ -59,3 +59,40 @@ Please make sure you start with the [Configuration](configuration.ipynb) noteboo
 ### Video walkthrough:
 
 [![Get Started video](images/yt_cover.png)](https://youtu.be/VIsXeTuW3FU)
+
+
+## **Option 3: Use Docker**
+
+You need to have Docker engine installed locally and running.
+1. Clone this GitHub repo, or just copy the `Dockerfiles` folder from the root directory onto local disk.
+2. Choose the version (`1.0.10` for example) you'd like to try, issue the following command.
+
+```sh
+# change current directory to the Azure ML SDK vesion you choose
+cd Dockerfiles/1.0.10
+
+# build a Docker image with the name azuremlsdk and tag 1.0.10
+# this can take several minutes depending on your computer and network bandwidth
+docker build . -t azuremlsdk:1.0.10
+
+# launch Docker container and a Jupyter notebook instance
+docker run -it -p 8887:8887 azuremlsdk:1.0.10
+```
+
+Now you can point your browser to http://localhost:8887 and start from the `configuration.ipynb` notebook.
+
+If you need additional Azure ML SDK components, you can either modify the Docker files, or install them through command line in the live container.
+
+```sh
+# install dataprep components
+pip install azureml-dataprep
+
+# install the core SDK and automated ml components
+pip install azureml-sdk[automl]
+
+# install the core SDK and model explainability component
+pip install azureml-sdk[explain]
+
+# install the core SDK and experimental components
+pip install azureml-sdk[contrib]
+```
