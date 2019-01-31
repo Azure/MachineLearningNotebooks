@@ -35,7 +35,7 @@ The [How to use Azure ML](./how-to-use-azureml) folder contains specific example
 
 - [Training](./how-to-use-azureml/training) - Examples of how to build models using Azure ML's logging and execution capabilities on local and remote compute targets
 - [Training with Deep Learning](./how-to-use-azureml/training-with-deep-learning) - Examples demonstrating how to build deep learning models using estimators and parameter sweeps
-- [Manage Azure ML Service](./how-to-use-azurel/manage-azureml-service) - Examples how to perform tasks, such as authenticate against Azure ML service in different ways.
+- [Manage Azure ML Service](./how-to-use-azureml/manage-azureml-service) - Examples how to perform tasks, such as authenticate against Azure ML service in different ways.
 - [Automated Machine Learning](./how-to-use-azureml/automated-machine-learning) - Examples using Automated Machine Learning to automatically generate optimal machine learning pipelines and models
 - [Machine Learning Pipelines](./how-to-use-azureml/machine-learning-pipelines) - Examples showing how to create and use reusable pipelines for training and batch scoring
 - [Deployment](./how-to-use-azureml/deployment) - Examples showing how to deploy and manage machine learning models and solutions
