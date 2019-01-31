@@ -1,0 +1,23 @@
+{
+    "channels": {
+        "master": [
+            "authentication-in-azureml"
+        ],
+        "preview-notest": [
+            "authentication-in-azureml"
+        ]        
+    },
+    
+    "notebooks": {
+        "authentication-in-azureml": {
+            "path": "authentication-in-azureml",
+            "name": "authentication-in-azureml.ipynb",
+            "dependencies": ["images/svc-pr-1.PNG", 
+                "images/svc-pr-2.PNG",
+                "images/svc-pr-3.PNG",
+                "images/svc-pr-4.PNG"],
+            "conda": [ ],
+            "requirements": [ ]
+        }
+    }
+}
