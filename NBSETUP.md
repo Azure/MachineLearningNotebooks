@@ -63,25 +63,31 @@ Please make sure you start with the [Configuration](configuration.ipynb) noteboo
 
 ## **Option 3: Use Docker**
 
-You need to have Docker engine installed locally and running.
-1. Clone this GitHub repo, or just copy the `Dockerfiles` folder from the root directory onto local disk.
-2. Choose the version (`1.0.10` for example) you'd like to try, issue the following command.
+You need to have Docker engine installed locally and running. Open a command line window and type the following command. 
+
+__Note:__ We use version `1.0.10` below as an exmaple, but you can replace that with any available version number you like.
 
 ```sh
-# change current directory to the Azure ML SDK vesion you choose
-cd Dockerfiles/1.0.10
+# clone the sample repoistory
+git clone https://github.com/Azure/MachineLearningNotebooks.git
 
-# build a Docker image with the name azuremlsdk and tag 1.0.10
-# this can take several minutes depending on your computer and network bandwidth
+# change current directory to the folder 
+# where Dockerfile of the specific SDK version is located.
+cd MachineLearningNotebooks/Dockerfiles/1.0.10
+
+# build a Docker image with the a name (azuremlsdk for example) 
+# and a version number tag (1.0.10 for example).
+# this can take several minutes depending on your computer speed and network bandwidth.
 docker build . -t azuremlsdk:1.0.10
 
-# launch Docker container and a Jupyter notebook instance
+# launch the built Docker container which also automatically starts
+# a Jupyter server instance listening on port 8887 of the host machine
 docker run -it -p 8887:8887 azuremlsdk:1.0.10
 ```
 
-Now you can point your browser to http://localhost:8887 and start from the `configuration.ipynb` notebook.
+Now you can point your browser to http://localhost:8887. We recommend that you start from the `configuration.ipynb` notebook at the root directory.
 
-If you need additional Azure ML SDK components, you can either modify the Docker files before you build the Docker images, or install them through command line in the live container after you build the Docker image. For example:
+If you need additional Azure ML SDK components, you can either modify the Docker files before you build the Docker images to add additional steps, or install them through command line in the live container after you build the Docker image. For example:
 
 ```sh
 # install dataprep components
