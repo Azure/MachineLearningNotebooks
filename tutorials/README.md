@@ -15,6 +15,6 @@ As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) not
 
  ### Regression
  * [Part 1](regression-part1-data-prep.ipynb): Prepare the data using Azure Machine Learning Data Prep SDK. 
- * [Part 2](regression-part1-automated-ml.ipynb): Train a model using Automated Machine Learning.
+ * [Part 2](regression-part2-automated-ml.ipynb): Train a model using Automated Machine Learning.
 
  Also find quickstarts and how-tos on the [official documentation site for Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/).

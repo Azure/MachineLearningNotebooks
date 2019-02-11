@@ -102,3 +102,5 @@ pip install azureml-sdk[explain]
 # install the core SDK and experimental components
 pip install azureml-sdk[contrib]
 ```
+Drag and Drop
+The image will be downloaded by Fatkun
