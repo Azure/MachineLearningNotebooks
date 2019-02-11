@@ -44,6 +44,9 @@ In this directory, there are two types of notebooks:
 4. [aml-pipelines-data-transfer.ipynb](https://aka.ms/pl-data-trans)
 5. [aml-pipelines-use-databricks-as-compute-target.ipynb](https://aka.ms/pl-databricks)
 6. [aml-pipelines-use-adla-as-compute-target.ipynb](https://aka.ms/pl-adla)
+7. [aml-pipelines-parameter-tuning-with-hyperdrive.ipynb](https://aka.ms/pl-hyperdrive)
+8. [aml-pipelines-how-to-use-azurebatch-to-run-a-windows-executable.ipynb](https://aka.ms/pl-azbatch)
+9. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule)
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
 
