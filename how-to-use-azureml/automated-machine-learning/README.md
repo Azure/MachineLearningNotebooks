@@ -166,9 +166,6 @@ bash automl_setup_linux.sh
     - How to specifying sample_weight
     - The difference that it makes to test results
 
-- [auto-ml-subsampling-local.ipynb](subsampling/auto-ml-subsampling-local.ipynb)
-    - How to enable subsampling
-
 - [auto-ml-dataprep.ipynb](dataprep/auto-ml-dataprep.ipynb)
     - Using DataPrep for reading data
 
