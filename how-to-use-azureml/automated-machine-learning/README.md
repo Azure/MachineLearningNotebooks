@@ -25,7 +25,7 @@ Below are the three execution environments supported by AutoML.
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
 [Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
-1. Follow the instructions in the [configuration](configuration.ipynb) notebook to create and connect to a workspace.
+1. Follow the instructions in the [configuration](../../configuration.ipynb) notebook to create and connect to a workspace.
 1. Open one of the sample notebooks.
 
  <a name="databricks"></a>
@@ -90,7 +90,7 @@ bash automl_setup_linux.sh
 ```
 
 ### 4. Running configuration.ipynb
-- Before running any samples you next need to run the configuration notebook. Click on configuration.ipynb notebook
+- Before running any samples you next need to run the configuration notebook. Click on [configuration](../../configuration.ipynb) notebook
 - Execute the cells in the notebook to Register Machine Learning Services Resource Provider and create a workspace. (*instructions in notebook*)
 
 ### 5. Running Samples
@@ -99,9 +99,6 @@ bash automl_setup_linux.sh
 
 <a name="samples"></a>
 # Automated ML SDK Sample Notebooks
-- [configuration.ipynb](configuration.ipynb)
-    - Create new Azure ML Workspace
-    - Save Workspace configuration file
 
 - [auto-ml-classification.ipynb](classification/auto-ml-classification.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
