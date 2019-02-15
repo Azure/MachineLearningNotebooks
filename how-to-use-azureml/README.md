@@ -6,6 +6,7 @@ As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) not
 
  * [train-within-notebook](./training/train-within-notebook): Train a model hile tracking run history, and learn how to deploy the model as web service to Azure Container Instance.
  * [train-on-local](./training/train-on-local): Learn how to submit a run and use Azure ML managed run configuration.
+* [train-on-amlcompute](./training/train-on-amlcompute): Use a 1-n node managed compute cluster as a remote compute target for CPU or GPU based training.
 * [train-on-remote-vm](./training/train-on-remote-vm): Use Data Science Virtual Machine as a target for remote runs.
 * [logging-api](./training/logging-api): Learn about the details of logging metrics to run history.
 * [register-model-create-image-deploy-service](./deployment/register-model-create-image-deploy-service): Learn about the details of model management.
