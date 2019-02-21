@@ -21,6 +21,9 @@ Notebook 6 is an Automated ML sample notebook for Classification.
 
 Learn more about [how to use Azure Databricks as a development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#azure-databricks) for Azure Machine Learning service.
 
+**Databricks as a Compute Target from AML Pipelines**
+You can use Azure Databricks as a compute target from [Azure Machine Learning Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines). Take a look at this notebook for details: [aml-pipelines-use-databricks-as-compute-target.ipynb](aml-pipelines-use-databricks-as-compute-target.ipynb). 
+
 For more on SDK concepts, please refer to [notebooks](https://github.com/Azure/MachineLearningNotebooks).
 
 **Please let us know your feedback.**
