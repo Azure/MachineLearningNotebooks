@@ -28,6 +28,8 @@ parser.add_argument('--first-layer-neurons', type=int, dest='n_hidden_1', defaul
                     help='# of neurons in the first layer')
 parser.add_argument('--second-layer-neurons', type=int, dest='n_hidden_2', default=100,
                     help='# of neurons in the second layer')
+parser.add_argument('--learning-rate', type=float, dest='learning_rate', default=0.001, help='learning rate')
+
 args = parser.parse_args()
 
 data_folder = args.data_folder
@@ -46,9 +48,9 @@ n_inputs = 28 * 28
 n_h1 = args.n_hidden_1
 n_h2 = args.n_hidden_2
 n_outputs = 10
-
 n_epochs = 20
 batch_size = args.batch_size
+learning_rate = args.learning_rate
 
 y_train = one_hot_encode(y_train, n_outputs)
 y_test = one_hot_encode(y_test, n_outputs)
@@ -56,9 +58,9 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep='\n')
 
 # Build a simple MLP model
 model = Sequential()
-# input layer
+# first hidden layer
 model.add(Dense(n_h1, activation='relu', input_shape=(n_inputs,)))
-# hidden layer
+# second hidden layer
 model.add(Dense(n_h2, activation='relu'))
 # output layer
 model.add(Dense(n_outputs, activation='softmax'))
@@ -66,7 +68,7 @@ model.add(Dense(n_outputs, activation='softmax'))
 model.summary()
 
 model.compile(loss='categorical_crossentropy',
-              optimizer=RMSprop(),
+              optimizer=RMSprop(lr=learning_rate),
               metrics=['accuracy'])
 
 # start an Azure ML run
