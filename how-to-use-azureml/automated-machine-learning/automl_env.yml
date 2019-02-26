@@ -16,6 +16,7 @@ dependencies:
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-sdk[automl,notebooks,explain]
+  - azureml-sdk[automl,explain]
+  - azureml-widgets
   - pandas_ml
   
