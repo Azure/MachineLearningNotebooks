@@ -25,7 +25,7 @@ Below are the three execution environments supported by AutoML.
 
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
 [Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
-1. Follow the instructions in the [configuration](configuration.ipynb) notebook to create and connect to a workspace.
+1. Follow the instructions in the [configuration](../../configuration.ipynb) notebook to create and connect to a workspace.
 1. Open one of the sample notebooks.
 
  <a name="databricks"></a>
@@ -90,7 +90,7 @@ bash automl_setup_linux.sh
 ```
 
 ### 4. Running configuration.ipynb
-- Before running any samples you next need to run the configuration notebook. Click on configuration.ipynb notebook
+- Before running any samples you next need to run the configuration notebook. Click on [configuration](../../configuration.ipynb) notebook
 - Execute the cells in the notebook to Register Machine Learning Services Resource Provider and create a workspace. (*instructions in notebook*)
 
 ### 5. Running Samples
@@ -99,9 +99,6 @@ bash automl_setup_linux.sh
 
 <a name="samples"></a>
 # Automated ML SDK Sample Notebooks
-- [configuration.ipynb](configuration.ipynb)
-    - Create new Azure ML Workspace
-    - Save Workspace configuration file
 
 - [auto-ml-classification.ipynb](classification/auto-ml-classification.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
@@ -122,7 +119,7 @@ bash automl_setup_linux.sh
     - Retrieving models for any iteration or logged metric
     - Specify automl settings as kwargs
 
-- [auto-ml-remote-batchai.ipynb](remote-batchai/auto-ml-remote-batchai.ipynb)
+- [auto-ml-remote-amlcompute.ipynb](remote-batchai/auto-ml-remote-amlcompute.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Example of using automated ML for classification using remote AmlCompute for training
     - Parallel execution of iterations
@@ -231,6 +228,9 @@ If the call `ws = Workspace.from_config()` fails:
 If a sample notebook fails with an error that property, method or library does not exist:
 1) Check that you have selected correct kernel in jupyter notebook.  The kernel is displayed in the top right of the notebook page.  It can be changed using the `Kernel | Change Kernel` menu option.  For Azure Notebooks, it should be `Python 3.6`.  For local conda environments, it should be the conda envioronment name that you specified in automl_setup.  The default is azure_automl.  Note that the kernel is saved as part of the notebook.  So, if you switch to a new conda environment, you will have to select the new kernel in the notebook.
 2) Check that the notebook is for the SDK version that you are using.  You can check the SDK version by executing `azureml.core.VERSION` in a jupyter notebook cell.  You can download previous version of the sample notebooks from GitHub by clicking the `Branch` button, selecting the `Tags` tab and then selecting the version.
+
+## Numpy import fails on Windows
+Some Windows environments see an error loading numpy with the latest Python version 3.6.8.  If you see this issue, try with Python version 3.6.7.
 
 ## Remote run: DsvmCompute.create fails 
 There are several reasons why the DsvmCompute.create can fail.  The reason is usually in the error message but you have to look at the end of the error message for the detailed reason.  Some common reasons are:
