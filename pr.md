@@ -34,6 +34,7 @@
 - [Microsoft introduces Azure service to automatically build AI models](https://venturebeat.com/2018/09/24/microsoft-introduces-azure-service-to-automatically-build-ai-models/) (VentureBeat)
 
 ## Community Projects
+- [Use Papermill with Azure ML](https://github.com/jreynolds01/papermill_execution_azureml/)
 - [Fashion MNIST](https://github.com/amynic/azureml-sdk-fashion)
 - Keras on Databricks
 - [Samples from CSS](https://github.com/Azure/AMLSamples)
