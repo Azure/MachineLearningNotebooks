@@ -42,21 +42,7 @@ Below are the three execution environments supported by AutoML.
 ## Running samples in a Local Conda environment
 
 To run these notebook on your own notebook server, use these installation instructions.
-
-The instructions below will install everything you need and then start a Jupyter notebook.  To start your Jupyter notebook manually, use:
-
-```
-conda activate azure_automl
-jupyter notebook
-```
-
-or on Mac:
-
-```
-source activate azure_automl
-jupyter notebook
-```
-
+The instructions below will install everything you need and then start a Jupyter notebook.
 
 ### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose 64-bit Python 3.7 or higher.
 - **Note**: if you already have conda installed, you can keep using it but it should be version 4.4.10 or later (as shown by: conda -V).  If you have a previous version installed, you can update it using the command: conda update conda.
@@ -96,6 +82,21 @@ bash automl_setup_linux.sh
 ### 5. Running Samples
 - Please make sure you use the Python [conda env:azure_automl] kernel when trying the sample Notebooks.
 - Follow the instructions in the individual notebooks to explore various features in AutoML
+
+### 6. Starting jupyter notebook manually
+To start your Jupyter notebook manually, use:
+
+```
+conda activate azure_automl
+jupyter notebook
+```
+
+or on Mac or Linux:
+
+```
+source activate azure_automl
+jupyter notebook
+```
 
 <a name="samples"></a>
 # Automated ML SDK Sample Notebooks
