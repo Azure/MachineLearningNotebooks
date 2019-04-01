@@ -47,6 +47,7 @@ In this directory, there are two types of notebooks:
 7. [aml-pipelines-parameter-tuning-with-hyperdrive.ipynb](https://aka.ms/pl-hyperdrive)
 8. [aml-pipelines-how-to-use-azurebatch-to-run-a-windows-executable.ipynb](https://aka.ms/pl-azbatch)
 9. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule)
+10. [aml-pipelines-with-automated-machine-learning-step.ipynb](https://aka.ms/pl-automl)
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
 
