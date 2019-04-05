@@ -16,6 +16,14 @@ print("all args: ", args)
 cwd = os.getcwd()
 print("cwd:", cwd)
 print("dir of cwd", os.listdir(cwd))
+parent = os.path.dirname(args.input_dir)
+print("input_dir_parent:", parent)
+print("dir of input_dir_parent:", os.listdir( parent))
 
-print("input_dir:", args.input_dir)
-print("dir of input_dir", os.listdir(args.input_dir))
+
+with open(os.path.join(parent, 'metrics')) as f:
+    metrics = json.load(f)
+
+print(metrics)
+# print("input_dir:", args.input_dir)
+# print("dir of input_dir", os.listdir( args.input_dir))
