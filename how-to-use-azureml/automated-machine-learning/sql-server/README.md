@@ -36,79 +36,70 @@ Once you have completed the setup, you can try the energy demand sample in the n
 This has cells to train a model, predict based on the model and show metrics for each pipeline run in training the model.
 
 <a name="ssms2017"></a>
-## Set using SQL Server Management Studio for SQL Server 2017 on Windows
+## Setup using SQL Server Management Studio for SQL Server 2017 on Windows
 
 These instruction setup the integration for SQL Server 2017 on Windows.
 
 1. If you don't already have SQL Server, you can install it from [https://www.microsoft.com/en-us/sql-server/sql-server-downloads](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
-1. Enable external scripts with the following commands: 
+2. Enable external scripts with the following commands: 
 ```sh
    sp_configure 'external scripts enabled',1 
    reconfigure with override
 ```
-1. Stop SQL Server. 
-1. Install the automated machine learning libraries using the following commands from Administrator command: 
+3. Stop SQL Server. 
+4. Install the automated machine learning libraries using the following commands from Administrator command prompt (If you are using a non-default SQL Server instance name, replace MSSQLSERVER in the second command with the instance name)
 ```sh
    cd "C:\Program Files\Microsoft SQL Server"
    cd "MSSQL14.MSSQLSERVER\PYTHON_SERVICES"
    python.exe -m pip install azureml-sdk[automl]
    python.exe -m pip install --upgrade numpy
 ```
-If you are using a non-default SQL Server instance name, replace MSSQLSERVER in the second command with the instance name. 
-1. Start SQL Server and the service "SQL Server Launchpad service". 
-1. In Windows Firewall, click on advanced settings and in Outbound Rules, disable "Block network access for R local user accounts in SQL Server instance xxxx". 
-1. Create an Azure service principal.  You can do this with the commands: 
+5. Start SQL Server and the service "SQL Server Launchpad service". 
+6. In Windows Firewall, click on advanced settings and in Outbound Rules, disable "Block network access for R local user accounts in SQL Server instance xxxx". 
+7. Execute the files in the setup folder in SQL Server Management Studio: aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql and AutoMLTrain.sql 
+8. Create an Azure Machine Learning Workspace.  You can use the instructions at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace ](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace)
+9. Create a config.json file file using the subscription id, resource group name and workspace name that you use to create the workspace.  The file is described at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace)
+10. Create an Azure service principal.  You can do this with the commands: 
 ```sh
    az login 
    az account set --subscription subscriptionid 
    az ad sp create-for-rbac --name principlename --password password 
 ```
- 
-This prints out the appId and tenant, which you can use later authenticate with Azure. 
- 
-1. Execute the files in the setup folder in SQL Server Management Studio: aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql and AutoMLTrain.sql 
-1. Create an Azure Machine Learning Workspace.  You can use the instructions at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace ](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace)
-1. Create a config.json file file using the subscription id, resource group name and workspace name that you use to create the workspace.  The file is described at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace)
-1. Insert the values <tenant>, <AppId> and <password> returned by create-for-rbac above into the aml_connection table.  Set <path> as the absolute path to your config.json file. Set the name to “Default”. 
-
-For Energy Demand example, in SQL Server Management Studio, you can right-click the database, select Tasks, then Import Flat file.   Select the file AzureMlCli\notebooks\how-to-use-azureml\automated-machine-learning\forecasting-energy-demand\nyc_energy.csv.  When you get to the column definition page, allow nulls for all columns. 
+11. Insert the values <tenant>, <AppId> and <password> returned by create-for-rbac above into the aml_connection table.  Set <path> as the absolute path to your config.json file. Set the name to “Default”. 
  
 <a name="ssms2019"></a>
-## Set using SQL Server Management Studio for SQL Server 2019 on Linux
+## Setup using SQL Server Management Studio for SQL Server 2019 on Linux
 1. Install SQL Server 2019 from: [https://www.microsoft.com/en-us/sql-server/sql-server-downloads](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
-1. Install machine learning support from: [https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-machine-learning?view=sqlallproducts-allversions#ubuntu](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-machine-learning?view=sqlallproducts-allversions#ubuntu)
-1. Then install SQL Server management Studio from [https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)
-1. Enable external scripts with the following commands: 
+2. Install machine learning support from: [https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-machine-learning?view=sqlallproducts-allversions#ubuntu](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-machine-learning?view=sqlallproducts-allversions#ubuntu)
+3. Then install SQL Server management Studio from [https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)
+4. Enable external scripts with the following commands: 
 ```sh
    sp_configure 'external scripts enabled',1 
    reconfigure with override 
 ```
-1. Stop SQL Server. 
-1. Install the automated machine learning libraries using the following commands from Administrator command: 
+5. Stop SQL Server. 
+6. Install the automated machine learning libraries using the following commands from Administrator command (If you are using a non-default SQL Server instance name, replace MSSQLSERVER in the second command with the instance name): 
 ```sh
    sudo /opt/mssql/mlservices/bin/python/python -m pip install azureml-sdk[automl] 
    sudo /opt/mssql/mlservices/bin/python/python -m pip install --upgrade numpy 
 ```
-If you are using a non-default SQL Server instance name, replace MSSQLSERVER in the second command with the instance name. 
-1. Start SQL Server. 
-1. Create an Azure service principal.  You can do this with the commands: 
+7. Start SQL Server. 
+8. Execute the files aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql and AutoMLTrain.sql in SQL Server Management Studio. 
+9. Create an Azure Machine Learning Workspace.  You can use the instructions at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace)
+10. Create a config.json file file using the subscription id, resource group name and workspace name that you use to create the workspace.  The file is described at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace)
+11. Create an Azure service principal.  You can do this with the commands: 
 ```sh
-az login 
-az account set --subscription subscriptionid 
-az ad sp create-for-rbac --name principlename --password password 
+   az login 
+   az account set --subscription subscriptionid 
+   az ad sp create-for-rbac --name principlename --password password 
 ``` 
-This prints out the appId and tenant, which you can use later authenticate with Azure. 
-1. Execute the files aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql and AutoMLTrain.sql in SQL Server Management Studio. 
-1. Create an Azure Machine Learning Workspace.  You can use the instructions at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace)
-1. Create a config.json file file using the subscription id, resource group name and workspace name that you use to create the workspace.  The file is described at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace)
-1. Insert the values <tenant>, <AppId> and <password> returned by create-for-rbac above into the aml_connection table.  Set <path> as the absolute path to your config.json file. Set the name to “Default”. 
-For Energy Demand example, in SQL Server Management Studio, you can right-click the database, select Tasks, then Import Flat file.   Select the file AzureMlCli\notebooks\how-to-use-azureml\automated-machine-learning\forecasting-energy-demand\nyc_energy.csv.  When you get to the column definition page, allow nulls for all columns. 
+12. Insert the values <tenant>, <AppId> and <password> returned by create-for-rbac above into the aml_connection table.  Set <path> as the absolute path to your config.json file. Set the name to “Default”. 
  
 <a name="ssmsenergydemand"></a>
-## Energy demand example using SQL Server Management Studio]
+## Energy demand example using SQL Server Management Studio
 
 Once you have completed the setup, you can try the energy demand sample in the notebook energy-demand\auto-ml-sql-energy-demand.ipynb.
-1. First you need to load the sample data in the database.
+First you need to load the sample data in the database.
 1. In SQL Server Management Studio, you can right-click the database, select Tasks, then Import Flat file. 
 1. Select the file AzureMlCli\notebooks\how-to-use-azureml\automated-machine-learning\forecasting-energy-demand\nyc_energy.csv. 
 1. When you get to the column definition page, allow nulls for all columns. 
