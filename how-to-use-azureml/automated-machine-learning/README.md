@@ -189,6 +189,11 @@ jupyter notebook
     - Dataset: [Dominick's grocery sales of orange juice](forecasting-b/dominicks_OJ.csv)
     - Example of training an AutoML forecasting model on multiple time-series
 
+- [auto-ml-classification-with-onnx.ipynb](classification-with-onnx/auto-ml-classification-with-onnx.ipynb)
+    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
+    - Simple example of using Auto ML for classification with ONNX models
+    - Uses local compute for training
+
 <a name="documentation"></a>
 See [Configure automated machine learning experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) to learn how more about the the settings and features available for automated machine learning experiments.
 
@@ -232,6 +237,13 @@ If a sample notebook fails with an error that property, method or library does n
 
 ## Numpy import fails on Windows
 Some Windows environments see an error loading numpy with the latest Python version 3.6.8.  If you see this issue, try with Python version 3.6.7.
+
+## Numpy import fails
+Check the tensorflow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall tensorflow from the environment if version is >= 1.13
+You may check the version of tensorflow and uninstall as follows
+1) start a command shell, activate conda environment where automated ml packages are installed
+2) enter `pip freeze` and look for `tensorflow` , if found, the version listed should be < 1.13 
+3) If the listed version is a not a supported version,  `pip uninstall tensorflow` in the command shell and enter y for confirmation. 
 
 ## Remote run: DsvmCompute.create fails 
 There are several reasons why the DsvmCompute.create can fail.  The reason is usually in the error message but you have to look at the end of the error message for the detailed reason.  Some common reasons are:
