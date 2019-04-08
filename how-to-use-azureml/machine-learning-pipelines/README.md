@@ -38,18 +38,19 @@ In this directory, there are two types of notebooks:
 
 * The first type of notebooks will introduce you to core Azure Machine Learning Pipelines features. These notebooks below belong in this category, and are designed to go in sequence; they're all located in the "intro-to-pipelines" folder:
 
-1. [aml-pipelines-getting-started.ipynb](https://aka.ms/pl-get-started)
-2. [aml-pipelines-with-data-dependency-steps.ipynb](https://aka.ms/pl-data-dep)
-3. [aml-pipelines-publish-and-run-using-rest-endpoint.ipynb](https://aka.ms/pl-pub-rep)
-4. [aml-pipelines-data-transfer.ipynb](https://aka.ms/pl-data-trans)
-5. [aml-pipelines-use-databricks-as-compute-target.ipynb](https://aka.ms/pl-databricks)
-6. [aml-pipelines-use-adla-as-compute-target.ipynb](https://aka.ms/pl-adla)
-7. [aml-pipelines-parameter-tuning-with-hyperdrive.ipynb](https://aka.ms/pl-hyperdrive)
-8. [aml-pipelines-how-to-use-azurebatch-to-run-a-windows-executable.ipynb](https://aka.ms/pl-azbatch)
-9. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule)
-10. [aml-pipelines-with-automated-machine-learning-step.ipynb](https://aka.ms/pl-automl)
+1. [aml-pipelines-getting-started.ipynb](https://aka.ms/pl-get-started): Start with this notebook to understand the concepts of using Azure Machine Learning Pipelines. This notebook will show you how to runs steps in parallel and in sequence.
+2. [aml-pipelines-with-data-dependency-steps.ipynb](https://aka.ms/pl-data-dep): This notebooks shows how to connect steps in your pipeline using data. Data produced by one step is used by subsequent steps to force an explicit dependency between steps. 
+3. [aml-pipelines-publish-and-run-using-rest-endpoint.ipynb](https://aka.ms/pl-pub-rep): Once you are satisfied with your iterative runs in, you could publish your pipeline to get a REST endpoint which could be invoked from non-Pythons clients as well. 
+4. [aml-pipelines-data-transfer.ipynb](https://aka.ms/pl-data-trans): This notebook shows how you transfer data between supported datastores.
+5. [aml-pipelines-use-databricks-as-compute-target.ipynb](https://aka.ms/pl-databricks): This notebooks shows how you can use Pipelines to send your compute payload to Azure Databricks.
+6. [aml-pipelines-use-adla-as-compute-target.ipynb](https://aka.ms/pl-adla): This notebook shows how you can use Azure Data Lake Analytics (ADLA) as a compute target.
+7. [aml-pipelines-how-to-use-estimatorstep.ipynb](https://aka.ms/pl-estimator): This notebook shows how to use the EstimatorStep.
+7. [aml-pipelines-parameter-tuning-with-hyperdrive.ipynb](https://aka.ms/pl-hyperdrive): HyperDriveStep in Pipelines shows how you can do hyper parameter tuning using Pipelines.
+8. [aml-pipelines-how-to-use-azurebatch-to-run-a-windows-executable.ipynb](https://aka.ms/pl-azbatch): AzureBatchStep can be used to run your custom code in AzureBatch cluster.
+9. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule): Once you publish a Pipeline, you can schedule it to trigger based on an interval or on data change in a defined datastore. 
+10. [aml-pipelines-with-automated-machine-learning-step.ipynb](https://aka.ms/pl-automl): AutoMLStep in Pipelines shows how you can do automated machine learning using Pipelines.
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
 
-1. [pipeline-batch-scoring.ipynb](https://aka.ms/pl-batch-score)
+1. [pipeline-batch-scoring.ipynb](https://aka.ms/pl-batch-score): This notebook demonstrates how to run a batch scoring job using Azure Machine Learning pipelines.
 2. [pipeline-style-transfer.ipynb](https://aka.ms/pl-style-trans)
