@@ -32,7 +32,7 @@ These step show setting up the integration using Azure Data Studio.
  <a name="azuredatastudioenergydemand"></a>
 ## Energy demand example using Azure Data Studio
 
-Once you have completed the setup, you can try the energy demand sample in the notebook energy-demand\auto-ml-sql-energy-demand.ipynb
+Once you have completed the setup, you can try the energy demand sample in the notebook energy-demand\auto-ml-sql-energy-demand.ipynb.
 This has cells to train a model, predict based on the model and show metrics for each pipeline run in training the model.
 
 <a name="ssms2017"></a>
