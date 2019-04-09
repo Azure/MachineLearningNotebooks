@@ -53,6 +53,7 @@ These instruction setup the integration for SQL Server 2017 on Windows.
    cd "MSSQL14.MSSQLSERVER\PYTHON_SERVICES"
    python.exe -m pip install azureml-sdk[automl]
    python.exe -m pip install --upgrade numpy
+   python.exe -m pip install --upgrade sklearn
 ```
 5. Start SQL Server and the service "SQL Server Launchpad service". 
 6. In Windows Firewall, click on advanced settings and in Outbound Rules, disable "Block network access for R local user accounts in SQL Server instance xxxx". 
@@ -82,6 +83,7 @@ These instruction setup the integration for SQL Server 2017 on Windows.
 ```sh
    sudo /opt/mssql/mlservices/bin/python/python -m pip install azureml-sdk[automl] 
    sudo /opt/mssql/mlservices/bin/python/python -m pip install --upgrade numpy 
+   sudo /opt/mssql/mlservices/bin/python/python -m pip install --upgrade sklearn
 ```
 7. Start SQL Server. 
 8. Execute the files aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql and AutoMLTrain.sql in SQL Server Management Studio. 
