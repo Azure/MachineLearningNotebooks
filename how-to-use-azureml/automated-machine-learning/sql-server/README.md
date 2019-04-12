@@ -100,7 +100,7 @@ These instruction setup the integration for SQL Server 2017 on Windows.
 <a name="ssmsenergydemand"></a>
 ## Energy demand example using SQL Server Management Studio
 
-Once you have completed the setup, you can try the energy demand sample in the notebook energy-demand\auto-ml-sql-energy-demand.ipynb.
+Once you have completed the setup, you can try the energy demand sample queries.
 First you need to load the sample data in the database.
 1. In SQL Server Management Studio, you can right-click the database, select Tasks, then Import Flat file. 
 1. Select the file AzureMlCli\notebooks\how-to-use-azureml\automated-machine-learning\forecasting-energy-demand\nyc_energy.csv. 
