@@ -1,6 +1,12 @@
--- This stored procedure trains uses automated machine learning to train several models
+-- This stored procedure uses automated machine learning to train several models
 -- and returns the best model.
--- The result set has two columns. The first gives the model id.  The second is the actual model.
+--
+-- The result set has several columns:
+--   best_run - iteration ID for the best model
+--   experiment_name - experiment name pass in with the @experiment_name parameter
+--   fitted_model - best model found
+--   log_file_text - AutoML debug_log contents
+--   workspace - name of the Azure ML workspace where run history is stored
 --
 -- An example call for a classification problem is:
 --    insert into dbo.aml_model(RunId, ExperimentName, Model, LogFileText, WorkspaceName)

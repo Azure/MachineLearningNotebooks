@@ -27,7 +27,8 @@ These step show setting up the integration using Azure Data Studio.
 1. If you don't already have SQL Server, you can install it from [https://www.microsoft.com/en-us/sql-server/sql-server-downloads](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 1. Install Azure Data Studio from [https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-2017)
 1. Start Azure Data Studio and connect to SQL Server. [https://docs.microsoft.com/en-us/sql/azure-data-studio/sql-notebooks?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/azure-data-studio/sql-notebooks?view=sql-server-2017)
-1. Open the notebook how-to-use-azureml\automated-machine-learning\sql-server\setup\auto-ml-sql-setup.ipynb and follow this instruction in it.
+1. Create a database named "automl".
+1. Open the notebook how-to-use-azureml\automated-machine-learning\sql-server\setup\auto-ml-sql-setup.ipynb and follow the instruction in it.
 
  <a name="azuredatastudioenergydemand"></a>
 ## Energy demand example using Azure Data Studio
@@ -59,14 +60,14 @@ These instruction setup the integration for SQL Server 2017 on Windows.
 6. In Windows Firewall, click on advanced settings and in Outbound Rules, disable "Block network access for R local user accounts in SQL Server instance xxxx". 
 7. Execute the files in the setup folder in SQL Server Management Studio: aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql and AutoMLTrain.sql 
 8. Create an Azure Machine Learning Workspace.  You can use the instructions at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace ](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace)
-9. Create a config.json file file using the subscription id, resource group name and workspace name that you use to create the workspace.  The file is described at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace)
+9. Create a config.json file file using the subscription id, resource group name and workspace name that you used to create the workspace.  The file is described at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace)
 10. Create an Azure service principal.  You can do this with the commands: 
 ```sh
    az login 
    az account set --subscription subscriptionid 
    az ad sp create-for-rbac --name principlename --password password 
 ```
-11. Insert the values <tenant>, <AppId> and <password> returned by create-for-rbac above into the aml_connection table.  Set <path> as the absolute path to your config.json file. Set the name to “Default”. 
+11. Insert the values \<tenant\>, \<AppId\> and \<password\> returned by create-for-rbac above into the aml_connection table.  Set \<path\> as the absolute path to your config.json file. Set the name to “Default”. 
  
 <a name="ssms2019"></a>
 ## Setup using SQL Server Management Studio for SQL Server 2019 on Linux
@@ -95,7 +96,7 @@ These instruction setup the integration for SQL Server 2017 on Windows.
    az account set --subscription subscriptionid 
    az ad sp create-for-rbac --name principlename --password password 
 ``` 
-12. Insert the values <tenant>, <AppId> and <password> returned by create-for-rbac above into the aml_connection table.  Set <path> as the absolute path to your config.json file. Set the name to “Default”. 
+12. Insert the values \<tenant\>, \<AppId\> and \<password\> returned by create-for-rbac above into the aml_connection table.  Set \<path\> as the absolute path to your config.json file. Set the name to “Default”. 
  
 <a name="ssmsenergydemand"></a>
 ## Energy demand example using SQL Server Management Studio
@@ -103,7 +104,7 @@ These instruction setup the integration for SQL Server 2017 on Windows.
 Once you have completed the setup, you can try the energy demand sample queries.
 First you need to load the sample data in the database.
 1. In SQL Server Management Studio, you can right-click the database, select Tasks, then Import Flat file. 
-1. Select the file AzureMlCli\notebooks\how-to-use-azureml\automated-machine-learning\forecasting-energy-demand\nyc_energy.csv. 
+1. Select the file MachineLearningNotebooks\notebooks\how-to-use-azureml\automated-machine-learning\forecasting-energy-demand\nyc_energy.csv. 
 1. When you get to the column definition page, allow nulls for all columns. 
 
 You can then run the queries in the energy-demand folder:

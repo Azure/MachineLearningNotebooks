@@ -8,7 +8,7 @@ CREATE OR ALTER PROCEDURE [dbo].[AutoMLPredict]
  (
    @input_query NVARCHAR(MAX),      -- A SQL query returning data to predict on.
    @model NVARCHAR(MAX),            -- A model returned from AutoMLTrain.
-   @label_column  NVARCHAR(255)=''  -- Optional name of the column from input_query, which should be ignore when predicting
+   @label_column  NVARCHAR(255)=''  -- Optional name of the column from input_query, which should be ignored when predicting
  ) AS 
 BEGIN 
   

@@ -1,4 +1,4 @@
--- This is a table stored the Azure ML connection information.
+-- This is a table to store the Azure ML connection information.
 SET ANSI_NULLS ON
 GO
 
