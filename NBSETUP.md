@@ -1,6 +1,4 @@
-# Setting up environment
-
----
+# Set up your notebook environment for Azure Machine Learning
 
 To run the notebooks in this repository use one of following options.
 
@@ -12,9 +10,7 @@ Azure Notebooks is a hosted Jupyter-based notebook service in the Azure cloud. A
 1. Follow the instructions in the [Configuration](configuration.ipynb) notebook to create and connect to a workspace
 1. Open one of the sample notebooks
 
-    **Make sure the Azure Notebook kernel is set to `Python 3.6`** when you open a notebook
-
-    ![set kernel to Python 3.6](images/python36.png)
+    **Make sure the Azure Notebook kernel is set to `Python 3.6`** when you open a notebook by choosing Kernel > Change Kernel > Python 3.6 from the menus.
 
 ## **Option 2: Use your own notebook server**
 
@@ -58,8 +54,7 @@ Please make sure you start with the [Configuration](configuration.ipynb) noteboo
 
 ### Video walkthrough:
 
-[![Get Started video](images/yt_cover.png)](https://youtu.be/VIsXeTuW3FU)
-
+[!VIDEO https://youtu.be/VIsXeTuW3FU]
 
 ## **Option 3: Use Docker**
 
