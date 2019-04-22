@@ -1,4 +1,6 @@
-# Pipeline Notebook Examples for Azure Machine Learning 
+# Azure Machine Learning Pipeline
+
+## Overview
 
 The [Azure Machine Learning Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines) enables data scientists to create and manage multiple simple and complex workflows concurrently. A typical pipeline would have multiple tasks to prepare data, train, deploy and evaluate models. Individual steps in the pipeline can make use of diverse compute options (for example: CPU for data preparation and GPU for training) and languages. 
 

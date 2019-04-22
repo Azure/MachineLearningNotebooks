@@ -211,10 +211,18 @@ The main code of the file must be indented so that it is under this condition.
 <a name="troubleshooting"></a>
 # Troubleshooting
 ## automl_setup fails
-1. On windows, make sure that you are running automl_setup from an Anconda Prompt window rather than a regular cmd window.  You can launch the "Anaconda Prompt" window by hitting the Start button and typing "Anaconda Prompt".  If you don't see the application "Anaconda Prompt", you might not have conda or mini conda installed.  In that case, you can install it [here](https://conda.io/miniconda.html)
+1. On Windows, make sure that you are running automl_setup from an Anconda Prompt window rather than a regular cmd window.  You can launch the "Anaconda Prompt" window by hitting the Start button and typing "Anaconda Prompt".  If you don't see the application "Anaconda Prompt", you might not have conda or mini conda installed.  In that case, you can install it [here](https://conda.io/miniconda.html)
 2. Check that you have conda 64-bit installed rather than 32-bit.  You can check this with the command `conda info`.  The `platform` should be `win-64` for Windows or `osx-64` for Mac.
 3. Check that you have conda 4.4.10 or later.  You can check the version with the command `conda -V`.  If you have a previous version installed, you can update it using the command: `conda update conda`.
-4. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`. 
+4. On Linux, if the error is `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`, install build essentials using the command `sudo apt-get install build-essential`.
+5. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`. 
+
+## automl_setup_linux.sh fails
+If automl_setup_linux.sh fails on Ubuntu Linux with the error: `unable to execute 'gcc': No such file or directory`
+1. Make sure that outbound ports 53 and 80 are enabled.  On an Azure VM, you can do this from the Azure Portal by selecting the VM and clicking on Networking.
+2. Run the command: `sudo apt-get update`
+3. Run the command: `sudo apt-get install build-essential --fix-missing`
+4. Run `automl_setup_linux.sh` again.
 
 ## configuration.ipynb fails
 1) For local conda, make sure that you have susccessfully run automl_setup first.
