@@ -54,3 +54,5 @@ In this directory, there are two types of notebooks:
 
 1. [pipeline-batch-scoring.ipynb](https://aka.ms/pl-batch-score): This notebook demonstrates how to run a batch scoring job using Azure Machine Learning pipelines.
 2. [pipeline-style-transfer.ipynb](https://aka.ms/pl-style-trans)
+
+ ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/README.png)
