@@ -55,4 +55,4 @@ Visit following repos to see projects contributed by Azure ML users:
  - [Fine tune natural language processing models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
  
- ![Impressions](https://notebook1.azurewebsites.net/api/impressions/MachineLearningNotebooks/README.png)
+ ![Impressions](https://NotebookPixelTracker20190423110538.azurewebsites.net/api/impressions/MachineLearningNotebooks/README.png)
