@@ -51,3 +51,5 @@ provided below for:
 
 Create HDI cluster:
 <https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters>
+
+![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/azure-hdi/README.png)
