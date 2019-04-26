@@ -16,5 +16,3 @@ These examples show you:
 12. [Use TensorBoard to monitor training execution](tensorboard)
 
 Learn more about how to use `Estimator` class to  [train deep neural networks with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-ml-models).
-
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/training-with-deep-learning/README.png)

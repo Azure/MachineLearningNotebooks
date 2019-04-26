@@ -9,5 +9,3 @@ Follow these sample notebooks to learn:
 5. [Explain classification using Run History](explain-run-history-sklearn-classification): Explain a scikit-learn classification model with Run History.
 6. [Explain regression using Run History](explain-run-history-sklearn-regression): Explain a scikit-learn regression model with Run History.
 7. [Explain scikit-learn raw features](explain-sklearn-raw-features): Explain the raw features of a trained scikit-learn model.
-
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/explain-model/README.png)

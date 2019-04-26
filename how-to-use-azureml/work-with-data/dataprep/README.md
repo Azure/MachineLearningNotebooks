@@ -1,9 +1,18 @@
 # Azure Machine Learning Data Prep SDK
 
+The Azure Machine Learning Data Prep SDK helps data scientists explore, cleanse and transform data for machine learning workflows in any Python environment.
+
+Key benefits to the SDK:
+- Cross-platform functionality. Write with a single SDK and run it on Windows, macOS, or Linux.
+- Intelligent transformations powered by AI, including grouping similar values to their canonical form and deriving columns by examples without custom code.
+- Capability to work with large, multiple files of different schema.
+- Scalability on a single machine by streaming data during processing rather than loading into memory.
+- Seamless integration with other Azure Machine Learning services. You can simply pass your prepared data file into `AutoMLConfig` object for automated machine learning training.
+
 You will find in this repo:
-- [How-To Guide Notebooks](how-to-guides) for more in-depth feature examples.
-- [Case Study Notebooks](case-studies/new-york-taxi) that show in-depth scenario examples of features.
-- [Getting Started Tutorial](tutorials/getting-started/getting-started.ipynb) for a quick introduction to the Data Prep SDK and some of its main features.
+- [Getting Started Tutorial](tutorials/getting-started/getting-started.ipynb) for a quick introduction to the main features of Data Prep SDK.
+- [Case Study Notebooks](case-studies/new-york-taxi) that present an end-to-end data preparation tutorial where users start with small dataset, profile data with statistics summary, cleanse and perform feature engineering. All transformation steps are saved in a dataflow object. Users can easily reapply the same steps on the full dataset, and run it on Spark.
+- [How-To Guide Notebooks](how-to-guides) for more in-depth sample code at feature level.
 
 ## Installation
 Here are the [SDK installation steps](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
@@ -16,14 +25,29 @@ Here is more information on how to use the new Data Prep SDK:
 - [How to transform data](https://docs.microsoft.com/azure/machine-learning/service/how-to-transform-data) is an overview guide on how to transform data. 
 - [How to write data](https://docs.microsoft.com/azure/machine-learning/service/how-to-write-data) is an overview guide on how to write data to different storage locations. 
 
-## Known Issues
+## Support
 
-- **If running version 0.1.0**: To fix "Error Message: Cannot run the event loop while another loop is running", downgrade Tornado version to 4.5.3. Restart any running kernels for the change to take effect.
-```    
-pip install -U tornado==4.5.3
-```
+If you have any questions or feedback, send us an email at: [askamldataprep@microsoft.com](mailto:askamldataprep@microsoft.com).
 
 ## Release Notes
+
+### 2019-04-08 (version 1.1.1)
+
+New features
+- You can read multiple Datastore/DataPath/DataReference sources using read_* transforms.
+- You can perform the following operations on columns to create a new column: division, floor, modulo, power, length.
+- Data Prep is now part of the Azure ML diagnostics suite and will log diagnostic information by default.
+  - To turn this off, set this environment variable to true: DISABLE_DPREP_LOGGER
+
+Bug fixes and improvements
+- Improved code documentation for commonly used classes and functions.
+- Fixed a bug in auto_read_file that failed to read Excel files.
+- Added option to overwrite the folder in read_pandas_dataframe.
+- Improved performance of dotnetcore2 dependency installation, and added support for Fedora 27/28 and Ubuntu 1804.
+- Improved the performance of reading from Azure Blobs.
+- Column type detection now supports columns of type Long.
+- Fixed a bug where some date values were being displayed as timestamps instead of Python datetime objects.
+- Fixed a bug where some type counts were being displayed as doubles instead of integers.
 
 ### 2019-03-25 (version 1.1.0)
 
@@ -175,5 +199,3 @@ Bug fixes
 IMPORTANT: Please read the notice and find out more about this NYC Taxi and Limousine Commission dataset here: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml 
 
 IMPORTANT: Please read the notice and find out more about this Chicago Police Department dataset here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4 
-
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/work-with-data/dataprep/README.png)
