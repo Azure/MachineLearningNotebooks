@@ -1,4 +1,3 @@
-
 trigger:
 - master
 
@@ -6,14 +5,12 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-
 - task: DownloadSecureFile@1
   inputs:
     name: config.json
     secureFile: config.json
  
 - script: cp $(Agent.TempDirectory)/config.json $(Build.SourcesDirectory)
-- script: dir
 
 - task: AzureCLI@1
   displayName: 'Install the CLI'
