@@ -14,7 +14,7 @@ You can deploy to the cloud using the Azure ML CLI or the Azure ML SDK.
 az extension add -n azure-cli-ml
 az ml folder attach -w myworkspace -g myresourcegroup
 az ml model register -n sklearn_regression_model.pkl -p sklearn_regression_model.pkl -t model.json
-az ml model deploy -n acicicd -f model.json --ic inferenceConfig.yml --dc deploymentConfig.yml --overwrite
+az ml model deploy -n acicicd -f model.json --ic inferenceConfig.yml --dc deploymentConfig.yml
 ```
 
 Here is an [Azure DevOps Pipelines model deployment example](./azure-pipelines-model-deploy.yml)
