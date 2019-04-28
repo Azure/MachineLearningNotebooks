@@ -1,4 +1,6 @@
 # Model Deployment with Azure ML service
+[![Build Status](https://aidemos.visualstudio.com/azmlcli/_apis/build/status/Azure.MachineLearningNotebooks?branchName=cli-ga)](https://aidemos.visualstudio.com/azmlcli/_build/latest?definitionId=87&branchName=cli-ga)
+
 You can use Azure Machine Learning to package, debug, validate and deploy inference containers to a variety of compute targets. This process is known as "MLOps" (ML operationalization).
 For more information please check out this article: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where
 
