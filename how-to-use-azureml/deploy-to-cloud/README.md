@@ -8,5 +8,5 @@ For more information please check out this article: https://docs.microsoft.com/e
 
 ## Deploy to the cloud
 You can deploy to the cloud using the Azure ML CLI or the Azure ML SDK.
-- CLI example: https://aka.ms/azmlcli
+- CLI example: [Azure Pipelines model deployment example](./azure-pipelines-model-deploy.yml)
 - Notebook example: [model-register-and-deploy](./model-register-and-deploy.ipynb).
