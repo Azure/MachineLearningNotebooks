@@ -32,6 +32,7 @@ steps:
     azureSubscription: 'azmldemows'
     scriptLocation: inlineScript
     inlineScript: 'az ml model register -n sklearn_regression_model.pkl -p sklearn_regression_model.pkl -t model.json'
+    workingDirectory: 'how-to-use-azureml/deploy-to-cloud/'
 
 - task: AzureCLI@1
   displayName: 'Deploy model'
@@ -39,6 +40,7 @@ steps:
     azureSubscription: 'azmldemows'
     scriptLocation: inlineScript
     inlineScript: 'az ml model deploy -n acicicd -f model.json --ic inferenceConfig.yml --dc deploymentConfig.yml --overwrite'
+    workingDirectory: 'how-to-use-azureml/deploy-to-cloud/'
 
 - task: AzureCLI@1
   displayName: 'Delete deployed service'
