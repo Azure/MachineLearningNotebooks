@@ -1,0 +1,51 @@
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+
+- task: DownloadSecureFile@1
+  inputs:
+    name: config.json
+    secureFile: config.json
+ 
+- script: cp $(Agent.TempDirectory)/config.json $(Build.SourcesDirectory)
+- script: dir
+
+- task: AzureCLI@1
+  displayName: 'Install the CLI'
+  inputs:
+    azureSubscription: 'azmldemows'
+    scriptLocation: inlineScript
+    inlineScript: 'az extension add -n azure-cli-ml'
+
+- task: AzureCLI@1
+  displayName: 'Attach folder to workspace'
+  inputs:
+    azureSubscription: 'azmldemows'
+    scriptLocation: inlineScript
+    inlineScript: 'az ml folder attach'
+
+- task: AzureCLI@1
+  displayName: 'Register model'
+  inputs:
+    azureSubscription: 'azmldemows'
+    scriptLocation: inlineScript
+    inlineScript: 'az ml model register -n sklearn_regression_model.pkl -p sklearn_regression_model.pkl'
+
+- task: AzureCLI@1
+  displayName: 'Deploy model'
+  inputs:
+    azureSubscription: 'azmldemows'
+    scriptLocation: inlineScript
+    inlineScript: 'az ml model deploy -n acicicd -m sklearn_regression_model.pkl:1 --ic inferenceConfig.yml --dc deploymentConfig.yml'
+
+- task: AzureCLI@1
+  displayName: 'Delete deployed service'
+  inputs:
+    azureSubscription: 'azmldemows'
+    scriptLocation: inlineScript
+    inlineScript: 'az ml service delete -n acicicd'
