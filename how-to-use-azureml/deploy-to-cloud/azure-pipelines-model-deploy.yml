@@ -41,7 +41,7 @@ steps:
   inputs:
     azureSubscription: 'azmldemows'
     scriptLocation: inlineScript
-    inlineScript: 'az ml model deploy -n acicicd -m sklearn_regression_model.pkl:1 --ic inferenceConfig.yml --dc deploymentConfig.yml'
+    inlineScript: 'az ml model deploy -n acicicd -f model.json --ic inferenceConfig.yml --dc deploymentConfig.yml'
 
 - task: AzureCLI@1
   displayName: 'Delete deployed service'
