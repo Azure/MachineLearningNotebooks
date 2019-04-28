@@ -31,14 +31,14 @@ steps:
   inputs:
     azureSubscription: 'azmldemows'
     scriptLocation: inlineScript
-    inlineScript: 'az ml model register -n sklearn_regression_model.pkl -p sklearn_regression_model.pkl'
+    inlineScript: 'az ml model register -n sklearn_regression_model.pkl -p sklearn_regression_model.pkl -t model.json'
 
 - task: AzureCLI@1
   displayName: 'Deploy model'
   inputs:
     azureSubscription: 'azmldemows'
     scriptLocation: inlineScript
-    inlineScript: 'az ml model deploy -n acicicd -f model.json --ic inferenceConfig.yml --dc deploymentConfig.yml'
+    inlineScript: 'az ml model deploy -n acicicd -f model.json --ic inferenceConfig.yml --dc deploymentConfig.yml --overwrite'
 
 - task: AzureCLI@1
   displayName: 'Delete deployed service'
