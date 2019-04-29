@@ -9,7 +9,7 @@ Easily create and train a model using various deep neural networks (DNNs) as a f
 * VGG-16
 * SSD-VGG  
 
-To learn more about the azureml-accel-model classes, see the section [Model Classes](#model-classes) below or the [Azure ML Python SDK documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py).
+To learn more about the azureml-accel-model classes, see the section [Model Classes](#model-classes) below or the [Azure ML Accel Models SDK documentation](https://docs.microsoft.com/en-us/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py).
 
 ### Step 1: Create an Azure ML workspace
 Follow [these instructions](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python) to install the Azure ML SDK on your local machine, create an Azure ML workspace, and set up your notebook environment, which is required for the next step.
@@ -19,21 +19,21 @@ Once you have set up your environment, install the Azure ML Accel Models SDK. Th
 
 If you already have tensorflow >= 1.6,<2.0 installed in your development environment, you can install the SDK package using: 
 
-``
+```
 pip install azureml-accel-models
-``
+```
 
 If you do not have tensorflow >= 1.6,<2.0 and are using a CPU-only development environment, our SDK with tensorflow can be installed using:
 
-``
+```
 pip install azureml-accel-models[cpu]
-``
+```
 
 If your machine supports GPU (for example, on an [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)), then you can leverage the tensorflow-gpu functionality using:
 
-``
+```
 pip install azureml-accel-models[gpu]
-``
+```
 
 ### Step 3: Follow our notebooks
 
@@ -49,13 +49,28 @@ As stated above, we support 5 Accelerated Models. Here's more information on the
 **Available models and output tensors**
 
 The available models and the corresponding default classifier output tensors are below. This is the value that you would use during inferencing if you used the default classifier.
-* Resnet50, QuantizedResnet50 (output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0")
-* Resnet152, QuantizedResnet152 (output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0")
-* Densenet121, QuantizedDensenet121 (output_tensors = "classifier/densenet121/predictions/Softmax:0")
-* Vgg16, QuantizedVgg16 (output_tensors = "classifier/vgg_16/fc8/squeezed:0")
-* SsdVgg, QuantizedSsdVgg (output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0'])
+* Resnet50, QuantizedResnet50 
+``
+output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
+``
+* Resnet152, QuantizedResnet152 
+``
+output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
+``
+* Densenet121, QuantizedDensenet121
+``
+output_tensors = "classifier/densenet121/predictions/Softmax:0"
+``
+* Vgg16, QuantizedVgg16 
+``
+output_tensors = "classifier/vgg_16/fc8/squeezed:0"
+``
+* SsdVgg, QuantizedSsdVgg
+``
+output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
+``
 
-For more information, please reference the azureml.accel.models package in the [Azure ML Python SDK documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py).
+For more information, please reference the azureml.accel.models package in the [Azure ML Python SDK documentation](https://docs.microsoft.com/en-us/python/api/azureml-accel-models/azureml.accel.models?view=azure-ml-py).
 
 **Input tensors**
 
