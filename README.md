@@ -11,7 +11,8 @@ pip install azureml-sdk
 Read more detailed instructions on [how to set up your environment](./NBSETUP.md) using Azure Notebook service, your own Jupyter notebook server, or Docker.
 
 ## How to navigate and use the example notebooks?
-You should always run the [Configuration](./configuration.ipynb) notebook first when setting up a notebook library on a new machine or in a new environment. It configures your notebook library to connect to an Azure Machine Learning workspace, and sets up your workspace and compute to be used by many of the other examples. 
+If you are using an Azure Machine Learning Notebook VM, you are all set.  Otherwise, go through the Configuration](./configuration.ipynb) notebook first if you haven't already to establish your connection to the AzureML Workspace. 
+It configures your notebook library to connect to an Azure Machine Learning workspace, and sets up your workspace and compute to be used by many of the other examples. 
 
 If you want to...
 
@@ -54,3 +55,9 @@ Visit following repos to see projects contributed by Azure ML users:
 
  - [Fine tune natural language processing models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
+ 
+ 
+ ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/README.png)
+
+ 
+ 
