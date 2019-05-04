@@ -11,7 +11,7 @@ pip install azureml-sdk
 Read more detailed instructions on [how to set up your environment](./NBSETUP.md) using Azure Notebook service, your own Jupyter notebook server, or Docker.
 
 ## How to navigate and use the example notebooks?
-If you are using an Azure Machine Learning Notebook VM, you are all set.  Otherwise, go through the Configuration](./configuration.ipynb) notebook first if you haven't already to establish your connection to the AzureML Workspace. 
+If you are using an Azure Machine Learning Notebook VM, you are all set.  Otherwise, go through the [Configuration](./configuration.ipynb) notebook first if you haven't already to establish your connection to the AzureML Workspace. 
 It configures your notebook library to connect to an Azure Machine Learning workspace, and sets up your workspace and compute to be used by many of the other examples. 
 
 If you want to...
