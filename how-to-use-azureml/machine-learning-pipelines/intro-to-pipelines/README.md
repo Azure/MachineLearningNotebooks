@@ -13,3 +13,6 @@ These notebooks below are designed to go in sequence.
 8. [aml-pipelines-parameter-tuning-with-hyperdrive.ipynb](https://aka.ms/pl-hyperdrive): HyperDriveStep in Pipelines shows how you can do hyper parameter tuning using Pipelines.
 9. [aml-pipelines-how-to-use-azurebatch-to-run-a-windows-executable.ipynb](https://aka.ms/pl-azbatch): AzureBatchStep can be used to run your custom code in AzureBatch cluster.
 10. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule): Once you publish a Pipeline, you can schedule it to trigger based on an interval or on data change in a defined datastore. 
+
+
+ ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/README.png)
