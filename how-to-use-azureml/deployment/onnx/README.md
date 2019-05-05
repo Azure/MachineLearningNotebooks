@@ -1,10 +1,11 @@
 ﻿# ONNX on Azure Machine Learning
+ ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/deployment/onnx/README.png)
 
 These tutorials show how to create and deploy Open Neural Network eXchange ([ONNX](http://onnx.ai)) models in Azure Machine Learning environments using [ONNX Runtime](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-build-deploy-onnx) for inference. Once deployed as a web service, you can ping the model with your own set of images to be analyzed!
 
 ## Tutorials
 
-0. [Configure your Azure Machine Learning Workspace](../../../configuration.ipynb)
+0. If you are using an Azure Machine Learning Notebook VM, you are all set. Otherwise, [Configure your Azure Machine Learning Workspace](../../../configuration.ipynb)
 
 #### Obtain pretrained models from the [ONNX Model Zoo](https://github.com/onnx/models) and deploy with ONNX Runtime
 1. [MNIST - Handwritten Digit Classification with ONNX Runtime](onnx-inference-mnist-deploy.ipynb)
@@ -34,3 +35,5 @@ Licensed under the MIT License.
 
 ## Acknowledgements
 These tutorials were developed by Vinitra Swamy and Prasanth Pulavarthi of the Microsoft AI Frameworks team and adapted for presentation at Microsoft Ignite 2018.
+
+
