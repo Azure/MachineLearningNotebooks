@@ -32,10 +32,7 @@ Azure Machine Learning Pipelines optimize for simplicity, speed, and efficiency.
 
 **Tracking and versioning**: Instead of manually tracking data and result paths as you iterate, use the pipelines SDK to explicitly name and version your data sources, inputs, and outputs as well as manage scripts and data separately for increased productivity.
 
-### Notebooks 
-
-
-**End-to-end introductory notebook series**
+## End-to-end introductory notebook series
 
 Learn about Azure Machine Learning Pipelines by following the notebooks in this directory **in sequence**:
 
@@ -52,7 +49,7 @@ Learn about Azure Machine Learning Pipelines by following the notebooks in this 
   |9. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule)|Schedule published pipeline job  at specific intervals or after change in datastore.|
   |10. [aml-pipelines-with-automated-machine-learning-step.ipynb](https://aka.ms/pl-automl)|Use automated ML in your pipelines with `AutoMLStep`.|
 
-**Advanced scenarios**
+## Advanced scenarios
 
   |Notebook|Description|
   |--------|-----------|
