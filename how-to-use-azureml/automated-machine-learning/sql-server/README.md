@@ -28,7 +28,7 @@ These step show setting up the integration using Azure Data Studio.
 1. Install Azure Data Studio from [https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-2017)
 1. Start Azure Data Studio and connect to SQL Server. [https://docs.microsoft.com/en-us/sql/azure-data-studio/sql-notebooks?view=sql-server-2017](https://docs.microsoft.com/en-us/sql/azure-data-studio/sql-notebooks?view=sql-server-2017)
 1. Create a database named "automl".
-1. Open the notebook how-to-use-azureml\automated-machine-learning\sql-server\setup\auto-ml-sql-setup.ipynb and follow the instruction in it.
+1. Open the notebook how-to-use-azureml\automated-machine-learning\sql-server\setup\auto-ml-sql-setup.ipynb and follow the instructions in it.
 
  <a name="azuredatastudioenergydemand"></a>
 ## Energy demand example using Azure Data Studio
