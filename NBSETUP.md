@@ -24,8 +24,8 @@ pip install azureml-sdk
 git clone https://github.com/Azure/MachineLearningNotebooks.git
 
 # below steps are optional
-# install the base SDK and a Jupyter notebook server
-pip install azureml-sdk[notebooks]
+# install the base SDK, Jupyter notebook server and tensorboard
+pip install azureml-sdk[notebooks,tensorboard]
 
 # install model explainability component
 pip install azureml-sdk[explain]

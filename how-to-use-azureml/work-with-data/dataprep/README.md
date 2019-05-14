@@ -15,7 +15,7 @@ You will find in this repo:
 - [How-To Guide Notebooks](how-to-guides) for more in-depth sample code at feature level.
 
 ## Installation
-Here are the [SDK installation steps](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
+Here are the [SDK installation steps](https://aka.ms/aml-data-prep-installation).
 
 ## Documentation 
 Here is more information on how to use the new Data Prep SDK:
@@ -31,17 +31,40 @@ If you have any questions or feedback, send us an email at: [askamldataprep@micr
 
 ## Release Notes
 
-### 2019-04-08 (version 1.1.1)
+### 2019-04-17 (version 1.1.2)
+
+Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://aka.ms/aml-data-prep-installation).
 
 New features
-- You can read multiple Datastore/DataPath/DataReference sources using read_* transforms.
+- You can now use the Pivot transform.
+  - How-to guide: [Pivot notebook](https://aka.ms/aml-data-prep-pivot-nb)
+- You can now use regular expressions in native functions.
+  - Examples:
+    - `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+    - `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+- You can now use `to_upper` and `to_lower` functions in expression language.
+- You can now see the number of unique values of each column in a data profile.
+- For some of the commonly used reader steps, you can now pass in the `infer_column_types` argument. If it is set to `True`, Data Prep will attempt to detect and automatically convert column types.
+  - `inference_arguments` is now deprecated.
+- You can now call `Dataflow.shape`.
+
+Bug fixes and improvements
+- `keep_columns` now accepts an additional optional argument `validate_column_exists`, which checks if the result of `keep_columns` will contain any columns.
+- All reader steps (which read from a file) now accept an additional optional argument `verify_exists`.
+- Improved performance of reading from pandas dataframe and getting data profiles.
+- Fixed a bug where slicing a single step from a Dataflow failed with a single index.
+
+### 2019-04-08 (version 1.1.1)
+
+New features
+- You can read multiple Datastore/DataPath/DataReference sources using read_* transforms.
 - You can perform the following operations on columns to create a new column: division, floor, modulo, power, length.
 - Data Prep is now part of the Azure ML diagnostics suite and will log diagnostic information by default.
   - To turn this off, set this environment variable to true: DISABLE_DPREP_LOGGER
 
 Bug fixes and improvements
 - Improved code documentation for commonly used classes and functions.
-- Fixed a bug in auto_read_file that failed to read Excel files.
+- Fixed a bug in auto_read_file that failed to read Excel files.
 - Added option to overwrite the folder in read_pandas_dataframe.
 - Improved performance of dotnetcore2 dependency installation, and added support for Fedora 27/28 and Ubuntu 1804.
 - Improved the performance of reading from Azure Blobs.
