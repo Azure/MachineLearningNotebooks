@@ -18,5 +18,3 @@ If you are using an Azure Machine Learning Notebook VM, you are all set. Otherwi
  * [Part 2](regression-part2-automated-ml.ipynb): Train a model using Automated Machine Learning.
 
  Also find quickstarts and how-tos on the [official documentation site for Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/).
-
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/tutorials/README.png)
