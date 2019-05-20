@@ -55,4 +55,15 @@ Visit following repos to see projects contributed by Azure ML users:
  - [Fine tune natural language processing models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
 
+## Data/Telemetry 
+This repository collects usage data and sends it to Mircosoft to help improve our products and services. Read Microsoft's [privacy statement to learn more](https://privacy.microsoft.com/en-US/privacystatement)
+
+To opt out of tracking, please go to the raw markdown or .ipynb files and remove the following line of code:
+
+```sh
+    "![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/README.png)"
+```
+This URL will be slightly different depending on the file. 
+
+
  ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/README.png)
