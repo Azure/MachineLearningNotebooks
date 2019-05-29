@@ -153,3 +153,7 @@ For an end-to-end tutorial, you may refer to [Dataset tutorial](datasets-tutoria
 - Take snapshots of data to ensure models can be trained with the same data every time.
 - Use registered Dataset in your training script.
 - Create and use multiple Dataset definitions to ensure that updates to the definition don't break existing pipelines/scripts.
+
+ 
+
+![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/work-with-data/datasets/README.png) 

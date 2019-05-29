@@ -2,7 +2,7 @@
 
 Learn how to use Azure Machine Learning services for experimentation and model management.
 
-If you are using an Azure Machine Learning Notebook VM, you are all set.  Otherwise, go through the [configuration Notebook](../configuration.ipynb) first if you haven't already to establish your connection to the AzureML Workspace. Then, run the notebooks in following recommended order.
+As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) notebook first to set up your Azure ML Workspace. Then, run the notebooks in following recommended order.
 
 * [train-within-notebook](./training/train-within-notebook): Train a model hile tracking run history, and learn how to deploy the model as web service to Azure Container Instance.
 * [train-on-local](./training/train-on-local): Learn how to submit a run to local computer and use Azure ML managed run configuration.
@@ -15,6 +15,3 @@ If you are using an Azure Machine Learning Notebook VM, you are all set.  Otherw
 * [enable-app-insights-in-production-service](./deployment/enable-app-insights-in-production-service) Learn how to use App Insights with production web service.
  
 Find quickstarts, end-to-end tutorials, and how-tos on the [official documentation site for Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/).
-
-
- ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/README.png)

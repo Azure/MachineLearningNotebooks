@@ -27,3 +27,7 @@ You can use Azure Databricks as a compute target from [Azure Machine Learning Pi
 For more on SDK concepts, please refer to [notebooks](https://github.com/Azure/MachineLearningNotebooks).
 
 **Please let us know your feedback.**
+
+ 
+
+![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/azure-databricks/README.png) 

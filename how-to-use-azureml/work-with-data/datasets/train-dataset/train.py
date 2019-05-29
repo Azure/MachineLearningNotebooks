@@ -15,22 +15,25 @@ from sklearn.tree import DecisionTreeClassifier
 run = Run.get_context()
 workspace = run.experiment.workspace
 
-dataset_name = 'training_data'
+dataset_name = 'clean_Titanic_tutorial'
+
+snapshot_name = 'train_snapshot'
 
 dataset = Dataset.get(workspace=workspace, name=dataset_name)
-dflow = dataset.get_definition()
-dflow_val, dflow_train = dflow.random_split(percentage=0.3)
+df = dataset.get_snapshot(snapshot_name=snapshot_name).to_pandas_dataframe()
 
-y_df = dflow_train.keep_columns(['HasDetections']).to_pandas_dataframe()
-x_df = dflow_train.drop_columns(['HasDetections']).to_pandas_dataframe()
-y_val = dflow_val.keep_columns(['HasDetections']).to_pandas_dataframe()
-x_val = dflow_val.drop_columns(['HasDetections']).to_pandas_dataframe()
+x_col = ['Pclass', 'Sex', 'SibSp', 'Parch']
+y_col = ['Survived']
+x_df = df.loc[:, x_col]
+y_df = df.loc[:, y_col]
 
-data = {"train": {"X": x_df, "y": y_df},
+x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
 
-        "validation": {"X": x_val, "y": y_val}}
+data = {"train": {"X": x_train, "y": y_train},
+
+        "test": {"X": x_test, "y": y_test}}
 
 clf = DecisionTreeClassifier().fit(data["train"]["X"], data["train"]["y"])
 
-print('Accuracy of Decision Tree classifier on training set: {:.2f}'.format(clf.score(x_df, y_df)))
-print('Accuracy of Decision Tree classifier on validation set: {:.2f}'.format(clf.score(x_val, y_val)))
+print('Accuracy of Decision Tree classifier on training set: {:.2f}'.format(clf.score(x_train, y_train)))
+print('Accuracy of Decision Tree classifier on test set: {:.2f}'.format(clf.score(x_test, y_test)))
