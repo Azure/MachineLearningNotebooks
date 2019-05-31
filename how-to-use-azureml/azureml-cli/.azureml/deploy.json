@@ -1,0 +1,4 @@
+{
+    "computeType": "aks",
+    "ComputeTarget": "<name of your compute target for deployment>"
+}
