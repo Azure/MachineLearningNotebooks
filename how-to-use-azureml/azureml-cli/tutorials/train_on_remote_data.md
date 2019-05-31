@@ -8,7 +8,7 @@ az ml workspace create -w <workspace name> -g <resource group>
 
 ## Attach current working directory to that workspace 
 ```console
-az ml folder attach -w marinecorpsamlws -g marinecorps
+az ml folder attach -w <workspace name> -g <resource group>
 ```
 ## Create a low priority AzureML compute target 
 ```console
