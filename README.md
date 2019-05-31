@@ -52,6 +52,7 @@ The [How to use Azure ML](./how-to-use-azureml) folder contains specific example
 
 Visit following repos to see projects contributed by Azure ML users:
 
+ - [AMLSamples](https://github.com/Azure/AMLSamples) Number of end-to-end examples, including face recognition, predictive maintenance, customer churn and sentiment analysis.
  - [Fine tune natural language processing models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
  
