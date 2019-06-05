@@ -4,17 +4,20 @@ These tutorials show how to create and deploy Open Neural Network eXchange ([ONN
 
 ## Tutorials
 
-0. [Configure your Azure Machine Learning Workspace](../../../configuration.ipynb)
+0. If you are using an Azure Machine Learning Notebook VM, you are all set. Otherwise, [Configure your Azure Machine Learning Workspace](../../../configuration.ipynb)
 
-#### Obtain models from the [ONNX Model Zoo](https://github.com/onnx/models) and deploy with ONNX Runtime Inference
-1. [Handwritten Digit Classification (MNIST)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/onnx-inference-mnist-deploy.ipynb)
-2. [Facial Expression Recognition (Emotion FER+)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
+#### Obtain pretrained models from the [ONNX Model Zoo](https://github.com/onnx/models) and deploy with ONNX Runtime
+1. [MNIST - Handwritten Digit Classification with ONNX Runtime](onnx-inference-mnist-deploy.ipynb)
+2. [Emotion FER+ - Facial Expression Recognition with ONNX Runtime](onnx-inference-facial-expression-recognition-deploy.ipynb)
+
+#### Train model on Azure ML, convert to ONNX, and deploy with ONNX Runtime
+3. [MNIST - Train using PyTorch and deploy with ONNX Runtime](onnx-train-pytorch-aml-deploy-mnist.ipynb)
 
 #### Demo Notebooks from Microsoft Ignite 2018
 Note that the following notebooks do not have evaluation sections for the models since they were deployed as part of a live demo. You can find the respective pre-processing and post-processing code linked from the ONNX Model Zoo Github pages ([ResNet](https://github.com/onnx/models/tree/master/models/image_classification/resnet), [TinyYoloV2](https://github.com/onnx/models/tree/master/tiny_yolov2)), or experiment with the ONNX models by [running them in the browser](https://microsoft.github.io/onnxjs-demo/#/).
 
-3. [Image Recognition (ResNet50)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-4. [Convert Core ML Model to ONNX and deploy - Real Time Object Detection (TinyYOLO)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb) 
+4. [ResNet50 - Image Recognition with ONNX Runtime](onnx-modelzoo-aml-deploy-resnet50.ipynb)
+5. [TinyYoloV2 - Convert from CoreML and deploy with ONNX Runtime](onnx-convert-aml-deploy-tinyyolo.ipynb)
 
 ## Documentation
 - [ONNX Runtime Python API Documentation](http://aka.ms/onnxruntime-python)
@@ -22,7 +25,7 @@ Note that the following notebooks do not have evaluation sections for the models
 
 ## Related Articles
 - [Building and Deploying ONNX Runtime Models](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-build-deploy-onnx)
-- [Azure AI – Making AI Real for Business](https://aka.ms/aml-blog-overview) 
+- [Azure AI – Making AI Real for Business](https://aka.ms/aml-blog-overview)
 - [What’s new in Azure Machine Learning](https://aka.ms/aml-blog-whats-new)
 
 ## License
@@ -31,3 +34,6 @@ Licensed under the MIT License.
 
 ## Acknowledgements
 These tutorials were developed by Vinitra Swamy and Prasanth Pulavarthi of the Microsoft AI Frameworks team and adapted for presentation at Microsoft Ignite 2018.
+
+
+ ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/deployment/onnx/README.png)

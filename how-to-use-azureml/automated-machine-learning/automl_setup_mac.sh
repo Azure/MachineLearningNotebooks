@@ -31,7 +31,6 @@ else
    conda install lightgbm -c conda-forge -y &&
    python -m ipykernel install --user --name $CONDA_ENV_NAME --display-name "Python ($CONDA_ENV_NAME)" &&
    jupyter nbextension uninstall --user --py azureml.widgets &&
-   pip install numpy==1.15.3 &&
    echo "" &&
    echo "" &&
    echo "***************************************" &&
