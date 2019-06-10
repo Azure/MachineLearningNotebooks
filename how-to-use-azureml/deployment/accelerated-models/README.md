@@ -13,8 +13,21 @@ To learn more about the azureml-accel-model classes, see the section [Model Clas
 
 ### Step 1: Create an Azure ML workspace
 Follow [these instructions](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python) to install the Azure ML SDK on your local machine, create an Azure ML workspace, and set up your notebook environment, which is required for the next step.
-  
-### Step 2: Install the Azure ML Accelerated Models SDK
+
+### Step 2: Check your FPGA quota
+Use the Azure CLI to check whether you have quota.
+
+```shell
+az vm list-usage --location "eastus" -o table
+```
+
+The other locations are ``southeastasia``, ``westeurope``, and ``westus2``.
+
+Under the "Name" column, look for "Standard PBS Family vCPUs" and ensure you have at least 6 vCPUs under "CurrentValue."
+
+If you do not have quota, then submit a request form [here](https://aka.ms/accelerateAI).
+
+### Step 3: Install the Azure ML Accelerated Models SDK
 Once you have set up your environment, install the Azure ML Accel Models SDK. This package requires tensorflow >= 1.6,<2.0 to be installed. 
 
 If you already have tensorflow >= 1.6,<2.0 installed in your development environment, you can install the SDK package using: 
@@ -35,7 +48,7 @@ If your machine supports GPU (for example, on an [Azure DSVM](https://docs.micro
 pip install azureml-accel-models[gpu]
 ```
 
-### Step 3: Follow our notebooks
+### Step 4: Follow our notebooks
 
 The notebooks in this repo walk through the following scenarios: 
 * [Quickstart](accelerated-models-quickstart.ipynb), deploy and inference a ResNet50 model trained on ImageNet

@@ -15,6 +15,3 @@ As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) not
 * [enable-app-insights-in-production-service](./deployment/enable-app-insights-in-production-service) Learn how to use App Insights with production web service.
  
 Find quickstarts, end-to-end tutorials, and how-tos on the [official documentation site for Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/).
-
-
- ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/README.png)
