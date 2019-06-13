@@ -115,15 +115,6 @@ jupyter notebook
     - Simple example of using automated ML for regression
     - Uses local compute for training
 
-- [auto-ml-remote-execution.ipynb](remote-execution/auto-ml-remote-execution.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Example of using automated ML for classification using a remote linux DSVM for training
-    - Parallel execution of iterations
-    - Async tracking of progress
-    - Cancelling individual iterations or entire run
-    - Retrieving models for any iteration or logged metric
-    - Specify automated ML settings as kwargs
-
 - [auto-ml-remote-amlcompute.ipynb](remote-batchai/auto-ml-remote-amlcompute.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Example of using automated ML for classification using remote AmlCompute for training
@@ -132,12 +123,6 @@ jupyter notebook
     - Cancelling individual iterations or entire run
     - Retrieving models for any iteration or logged metric
     - Specify automated ML settings as kwargs
-
-- [auto-ml-remote-attach.ipynb](remote-attach/auto-ml-remote-attach.ipynb)
-    - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
-    - handling text data with preprocess flag
-    - Reading data from a blob store for remote executions
-    - using pandas dataframes for reading data
 
 - [auto-ml-missing-data-blacklist-early-termination.ipynb](missing-data-blacklist-early-termination/auto-ml-missing-data-blacklist-early-termination.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
@@ -155,10 +140,6 @@ jupyter notebook
     - List all automated ML Runs for a given project
     - Get details for a automated ML Run. (automated ML settings, run widget & all metrics)
     - Download fitted pipeline for any iteration
-
-- [auto-ml-remote-execution-with-datastore.ipynb](remote-execution-with-datastore/auto-ml-remote-execution-with-datastore.ipynb)
-    - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
-    - Download the data and store it in DataStore.
 
 - [auto-ml-classification-with-deployment.ipynb](classification-with-deployment/auto-ml-classification-with-deployment.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
