@@ -22,7 +22,7 @@ def main():
                         help='Penalty parameter of the error term')
 
     args = parser.parse_args()
-    run.log('Kernel type', np.string(args.kernel))
+    run.log('Kernel type', np.str(args.kernel))
     run.log('Penalty', np.float(args.penalty))
 
     # loading the iris dataset
