@@ -115,7 +115,7 @@ jupyter notebook
     - Simple example of using automated ML for regression
     - Uses local compute for training
 
-- [auto-ml-remote-amlcompute.ipynb](remote-batchai/auto-ml-remote-amlcompute.ipynb)
+- [auto-ml-remote-amlcompute.ipynb](remote-amlcompute/auto-ml-remote-amlcompute.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Example of using automated ML for classification using remote AmlCompute for training
     - Parallel execution of iterations
