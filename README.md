@@ -6,7 +6,7 @@ This repository contains example notebooks demonstrating the [Azure Machine Lear
 
 ## News
 
-[Try Azure Machine Learning with MLflow](./how-to-use-azureml/using-mlflow)
+ * [Try Azure Machine Learning with MLflow](./how-to-use-azureml/using-mlflow)
 
 ## Quick installation
 ```sh
