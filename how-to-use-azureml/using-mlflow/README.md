@@ -4,8 +4,9 @@
 
 Try out the sample notebooks:
 
-* [Use MLflow with Azure Machine Learning for local training run](./train-local/train-local.ipynb)
-* [Use MLflow with Azure Machine Learning for remote training run](./train-remote/train-remote.ipynb)
-* [Deploy Model as Azure Machine Learning web service using MLflow](./deploy-model/deploy-model.ipynb)
+* [Use MLflow with Azure Machine Learning for Local Training Run](./train-local/train-local.ipynb)
+* [Use MLflow with Azure Machine Learning for Remote Training Run](./train-remote/train-remote.ipynb)
+* [Deploy Model as Azure Machine Learning Web Service using MLflow](./deploy-model/deploy-model.ipynb)
+* [Train and Deploy PyTorch Image Classifier](./train-deploy-pytorch/train-deploy-pytorch.ipynb)
 
 ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/using-mlflow/README..png) 
