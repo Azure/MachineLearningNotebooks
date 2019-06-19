@@ -4,6 +4,10 @@ This repository contains example notebooks demonstrating the [Azure Machine Lear
 
 ![Azure ML workflow](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/machine-learning/service/media/overview-what-is-azure-ml/aml.png)
 
+## News
+
+ * [Try Azure Machine Learning with MLflow](./how-to-use-azureml/using-mlflow)
+
 ## Quick installation
 ```sh
 pip install azureml-sdk
