@@ -9,6 +9,8 @@ IF "%automl_env_file%"=="" SET automl_env_file="automl_env.yml"
 
 IF NOT EXIST %automl_env_file% GOTO YmlMissing
 
+IF "%CONDA_EXE%"=="" GOTO CondaMissing
+
 call conda activate %conda_env_name% 2>nul:
 
 if not errorlevel 1 (
@@ -40,6 +42,15 @@ IF NOT "%options%"=="nolaunch" (
   jupyter notebook --log-level=50 --notebook-dir='..\..'
 )
 
+goto End
+
+:CondaMissing
+echo Please run this script from an Anaconda Prompt window.
+echo You can start an Anaconda Prompt window by
+echo typing Anaconda Prompt on the Start menu.
+echo If you don't see the Anaconda Prompt app, install Miniconda.
+echo If you are running an older version of Miniconda or Anaconda,
+echo you can upgrade using the command: conda update conda
 goto End
 
 :YmlMissing

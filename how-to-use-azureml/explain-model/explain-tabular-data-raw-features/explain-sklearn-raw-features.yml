@@ -1,0 +1,7 @@
+name: explain-sklearn-raw-features
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-explain-model
+  - azureml-contrib-explain-model
+  - sklearn-pandas

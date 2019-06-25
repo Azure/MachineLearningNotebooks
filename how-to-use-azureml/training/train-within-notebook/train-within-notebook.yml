@@ -1,0 +1,8 @@
+name: train-within-notebook
+dependencies:
+- tqdm
+- scikit-learn
+- matplotlib
+- pip:
+  - azureml-sdk
+  - azureml-widgets

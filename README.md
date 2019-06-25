@@ -4,10 +4,6 @@ This repository contains example notebooks demonstrating the [Azure Machine Lear
 
 ![Azure ML workflow](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/machine-learning/service/media/overview-what-is-azure-ml/aml.png)
 
-## News
-
- * [Try Azure Machine Learning with MLflow](./how-to-use-azureml/using-mlflow)
-
 ## Quick installation
 ```sh
 pip install azureml-sdk
@@ -56,7 +52,6 @@ The [How to use Azure ML](./how-to-use-azureml) folder contains specific example
 
 Visit following repos to see projects contributed by Azure ML users:
 
- - [AMLSamples](https://github.com/Azure/AMLSamples) Number of end-to-end examples, including face recognition, predictive maintenance, customer churn and sentiment analysis.
  - [Fine tune natural language processing models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
  

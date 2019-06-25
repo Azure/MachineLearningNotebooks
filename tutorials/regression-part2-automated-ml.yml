@@ -1,0 +1,10 @@
+name: regression-part2-automated-ml
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - azureml-explain-model
+  - matplotlib
+  - pandas_ml
+  - seaborn
