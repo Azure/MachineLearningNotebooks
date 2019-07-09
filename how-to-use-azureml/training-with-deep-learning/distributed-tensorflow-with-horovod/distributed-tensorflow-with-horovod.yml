@@ -1,0 +1,5 @@
+name: distributed-tensorflow-with-horovod
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets

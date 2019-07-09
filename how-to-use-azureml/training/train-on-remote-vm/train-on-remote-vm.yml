@@ -1,0 +1,8 @@
+name: train-on-remote-vm
+dependencies:
+- matplotlib
+- tqdm
+- scikit-learn
+- pip:
+  - azureml-sdk
+  - azureml-widgets

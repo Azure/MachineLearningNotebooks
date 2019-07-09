@@ -1,0 +1,4 @@
+name: enable-app-insights-in-production-service
+dependencies:
+- pip:
+  - azureml-sdk
