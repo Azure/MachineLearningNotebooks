@@ -9,6 +9,8 @@ from sklearn import datasets
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 
+import joblib
+
 from azureml.core.run import Run
 run = Run.get_context()
 
@@ -47,6 +49,9 @@ def main():
     # creating a confusion matrix
     cm = confusion_matrix(y_test, svm_predictions)
     print(cm)
+
+    # save model
+    joblib.dump(svm_model_linear, 'model.joblib')
 
 
 if __name__ == '__main__':

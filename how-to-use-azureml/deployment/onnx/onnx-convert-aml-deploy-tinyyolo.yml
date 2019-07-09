@@ -1,0 +1,6 @@
+name: onnx-convert-aml-deploy-tinyyolo
+dependencies:
+- pip:
+  - azureml-sdk
+  - git+https://github.com/apple/coremltools
+  - onnxmltools==1.3.1

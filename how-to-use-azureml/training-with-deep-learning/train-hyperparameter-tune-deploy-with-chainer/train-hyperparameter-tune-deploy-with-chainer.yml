@@ -1,0 +1,7 @@
+name: train-hyperparameter-tune-deploy-with-chainer
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - numpy
+  - pytest

@@ -1,0 +1,5 @@
+name: aml-pipelines-how-to-use-estimatorstep
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets

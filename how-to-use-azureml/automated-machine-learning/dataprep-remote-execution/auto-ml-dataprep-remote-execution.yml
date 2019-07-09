@@ -1,0 +1,8 @@
+name: auto-ml-dataprep-remote-execution
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml

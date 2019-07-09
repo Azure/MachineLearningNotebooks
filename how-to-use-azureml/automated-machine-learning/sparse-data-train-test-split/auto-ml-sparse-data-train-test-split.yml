@@ -1,0 +1,8 @@
+name: auto-ml-sparse-data-train-test-split
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml

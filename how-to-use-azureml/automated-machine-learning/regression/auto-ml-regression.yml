@@ -1,0 +1,9 @@
+name: auto-ml-regression
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml
+  - paramiko<2.5.0
