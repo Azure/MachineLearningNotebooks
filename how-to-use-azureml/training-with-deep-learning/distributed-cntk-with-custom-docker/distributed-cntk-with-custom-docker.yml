@@ -1,0 +1,6 @@
+name: distributed-cntk-with-custom-docker
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - numpy

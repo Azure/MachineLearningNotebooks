@@ -1,0 +1,8 @@
+name: register-model-create-image-deploy-service
+dependencies:
+- pip:
+  - azureml-sdk
+  - matplotlib
+  - tqdm
+  - scipy
+  - sklearn

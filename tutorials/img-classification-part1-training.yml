@@ -1,0 +1,7 @@
+name: img-classification-part1-training
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - matplotlib
+  - sklearn

@@ -69,7 +69,10 @@ CREATE OR ALTER PROCEDURE [dbo].[AutoMLTrain]
     @is_validate_column NVARCHAR(255)='',            -- The name of the column in the result of  @input_query that indicates if the row is for training or validation.
 	                                                 -- In the values of the column, 0 means for training and 1 means for validation.
     @time_column_name  NVARCHAR(255)='',             -- The name of the timestamp column for forecasting.
-	@connection_name NVARCHAR(255)='default'         -- The AML connection to use.
+    @connection_name NVARCHAR(255)='default',        -- The AML connection to use.
+    @max_horizon INT = 0                             -- A forecast horizon is a time span into the future (or just beyond the latest date in the training data)
+                                                     -- where forecasts of the target quantity are needed.
+                                                     -- For example, if data is recorded daily and max_horizon is 5, we will predict 5 days ahead.
  ) AS
 BEGIN
 
@@ -151,8 +154,10 @@ if __name__.startswith("sqlindb"):
     if time_column_name != "" and time_column_name is not None:
         automl_settings = { "time_column_name": time_column_name }
         preprocess = False
+        if max_horizon > 0:
+            automl_settings["max_horizon"] = max_horizon
 
-    log_file_name = "automl_errors.log"
+    log_file_name = "automl_sqlindb_errors.log"
 	 
     automl_config = AutoMLConfig(task = task, 
                                  debug_log = log_file_name, 
@@ -163,7 +168,6 @@ if __name__.startswith("sqlindb"):
                                  n_cross_validations = n_cross_validations, 
                                  preprocess = preprocess,
                                  verbosity = logging.INFO, 
-                                 enable_ensembling = False,
                                  X = X_train,  
                                  y = y_train, 
                                  path = project_folder,
@@ -211,7 +215,8 @@ if __name__.startswith("sqlindb"):
 				  @tenantid NVARCHAR(255),
 				  @appid NVARCHAR(255),
 				  @password NVARCHAR(255),
-				  @config_file NVARCHAR(255)'
+				  @config_file NVARCHAR(255),
+				  @max_horizon INT'
 	, @label_column = @label_column
 	, @primary_metric = @primary_metric
 	, @iterations = @iterations
@@ -230,5 +235,6 @@ if __name__.startswith("sqlindb"):
 	, @appid = @appid
 	, @password = @password
 	, @config_file = @config_file
+	, @max_horizon = @max_horizon
 WITH RESULT SETS ((best_run NVARCHAR(250), experiment_name NVARCHAR(100), fitted_model VARCHAR(MAX), log_file_text NVARCHAR(MAX), workspace NVARCHAR(100)))
 END
