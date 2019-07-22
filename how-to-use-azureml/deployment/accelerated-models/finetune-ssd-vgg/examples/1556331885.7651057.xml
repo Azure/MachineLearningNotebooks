@@ -1,0 +1,26 @@
+<annotation>
+	<folder>runfourftbackdropvalidation</folder>
+	<filename>1556331885.7651057.jpg</filename>
+	<path>F:\runfourftbackdropvalidation\1556331885.7651057.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>452</width>
+		<height>376</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>stockout</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>19</xmin>
+			<ymin>108</ymin>
+			<xmax>62</xmax>
+			<ymax>177</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -46,14 +46,19 @@ def create_dir(path):
     try:
         path_annotations = path + '/Annotations'
         path_images = path + '/JPEGImages'
+        path_tfrec = path + '/TFreccords'
         
         os.makedirs(path_annotations)
         os.makedirs(path_images)
+        os.makedirs(path_tfrec)
         
     except OSError:
-        print("Creation of folders in directory %s failed.  Folder may already exist." % path)
+        print("Creation of folders in directory %s failed.  Folders may already exist." % path)
     else:
-        print("Successfully created images and annotations folders at %s" % path)
+        print("Successfully created Annotations, JPEGImages, and TFreccords folders at %s" % path)
+
+    print('Please copy your annotation and image files to the Annotations and JPEGImages folders before moving to the next step')
+
         
 def move_images(data_dir, train_images, train_annotations,
                test_images, test_annotations):
