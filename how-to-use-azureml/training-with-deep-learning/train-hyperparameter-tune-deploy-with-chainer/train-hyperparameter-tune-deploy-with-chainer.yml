@@ -4,4 +4,9 @@ dependencies:
   - azureml-sdk
   - azureml-widgets
   - numpy
-  - pytest
+  - matplotlib
+  - json
+  - urllib
+  - gzip
+  - struct
+  - requests

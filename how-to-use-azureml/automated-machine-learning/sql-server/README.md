@@ -87,7 +87,7 @@ These instruction setup the integration for SQL Server 2017 on Windows.
    sudo /opt/mssql/mlservices/bin/python/python -m pip install --upgrade sklearn
 ```
 7. Start SQL Server. 
-8. Execute the files aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql and AutoMLTrain.sql in SQL Server Management Studio. 
+8. Execute the files aml_model.sql, aml_connection.sql, AutoMLGetMetrics.sql, AutoMLPredict.sql, AutoMLForecast.sql and AutoMLTrain.sql in SQL Server Management Studio. 
 9. Create an Azure Machine Learning Workspace.  You can use the instructions at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace)
 10. Create a config.json file file using the subscription id, resource group name and workspace name that you use to create the workspace.  The file is described at: [https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#workspace)
 11. Create an Azure service principal.  You can do this with the commands: 
@@ -109,5 +109,5 @@ First you need to load the sample data in the database.
 
 You can then run the queries in the energy-demand folder:
 * TrainEnergyDemand.sql runs AutoML, trains multiple models on data and selects the best model.
-* PredictEnergyDemand.sql predicts based on the most recent training run.
+* ForecastEnergyDemand.sql forecasts based on the most recent training run.
 * GetMetrics.sql returns all the metrics for each model in the most recent training run.

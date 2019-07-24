@@ -1,6 +1,7 @@
 # Modified from https://www.geeksforgeeks.org/multiclass-classification-using-scikit-learn/
 
 import argparse
+import os
 
 # importing necessary libraries
 import numpy as np
@@ -50,8 +51,9 @@ def main():
     cm = confusion_matrix(y_test, svm_predictions)
     print(cm)
 
-    # save model
-    joblib.dump(svm_model_linear, 'model.joblib')
+    os.makedirs('outputs', exist_ok=True)
+    # files saved in the "outputs" folder are automatically uploaded into run history
+    joblib.dump(svm_model_linear, 'outputs/model.joblib')
 
 
 if __name__ == '__main__':

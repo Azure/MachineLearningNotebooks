@@ -12,7 +12,7 @@ Easily create and train a model using various deep neural networks (DNNs) as a f
 To learn more about the azureml-accel-model classes, see the section [Model Classes](#model-classes) below or the [Azure ML Accel Models SDK documentation](https://docs.microsoft.com/en-us/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py).
 
 ### Step 1: Create an Azure ML workspace
-Follow [these instructions](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python) to install the Azure ML SDK on your local machine, create an Azure ML workspace, and set up your notebook environment, which is required for the next step.
+Follow [these instructions](https://docs.microsoft.com/en-us/azure/machine-learning/service/setup-create-workspace) to install the Azure ML SDK on your local machine, create an Azure ML workspace, and set up your notebook environment, which is required for the next step.
 
 ### Step 2: Check your FPGA quota
 Use the Azure CLI to check whether you have quota.
