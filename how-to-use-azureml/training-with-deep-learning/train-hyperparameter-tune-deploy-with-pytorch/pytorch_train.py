@@ -165,8 +165,8 @@ def download_data():
     import urllib
     from zipfile import ZipFile
     # download data
-    data_file = './hymenoptera_data.zip'
-    download_url = 'https://download.pytorch.org/tutorial/hymenoptera_data.zip'
+    data_file = './fowl_data.zip'
+    download_url = 'https://msdocsdatasets.blob.core.windows.net/pytorchfowl/fowl_data.zip'
     urllib.request.urlretrieve(download_url, filename=data_file)
 
     # extract files

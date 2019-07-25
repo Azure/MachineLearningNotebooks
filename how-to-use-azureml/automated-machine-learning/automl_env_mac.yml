@@ -2,6 +2,7 @@ name: azure_automl
 dependencies:
   # The python interpreter version.
   # Currently Azure ML only supports 3.5.2 and later.
+- pip
 - nomkl
 - python>=3.5.2,<3.6.8
 - nb_conda
