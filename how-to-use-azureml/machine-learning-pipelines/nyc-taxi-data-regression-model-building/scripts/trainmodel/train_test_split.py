@@ -58,6 +58,6 @@ csv_files = {
     'y_test.csv': y_test
 }
 
-os.makedirs(args.output_dir, exist_ok=True)
+os.makedirs(args.output_split, exist_ok=True)
 for (key, value) in csv_files.items():
-    df2csv(value, args.output_dir, key)
+    df2csv(value, args.output_split, key)
