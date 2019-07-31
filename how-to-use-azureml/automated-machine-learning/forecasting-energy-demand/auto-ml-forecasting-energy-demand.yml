@@ -1,0 +1,10 @@
+name: auto-ml-forecasting-energy-demand
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml
+  - statsmodels
+  - azureml-explain-model

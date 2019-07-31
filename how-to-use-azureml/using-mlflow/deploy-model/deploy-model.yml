@@ -1,0 +1,8 @@
+name: deploy-model
+dependencies:
+- scikit-learn
+- matplotlib
+- pip:
+  - azureml-sdk
+  - azureml-mlflow
+  - pandas

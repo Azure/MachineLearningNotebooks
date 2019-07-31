@@ -1,0 +1,9 @@
+name: onnx-inference-mnist-deploy
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - matplotlib
+  - numpy
+  - onnx
+  - opencv-python

@@ -1,0 +1,8 @@
+name: auto-ml-regression-concrete-strength
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml

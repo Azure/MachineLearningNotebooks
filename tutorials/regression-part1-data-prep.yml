@@ -1,0 +1,5 @@
+name: regression-part1-data-prep
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-dataprep[pandas]>=1.1.2,<1.2.0

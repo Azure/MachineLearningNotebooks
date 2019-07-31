@@ -115,15 +115,6 @@ jupyter notebook
     - Simple example of using automated ML for regression
     - Uses local compute for training
 
-- [auto-ml-remote-execution.ipynb](remote-execution/auto-ml-remote-execution.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Example of using automated ML for classification using a remote linux DSVM for training
-    - Parallel execution of iterations
-    - Async tracking of progress
-    - Cancelling individual iterations or entire run
-    - Retrieving models for any iteration or logged metric
-    - Specify automated ML settings as kwargs
-
 - [auto-ml-remote-amlcompute.ipynb](remote-amlcompute/auto-ml-remote-amlcompute.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Example of using automated ML for classification using remote AmlCompute for training
@@ -132,12 +123,6 @@ jupyter notebook
     - Cancelling individual iterations or entire run
     - Retrieving models for any iteration or logged metric
     - Specify automated ML settings as kwargs
-
-- [auto-ml-remote-attach.ipynb](remote-attach/auto-ml-remote-attach.ipynb)
-    - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
-    - handling text data with preprocess flag
-    - Reading data from a blob store for remote executions
-    - using pandas dataframes for reading data
 
 - [auto-ml-missing-data-blacklist-early-termination.ipynb](missing-data-blacklist-early-termination/auto-ml-missing-data-blacklist-early-termination.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
@@ -155,10 +140,6 @@ jupyter notebook
     - List all automated ML Runs for a given project
     - Get details for a automated ML Run. (automated ML settings, run widget & all metrics)
     - Download fitted pipeline for any iteration
-
-- [auto-ml-remote-execution-with-datastore.ipynb](remote-execution-with-datastore/auto-ml-remote-execution-with-datastore.ipynb)
-    - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
-    - Download the data and store it in DataStore.
 
 - [auto-ml-classification-with-deployment.ipynb](classification-with-deployment/auto-ml-classification-with-deployment.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
@@ -197,6 +178,26 @@ jupyter notebook
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
     - Simple example of using automated ML for classification with ONNX models
     - Uses local compute for training
+
+- [auto-ml-bank-marketing-subscribers-with-deployment.ipynb](bank-marketing-subscribers-with-deployment/auto-ml-bank-marketing-with-deployment.ipynb)
+    - Dataset: UCI's [bank marketing dataset](https://www.kaggle.com/janiobachmann/bank-marketing-dataset)
+    - Simple example of using automated ML for classification to predict term deposit subscriptions for a bank
+    - Uses azure compute for training
+
+- [auto-ml-creditcard-with-deployment.ipynb](credit-card-fraud-detection-with-deployment/auto-ml-creditcard-with-deployment.ipynb)
+    - Dataset: Kaggle's [credit card fraud detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+    - Simple example of using automated ML for classification to fraudulent credit card transactions
+    - Uses azure compute for training
+
+- [auto-ml-hardware-performance-with-deployment.ipynb](hardware-performance-prediction-with-deployment/auto-ml-hardware-performance-with-deployment.ipynb)
+    - Dataset: UCI's [computer hardware dataset](https://archive.ics.uci.edu/ml/datasets/Computer+Hardware)
+    - Simple example of using automated ML for regression to predict the performance of certain combinations of hardware components
+    - Uses azure compute for training
+
+- [auto-ml-concrete-strength-with-deployment.ipynb](predicting-concrete-strength-with-deployment/auto-ml-concrete-strength-with-deployment.ipynb)
+    - Dataset: UCI's [concrete compressive strength dataset](https://www.kaggle.com/pavanraj159/concrete-compressive-strength-data-set)
+    - Simple example of using automated ML for regression to predict the strength  predict the compressive strength of concrete based off of different ingredient combinations and quantities of those ingredients
+    - Uses azure compute for training
 
 <a name="documentation"></a>
 See [Configure automated machine learning experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) to learn how more about the the settings and features available for automated machine learning experiments.

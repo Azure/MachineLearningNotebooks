@@ -1,0 +1,4 @@
+name: enable-data-collection-for-models-in-aks
+dependencies:
+- pip:
+  - azureml-sdk

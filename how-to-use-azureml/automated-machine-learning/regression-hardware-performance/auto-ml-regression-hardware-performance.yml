@@ -1,0 +1,8 @@
+name: auto-ml-regression-hardware-performance
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml

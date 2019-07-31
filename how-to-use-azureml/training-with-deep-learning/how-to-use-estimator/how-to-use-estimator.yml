@@ -1,0 +1,6 @@
+name: how-to-use-estimator
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - azureml-contrib-notebook

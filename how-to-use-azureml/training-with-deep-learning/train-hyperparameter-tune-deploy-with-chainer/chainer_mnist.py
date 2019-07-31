@@ -1,5 +1,6 @@
 
 import argparse
+import os
 
 import numpy as np
 
@@ -130,6 +131,8 @@ def main():
                 np.mean(test_losses), val_accuracy))
 
             run.log("Accuracy", np.float(val_accuracy))
+
+    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
 
 
 if __name__ == '__main__':
