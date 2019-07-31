@@ -1,14 +1,12 @@
 
 import os
-
 import pandas as pd
-
 
 def get_data():
     print("In get_data")
-    print(os.environ['AZUREML_DATAREFERENCE_output_split_train_x'])
-    file_name="file"
-    X_train = pd.read_csv(os.path.join(os.environ['AZUREML_DATAREFERENCE_output_split_train_x'],file_name), header=0)
-    y_train = pd.read_csv(os.path.join(os.environ['AZUREML_DATAREFERENCE_output_split_train_y'],file_name), header=0)
+    dir = os.environ['AZUREML_DATAREFERENCE_output_split']
+    print(dir)
+    X_train = pd.read_csv(os.path.join(dir,'x_train.csv'), header=0)
+    y_train = pd.read_csv(os.path.join(dir,'y_train.csv'), header=0)
 
     return {"X": X_train.values, "y": y_train.values.flatten()}

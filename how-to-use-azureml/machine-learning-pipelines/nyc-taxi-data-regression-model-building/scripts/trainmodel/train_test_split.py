@@ -5,45 +5,59 @@ import azureml.core
 from sklearn.model_selection import train_test_split
 
 
-def write_output(df, path):
-    os.makedirs(path, exist_ok=True)
+def df2csv(df, path, filename, **kwargs):
+    """
+    *Write dataframe to disk
+
+    *Args:
+        *df (Dataframe): dataframe
+        *dir (): The path to write the file to
+        *filename (): The filename
+        *kwargs (): Optional arguments
+
+    *Returns:
+        *None
+    """
     print("%s created" % path)
-    output_file = os.path.join(path, 'file')
-    df.to_csv(output_file, index=False)
+    file_path = os.path.join(path, filename)
+    df.to_csv(file_path, index=False, **kwargs)
 
 
 print("Split the data into train and test")
 
 parser = argparse.ArgumentParser("split")
-parser.add_argument("--input_split_features", type=str, help="input split features")
-parser.add_argument("--input_split_labels", type=str, help="input split labels")
-parser.add_argument("--output_split_train_x", type=str, help="output split train features")
-parser.add_argument("--output_split_train_y", type=str, help="output split train labels")
-parser.add_argument("--output_split_test_x", type=str, help="output split test features")
-parser.add_argument("--output_split_test_y", type=str, help="output split test labels")
+parser.add_argument("--input_split_features", type=str,
+                    help="input split features")
+parser.add_argument("--input_split_labels", type=str,
+                    help="input split labels")
+parser.add_argument("--output_split", type=str,
+                    help="output split directory")
 
 args = parser.parse_args()
 
-print("Argument 1(input taxi data features path): %s" % args.input_split_features)
+print("Argument 1(input taxi data features path): %s" %
+      args.input_split_features)
 print("Argument 2(input taxi data labels path): %s" % args.input_split_labels)
-print("Argument 3(output training features split path): %s" % args.output_split_train_x)
-print("Argument 4(output training labels split path): %s" % args.output_split_train_y)
-print("Argument 5(output test features split path): %s" % args.output_split_test_x)
-print("Argument 6(output test labels split path): %s" % args.output_split_test_y)
+print("Argument 3(output training split path): %s" % args.output_split)
 
-x_df = dprep.read_csv(path=args.input_split_features, header=dprep.PromoteHeadersMode.GROUPED).to_pandas_dataframe()
-y_df = dprep.read_csv(path=args.input_split_labels, header=dprep.PromoteHeadersMode.GROUPED).to_pandas_dataframe()
+x_df = dprep.read_csv(path=args.input_split_features,
+                      header=dprep.PromoteHeadersMode.GROUPED).to_pandas_dataframe()
+y_df = dprep.read_csv(path=args.input_split_labels,
+                      header=dprep.PromoteHeadersMode.GROUPED).to_pandas_dataframe()
 
 # These functions splits the input features and labels into test and train data
 # Visit https://docs.microsoft.com/en-us/azure/machine-learning/service/tutorial-auto-train-models for more detail
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=223)
 
-if not (args.output_split_train_x is None and
-        args.output_split_test_x is None and
-        args.output_split_train_y is None and
-        args.output_split_test_y is None):
-    write_output(x_train, args.output_split_train_x)
-    write_output(y_train, args.output_split_train_y)
-    write_output(x_test, args.output_split_test_x)
-    write_output(y_test, args.output_split_test_y)
+csv_files = {
+    'x_train.csv': x_train,
+    'x_test.csv': x_test,
+    'y_train.csv': y_train,
+    'y_test.csv': y_test
+}
+
+os.makedirs(args.output_dir, exist_ok=True)
+for (key, value) in csv_files.items():
+    df2csv(value, args.output_dir, key)
