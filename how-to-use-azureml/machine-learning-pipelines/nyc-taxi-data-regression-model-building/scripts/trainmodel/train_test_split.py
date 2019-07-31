@@ -8,7 +8,8 @@ from sklearn.model_selection import train_test_split
 def write_output(df, path):
     os.makedirs(path, exist_ok=True)
     print("%s created" % path)
-    df.to_csv(path + "/part-00000", index=False)
+    output_file = os.path.join(path, 'file')
+    df.to_csv(output_file, index=False)
 
 
 print("Split the data into train and test")
