@@ -1,0 +1,6 @@
+name: pipeline-style-transfer
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - requests

@@ -1,0 +1,8 @@
+name: auto-ml-classification-with-whitelisting
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml

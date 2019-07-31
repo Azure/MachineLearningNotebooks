@@ -11,7 +11,7 @@ from azureml.core.model import Model
 
 def init():
     global model
-    model_path = Model.get_model_path('pytorch-hymenoptera')
+    model_path = Model.get_model_path('pytorch-birds')
     model = torch.load(model_path, map_location=lambda storage, loc: storage)
     model.eval()
 
@@ -22,7 +22,7 @@ def run(input_data):
     # get prediction
     with torch.no_grad():
         output = model(input_data)
-        classes = ['ants', 'bees']
+        classes = ['chicken', 'turkey']
         softmax = nn.Softmax(dim=1)
         pred_probs = softmax(output).numpy()[0]
         index = torch.argmax(output, 1)

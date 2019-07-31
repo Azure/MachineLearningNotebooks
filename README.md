@@ -38,6 +38,7 @@ The [How to use Azure ML](./how-to-use-azureml) folder contains specific example
 - [Machine Learning Pipelines](./how-to-use-azureml/machine-learning-pipelines) - Examples showing how to create and use reusable pipelines for training and batch scoring
 - [Deployment](./how-to-use-azureml/deployment) - Examples showing how to deploy and manage machine learning models and solutions
 - [Azure Databricks](./how-to-use-azureml/azure-databricks) - Examples showing how to use Azure ML with Azure Databricks
+- [Monitor Models](./how-to-use-azureml/monitor-models) - Examples showing how to enable model monitoring services such as DataDrift
 
 ---
 ## Documentation
