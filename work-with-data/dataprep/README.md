@@ -31,6 +31,51 @@ If you have any questions or feedback, send us an email at: [askamldataprep@micr
 
 ## Release Notes
 
+### 2019-07-25 (version 1.1.9)
+New features
+- Added support for reading a file directly from a http or https url.
+
+Bug fixes and improvements
+- Improved error message when attempting to read a Parquet Dataset from a remote source (which is not currently supported).
+- Fixed a bug when writing to Parquet file format in ADLS Gen 2, and updating the ADLS Gen 2 container name in the path.
+
+### 2019-07-09 (version 1.1.8)
+
+New features
+- Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
+
+Bug fixes and improvements
+- Increased the robustness of DataPrep SDK.
+- Improved handling of pandas DataFrames with non-string Column Indexes.
+- Improved the performance of `to_pandas_dataframe` in Datasets.
+- Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
+
+### 2019-07-01 (version 1.1.7)
+
+We reverted a change that improved performance, as it was causing issues for some customers using Azure Databricks. If you experienced an issue on Azure Databricks, you can upgrade to version 1.1.7 using one of the methods below:
+1. Run this script to upgrade: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. Recreate the cluster, which will install the latest Data Prep SDK version.
+
+### 2019-06-24 (version 1.1.6)
+
+New features
+- Added summary functions for top values (`SummaryFunction.TOPVALUES`) and bottom values (`SummaryFunction.BOTTOMVALUES`).
+
+Bug fixes and improvements
+- Significantly improved the performance of `read_pandas_dataframe`.
+- Fixed a bug that would cause `get_profile()` on a Dataflow pointing to binary files to fail.
+- Exposed `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection.
+- Changed the behavior of `get_profile()`. NaN values are now ignored for Min, Mean, Std, and Sum, which aligns with the behavior of Pandas.
+
+### 2019-06-10 (version 1.1.5)
+
+Bug fixes and improvements
+- For interpreted datetime values that have a 2-digit year format, the range of valid years has been updated to match Windows May Release. The range has been changed from 1930-2029 to 1950-2049.
+- When reading in a file and setting `handleQuotedLineBreaks=True`, `\r` will be treated as a new line.
+- Fixed a bug that caused `read_pandas_dataframe` to fail in some cases.
+- Improved performance of `get_profile`.
+- Improved error messages.
+
 ### 2019-05-28 (version 1.1.4)
 
 New features

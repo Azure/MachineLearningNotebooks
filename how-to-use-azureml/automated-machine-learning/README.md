@@ -175,9 +175,18 @@ jupyter notebook
     - Example of training an automated ML forecasting model on multiple time-series
 
 - [auto-ml-classification-with-onnx.ipynb](classification-with-onnx/auto-ml-classification-with-onnx.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
+    - Dataset: scikit learn's [iris dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html)
     - Simple example of using automated ML for classification with ONNX models
     - Uses local compute for training
+
+- [auto-ml-remote-amlcompute-with-onnx.ipynb](remote-amlcompute-with-onnx/auto-ml-remote-amlcompute-with-onnx.ipynb)
+    - Dataset: scikit learn's [iris dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html)
+    - Example of using automated ML for classification using remote AmlCompute for training
+    - Train the models with ONNX compatible config on
+    - Parallel execution of iterations
+    - Async tracking of progress
+    - Cancelling individual iterations or entire run
+    - Retrieving the ONNX models and do the inference with them
 
 - [auto-ml-bank-marketing-subscribers-with-deployment.ipynb](bank-marketing-subscribers-with-deployment/auto-ml-bank-marketing-with-deployment.ipynb)
     - Dataset: UCI's [bank marketing dataset](https://www.kaggle.com/janiobachmann/bank-marketing-dataset)
