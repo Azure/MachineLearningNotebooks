@@ -1,0 +1,5 @@
+name: tutorial-1st-experiment-sdk-train
+dependencies:
+- pip:
+  - azureml-sdk
+  - sklearn
