@@ -59,7 +59,7 @@ Each image file needs to have a matching XML file. The files should be placed in
 
 **NOTE**: We expect the dataset to be split into "training" and "validation" parts. This is done in the notebook by calling `train_test_split` from `sklearn.model`
 
-### Fine-tuning
+### Fine-tuning and Evaluation
 
 Training loop runs with periodic validation:
 
@@ -117,3 +117,13 @@ For `EvalVggSsd`:
 * `num_classes` - number of classes including background (e.g.: `2` for our simple example)
 
 **NOTE**: We currently support `Adam` optimizer only for fine-tuning.
+
+### Inference
+
+```python
+from finetune.inference import InferVggSsd
+infer = InferVggSsd(ckpt_dir, gpu=False)
+```
+Inference object can run on GPU (default) and CPU. The `infer_file` function can also visualize the results:
+
+![results](images/shelf.png)
