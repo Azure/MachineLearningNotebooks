@@ -328,7 +328,3 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-
-how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/.ipynb_checkpoints
-how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/data
-how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/outputs
