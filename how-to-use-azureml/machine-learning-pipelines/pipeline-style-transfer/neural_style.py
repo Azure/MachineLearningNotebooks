@@ -174,8 +174,8 @@ def main():
     args = arg_parser.parse_args()
 
     if args.cuda and not torch.cuda.is_available():
-        print("ERROR: cuda is not available, try running on CPU")
-        sys.exit(1)
+        print("ERROR: cuda is not available, using CPU instead")
+        args.cuda = 0
     os.makedirs(args.output_dir, exist_ok=True)
     stylize(args)
 
