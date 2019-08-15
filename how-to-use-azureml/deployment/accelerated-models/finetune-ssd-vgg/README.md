@@ -4,7 +4,7 @@
 
 The `notebooks` subfolder contains two notebooks that demonstrate fine-tuning and deploying an object detector. 
 
-Fine-tuning is covered in [Finetune VGG SSD](notebooks/Finetune%20VGG%20SSD.ipynb) notebook. It shows the end-to-end process of creating a new object detector based on the [VGG SSD architecture](https://www.cs.unc.edu/~wliu/papers/ssd.pdf) trained on VOC07 + 12 (**REVIEW**: verify) datasets. 
+Fine-tuning is covered in [Finetune VGG SSD](notebooks/Finetune%20VGG%20SSD.ipynb) notebook. It shows the end-to-end process of creating a new object detector based on the [VGG SSD architecture](https://www.cs.unc.edu/~wliu/papers/ssd.pdf) trained on VOC2007 + VOC2012 trainval. 
 
 The [Deploy Accelerated]("notebooks/Deploy%20Accelerated.ipynb") notebook shows how to use AzureML for deploying the model obtained by fine-tuning the VGG SSD detector on the FPGA cloud. Refer to this [README](../README.md) for instructions on how to install AzureML and get access to FPGA-enabled machines in Azure.
 
@@ -12,6 +12,7 @@ The [Deploy Accelerated]("notebooks/Deploy%20Accelerated.ipynb") notebook shows 
 
 We recommend the following configuration before getting started with training:
 
+* Windows or Linux OS
 * CUDA 10.0 + cuDNN 7.4
 * [Anaconda Python](https://www.anaconda.com/distribution/)
 * Create a conda [virtual environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html). E.g.:
@@ -57,3 +58,62 @@ Each image file needs to have a matching XML file. The files should be placed in
 `pascalvoc_to_tfrecords.run` converts images and their annotations into TFRecord format.
 
 **NOTE**: We expect the dataset to be split into "training" and "validation" parts. This is done in the notebook by calling `train_test_split` from `sklearn.model`
+
+### Fine-tuning
+
+Training loop runs with periodic validation:
+
+```python
+from finetune.train import TrainVggSsd
+from finetune.eval import EvalVggSsd
+```
+
+It is recommended that these objects be used as part of the Python "with" statement in a training loop:
+
+```python
+for _ in range(n_epochs):
+
+    with TrainVggSsd(ckpt_dir, train_files, 
+                     num_steps=num_train_steps, 
+                     steps_to_save=steps_to_save, 
+                     batch_size = batch_size,
+                     learning_rate=learning_rate,
+                     learning_rate_decay_steps=learning_rate_decay_steps, 
+                     learning_rate_decay_value=learning_rate_decay_value) as trainer:
+        trainer.train()
+
+    with EvalVggSsd(ckpt_dir, validation_files, 
+                    num_steps=num_eval_steps, 
+                    num_classes=num_classes) as evaluator:
+        evaluator.eval()
+```
+
+This way Tensorflow `Session` objects are handled correctly.
+
+`TrainVggSsd` is responsible for all aspects of a training loop:
+
+1. Downloading the initial model checkpoint for VGG SSD: graph and weights
+2. Feeding data to the training loop
+3. Recording progress which can be observed with `Tensorboard`:
+
+```sh
+tensorboard --logdir <checkpoint directory>
+```
+
+Evaluation produces PASCAL VOC2012 mAP for the model. AP for each class is also produced and can be observed in `Tensorboard`
+
+Here are some of the parameters accepted by `TrainVggSsd`
+
+* `ckpt_dir` - (required) directory where checkpoints will be stored. Same for `EvalVggSsd`
+* `train_files` - (required) training files (.tfrec) used as the training dataset.
+* `steps_to_save` - how often a checkpoint is saved
+* `batch_size` - number of images per step
+* `learning_rate` - learning rate
+
+For `EvalVggSsd`:
+
+* `validation_files` - (required).tfrec files that form the validation dataset
+* `num_steps` - number of steps in a validation run (usually same as the number of images in the validation dataset)
+* `num_classes` - number of classes including background (e.g.: `2` for our simple example)
+
+**NOTE**: We currently support `Adam` optimizer only for fine-tuning.
