@@ -49,15 +49,15 @@ sys.path.insert(0, os.path.abspath('tfssd'))
 
 ### Preparing Training/Validation Data
 
-The detector understands data in [PASCAL VOC](https://gist.github.com/Prasad9/30900b0ef1375cc7385f4d85135fdb44). Tools like [labelImg](https://github.com/tzutalin/labelImg) produce data in this format. See the `examples` subfolder for a sample small dataset. In this example we train our detector to recognize gaps between products on a general store shelves with a goal to be able to alert the store manager quickly that re-stocking is necessary.
+The detector understands data in [PASCAL VOC](https://gist.github.com/Prasad9/30900b0ef1375cc7385f4d85135fdb44) format. Tools like [labelImg](https://github.com/tzutalin/labelImg) produce data in this format. See the `examples` subfolder for a sample small dataset. In this example we train our detector to recognize gaps between products on shelves in a general store with a goal to be able to alert the store manager quickly that re-stocking is necessary.
 
 ![](images/annotated.png)
 
-Each image file needs to have a matching XML file. The files should be placed into `JPEGImages` and `Annotations` directories. `check_labelmatch` in `dataset_utils` module will ensure that there are no "orphaned" images or annotations. See `sample.jpg` and `sample.xml` (shown above).
+Each image file needs to have a matching XML file. The files should be placed into `JPEGImages` and `Annotations` directories. `check_labelmatch` function in `dataset_utils` module will ensure that there are no "orphaned" images or annotations. See [sample.jpg](notebooks/sample.jpg) and [sample.xml](notebooks/sample.xml) for annotations examples (visualization shown above).
 
 `pascalvoc_to_tfrecords.run` converts images and their annotations into TFRecord format.
 
-**NOTE**: We expect the dataset to be split into "training" and "validation" parts. This is done in the notebook by calling `train_test_split` from `sklearn.model`
+**NOTE**: We expect the dataset to be split into "training" and "validation" subsets. This is done in the notebook by calling `train_test_split` from `sklearn.model`
 
 ### Fine-tuning and Evaluation
 
@@ -100,7 +100,7 @@ This way Tensorflow `Session` objects are handled correctly.
 tensorboard --logdir <checkpoint directory>
 ```
 
-Evaluation produces PASCAL VOC2012 mAP for the model. AP for each class is also produced and can be observed in `Tensorboard`
+Evaluation outputs PASCAL VOC2012 mAP for the model. AP for each class is also recorded and can be observed in `Tensorboard` as shown above.
 
 Here are some of the parameters accepted by `TrainVggSsd`
 
@@ -140,9 +140,9 @@ The process consists of:
 from finetune.model_saver import SaverVggSsd 
 ```
 
-2. Registering the model in your AzureML workspace (created as described in this [README](../README.md))
+2. Registering the model in your AzureML Workspace (created as described in this [README](../README.md))
 3. Converting the model to ONNX format to make it accessible to an FPGA device.
 4. Creating a Docker image from the model.
 5. Deploying in the cloud. In the above example, the resulting container is deployed as a Web Service.
 
-The above notebook shows all the above steps as well as has additional cells that show how to test the deployed service.
+The above notebook demonstrates all these steps as well as has additional cells that show how to test the deployed service.
