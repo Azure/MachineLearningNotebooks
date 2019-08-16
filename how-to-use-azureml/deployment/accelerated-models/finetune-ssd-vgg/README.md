@@ -127,3 +127,22 @@ infer = InferVggSsd(ckpt_dir, gpu=False)
 Inference object can run on GPU (default) and CPU. The `infer_file` function can also visualize the results:
 
 ![results](images/shelf.png)
+
+## Deployment
+
+ [Deploy Accelerated]("notebooks/Deploy%20Accelerated.ipynb") notebook illustrates the process of deploying a finished detector in AzureML cloud.
+
+The process consists of:
+
+1. Saving the model for deployment with `SaverVggSsd`:
+
+```python
+from finetune.model_saver import SaverVggSsd 
+```
+
+2. Registering the model in your AzureML workspace (created as described in this [README](../README.md))
+3. Converting the model to ONNX format to make it accessible to an FPGA device.
+4. Creating a Docker image from the model.
+5. Deploying in the cloud. In the above example, the resulting container is deployed as a Web Service.
+
+The above notebook shows all the above steps as well as has additional cells that show how to test the deployed service.
