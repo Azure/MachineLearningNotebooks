@@ -6,7 +6,7 @@ The `notebooks` subfolder contains two notebooks that demonstrate fine-tuning an
 
 Fine-tuning is covered in [Finetune VGG SSD](notebooks/Finetune%20VGG%20SSD.ipynb) notebook. It shows the end-to-end process of creating a new object detector based on the [VGG SSD architecture](https://www.cs.unc.edu/~wliu/papers/ssd.pdf) trained on VOC2007 + VOC2012 trainval. 
 
-The [Deploy Accelerated]("notebooks/Deploy%20Accelerated.ipynb") notebook shows how to use AzureML for deploying the model obtained by fine-tuning the VGG SSD detector on the FPGA cloud. Refer to this [README](../README.md) for instructions on how to install AzureML and get access to FPGA-enabled machines in Azure.
+The [Deploy Accelerated](notebooks/Deploy%20Accelerated.ipynb) notebook shows how to use AzureML for deploying the model obtained by fine-tuning the VGG SSD detector on the FPGA cloud. Refer to this [README](../README.md) for instructions on how to install AzureML and get access to FPGA-enabled machines in Azure.
 
 ## Preparation
 
@@ -130,7 +130,7 @@ Inference object can run on GPU (default) and CPU. The `infer_file` function can
 
 ## Deployment
 
- [Deploy Accelerated]("notebooks/Deploy%20Accelerated.ipynb") notebook illustrates the process of deploying a finished detector in AzureML cloud.
+ [Deploy Accelerated](notebooks/Deploy%20Accelerated.ipynb) notebook illustrates the process of deploying a finished detector in AzureML cloud.
 
 The process consists of:
 
