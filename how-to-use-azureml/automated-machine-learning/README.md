@@ -155,11 +155,11 @@ jupyter notebook
 - [auto-ml-subsampling-local.ipynb](subsampling/auto-ml-subsampling-local.ipynb)
     - How to enable subsampling
 
-- [auto-ml-dataprep.ipynb](dataprep/auto-ml-dataprep.ipynb)
-    - Using DataPrep for reading data
+- [auto-ml-dataset.ipynb](dataprep/auto-ml-dataset.ipynb)
+    - Using Dataset for reading data
 
-- [auto-ml-dataprep-remote-execution.ipynb](dataprep-remote-execution/auto-ml-dataprep-remote-execution.ipynb)
-    - Using DataPrep for reading data with remote execution
+- [auto-ml-dataset-remote-execution.ipynb](dataprep-remote-execution/auto-ml-dataset-remote-execution.ipynb)
+    - Using Dataset for reading data with remote execution
 
 - [auto-ml-classification-with-whitelisting.ipynb](classification-with-whitelisting/auto-ml-classification-with-whitelisting.ipynb)
     - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
@@ -229,7 +229,7 @@ The main code of the file must be indented so that it is under this condition.
 2. Check that you have conda 64-bit installed rather than 32-bit.  You can check this with the command `conda info`.  The `platform` should be `win-64` for Windows or `osx-64` for Mac.
 3. Check that you have conda 4.4.10 or later.  You can check the version with the command `conda -V`.  If you have a previous version installed, you can update it using the command: `conda update conda`.
 4. On Linux, if the error is `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`, install build essentials using the command `sudo apt-get install build-essential`.
-5. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`. 
+5. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`.
 
 ## automl_setup_linux.sh fails
 If automl_setup_linux.sh fails on Ubuntu Linux with the error: `unable to execute 'gcc': No such file or directory`
@@ -264,13 +264,13 @@ Some Windows environments see an error loading numpy with the latest Python vers
 Check the tensorflow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall tensorflow from the environment if version is >= 1.13
 You may check the version of tensorflow and uninstall as follows
 1) start a command shell, activate conda environment where automated ml packages are installed
-2) enter `pip freeze` and look for `tensorflow` , if found, the version listed should be < 1.13 
-3) If the listed version is a not a supported version,  `pip uninstall tensorflow` in the command shell and enter y for confirmation. 
+2) enter `pip freeze` and look for `tensorflow` , if found, the version listed should be < 1.13
+3) If the listed version is a not a supported version,  `pip uninstall tensorflow` in the command shell and enter y for confirmation.
 
-## Remote run: DsvmCompute.create fails 
+## Remote run: DsvmCompute.create fails
 There are several reasons why the DsvmCompute.create can fail.  The reason is usually in the error message but you have to look at the end of the error message for the detailed reason.  Some common reasons are:
 1) `Compute name is invalid, it should start with a letter, be between 2 and 16 character, and only include letters (a-zA-Z), numbers (0-9) and \'-\'.`  Note that underscore is not allowed in the name.
-2) `The requested VM size xxxxx is not available in the current region.`  You can select a different region or vm_size. 
+2) `The requested VM size xxxxx is not available in the current region.`  You can select a different region or vm_size.
 
 ## Remote run: Unable to establish SSH connection
 Automated ML uses the SSH protocol to communicate with remote DSVMs.  This defaults to port 22.  Possible causes for this error are:
