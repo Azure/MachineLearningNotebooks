@@ -132,7 +132,7 @@ DEPLOYMENT_NBS
 OTHER_NBS
 '''
 
-index_row = '''| NB_SYMBOL[NB_NAME](NB_PATH) | NB_TASK | NB_DATASET | NB_COMPUTE | NB_DEPLOYMENT | NB_FRAMEWORK | NB_TAGS |'''
+index_row = '''| NB_SYMBOL[NB_NAME](NB_PATH) | NB_TASK | NB_DATASET | NB_COMPUTE | NB_DEPLOYMENT | NB_FRAMEWORK |'''
 
 index_file = "index.md"
 
@@ -172,15 +172,12 @@ class NotebookIndex:
             this_row = this_row.replace("NB_DEPLOYMENT", ", ".join(metadata["deployment"]))        
         if "framework" in metadata:
             this_row = this_row.replace("NB_FRAMEWORK", ", ".join(metadata["framework"]))
-        if "tags1" in metadata:
-            this_row = this_row.replace("NB_TAGS", ", ".join(metadata["tags1"])) 
         ## Fall back
         this_row = this_row.replace("NB_TASK","")
         this_row = this_row.replace("NB_DATASET","")
         this_row = this_row.replace("NB_COMPUTE","")
         this_row = this_row.replace("NB_DEPLOYMENT","")        
         this_row = this_row.replace("NB_FRAMEWORK","")
-        this_row = this_row.replace("NB_TAGS","")
 
         if "tags" in metadata:
             if "featured" in metadata["tags"]:  
