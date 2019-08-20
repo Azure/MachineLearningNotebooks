@@ -1,30 +1,26 @@
 ---
 name: Notebook issue
-about: Create a report to help us improve
-title: "[Notebook issue]"
-labels: ''
+about: Describe your notebook issue
+title: "[Notebook]"
+labels: notebook
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**DESCRIPTION: Describe the issue with notebook clearly + concisely**
 
-Provide the following if applicable:
-+ Your Python & SDK version 
-+ Python Scripts or the full notebook name
-+ Pipeline definition 
-+ Environment definition 
-+ Example data 
-+ Any log files. 
-+ Run and Workspace Id 
+**CONFIG: Provide the following if applicable:**
++ Notebook name:
++ Your Python & SDK version:
++ Python Scripts:
++ Pipeline definition:
++ Environment definition:
++ Example data:
++ Any log files:
++ Run and Workspace Id:
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. 
+**REPRODUCIBLE: Steps**
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**EXPECTATION: Clear description of expected behavior**
 
 **Additional context**
-Add any other context about the problem here.
