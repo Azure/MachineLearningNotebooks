@@ -1,26 +1,43 @@
 ---
 name: Notebook issue
 about: Describe your notebook issue
-title: "[Notebook]"
+title: "[Notebook] DESCRIPTIVE TITLE"
 labels: notebook
 assignees: ''
 
 ---
 
-**DESCRIPTION: Describe the issue with notebook clearly + concisely**
+### DESCRIPTION: Describe clearly + concisely
 
-**CONFIG: Provide the following if applicable:**
-+ Notebook name:
-+ Your Python & SDK version:
-+ Python Scripts:
-+ Pipeline definition:
-+ Environment definition:
-+ Example data:
-+ Any log files:
-+ Run and Workspace Id:
 
-**REPRODUCIBLE: Steps**
+.
+### REPRODUCIBLE: Steps
 
-**EXPECTATION: Clear description of expected behavior**
 
-**Additional context**
+.
+### EXPECTATION: Clear description 
+
+
+.
+### CONFIG/ENVIRONMENT: 
+```Provide where applicable
+
+## Your Python & SDK version:
+
+## Environment definition:
+
+## Notebook name or Python scripts:
+
+## Run and Workspace Id:
+
+## Pipeline definition:
+
+## Example data:
+
+## Any log files:
+
+
+
+
+
+```
