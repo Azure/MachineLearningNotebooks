@@ -4,5 +4,5 @@ dependencies:
   - azureml-sdk
   - azureml-explain-model
   - azureml-contrib-explain-model
-  - azureml-dataprep
   - sklearn-pandas
+  - azureml-dataprep

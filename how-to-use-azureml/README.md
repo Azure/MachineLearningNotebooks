@@ -8,7 +8,7 @@ As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) not
 * [train-on-local](./training/train-on-local): Learn how to submit a run to local computer and use Azure ML managed run configuration.
 * [train-on-amlcompute](./training/train-on-amlcompute): Use a 1-n node Azure ML managed compute cluster for remote runs on Azure CPU or GPU infrastructure.
 * [train-on-remote-vm](./training/train-on-remote-vm): Use Data Science Virtual Machine as a target for remote runs.
-* [logging-api](./training/logging-api): Learn about the details of logging metrics to run history.
+* [logging-api](./track-and-monitor-experiments/logging-api): Learn about the details of logging metrics to run history.
 * [register-model-create-image-deploy-service](./deployment/register-model-create-image-deploy-service): Learn about the details of model management.
 * [production-deploy-to-aks](./deployment/production-deploy-to-aks) Deploy a model to production at scale on Azure Kubernetes Service.
 * [enable-data-collection-for-models-in-aks](./deployment/enable-data-collection-for-models-in-aks) Learn about data collection APIs for deployed model.

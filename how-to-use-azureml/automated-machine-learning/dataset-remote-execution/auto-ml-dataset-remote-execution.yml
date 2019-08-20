@@ -1,0 +1,10 @@
+name: auto-ml-dataset-remote-execution
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-defaults
+  - azureml-explain-model
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml

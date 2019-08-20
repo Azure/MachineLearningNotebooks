@@ -1,0 +1,4415 @@
+{
+  "blocks": [
+    {
+      "id": "36442a99-73bd-4307-985e-11e3a496abdd",
+      "type": "Microsoft.DPrep.ReferenceAndInverseSplitBlock",
+      "arguments": {
+        "sourceFilter": {
+          "referenceType": 2,
+          "referenceContainerPath": null,
+          "referencedStep": {
+            "referencedStepId": "00000000-0000-0000-0000-000000000000",
+            "fallback": 1
+          },
+          "anonymousSteps": [
+            {
+              "id": "509f625c-951b-410c-b2a5-ba7d77ac5805",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 0,
+                "supportedTargets": [
+                  4
+                ],
+                "supportedFieldTypes": null,
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Creates a reference to an existing activity object.",
+                "type": "Microsoft.DPrep.ReferenceBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "reference",
+                    "type": 21,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The reference activity."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "dataEffect": 1
+                }
+              },
+              "type": "Microsoft.DPrep.ReferenceBlock",
+              "dataEffectDetails": {
+                "dataEffect": 1
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "reference",
+                  "type": 21,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The reference activity."
+                }
+              ],
+              "arguments": {
+                "reference": {
+                  "referenceType": 1,
+                  "referenceContainerPath": "dataset://35f16a99-532a-4a47-9e93-00305f6c40f2/maytest/mayworkspace/train_raw",
+                  "referencedStep": null,
+                  "anonymousSteps": null
+                }
+              }
+            },
+            {
+              "id": "49f2a633-169b-412c-8565-4cfe9a3e10bd",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 5,
+                "supportedTargets": [
+                  1
+                ],
+                "supportedFieldTypes": null,
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Takes a random sample of the available records.",
+                "type": "Microsoft.DPrep.TakeSampleBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "probability",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 4,
+                      "details": {
+                        "min": 0.0,
+                        "max": 1.0
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0.1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "The probability of a record being included in the sample."
+                  },
+                  {
+                    "name": "seed",
+                    "type": 2,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 4,
+                      "details": {
+                        "min": 0.0,
+                        "max": 4294967295.0
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "The seed to use for the random generator."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "dataEffect": 6
+                }
+              },
+              "type": "Microsoft.DPrep.TakeSampleBlock",
+              "dataEffectDetails": {
+                "dataEffect": 6
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "probability",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 4,
+                    "details": {
+                      "min": 0.0,
+                      "max": 1.0
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0.1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "The probability of a record being included in the sample."
+                },
+                {
+                  "name": "seed",
+                  "type": 2,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 4,
+                    "details": {
+                      "min": 0.0,
+                      "max": 4294967295.0
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "The seed to use for the random generator."
+                }
+              ],
+              "arguments": {
+                "probability": 0.2,
+                "seed": 3923004803
+              }
+            },
+            {
+              "id": "8eb37cb0-0e45-4230-a69e-70a9b481d9a3",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 6,
+                "supportedTargets": [
+                  2,
+                  3
+                ],
+                "supportedFieldTypes": null,
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Drops the specified columns.",
+                "type": "Microsoft.DPrep.DropColumnsBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "columns",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 1,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source columns."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsRemovedProperties": [
+                    {
+                      "propertyPath": [
+                        "columns"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 4
+                }
+              },
+              "type": "Microsoft.DPrep.DropColumnsBlock",
+              "dataEffectDetails": {
+                "columnsRemovedProperties": [
+                  {
+                    "propertyPath": [
+                      "columns"
+                    ]
+                  }
+                ],
+                "dataEffect": 4
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "columns",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 1,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source columns."
+                }
+              ],
+              "arguments": {
+                "columns": {
+                  "type": 0,
+                  "details": {
+                    "selectedColumns": [
+                      "AVProductStatesIdentifier",
+                      "AVProductsEnabled",
+                      "AutoSampleOptIn",
+                      "AvSigVersion",
+                      "AvSigVersionEncoded",
+                      "Census_ActivationChannel",
+                      "Census_ChassisTypeName",
+                      "Census_DeviceFamily",
+                      "Census_GenuineStateName",
+                      "Census_InternalBatteryNumberOfCharges",
+                      "Census_InternalBatteryType",
+                      "Census_InternalPrimaryDiagonalDisplaySizeInInches",
+                      "Census_InternalPrimaryDisplayResolutionHorizontal",
+                      "Census_InternalPrimaryDisplayResolutionVertical",
+                      "Census_IsFlightingInternal",
+                      "Census_IsFlightsDisabled",
+                      "Census_IsPortableOperatingSystem",
+                      "Census_IsSecureBootEnabled",
+                      "Census_IsWIMBootEnabled",
+                      "Census_MDC2FormFactor",
+                      "Census_OSArchitecture",
+                      "Census_OSBranch",
+                      "Census_OSBuildNumber",
+                      "Census_OSBuildRevision",
+                      "Census_OSEdition",
+                      "Census_OSInstallTypeName",
+                      "Census_OSSkuName",
+                      "Census_OSVersion",
+                      "Census_OSWUAutoUpdateOptionsName",
+                      "Census_PowerPlatformRoleName",
+                      "Census_PrimaryDiskTypeName",
+                      "Census_ProcessorClass",
+                      "Census_SystemVolumeTotalCapacity",
+                      "Census_ThresholdOptIn",
+                      "CountryIdentifier",
+                      "DefaultBrowsersIdentifier",
+                      "Firewall",
+                      "HasTpm",
+                      "IsBeta",
+                      "MachineIdentifier",
+                      "OrganizationIdentifier",
+                      "OsBuild",
+                      "OsBuildLab",
+                      "OsPlatformSubRelease",
+                      "OsSuite",
+                      "OsVer",
+                      "Platform",
+                      "Processor",
+                      "ProductName",
+                      "PuaMode",
+                      "SMode",
+                      "SkuEdition",
+                      "SmartScreen",
+                      "UacLuaenable"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "id": "164eb9f4-bc3b-485e-8d76-55a5fcd1b2a8",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 7,
+                "supportedTargets": [
+                  2,
+                  3
+                ],
+                "supportedFieldTypes": [
+                  0,
+                  2
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Converts the values in the specified columns to floating point numbers.",
+                "type": "Microsoft.DPrep.ToNumberBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "columns",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 1,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source columns."
+                  },
+                  {
+                    "name": "decimalPoint",
+                    "type": 6,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 1,
+                      "details": {
+                        "enumName": "DecimalMark",
+                        "enumType": "Microsoft.DPrep.Engine.Blocks.ToNumberBlock+DecimalMark, Microsoft.DPrep.Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        "enumValues": [
+                          0,
+                          1
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "The symbol to use as the decimal mark."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "columns"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.ToNumberBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "columns"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "columns",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 1,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source columns."
+                },
+                {
+                  "name": "decimalPoint",
+                  "type": 6,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 1,
+                    "details": {
+                      "enumName": "DecimalMark",
+                      "enumType": "Microsoft.DPrep.Engine.Blocks.ToNumberBlock+DecimalMark, Microsoft.DPrep.Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "enumValues": [
+                        0,
+                        1
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "The symbol to use as the decimal mark."
+                }
+              ],
+              "arguments": {
+                "columns": {
+                  "type": 0,
+                  "details": {
+                    "selectedColumns": [
+                      "AVProductsInstalled",
+                      "Census_ProcessorCoreCount",
+                      "Census_PrimaryDiskTotalCapacity",
+                      "Census_TotalPhysicalRAM"
+                    ]
+                  }
+                },
+                "decimalPoint": 0
+              }
+            },
+            {
+              "id": "7e2a6355-de6b-4d03-b869-9d6097eb2012",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 3,
+                "supportedTargets": [
+                  2,
+                  3
+                ],
+                "supportedFieldTypes": [
+                  1,
+                  4,
+                  3,
+                  2,
+                  0,
+                  5
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Replaces values in the specified columns with nulls. You can choose to use the default list, supply your own, or both.",
+                "type": "Microsoft.DPrep.ReplaceNaBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "useDefaultNaList",
+                    "type": 4,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": true,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Use the default list and replace 'null', 'NaN', 'NA', and 'N/A' with null."
+                  },
+                  {
+                    "name": "useEmptyStringAsNa",
+                    "type": 4,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": true,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Replace empty strings with null."
+                  },
+                  {
+                    "name": "useNanAsNa",
+                    "type": 4,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": true,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Replace NaNs with Null."
+                  },
+                  {
+                    "name": "customNaList",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Provide a comma separated list of values to replace with null."
+                  },
+                  {
+                    "name": "columns",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 1,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source columns."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "columns"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.ReplaceNaBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "columns"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "useDefaultNaList",
+                  "type": 4,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": true,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Use the default list and replace 'null', 'NaN', 'NA', and 'N/A' with null."
+                },
+                {
+                  "name": "useEmptyStringAsNa",
+                  "type": 4,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": true,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Replace empty strings with null."
+                },
+                {
+                  "name": "useNanAsNa",
+                  "type": 4,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": true,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Replace NaNs with Null."
+                },
+                {
+                  "name": "customNaList",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Provide a comma separated list of values to replace with null."
+                },
+                {
+                  "name": "columns",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 1,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source columns."
+                }
+              ],
+              "arguments": {
+                "columns": {
+                  "type": 1,
+                  "details": {
+                    "ignoreCase": false,
+                    "term": ".*",
+                    "useRegex": true,
+                    "matchWholeWord": false,
+                    "invert": false
+                  }
+                },
+                "useDefaultNaList": true,
+                "useEmptyStringAsNa": true,
+                "useNanAsNa": true
+              }
+            },
+            {
+              "id": "9d738031-d05e-41ab-a45c-3a6859155198",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 4,
+                "supportedTargets": [
+                  2,
+                  3
+                ],
+                "supportedFieldTypes": null,
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": false,
+                "documentation": "Replaces null values in a column with the specified replacement value.",
+                "type": "Microsoft.DPrep.FillNullsBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "columns",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 1,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source columns."
+                  },
+                  {
+                    "name": "replaceWithType",
+                    "type": 6,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 1,
+                      "details": {
+                        "enumName": "FieldType",
+                        "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        "enumValues": [
+                          0,
+                          1,
+                          3,
+                          4,
+                          6,
+                          10
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": null,
+                    "documentation": "The replacement value type."
+                  },
+                  {
+                    "name": "stringReplaceWith",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 0
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  },
+                  {
+                    "name": "doubleReplaceWith",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 3
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  },
+                  {
+                    "name": "datetimeReplaceWith",
+                    "type": 20,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 4
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  },
+                  {
+                    "name": "booleanReplaceWith",
+                    "type": 6,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 1,
+                      "details": {
+                        "enumName": "ReplaceBoolValues",
+                        "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        "enumValues": [
+                          0,
+                          1
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 1
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "columns"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.FillNullsBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "columns"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "columns",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 1,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source columns."
+                },
+                {
+                  "name": "replaceWithType",
+                  "type": 6,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 1,
+                    "details": {
+                      "enumName": "FieldType",
+                      "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "enumValues": [
+                        0,
+                        1,
+                        3,
+                        4,
+                        6,
+                        10
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": null,
+                  "documentation": "The replacement value type."
+                },
+                {
+                  "name": "stringReplaceWith",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 0
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                },
+                {
+                  "name": "doubleReplaceWith",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 3
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                },
+                {
+                  "name": "datetimeReplaceWith",
+                  "type": 20,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 4
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                },
+                {
+                  "name": "booleanReplaceWith",
+                  "type": 6,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 1,
+                    "details": {
+                      "enumName": "ReplaceBoolValues",
+                      "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "enumValues": [
+                        0,
+                        1
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 1
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                }
+              ],
+              "arguments": {
+                "booleanReplaceWith": 1,
+                "columns": {
+                  "type": 1,
+                  "details": {
+                    "ignoreCase": false,
+                    "term": ".*",
+                    "useRegex": true,
+                    "matchWholeWord": false,
+                    "invert": false
+                  }
+                },
+                "doubleReplaceWith": 0.0,
+                "replaceWithType": 3
+              }
+            },
+            {
+              "id": "bd960a6b-0959-4062-91aa-ba072f0e8058",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 4,
+                "supportedTargets": [
+                  2,
+                  3
+                ],
+                "supportedFieldTypes": null,
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": false,
+                "documentation": "Replaces values in a column that match the specified search value.",
+                "type": "Microsoft.DPrep.ReplaceBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "columns",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 1,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source columns."
+                  },
+                  {
+                    "name": "valueToFindType",
+                    "type": 6,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 1,
+                      "details": {
+                        "enumName": "FieldType",
+                        "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        "enumValues": [
+                          0,
+                          1,
+                          3,
+                          4,
+                          6,
+                          7,
+                          10
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": null,
+                    "documentation": "The value to find type."
+                  },
+                  {
+                    "name": "stringValueToFind",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "valueToFindType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 0
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The value to find."
+                  },
+                  {
+                    "name": "doubleValueToFind",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "valueToFindType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 3
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The value to find."
+                  },
+                  {
+                    "name": "datetimeValueToFind",
+                    "type": 20,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "valueToFindType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 4
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The value to find."
+                  },
+                  {
+                    "name": "booleanValueToFind",
+                    "type": 6,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 1,
+                      "details": {
+                        "enumName": "ReplaceBoolValues",
+                        "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        "enumValues": [
+                          0,
+                          1
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "valueToFindType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 1
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The value to find."
+                  },
+                  {
+                    "name": "replaceWithType",
+                    "type": 6,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 1,
+                      "details": {
+                        "enumName": "FieldType",
+                        "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        "enumValues": [
+                          0,
+                          1,
+                          3,
+                          4,
+                          6,
+                          7,
+                          10
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": null,
+                    "documentation": "The replacement value type."
+                  },
+                  {
+                    "name": "stringReplaceWith",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 0
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  },
+                  {
+                    "name": "doubleReplaceWith",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 3
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  },
+                  {
+                    "name": "datetimeReplaceWith",
+                    "type": 20,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 4
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  },
+                  {
+                    "name": "booleanReplaceWith",
+                    "type": 6,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 1,
+                      "details": {
+                        "enumName": "ReplaceBoolValues",
+                        "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        "enumValues": [
+                          0,
+                          1
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 1
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement value."
+                  },
+                  {
+                    "name": "errorReplaceWith",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": {
+                      "condition": {
+                        "property": {
+                          "propertyPath": [
+                            "replaceWithType"
+                          ]
+                        },
+                        "comparison": 0,
+                        "value": 6
+                      },
+                      "aggregate": null
+                    },
+                    "documentation": "The replacement error code."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "columns"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.ReplaceBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "columns"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "columns",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 1,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source columns."
+                },
+                {
+                  "name": "valueToFindType",
+                  "type": 6,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 1,
+                    "details": {
+                      "enumName": "FieldType",
+                      "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "enumValues": [
+                        0,
+                        1,
+                        3,
+                        4,
+                        6,
+                        7,
+                        10
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": null,
+                  "documentation": "The value to find type."
+                },
+                {
+                  "name": "stringValueToFind",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "valueToFindType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 0
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The value to find."
+                },
+                {
+                  "name": "doubleValueToFind",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "valueToFindType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 3
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The value to find."
+                },
+                {
+                  "name": "datetimeValueToFind",
+                  "type": 20,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "valueToFindType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 4
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The value to find."
+                },
+                {
+                  "name": "booleanValueToFind",
+                  "type": 6,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 1,
+                    "details": {
+                      "enumName": "ReplaceBoolValues",
+                      "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "enumValues": [
+                        0,
+                        1
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "valueToFindType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 1
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The value to find."
+                },
+                {
+                  "name": "replaceWithType",
+                  "type": 6,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 1,
+                    "details": {
+                      "enumName": "FieldType",
+                      "enumType": "Microsoft.DPrep.Engine.FieldType, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "enumValues": [
+                        0,
+                        1,
+                        3,
+                        4,
+                        6,
+                        7,
+                        10
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": null,
+                  "documentation": "The replacement value type."
+                },
+                {
+                  "name": "stringReplaceWith",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 0
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                },
+                {
+                  "name": "doubleReplaceWith",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 3
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                },
+                {
+                  "name": "datetimeReplaceWith",
+                  "type": 20,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 4
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                },
+                {
+                  "name": "booleanReplaceWith",
+                  "type": 6,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 1,
+                    "details": {
+                      "enumName": "ReplaceBoolValues",
+                      "enumType": "Microsoft.DPrep.Engine.ReplaceBoolValues, Microsoft.DPrep.EngineAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "enumValues": [
+                        0,
+                        1
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 1
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement value."
+                },
+                {
+                  "name": "errorReplaceWith",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": {
+                    "condition": {
+                      "property": {
+                        "propertyPath": [
+                          "replaceWithType"
+                        ]
+                      },
+                      "comparison": 0,
+                      "value": 6
+                    },
+                    "aggregate": null
+                  },
+                  "documentation": "The replacement error code."
+                }
+              ],
+              "arguments": {
+                "booleanReplaceWith": 1,
+                "booleanValueToFind": 1,
+                "columns": {
+                  "type": 0,
+                  "details": {
+                    "selectedColumns": [
+                      "Census_PrimaryDiskTotalCapacity"
+                    ]
+                  }
+                },
+                "doubleReplaceWith": 0.0,
+                "replaceWithType": 3,
+                "valueToFindType": 6
+              }
+            },
+            {
+              "id": "6397d50d-e60f-4121-9970-9596cfa945b1",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 3,
+                "supportedTargets": [
+                  2,
+                  3
+                ],
+                "supportedFieldTypes": [
+                  3,
+                  2
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": false,
+                "documentation": "Clips values so that all values are between the lower and upper boundaries.",
+                "type": "Microsoft.DPrep.ClipBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "columns",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 1,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source columns."
+                  },
+                  {
+                    "name": "lower",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "All values lower than this value will be set to this value."
+                  },
+                  {
+                    "name": "upper",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "All values higher than this value will be set to this value."
+                  },
+                  {
+                    "name": "useValues",
+                    "type": 4,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": true,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "If true, values outside boundaries will be set to the boundary values. If false, those values will be set to null."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "columns"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.ClipBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "columns"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "columns",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 1,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source columns."
+                },
+                {
+                  "name": "lower",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "All values lower than this value will be set to this value."
+                },
+                {
+                  "name": "upper",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "All values higher than this value will be set to this value."
+                },
+                {
+                  "name": "useValues",
+                  "type": 4,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": true,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "If true, values outside boundaries will be set to the boundary values. If false, those values will be set to null."
+                }
+              ],
+              "arguments": {
+                "columns": {
+                  "type": 0,
+                  "details": {
+                    "selectedColumns": [
+                      "Census_TotalPhysicalRAM"
+                    ]
+                  }
+                },
+                "lower": 0.0,
+                "upper": 16384.0,
+                "useValues": true
+              }
+            },
+            {
+              "id": "2b897794-0e8c-4c05-9147-730ec9e10770",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 13,
+                "supportedTargets": [
+                  2
+                ],
+                "supportedFieldTypes": [
+                  0
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Creates a new column where values in the source column have been replaced with encoded labels.",
+                "type": "Microsoft.DPrep.LabelEncoderBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "column",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 0,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source column."
+                  },
+                  {
+                    "name": "newColumnId",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 3,
+                      "details": null
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The name of the newly added column that contains the encoded labels."
+                  },
+                  {
+                    "name": "encodedLabelsMap",
+                    "type": 7,
+                    "multipleValues": true,
+                    "domain": {
+                      "type": 0,
+                      "details": [
+                        {
+                          "name": "valueToLabel",
+                          "type": 1,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 2,
+                          "condition": null,
+                          "documentation": "The value to label."
+                        },
+                        {
+                          "name": "encodedLabel",
+                          "type": 2,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 2,
+                          "condition": null,
+                          "documentation": "The encoded label."
+                        }
+                      ]
+                    },
+                    "multiValueDetails": {
+                      "isOrdered": false
+                    },
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": null,
+                    "documentation": "The values to label and their encoded labels."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsAddedProperties": [
+                    {
+                      "propertyPath": [
+                        "newColumnId"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 3
+                }
+              },
+              "type": "Microsoft.DPrep.LabelEncoderBlock",
+              "dataEffectDetails": {
+                "columnsAddedProperties": [
+                  {
+                    "propertyPath": [
+                      "newColumnId"
+                    ]
+                  }
+                ],
+                "dataEffect": 3
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "column",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 0,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source column."
+                },
+                {
+                  "name": "newColumnId",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 3,
+                    "details": null
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The name of the newly added column that contains the encoded labels."
+                },
+                {
+                  "name": "encodedLabelsMap",
+                  "type": 7,
+                  "multipleValues": true,
+                  "domain": {
+                    "type": 0,
+                    "details": [
+                      {
+                        "name": "valueToLabel",
+                        "type": 1,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 2,
+                        "condition": null,
+                        "documentation": "The value to label."
+                      },
+                      {
+                        "name": "encodedLabel",
+                        "type": 2,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 2,
+                        "condition": null,
+                        "documentation": "The encoded label."
+                      }
+                    ]
+                  },
+                  "multiValueDetails": {
+                    "isOrdered": false
+                  },
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": null,
+                  "documentation": "The values to label and their encoded labels."
+                }
+              ],
+              "arguments": {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "EngineVersion"
+                  }
+                },
+                "encodedLabelsMap": [
+                  {
+                    "encodedLabel": 0,
+                    "valueToLabel": "1.1.15200.1"
+                  },
+                  {
+                    "encodedLabel": 1,
+                    "valueToLabel": "1.1.15100.1"
+                  },
+                  {
+                    "encodedLabel": 2,
+                    "valueToLabel": "1.1.15000.2"
+                  },
+                  {
+                    "encodedLabel": 3,
+                    "valueToLabel": "1.1.14901.4"
+                  },
+                  {
+                    "encodedLabel": 4,
+                    "valueToLabel": "1.1.14600.4"
+                  },
+                  {
+                    "encodedLabel": 5,
+                    "valueToLabel": "1.1.14800.3"
+                  },
+                  {
+                    "encodedLabel": 6,
+                    "valueToLabel": "1.1.15300.6"
+                  },
+                  {
+                    "encodedLabel": 7,
+                    "valueToLabel": "1.1.14104.0"
+                  },
+                  {
+                    "encodedLabel": 8,
+                    "valueToLabel": "1.1.13504.0"
+                  },
+                  {
+                    "encodedLabel": 9,
+                    "valueToLabel": "1.1.15300.5"
+                  },
+                  {
+                    "encodedLabel": 10,
+                    "valueToLabel": "1.1.14700.5"
+                  },
+                  {
+                    "encodedLabel": 11,
+                    "valueToLabel": "1.1.14500.5"
+                  },
+                  {
+                    "encodedLabel": 12,
+                    "valueToLabel": "1.1.14405.2"
+                  },
+                  {
+                    "encodedLabel": 13,
+                    "valueToLabel": "1.1.14306.0"
+                  },
+                  {
+                    "encodedLabel": 14,
+                    "valueToLabel": "1.1.14202.0"
+                  },
+                  {
+                    "encodedLabel": 15,
+                    "valueToLabel": "1.1.14003.0"
+                  },
+                  {
+                    "encodedLabel": 16,
+                    "valueToLabel": "1.1.13903.0"
+                  },
+                  {
+                    "encodedLabel": 17,
+                    "valueToLabel": "1.1.13303.0"
+                  },
+                  {
+                    "encodedLabel": 18,
+                    "valueToLabel": "1.1.13804.0"
+                  },
+                  {
+                    "encodedLabel": 19,
+                    "valueToLabel": "1.1.13407.0"
+                  },
+                  {
+                    "encodedLabel": 20,
+                    "valueToLabel": "1.1.13601.0"
+                  },
+                  {
+                    "encodedLabel": 21,
+                    "valueToLabel": "1.1.12902.0"
+                  },
+                  {
+                    "encodedLabel": 22,
+                    "valueToLabel": "1.1.13701.0"
+                  },
+                  {
+                    "encodedLabel": 23,
+                    "valueToLabel": "1.1.14305.0"
+                  },
+                  {
+                    "encodedLabel": 24,
+                    "valueToLabel": "1.1.13704.0"
+                  },
+                  {
+                    "encodedLabel": 25,
+                    "valueToLabel": "1.1.13202.0"
+                  },
+                  {
+                    "encodedLabel": 26,
+                    "valueToLabel": "1.1.13103.0"
+                  },
+                  {
+                    "encodedLabel": 27,
+                    "valueToLabel": "1.1.13000.0"
+                  },
+                  {
+                    "encodedLabel": 28,
+                    "valueToLabel": "1.1.12805.0"
+                  },
+                  {
+                    "encodedLabel": 29,
+                    "valueToLabel": "1.1.15000.1"
+                  },
+                  {
+                    "encodedLabel": 30,
+                    "valueToLabel": "1.1.14901.3"
+                  },
+                  {
+                    "encodedLabel": 31,
+                    "valueToLabel": "1.1.14700.3"
+                  },
+                  {
+                    "encodedLabel": 32,
+                    "valueToLabel": "1.1.14700.4"
+                  },
+                  {
+                    "encodedLabel": 33,
+                    "valueToLabel": "1.1.14800.1"
+                  },
+                  {
+                    "encodedLabel": 34,
+                    "valueToLabel": "1.1.14303.0"
+                  },
+                  {
+                    "encodedLabel": 35,
+                    "valueToLabel": "1.1.14500.2"
+                  },
+                  {
+                    "encodedLabel": 36,
+                    "valueToLabel": "1.1.14201.0"
+                  },
+                  {
+                    "encodedLabel": 37,
+                    "valueToLabel": "1.1.14103.0"
+                  },
+                  {
+                    "encodedLabel": 38,
+                    "valueToLabel": "1.1.12101.0"
+                  },
+                  {
+                    "encodedLabel": 39,
+                    "valueToLabel": "1.1.11701.0"
+                  },
+                  {
+                    "encodedLabel": 40,
+                    "valueToLabel": "1.1.13902.0"
+                  },
+                  {
+                    "encodedLabel": 41,
+                    "valueToLabel": "1.1.14102.0"
+                  },
+                  {
+                    "encodedLabel": 42,
+                    "valueToLabel": "1.1.13803.0"
+                  },
+                  {
+                    "encodedLabel": 43,
+                    "valueToLabel": "1.1.13802.0"
+                  },
+                  {
+                    "encodedLabel": 44,
+                    "valueToLabel": "1.1.14001.0"
+                  },
+                  {
+                    "encodedLabel": 45,
+                    "valueToLabel": "1.1.14002.0"
+                  },
+                  {
+                    "encodedLabel": 46,
+                    "valueToLabel": "1.1.13406.0"
+                  },
+                  {
+                    "encodedLabel": 47,
+                    "valueToLabel": "1.1.12400.0"
+                  },
+                  {
+                    "encodedLabel": 48,
+                    "valueToLabel": "1.1.12603.0"
+                  },
+                  {
+                    "encodedLabel": 49,
+                    "valueToLabel": "1.1.12804.0"
+                  },
+                  {
+                    "encodedLabel": 50,
+                    "valueToLabel": "1.1.9700.0"
+                  },
+                  {
+                    "encodedLabel": 51,
+                    "valueToLabel": "1.1.12505.0"
+                  },
+                  {
+                    "encodedLabel": 52,
+                    "valueToLabel": "1.1.13102.0"
+                  },
+                  {
+                    "encodedLabel": 53,
+                    "valueToLabel": "1.1.10302.0"
+                  },
+                  {
+                    "encodedLabel": 54,
+                    "valueToLabel": "1.1.12706.0"
+                  },
+                  {
+                    "encodedLabel": 55,
+                    "valueToLabel": "1.1.12205.0"
+                  },
+                  {
+                    "encodedLabel": 56,
+                    "valueToLabel": "1.1.12300.0"
+                  },
+                  {
+                    "encodedLabel": 57,
+                    "valueToLabel": "1.1.11602.0"
+                  },
+                  {
+                    "encodedLabel": 58,
+                    "valueToLabel": "1.1.12002.0"
+                  },
+                  {
+                    "encodedLabel": 59,
+                    "valueToLabel": "1.1.11804.0"
+                  },
+                  {
+                    "encodedLabel": 60,
+                    "valueToLabel": "1.1.10401.0"
+                  }
+                ],
+                "newColumnId": "EngineVersionEncoded"
+              }
+            },
+            {
+              "id": "3e931e3f-efbb-4896-9ffe-e69d7c298618",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 13,
+                "supportedTargets": [
+                  2
+                ],
+                "supportedFieldTypes": [
+                  0
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Creates a new column where values in the source column have been replaced with encoded labels.",
+                "type": "Microsoft.DPrep.LabelEncoderBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "column",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 0,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source column."
+                  },
+                  {
+                    "name": "newColumnId",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 3,
+                      "details": null
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The name of the newly added column that contains the encoded labels."
+                  },
+                  {
+                    "name": "encodedLabelsMap",
+                    "type": 7,
+                    "multipleValues": true,
+                    "domain": {
+                      "type": 0,
+                      "details": [
+                        {
+                          "name": "valueToLabel",
+                          "type": 1,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 2,
+                          "condition": null,
+                          "documentation": "The value to label."
+                        },
+                        {
+                          "name": "encodedLabel",
+                          "type": 2,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 2,
+                          "condition": null,
+                          "documentation": "The encoded label."
+                        }
+                      ]
+                    },
+                    "multiValueDetails": {
+                      "isOrdered": false
+                    },
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": null,
+                    "documentation": "The values to label and their encoded labels."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsAddedProperties": [
+                    {
+                      "propertyPath": [
+                        "newColumnId"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 3
+                }
+              },
+              "type": "Microsoft.DPrep.LabelEncoderBlock",
+              "dataEffectDetails": {
+                "columnsAddedProperties": [
+                  {
+                    "propertyPath": [
+                      "newColumnId"
+                    ]
+                  }
+                ],
+                "dataEffect": 3
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "column",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 0,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source column."
+                },
+                {
+                  "name": "newColumnId",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 3,
+                    "details": null
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The name of the newly added column that contains the encoded labels."
+                },
+                {
+                  "name": "encodedLabelsMap",
+                  "type": 7,
+                  "multipleValues": true,
+                  "domain": {
+                    "type": 0,
+                    "details": [
+                      {
+                        "name": "valueToLabel",
+                        "type": 1,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 2,
+                        "condition": null,
+                        "documentation": "The value to label."
+                      },
+                      {
+                        "name": "encodedLabel",
+                        "type": 2,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 2,
+                        "condition": null,
+                        "documentation": "The encoded label."
+                      }
+                    ]
+                  },
+                  "multiValueDetails": {
+                    "isOrdered": false
+                  },
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": null,
+                  "documentation": "The values to label and their encoded labels."
+                }
+              ],
+              "arguments": {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "AppVersion"
+                  }
+                },
+                "encodedLabelsMap": [
+                  {
+                    "encodedLabel": 0,
+                    "valueToLabel": "4.18.1807.18075"
+                  },
+                  {
+                    "encodedLabel": 1,
+                    "valueToLabel": "4.18.1806.18062"
+                  },
+                  {
+                    "encodedLabel": 2,
+                    "valueToLabel": "4.12.16299.15"
+                  },
+                  {
+                    "encodedLabel": 3,
+                    "valueToLabel": "4.10.209.0"
+                  },
+                  {
+                    "encodedLabel": 4,
+                    "valueToLabel": "4.13.17134.1"
+                  },
+                  {
+                    "encodedLabel": 5,
+                    "valueToLabel": "4.16.17656.18052"
+                  },
+                  {
+                    "encodedLabel": 6,
+                    "valueToLabel": "4.13.17134.228"
+                  },
+                  {
+                    "encodedLabel": 7,
+                    "valueToLabel": "4.8.10240.17443"
+                  },
+                  {
+                    "encodedLabel": 8,
+                    "valueToLabel": "4.9.10586.1106"
+                  },
+                  {
+                    "encodedLabel": 9,
+                    "valueToLabel": "4.14.17639.18041"
+                  },
+                  {
+                    "encodedLabel": 10,
+                    "valueToLabel": "4.12.17007.18022"
+                  },
+                  {
+                    "encodedLabel": 11,
+                    "valueToLabel": "4.9.10586.0"
+                  },
+                  {
+                    "encodedLabel": 12,
+                    "valueToLabel": "4.11.15063.447"
+                  },
+                  {
+                    "encodedLabel": 13,
+                    "valueToLabel": "4.10.14393.0"
+                  },
+                  {
+                    "encodedLabel": 14,
+                    "valueToLabel": "4.11.15063.0"
+                  },
+                  {
+                    "encodedLabel": 15,
+                    "valueToLabel": "4.12.17007.18011"
+                  },
+                  {
+                    "encodedLabel": 16,
+                    "valueToLabel": "4.14.17613.18039"
+                  },
+                  {
+                    "encodedLabel": 17,
+                    "valueToLabel": "4.8.10240.16384"
+                  },
+                  {
+                    "encodedLabel": 18,
+                    "valueToLabel": "4.10.14393.1794"
+                  },
+                  {
+                    "encodedLabel": 19,
+                    "valueToLabel": "4.11.15063.1155"
+                  },
+                  {
+                    "encodedLabel": 20,
+                    "valueToLabel": "4.9.10586.494"
+                  },
+                  {
+                    "encodedLabel": 21,
+                    "valueToLabel": "4.10.14393.1198"
+                  },
+                  {
+                    "encodedLabel": 22,
+                    "valueToLabel": "4.9.10586.672"
+                  },
+                  {
+                    "encodedLabel": 23,
+                    "valueToLabel": "4.13.17134.191"
+                  },
+                  {
+                    "encodedLabel": 24,
+                    "valueToLabel": "4.10.14393.1613"
+                  },
+                  {
+                    "encodedLabel": 25,
+                    "valueToLabel": "4.18.1809.2"
+                  },
+                  {
+                    "encodedLabel": 26,
+                    "valueToLabel": "4.12.17007.17123"
+                  },
+                  {
+                    "encodedLabel": 27,
+                    "valueToLabel": "4.9.10586.589"
+                  },
+                  {
+                    "encodedLabel": 28,
+                    "valueToLabel": "4.13.17134.112"
+                  },
+                  {
+                    "encodedLabel": 29,
+                    "valueToLabel": "4.9.10586.1045"
+                  },
+                  {
+                    "encodedLabel": 30,
+                    "valueToLabel": "4.10.14393.1593"
+                  },
+                  {
+                    "encodedLabel": 31,
+                    "valueToLabel": "4.10.14393.953"
+                  },
+                  {
+                    "encodedLabel": 32,
+                    "valueToLabel": "4.10.14393.1066"
+                  },
+                  {
+                    "encodedLabel": 33,
+                    "valueToLabel": "4.9.218.0"
+                  },
+                  {
+                    "encodedLabel": 34,
+                    "valueToLabel": "4.9.10586.916"
+                  },
+                  {
+                    "encodedLabel": 35,
+                    "valueToLabel": "4.9.10586.965"
+                  },
+                  {
+                    "encodedLabel": 36,
+                    "valueToLabel": "4.8.10240.17946"
+                  },
+                  {
+                    "encodedLabel": 37,
+                    "valueToLabel": "4.9.10586.962"
+                  },
+                  {
+                    "encodedLabel": 38,
+                    "valueToLabel": "4.9.10586.839"
+                  },
+                  {
+                    "encodedLabel": 39,
+                    "valueToLabel": "4.9.10586.873"
+                  },
+                  {
+                    "encodedLabel": 40,
+                    "valueToLabel": "4.8.207.0"
+                  },
+                  {
+                    "encodedLabel": 41,
+                    "valueToLabel": "4.5.218.0"
+                  },
+                  {
+                    "encodedLabel": 42,
+                    "valueToLabel": "4.8.10240.17202"
+                  },
+                  {
+                    "encodedLabel": 43,
+                    "valueToLabel": "4.8.10240.17914"
+                  },
+                  {
+                    "encodedLabel": 44,
+                    "valueToLabel": "4.8.10240.17889"
+                  },
+                  {
+                    "encodedLabel": 45,
+                    "valueToLabel": "4.13.17134.319"
+                  },
+                  {
+                    "encodedLabel": 46,
+                    "valueToLabel": "4.8.204.0"
+                  },
+                  {
+                    "encodedLabel": 47,
+                    "valueToLabel": "4.8.10240.17394"
+                  },
+                  {
+                    "encodedLabel": 48,
+                    "valueToLabel": "4.8.10240.17071"
+                  },
+                  {
+                    "encodedLabel": 49,
+                    "valueToLabel": "4.10.205.0"
+                  },
+                  {
+                    "encodedLabel": 50,
+                    "valueToLabel": "4.8.10240.17146"
+                  },
+                  {
+                    "encodedLabel": 51,
+                    "valueToLabel": "4.8.10240.17319"
+                  },
+                  {
+                    "encodedLabel": 52,
+                    "valueToLabel": "4.14.17613.18038"
+                  },
+                  {
+                    "encodedLabel": 53,
+                    "valueToLabel": "4.10.14393.2273"
+                  },
+                  {
+                    "encodedLabel": 54,
+                    "valueToLabel": "4.6.305.0"
+                  },
+                  {
+                    "encodedLabel": 55,
+                    "valueToLabel": "4.8.10240.17354"
+                  },
+                  {
+                    "encodedLabel": 56,
+                    "valueToLabel": "4.7.205.0"
+                  },
+                  {
+                    "encodedLabel": 57,
+                    "valueToLabel": "4.8.10240.17861"
+                  },
+                  {
+                    "encodedLabel": 58,
+                    "valueToLabel": "4.8.10240.17797"
+                  },
+                  {
+                    "encodedLabel": 59,
+                    "valueToLabel": "4.8.10240.17184"
+                  },
+                  {
+                    "encodedLabel": 60,
+                    "valueToLabel": "4.18.1807.20063"
+                  },
+                  {
+                    "encodedLabel": 61,
+                    "valueToLabel": "4.4.304.0"
+                  },
+                  {
+                    "encodedLabel": 62,
+                    "valueToLabel": "4.8.10240.17918"
+                  },
+                  {
+                    "encodedLabel": 63,
+                    "valueToLabel": "4.8.10240.17113"
+                  },
+                  {
+                    "encodedLabel": 64,
+                    "valueToLabel": "4.8.10240.17609"
+                  },
+                  {
+                    "encodedLabel": 65,
+                    "valueToLabel": "4.10.14393.2248"
+                  },
+                  {
+                    "encodedLabel": 66,
+                    "valueToLabel": "4.5.216.0"
+                  },
+                  {
+                    "encodedLabel": 67,
+                    "valueToLabel": "4.10.14393.726"
+                  },
+                  {
+                    "encodedLabel": 68,
+                    "valueToLabel": "4.18.1807.18072"
+                  },
+                  {
+                    "encodedLabel": 69,
+                    "valueToLabel": "4.17.17685.20082"
+                  },
+                  {
+                    "encodedLabel": 70,
+                    "valueToLabel": "4.17.17672.1000"
+                  },
+                  {
+                    "encodedLabel": 71,
+                    "valueToLabel": "4.8.10240.17770"
+                  },
+                  {
+                    "encodedLabel": 72,
+                    "valueToLabel": "4.17.17686.1003"
+                  },
+                  {
+                    "encodedLabel": 73,
+                    "valueToLabel": "4.11.15063.994"
+                  },
+                  {
+                    "encodedLabel": 74,
+                    "valueToLabel": "4.10.14393.1532"
+                  },
+                  {
+                    "encodedLabel": 75,
+                    "valueToLabel": "4.18.1806.20021"
+                  },
+                  {
+                    "encodedLabel": 76,
+                    "valueToLabel": "4.10.14393.2457"
+                  },
+                  {
+                    "encodedLabel": 77,
+                    "valueToLabel": "4.17.17682.1000"
+                  },
+                  {
+                    "encodedLabel": 78,
+                    "valueToLabel": "4.17.17677.1000"
+                  },
+                  {
+                    "encodedLabel": 79,
+                    "valueToLabel": "4.15.17666.1000"
+                  },
+                  {
+                    "encodedLabel": 80,
+                    "valueToLabel": "4.9.10586.456"
+                  },
+                  {
+                    "encodedLabel": 81,
+                    "valueToLabel": "4.13.17639.1000"
+                  },
+                  {
+                    "encodedLabel": 82,
+                    "valueToLabel": "4.16.17656.18051"
+                  },
+                  {
+                    "encodedLabel": 83,
+                    "valueToLabel": "4.9.10586.1177"
+                  },
+                  {
+                    "encodedLabel": 84,
+                    "valueToLabel": "4.15.17650.1001"
+                  },
+                  {
+                    "encodedLabel": 85,
+                    "valueToLabel": "4.4.306.0"
+                  },
+                  {
+                    "encodedLabel": 86,
+                    "valueToLabel": "4.18.1806.20033"
+                  },
+                  {
+                    "encodedLabel": 87,
+                    "valueToLabel": "4.12.17007.17121"
+                  },
+                  {
+                    "encodedLabel": 88,
+                    "valueToLabel": "4.15.17661.1001"
+                  },
+                  {
+                    "encodedLabel": 89,
+                    "valueToLabel": "4.8.10240.17533"
+                  },
+                  {
+                    "encodedLabel": 90,
+                    "valueToLabel": "4.11.15063.1154"
+                  },
+                  {
+                    "encodedLabel": 91,
+                    "valueToLabel": "4.8.10240.17446"
+                  },
+                  {
+                    "encodedLabel": 92,
+                    "valueToLabel": "4.18.1806.20015"
+                  },
+                  {
+                    "encodedLabel": 93,
+                    "valueToLabel": "4.18.1807.18070"
+                  },
+                  {
+                    "encodedLabel": 94,
+                    "valueToLabel": "4.13.17634.1000"
+                  },
+                  {
+                    "encodedLabel": 95,
+                    "valueToLabel": "4.13.17627.1000"
+                  },
+                  {
+                    "encodedLabel": 96,
+                    "valueToLabel": "4.9.219.0"
+                  },
+                  {
+                    "encodedLabel": 97,
+                    "valueToLabel": "4.12.17007.18021"
+                  },
+                  {
+                    "encodedLabel": 98,
+                    "valueToLabel": "4.12.16299.0"
+                  },
+                  {
+                    "encodedLabel": 99,
+                    "valueToLabel": "4.7.209.0"
+                  },
+                  {
+                    "encodedLabel": 100,
+                    "valueToLabel": "4.15.17655.1000"
+                  }
+                ],
+                "newColumnId": "AppVersionEncoded"
+              }
+            },
+            {
+              "id": "e64c7560-76e1-4fb1-b558-491bf6166cfc",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 13,
+                "supportedTargets": [
+                  2
+                ],
+                "supportedFieldTypes": [
+                  0
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Creates a new column where values in the source column have been replaced with encoded labels.",
+                "type": "Microsoft.DPrep.LabelEncoderBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "column",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 0,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source column."
+                  },
+                  {
+                    "name": "newColumnId",
+                    "type": 1,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 3,
+                      "details": null
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The name of the newly added column that contains the encoded labels."
+                  },
+                  {
+                    "name": "encodedLabelsMap",
+                    "type": 7,
+                    "multipleValues": true,
+                    "domain": {
+                      "type": 0,
+                      "details": [
+                        {
+                          "name": "valueToLabel",
+                          "type": 1,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 2,
+                          "condition": null,
+                          "documentation": "The value to label."
+                        },
+                        {
+                          "name": "encodedLabel",
+                          "type": 2,
+                          "multipleValues": false,
+                          "domain": null,
+                          "multiValueDetails": null,
+                          "isRequired": false,
+                          "origin": 1,
+                          "defaultValue": null,
+                          "initializeFromProperty": null,
+                          "telemetryStrategy": 2,
+                          "condition": null,
+                          "documentation": "The encoded label."
+                        }
+                      ]
+                    },
+                    "multiValueDetails": {
+                      "isOrdered": false
+                    },
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 2,
+                    "condition": null,
+                    "documentation": "The values to label and their encoded labels."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsAddedProperties": [
+                    {
+                      "propertyPath": [
+                        "newColumnId"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 3
+                }
+              },
+              "type": "Microsoft.DPrep.LabelEncoderBlock",
+              "dataEffectDetails": {
+                "columnsAddedProperties": [
+                  {
+                    "propertyPath": [
+                      "newColumnId"
+                    ]
+                  }
+                ],
+                "dataEffect": 3
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "column",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 0,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source column."
+                },
+                {
+                  "name": "newColumnId",
+                  "type": 1,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 3,
+                    "details": null
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The name of the newly added column that contains the encoded labels."
+                },
+                {
+                  "name": "encodedLabelsMap",
+                  "type": 7,
+                  "multipleValues": true,
+                  "domain": {
+                    "type": 0,
+                    "details": [
+                      {
+                        "name": "valueToLabel",
+                        "type": 1,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 2,
+                        "condition": null,
+                        "documentation": "The value to label."
+                      },
+                      {
+                        "name": "encodedLabel",
+                        "type": 2,
+                        "multipleValues": false,
+                        "domain": null,
+                        "multiValueDetails": null,
+                        "isRequired": false,
+                        "origin": 1,
+                        "defaultValue": null,
+                        "initializeFromProperty": null,
+                        "telemetryStrategy": 2,
+                        "condition": null,
+                        "documentation": "The encoded label."
+                      }
+                    ]
+                  },
+                  "multiValueDetails": {
+                    "isOrdered": false
+                  },
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 2,
+                  "condition": null,
+                  "documentation": "The values to label and their encoded labels."
+                }
+              ],
+              "arguments": {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Census_FlightRing"
+                  }
+                },
+                "encodedLabelsMap": [
+                  {
+                    "encodedLabel": 0,
+                    "valueToLabel": "Retail"
+                  },
+                  {
+                    "encodedLabel": 1,
+                    "valueToLabel": "NOT_SET"
+                  },
+                  {
+                    "encodedLabel": 2,
+                    "valueToLabel": "Unknown"
+                  },
+                  {
+                    "encodedLabel": 3,
+                    "valueToLabel": "WIS"
+                  },
+                  {
+                    "encodedLabel": 4,
+                    "valueToLabel": "RP"
+                  },
+                  {
+                    "encodedLabel": 5,
+                    "valueToLabel": "WIF"
+                  },
+                  {
+                    "encodedLabel": 6,
+                    "valueToLabel": "Disabled"
+                  },
+                  {
+                    "encodedLabel": 7,
+                    "valueToLabel": "Canary"
+                  }
+                ],
+                "newColumnId": "Census_FlightRingEncoded"
+              }
+            },
+            {
+              "id": "a76a615b-8b6b-4292-8a57-6f26b96c54c6",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 6,
+                "supportedTargets": [
+                  2,
+                  3
+                ],
+                "supportedFieldTypes": null,
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Drops the specified columns.",
+                "type": "Microsoft.DPrep.DropColumnsBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "columns",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 1,
+                        "fieldTypes": []
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source columns."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsRemovedProperties": [
+                    {
+                      "propertyPath": [
+                        "columns"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 4
+                }
+              },
+              "type": "Microsoft.DPrep.DropColumnsBlock",
+              "dataEffectDetails": {
+                "columnsRemovedProperties": [
+                  {
+                    "propertyPath": [
+                      "columns"
+                    ]
+                  }
+                ],
+                "dataEffect": 4
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "columns",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 1,
+                      "fieldTypes": []
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source columns."
+                }
+              ],
+              "arguments": {
+                "columns": {
+                  "type": 0,
+                  "details": {
+                    "selectedColumns": [
+                      "EngineVersion",
+                      "AppVersion",
+                      "Census_FlightRing"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "id": "4a4443a7-caa6-445c-b9bc-1932765da295",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 13,
+                "supportedTargets": [
+                  2
+                ],
+                "supportedFieldTypes": [
+                  3,
+                  2
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Scale values in the column to lie within the specified range (default=[0, 1]).",
+                "type": "Microsoft.DPrep.MinMaxScalerBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "column",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 0,
+                        "fieldTypes": [
+                          3,
+                          2
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source column."
+                  },
+                  {
+                    "name": "rangeMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the minimum value after scaling. Default is 0."
+                  },
+                  {
+                    "name": "rangeMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the maximum value after scaling. Default is 1."
+                  },
+                  {
+                    "name": "dataMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                  },
+                  {
+                    "name": "dataMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "column"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.MinMaxScalerBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "column"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "column",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 0,
+                      "fieldTypes": [
+                        3,
+                        2
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source column."
+                },
+                {
+                  "name": "rangeMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the minimum value after scaling. Default is 0."
+                },
+                {
+                  "name": "rangeMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the maximum value after scaling. Default is 1."
+                },
+                {
+                  "name": "dataMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                },
+                {
+                  "name": "dataMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                }
+              ],
+              "arguments": {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "AVProductsInstalled"
+                  }
+                },
+                "dataMax": 6.0,
+                "dataMin": 0.0,
+                "rangeMax": 1.0,
+                "rangeMin": 0.0
+              }
+            },
+            {
+              "id": "28dc01c4-036c-4562-9d9a-7ebee4c5f396",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 13,
+                "supportedTargets": [
+                  2
+                ],
+                "supportedFieldTypes": [
+                  3,
+                  2
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Scale values in the column to lie within the specified range (default=[0, 1]).",
+                "type": "Microsoft.DPrep.MinMaxScalerBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "column",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 0,
+                        "fieldTypes": [
+                          3,
+                          2
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source column."
+                  },
+                  {
+                    "name": "rangeMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the minimum value after scaling. Default is 0."
+                  },
+                  {
+                    "name": "rangeMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the maximum value after scaling. Default is 1."
+                  },
+                  {
+                    "name": "dataMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                  },
+                  {
+                    "name": "dataMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "column"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.MinMaxScalerBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "column"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "column",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 0,
+                      "fieldTypes": [
+                        3,
+                        2
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source column."
+                },
+                {
+                  "name": "rangeMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the minimum value after scaling. Default is 0."
+                },
+                {
+                  "name": "rangeMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the maximum value after scaling. Default is 1."
+                },
+                {
+                  "name": "dataMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                },
+                {
+                  "name": "dataMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                }
+              ],
+              "arguments": {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Census_ProcessorCoreCount"
+                  }
+                },
+                "dataMax": 112.0,
+                "dataMin": 0.0,
+                "rangeMax": 1.0,
+                "rangeMin": 0.0
+              }
+            },
+            {
+              "id": "826a8b62-1f79-4261-bbc6-0608393c65fb",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 13,
+                "supportedTargets": [
+                  2
+                ],
+                "supportedFieldTypes": [
+                  3,
+                  2
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Scale values in the column to lie within the specified range (default=[0, 1]).",
+                "type": "Microsoft.DPrep.MinMaxScalerBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "column",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 0,
+                        "fieldTypes": [
+                          3,
+                          2
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source column."
+                  },
+                  {
+                    "name": "rangeMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the minimum value after scaling. Default is 0."
+                  },
+                  {
+                    "name": "rangeMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the maximum value after scaling. Default is 1."
+                  },
+                  {
+                    "name": "dataMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                  },
+                  {
+                    "name": "dataMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "column"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.MinMaxScalerBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "column"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "column",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 0,
+                      "fieldTypes": [
+                        3,
+                        2
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source column."
+                },
+                {
+                  "name": "rangeMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the minimum value after scaling. Default is 0."
+                },
+                {
+                  "name": "rangeMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the maximum value after scaling. Default is 1."
+                },
+                {
+                  "name": "dataMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                },
+                {
+                  "name": "dataMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                }
+              ],
+              "arguments": {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Census_PrimaryDiskTotalCapacity"
+                  }
+                },
+                "dataMax": 47687668.0,
+                "dataMin": 0.0,
+                "rangeMax": 1.0,
+                "rangeMin": 0.0
+              }
+            },
+            {
+              "id": "245c19bb-97be-4879-bfd7-fd6e6e408d4c",
+              "description": {
+                "localDataProperties": [],
+                "blockGroup": 13,
+                "supportedTargets": [
+                  2
+                ],
+                "supportedFieldTypes": [
+                  3,
+                  2
+                ],
+                "supportedMessages": [],
+                "requiresInitialization": false,
+                "allowDefaultAdd": true,
+                "documentation": "Scale values in the column to lie within the specified range (default=[0, 1]).",
+                "type": "Microsoft.DPrep.MinMaxScalerBlock",
+                "propertyDescriptions": [
+                  {
+                    "name": "column",
+                    "type": 5,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 12,
+                      "details": {
+                        "selectorDomainType": 0,
+                        "fieldTypes": [
+                          3,
+                          2
+                        ]
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 0,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 1,
+                    "condition": null,
+                    "documentation": "The source column."
+                  },
+                  {
+                    "name": "rangeMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the minimum value after scaling. Default is 0."
+                  },
+                  {
+                    "name": "rangeMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "This will be the maximum value after scaling. Default is 1."
+                  },
+                  {
+                    "name": "dataMin",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                  },
+                  {
+                    "name": "dataMax",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                  }
+                ],
+                "dataEffectDetails": {
+                  "columnsTransformedProperties": [
+                    {
+                      "propertyPath": [
+                        "column"
+                      ]
+                    }
+                  ],
+                  "dataEffect": 5
+                }
+              },
+              "type": "Microsoft.DPrep.MinMaxScalerBlock",
+              "dataEffectDetails": {
+                "columnsTransformedProperties": [
+                  {
+                    "propertyPath": [
+                      "column"
+                    ]
+                  }
+                ],
+                "dataEffect": 5
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "column",
+                  "type": 5,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 12,
+                    "details": {
+                      "selectorDomainType": 0,
+                      "fieldTypes": [
+                        3,
+                        2
+                      ]
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 0,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 1,
+                  "condition": null,
+                  "documentation": "The source column."
+                },
+                {
+                  "name": "rangeMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the minimum value after scaling. Default is 0."
+                },
+                {
+                  "name": "rangeMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "This will be the maximum value after scaling. Default is 1."
+                },
+                {
+                  "name": "dataMin",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Minimum value of the data. If none is provided, a scan of the data will be performed to find the minimum."
+                },
+                {
+                  "name": "dataMax",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "Maximum value of the data. If none is provided, a scan of the data will be performed to find the maximum."
+                }
+              ],
+              "arguments": {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Census_TotalPhysicalRAM"
+                  }
+                },
+                "dataMax": 16384.0,
+                "dataMin": 0.0,
+                "rangeMax": 1.0,
+                "rangeMin": 0.0
+              }
+            },
+            {
+              "id": "b5bded0f-6aad-41a4-b556-d08b2da1c71b",
+              "description": {
+                "type": "Microsoft.DPrep.RandomSplitStepDescription",
+                "propertyDescriptions": [
+                  {
+                    "name": "probability",
+                    "type": 3,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 4,
+                      "details": {
+                        "min": 0.0,
+                        "max": 1.0
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": 0.1,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "The probability of a record being included in the sample."
+                  },
+                  {
+                    "name": "seed",
+                    "type": 2,
+                    "multipleValues": false,
+                    "domain": {
+                      "type": 4,
+                      "details": {
+                        "min": 0.0,
+                        "max": 4294967295.0
+                      }
+                    },
+                    "multiValueDetails": null,
+                    "isRequired": true,
+                    "origin": 1,
+                    "defaultValue": null,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": "The seed to use for the random generator."
+                  },
+                  {
+                    "name": "invert",
+                    "type": 4,
+                    "multipleValues": false,
+                    "domain": null,
+                    "multiValueDetails": null,
+                    "isRequired": false,
+                    "origin": 1,
+                    "defaultValue": false,
+                    "initializeFromProperty": null,
+                    "telemetryStrategy": 0,
+                    "condition": null,
+                    "documentation": null
+                  }
+                ],
+                "dataEffectDetails": {
+                  "dataEffect": 6
+                }
+              },
+              "type": "Microsoft.DPrep.RandomSplitStepDescription",
+              "dataEffectDetails": {
+                "dataEffect": 6
+              },
+              "propertyDescriptions": [
+                {
+                  "name": "probability",
+                  "type": 3,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 4,
+                    "details": {
+                      "min": 0.0,
+                      "max": 1.0
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": 0.1,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "The probability of a record being included in the sample."
+                },
+                {
+                  "name": "seed",
+                  "type": 2,
+                  "multipleValues": false,
+                  "domain": {
+                    "type": 4,
+                    "details": {
+                      "min": 0.0,
+                      "max": 4294967295.0
+                    }
+                  },
+                  "multiValueDetails": null,
+                  "isRequired": true,
+                  "origin": 1,
+                  "defaultValue": null,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": "The seed to use for the random generator."
+                },
+                {
+                  "name": "invert",
+                  "type": 4,
+                  "multipleValues": false,
+                  "domain": null,
+                  "multiValueDetails": null,
+                  "isRequired": false,
+                  "origin": 1,
+                  "defaultValue": false,
+                  "initializeFromProperty": null,
+                  "telemetryStrategy": 0,
+                  "condition": null,
+                  "documentation": null
+                }
+              ],
+              "arguments": {
+                "invert": false,
+                "probability": 0.3,
+                "seed": 3285947786
+              }
+            }
+          ]
+        }
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    },
+    {
+      "id": "84f3b9c2-96a1-4f9c-b906-558f2842cee8",
+      "type": "Microsoft.DPrep.DropColumnsBlock",
+      "arguments": {
+        "columns": {
+          "type": 0,
+          "details": {
+            "selectedColumns": [
+              "HasDetections"
+            ]
+          }
+        }
+      },
+      "localData": {},
+      "isEnabled": true,
+      "name": null,
+      "annotation": null
+    }
+  ],
+  "inspectors": []
+}
