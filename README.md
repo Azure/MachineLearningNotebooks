@@ -1,3 +1,13 @@
+---
+page_type: sample
+languages:
+- python
+products:
+- azure
+- azure-machine-learning-service
+description: "With Azure Machine Learning service, learn to prep data, train, test, deploy, manage, and track machine learning models in a cloud-based environment."
+---
+
 # Azure Machine Learning service example notebooks
 
 This repository contains example notebooks demonstrating the [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning-service/) Python SDK which allows you to build, train, deploy and manage machine learning solutions using Azure.  The AML SDK allows you the choice of using local or cloud compute resources, while managing and maintaining the complete data science workflow from the cloud.
