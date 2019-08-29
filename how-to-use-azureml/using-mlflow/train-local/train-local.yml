@@ -1,7 +1,0 @@
-name: train-local
-dependencies:
-- scikit-learn
-- matplotlib
-- pip:
-  - azureml-sdk
-  - azureml-mlflow
