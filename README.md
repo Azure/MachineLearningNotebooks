@@ -1,16 +1,8 @@
----
-page_type: sample
-languages:
-- python
-products:
-- azure
-- azure-machine-learning-service
-description: "With Azure Machine Learning service, learn to prep data, train, test, deploy, manage, and track machine learning models in a cloud-based environment."
----
-
 # Azure Machine Learning service example notebooks
 
 This repository contains example notebooks demonstrating the [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning-service/) Python SDK which allows you to build, train, deploy and manage machine learning solutions using Azure.  The AML SDK allows you the choice of using local or cloud compute resources, while managing and maintaining the complete data science workflow from the cloud.
+
+![Azure ML Workflow](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/machine-learning/service/media/concept-azure-machine-learning-architecture/workflow.png)
 
 
 ## Quick installation
@@ -58,10 +50,13 @@ The [How to use Azure ML](./how-to-use-azureml) folder contains specific example
 
 ---
 
+
+## Community Repository 
+Visit this [community repository](https://github.com/microsoft/MLOps/tree/master/examples) to find useful end-to-end sample notebooks. Also, please follow these [contribution guidelines](https://github.com/microsoft/MLOps/blob/master/contributing.md) when contributing to this repository.   
+
 ## Projects using Azure Machine Learning
 
 Visit following repos to see projects contributed by Azure ML users:
-
  - [AMLSamples](https://github.com/Azure/AMLSamples) Number of end-to-end examples, including face recognition, predictive maintenance, customer churn and sentiment analysis.
  - [Fine tune natural language processing models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
