@@ -14,6 +14,7 @@ With Azure Machine Learning datasets, you can:
 * [Create and register datasets](https://aka.ms/azureml/howto/createdatasets)
 * Use TabularDatasets in [automated machine learning training](https://aka.ms/automl-dataset)
 * Use TabularDatasets in [training](https://aka.ms/tabulardataset-samplenotebook)
+* Use FileDatasets in [training](https://aka.ms/filedataset-samplenotebook)
 * For existing Dataset users: [Dataset API change notice](dataset-api-change-notice.md)
  
 
