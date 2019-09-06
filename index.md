@@ -38,11 +38,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None  | None | None | None | None |
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azuremlconfiguration.ipynb) |  |  |  |  |  |  |
 | [azure-ml-with-nvidia-rapids](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/contrib/RAPIDS/azure-ml-with-nvidia-rapids.ipynb) |  |  |  |  |  |  |
-
-
 | [auto-ml-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb) |  |  |  |  |  |  |
-
-
 | [auto-ml-classification-bank-marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb) |  |  |  |  |  |  |
 
 
