@@ -276,7 +276,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [azure-ml-datadrift](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb) |  |  |  |  |  |  |
 
 
-| [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results |  | None | None | None | None |
+| [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results |  | None | None | None | None |
 
 
 | [manage-runs](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb) |  |  |  |  |  |  |
