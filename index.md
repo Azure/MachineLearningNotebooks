@@ -35,10 +35,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 ## Other Notebooks
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
-
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azuremlconfiguration.ipynb) |  |  |  |  |  |  |
-
-
 | [azure-ml-with-nvidia-rapids](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/contrib/RAPIDS/azure-ml-with-nvidia-rapids.ipynb) |  |  |  |  |  |  |
 
 
