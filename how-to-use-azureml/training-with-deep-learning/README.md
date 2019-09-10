@@ -14,6 +14,7 @@ These examples show you:
 10. [Distributed training using Chainer](distributed-chainer)
 11. [Export run history records to Tensorboard](export-run-history-to-tensorboard)
 12. [Use TensorBoard to monitor training execution](tensorboard)
+13. [Resuming training from previous run](train-tensorflow-resume-training)
 
 Learn more about how to use `Estimator` class to  [train deep neural networks with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-ml-models).
 

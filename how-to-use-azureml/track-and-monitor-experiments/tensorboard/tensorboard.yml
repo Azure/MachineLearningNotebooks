@@ -1,0 +1,6 @@
+name: tensorboard
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-tensorboard
+  - tensorflow

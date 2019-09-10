@@ -12,7 +12,9 @@ These notebooks below are designed to go in sequence.
 7. [aml-pipelines-how-to-use-estimatorstep.ipynb](https://aka.ms/pl-estimator): This notebook shows how to use the EstimatorStep.
 8. [aml-pipelines-parameter-tuning-with-hyperdrive.ipynb](https://aka.ms/pl-hyperdrive): HyperDriveStep in Pipelines shows how you can do hyper parameter tuning using Pipelines.
 9. [aml-pipelines-how-to-use-azurebatch-to-run-a-windows-executable.ipynb](https://aka.ms/pl-azbatch): AzureBatchStep can be used to run your custom code in AzureBatch cluster.
-10. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule): Once you publish a Pipeline, you can schedule it to trigger based on an interval or on data change in a defined datastore. 
+10. [aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb](https://aka.ms/pl-schedule): Once you publish a Pipeline, you can schedule it to trigger based on an interval or on data change in a defined datastore.
+11. [aml-pipelines-with-automated-machine-learning-step.ipynb](https://aka.ms/pl-automl): AutoMLStep in Pipelines shows how you can do automated machine learning using Pipelines.
+12. [aml-pipelines-setup-versioned-pipeline-endpoints.ipynb](https://aka.ms/pl-ver-endpoint): This notebook shows how you can setup PipelineEndpoint and submit a Pipeline using the PipelineEndpoint.
 
 
  ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/README.png)

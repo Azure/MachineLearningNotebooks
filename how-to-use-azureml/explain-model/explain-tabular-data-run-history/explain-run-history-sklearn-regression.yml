@@ -1,6 +1,0 @@
-name: explain-run-history-sklearn-regression
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-explain-model
-  - azureml-contrib-explain-model
