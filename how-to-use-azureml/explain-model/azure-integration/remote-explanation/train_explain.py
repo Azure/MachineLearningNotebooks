@@ -46,7 +46,8 @@ with open(model_file_name, 'wb') as file:
 
 # register the model
 run.upload_file('original_model.pkl', os.path.join('./outputs/', model_file_name))
-original_model = run.register_model(model_name='original_model', model_path='original_model.pkl')
+original_model = run.register_model(model_name='model_explain_model_on_amlcomp',
+                                    model_path='original_model.pkl')
 
 # Explain predictions on your local machine
 tabular_explainer = TabularExplainer(model, X_train, features=boston_data.feature_names)
