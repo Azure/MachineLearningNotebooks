@@ -8,3 +8,4 @@ dependencies:
   - pandas_ml
   - statsmodels
   - azureml-explain-model
+  - azureml-contrib-explain-model

@@ -99,7 +99,8 @@ with open(model_file_name, 'wb') as file:
 
 # register the model with the model management service for later use
 run.upload_file('original_model.pkl', os.path.join(OUTPUT_DIR, model_file_name))
-original_model = run.register_model(model_name='original_model', model_path='original_model.pkl')
+original_model = run.register_model(model_name='amlcompute_deploy_model',
+                                    model_path='original_model.pkl')
 
 # create an explainer to validate or debug the model
 tabular_explainer = TabularExplainer(model,

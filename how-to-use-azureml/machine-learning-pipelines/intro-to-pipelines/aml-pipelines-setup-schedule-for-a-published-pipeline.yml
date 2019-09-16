@@ -1,0 +1,5 @@
+name: aml-pipelines-setup-schedule-for-a-published-pipeline
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets

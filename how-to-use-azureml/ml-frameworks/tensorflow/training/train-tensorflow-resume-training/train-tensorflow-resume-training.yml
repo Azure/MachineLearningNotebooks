@@ -1,0 +1,5 @@
+name: train-tensorflow-resume-training
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets

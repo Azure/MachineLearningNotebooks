@@ -1,0 +1,9 @@
+name: train-hyperparameter-tune-deploy-with-pytorch
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - pillow==5.4.1
+  - matplotlib
+  - https://download.pytorch.org/whl/cpu/torch-1.1.0-cp35-cp35m-win_amd64.whl
+  - https://download.pytorch.org/whl/cpu/torchvision-0.3.0-cp35-cp35m-win_amd64.whl

@@ -36,8 +36,7 @@ Azure Machine Learning Pipelines optimize for simplicity, speed, and efficiency.
 
 In this directory, there are two types of notebooks: 
 
-* The first type of notebooks will introduce you to core Azure Machine Learning Pipelines features. These notebooks below belong in this category, and are designed to go in sequence; they're all located in the "intro-to-pipelines" folder:
-Take a look at [intro-to-pipelines](./intro-to-pipelines/) for the list of notebooks that introduce Azure Machine Learning concepts for you.
+* The first type of notebooks will introduce you to core Azure Machine Learning Pipelines features. Notebooks in this category are designed to go in sequence; they're all located in the [intro-to-pipelines](./intro-to-pipelines/) folder.
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
 

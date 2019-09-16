@@ -4,6 +4,7 @@
 import numpy as np
 import argparse
 import os
+import glob
 
 import matplotlib.pyplot as plt
 
@@ -36,11 +37,15 @@ data_folder = args.data_folder
 
 print('training dataset is stored here:', data_folder)
 
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+X_train_path = glob.glob(os.path.join(data_folder, '**/train-images-idx3-ubyte.gz'), recursive=True)[0]
+X_test_path = glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0]
+y_train_path = glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0]
+y_test_path = glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0]
 
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(X_train_path, False) / 255.0
+X_test = load_data(X_test_path, False) / 255.0
+y_train = load_data(y_train_path, True).reshape(-1)
+y_test = load_data(y_test_path, True).reshape(-1)
 
 training_set_size = X_train.shape[0]
 
