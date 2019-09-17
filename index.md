@@ -36,7 +36,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 ## Other Notebooks
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
-| [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results |  | None | None | None | None |
+| [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None | None | None | None | None |
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) |  |  |  |  |  |  |
 | [azure-ml-with-nvidia-rapids](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/RAPIDS/azure-ml-with-nvidia-rapids.ipynb) |  |  |  |  |  |  |
 | [auto-ml-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb) |  |  |  |  |  |  |
@@ -129,7 +129,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/tensorflow/training/distributed-tensorflow-with-parameter-server/distributed-tensorflow-with-parameter-server.ipynb) |  |  |  |  |  |  |
 | [train-tensorflow-resume-training](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb) |  |  |  |  |  |  |
 | [azure-ml-datadrift](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb) |  |  |  |  |  |  |
-
 | [manage-runs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb) |  |  |  |  |  |  |
 | [tensorboard](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard.ipynb) |  |  |  |  |  |  |
 | [deploy-model](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/using-mlflow/deploy-model/deploy-model.ipynb) |  |  |  |  |  |  |
