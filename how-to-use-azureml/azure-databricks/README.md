@@ -21,24 +21,24 @@ Notebook 6 is an Automated ML sample notebook for Classification.
 
 Learn more about [how to use Azure Databricks as a development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#azure-databricks) for Azure Machine Learning service.
 
-**Databricks as a Compute Target from AML Pipelines**
+**Databricks as a Compute Target from Azure ML Pipelines**
 You can use Azure Databricks as a compute target from [Azure Machine Learning Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines). Take a look at this notebook for details: [aml-pipelines-use-databricks-as-compute-target.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/databricks-as-remote-compute-target/aml-pipelines-use-databricks-as-compute-target.ipynb).
 
-# Linked Azure Databricks and Azure ML Workspaces (Preview)
+# Linked Azure Databricks and Azure Machine Learning Workspaces (Preview)
 Customers can now link Azure Databricks and AzureML Workspaces to better enable MLOps scenarios by [managing their tracking data in a single place when using the MLflow client](https://mlflow.org/docs/latest/tracking.html#mlflow-tracking) - the Azure ML workspace.
 
 ## Linking the Workspaces (Admin operation)
 
-1. The Azure Databricks Azure portal blade now includes a new button to link an Azure ML workspace
+1. The Azure Databricks Azure portal blade now includes a new button to link an Azure ML workspace.
 ![New ADB Portal Link button](./img/adb-link-button.png)
-2. Both a new or existing Azure ML Workspace can be linked in the resulting prompt. Follow any instructions to set up the Azure ML workspace.
+2. Both a new or existing Azure ML Workspace can be linked in the resulting prompt. Follow any instructions to set up the Azure ML Workspace.
 ![Link Prompt](./img/link-prompt.png)
 3. After a successful link operation, you should see the Azure Databricks overview reflect the linked status
 ![Linked Successfully](./img/adb-successful-link.png)
 
 ## Configure MLflow to send data to Azure ML (All roles)
 
-1. Add azureml-mlflow as a library to any notebook or cluster that should send data to Azure ML. You can do this via
+1. Add azureml-mlflow as a library to any notebook or cluster that should send data to Azure ML. You can do this via:
     1. [DBUtils](https://docs.azuredatabricks.net/user-guide/dev-tools/dbutils.html#dbutils-library)
         ```
         dbutils.library.installPyPI("azureml-mlflow")
@@ -50,17 +50,17 @@ Customers can now link Azure Databricks and AzureML Workspaces to better enable 
     ```
     adbazureml://${azuremlRegion}.experiments.azureml.net/history/v1.0/subscriptions/${azuremlSubscriptionId}/resourceGroups/${azuremlResourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/${azuremlWorkspaceName}
     ```
-    1. You can automatically configure this on your clusters using this helper script
-        1. [AzureML Tracking Cluster Init Script](./linking/README.md)
-3. That's it! If configured correctly, you'll now be able to see your MLflow tracking data in both Azure ML (via the REST API and all clients) and Azure Databricks (in the MLflow UI and using the MLflow client)
+    1. You can automatically configure this on your clusters for all subsequent notebook sessions using this helper script instead of manually setting the tracking URI in the notebook:
+        * [AzureML Tracking Cluster Init Script](./linking/README.md)
+3. If configured correctly, you'll now be able to see your MLflow tracking data in both Azure ML (via the REST API and all clients) and Azure Databricks (in the MLflow UI and using the MLflow client)
 
 
 ## Known Preview Limitations
-While we roll this experience out to customers for feedback, there are some known limitations we'd love comments on in addition to any other issues seen in your workflow
+While we roll this experience out to customers for feedback, there are some known limitations we'd love comments on in addition to any other issues seen in your workflow.
 ### 1-to-1 Workspace linking
 Currently, an Azure ML Workspace can only be linked to one Azure Databricks Workspace at a time.
 ### Data synchronization
-At the moment, data is only generated and sent to Azure ML as well for tracking. Editing tags via the Azure Databricks MLflow UI won't be reflected in the Azure ML UI.
+At the moment, data is only generated in the Azure Machine Learning workspace for tracking. Editing tags via the Azure Databricks MLflow UI won't be reflected in the Azure ML UI.
 ### Java and R support
 The experience currently is only available from the Python MLflow client.
 
