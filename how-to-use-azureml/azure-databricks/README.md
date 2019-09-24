@@ -25,7 +25,7 @@ Learn more about [how to use Azure Databricks as a development environment](http
 You can use Azure Databricks as a compute target from [Azure Machine Learning Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines). Take a look at this notebook for details: [aml-pipelines-use-databricks-as-compute-target.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/databricks-as-remote-compute-target/aml-pipelines-use-databricks-as-compute-target.ipynb).
 
 # Linked Azure Databricks and Azure Machine Learning Workspaces (Preview)
-Customers can now link Azure Databricks and AzureML Workspaces to better enable MLOps scenarios by [managing their tracking data in a single place when using the MLflow client](https://mlflow.org/docs/latest/tracking.html#mlflow-tracking) - the Azure ML workspace.
+Customers can now link Azure Databricks and AzureML Workspaces to better enable cross-Azure ML scenarios by [managing their tracking data in a single place when using the MLflow client](https://mlflow.org/docs/latest/tracking.html#mlflow-tracking) - the Azure ML workspace.
 
 ## Linking the Workspaces (Admin operation)
 
