@@ -1,0 +1,7 @@
+name: regression-automated-ml
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - azureml-opendatasets

@@ -6,4 +6,4 @@ Azure Machine Learning Datasets (preview) make it easier to access and work with
 - For advanced data preparation examples, see [dataprep](dataprep).
 
 
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/work-with-data/README..png) 
+![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/work-with-data/README..png) 

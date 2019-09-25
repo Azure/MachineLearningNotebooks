@@ -7,3 +7,4 @@ dependencies:
   - matplotlib
   - pandas_ml
   - azureml-explain-model
+  - azureml-contrib-explain-model
