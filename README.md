@@ -58,8 +58,10 @@ Visit this [community repository](https://github.com/microsoft/MLOps/tree/master
 
 Visit following repos to see projects contributed by Azure ML users:
  - [AMLSamples](https://github.com/Azure/AMLSamples) Number of end-to-end examples, including face recognition, predictive maintenance, customer churn and sentiment analysis.
- - [Fine tune natural language processing models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
+ - [Learn about Natural Language Processing best practices using Azure Machine Learning service](https://github.com/microsoft/nlp)
+ - [Pre-Train BERT models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
+ - [UMass Amherst Student Samples](https://github.com/katiehouse3/microsoft-azure-ml-notebooks) - A number of end-to-end machine learning notebooks, including machine translation, image classification, and customer churn, created by students in the 696DS course at UMass Amherst.
  
 ## Data/Telemetry 
 This repository collects usage data and sends it to Mircosoft to help improve our products and services. Read Microsoft's [privacy statement to learn more](https://privacy.microsoft.com/en-US/privacystatement)

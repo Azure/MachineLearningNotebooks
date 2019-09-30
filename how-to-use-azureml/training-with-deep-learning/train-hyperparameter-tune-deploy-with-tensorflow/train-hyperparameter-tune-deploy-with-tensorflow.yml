@@ -1,8 +1,0 @@
-name: train-hyperparameter-tune-deploy-with-tensorflow
-dependencies:
-- numpy
-- matplotlib
-- tensorflow
-- pip:
-  - azureml-sdk
-  - azureml-widgets

@@ -6,6 +6,7 @@ import argparse
 import os
 import re
 import tensorflow as tf
+import glob
 
 from azureml.core import Run
 from utils import load_data
@@ -24,17 +25,23 @@ previous_model_location = args.resume_from
 # You can also use environment variable to get the model/checkpoint files location
 # previous_model_location = os.path.expandvars(os.getenv("AZUREML_DATAREFERENCE_MODEL_LOCATION", None))
 
-data_folder = os.path.join(args.data_folder, 'mnist')
+data_folder = args.data_folder
+print('Data folder:', data_folder)
 
-print('training dataset is stored here:', data_folder)
+# load train and test set into numpy arrays
+# note we scale the pixel intensity values to 0-1 (by dividing it with 255.0) so the model can converge faster.
 
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ubyte.gz'),
+                              recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'),
+                             recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'),
+                              recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'),
+                             recursive=True)[0], True).reshape(-1)
 
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep='\n')
+
 training_set_size = X_train.shape[0]
 
 n_inputs = 28 * 28

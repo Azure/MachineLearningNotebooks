@@ -1,0 +1,10 @@
+name: auto-ml-model-explanations-remote-compute
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - pandas_ml
+  - azureml-explain-model
+  - azureml-contrib-explain-model
