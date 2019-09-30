@@ -8,3 +8,4 @@ dependencies:
   - azureml-widgets
   - matplotlib
   - pandas_ml
+  - azureml-dataprep[pandas]
