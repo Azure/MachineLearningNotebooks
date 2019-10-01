@@ -140,7 +140,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [pipeline-style-transfer](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/pipeline-style-transfer/pipeline-style-transfer.ipynb) |  |  |  |  |  |  |
 | [authentication-in-azureml](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb) |  |  |  |  |  |  |
 | [azure-ml-datadrift](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb) |  |  |  |  |  |  |
-
 | [distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/distributed-cntk-with-custom-docker/distributed-cntk-with-custom-docker.ipynb) |  |  |  |  |  |  |
 | [notebook_example](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) |  |  |  |  |  |  |
 | [new-york-taxi](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/dataprep/case-studies/new-york-taxi/new-york-taxi.ipynb) |  |  |  |  |  |  |
