@@ -2,8 +2,7 @@ name: accelerated-models-training
 dependencies:
 - pip:
   - azureml-sdk
-  - azureml-accel-models
-  - tensorflow
+  - azureml-accel-models[cpu]
   - keras
   - tqdm 
   - sklearn
