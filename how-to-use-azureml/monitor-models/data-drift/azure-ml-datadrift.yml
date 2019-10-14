@@ -2,7 +2,7 @@ name: azure-ml-datadrift
 dependencies:
 - pip:
   - azureml-sdk
-  - azureml-contrib-datadrift
+  - azureml-datadrift
   - azureml-opendatasets
   - lightgbm
   - azureml-widgets

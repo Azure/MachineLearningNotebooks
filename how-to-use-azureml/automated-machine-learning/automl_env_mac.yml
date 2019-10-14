@@ -23,6 +23,6 @@ dependencies:
   - azureml-train-automl
   - azureml-widgets
   - azureml-explain-model
-  - azureml-contrib-explain-model
+  - azureml-contrib-interpret
   - pandas_ml
   

@@ -62,7 +62,7 @@ if args.distributed:
     dist.init_process_group(backend=args.dist_backend, init_method=args.dist_url,
                             world_size=args.world_size, rank=args.rank)
 
-train_dataset = datasets.MNIST('data', train=True, download=True,
+train_dataset = datasets.MNIST('data-%d' % args.rank, train=True, download=True,
                                transform=transforms.Compose([
                                    transforms.ToTensor(),
                                    transforms.Normalize((0.1307,), (0.3081,))

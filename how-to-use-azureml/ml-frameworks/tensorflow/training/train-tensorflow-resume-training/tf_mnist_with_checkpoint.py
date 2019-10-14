@@ -11,7 +11,7 @@ import glob
 from azureml.core import Run
 from utils import load_data
 
-print("TensorFlow version:", tf.VERSION)
+print("TensorFlow version:", tf.__version__)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')

@@ -53,3 +53,6 @@ new_ds.register(workspace, 'new_ds_name')
 
 ## How to provide feedback?
 If you have any feedback about our product, or if there is any missing capability that is essential for you to use new Dataset API, please email us at [AskAzureMLData@microsoft.com](mailto:AskAzureMLData@microsoft.com).
+
+
+![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/work-with-data/dataset-api-change-notice.png) 

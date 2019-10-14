@@ -2,9 +2,10 @@ name: auto-ml-model-explanation
 dependencies:
 - pip:
   - azureml-sdk
+  - interpret
   - azureml-train-automl
   - azureml-widgets
   - matplotlib
   - pandas_ml
   - azureml-explain-model
-  - azureml-contrib-explain-model
+  - azureml-contrib-interpret
