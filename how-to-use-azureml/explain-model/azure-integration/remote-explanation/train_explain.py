@@ -3,8 +3,8 @@
 
 from sklearn import datasets
 from sklearn.linear_model import Ridge
-from azureml.explain.model.tabular_explainer import TabularExplainer
-from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
+from interpret.ext.blackbox import TabularExplainer
+from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
 from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
 from sklearn.externals import joblib

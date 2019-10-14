@@ -1,0 +1,9 @@
+name: automl-forecasting-function
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - pandas_ml
+  - statsmodels
+  - matplotlib

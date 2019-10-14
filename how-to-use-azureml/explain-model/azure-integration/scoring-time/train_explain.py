@@ -14,9 +14,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn_pandas import DataFrameMapper
 
 from azureml.core.run import Run
-from azureml.explain.model.tabular_explainer import TabularExplainer
-from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
-from azureml.explain.model.scoring.scoring_explainer import LinearScoringExplainer, save
+from interpret.ext.blackbox import TabularExplainer
+from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+from azureml.interpret.scoring.scoring_explainer import LinearScoringExplainer, save
 
 OUTPUT_DIR = './outputs/'
 os.makedirs(OUTPUT_DIR, exist_ok=True)

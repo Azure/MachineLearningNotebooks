@@ -2,6 +2,7 @@ name: auto-ml-dataset-remote-execution
 dependencies:
 - pip:
   - azureml-sdk
+  - interpret
   - azureml-defaults
   - azureml-explain-model
   - azureml-train-automl
