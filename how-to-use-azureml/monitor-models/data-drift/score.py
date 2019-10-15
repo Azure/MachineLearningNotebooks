@@ -1,14 +1,10 @@
-import pickle
 import json
-import numpy
-import azureml.train.automl
-from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-from azureml.core.model import Model
-from azureml.core.run import Run
-from azureml.monitoring import ModelDataCollector
 import time
+
 import pandas as pd
+from azureml.core.model import Model
+from azureml.monitoring import ModelDataCollector
+from sklearn.externals import joblib
 
 
 def init():
@@ -25,11 +21,11 @@ def init():
     categorical_features = ["usaf", "wban", "p_k", "station_name"]
 
     inputs_dc = ModelDataCollector(model_name="driftmodel",
-                                   identifier="inputs",
+                                   designation="inputs",
                                    feature_names=feature_names)
 
-    prediction_dc = ModelDataCollector("driftmodel",
-                                       identifier="predictions",
+    prediction_dc = ModelDataCollector(model_name="driftmodel",
+                                       designation="predictions",
                                        feature_names=["temperature"])
 
 
