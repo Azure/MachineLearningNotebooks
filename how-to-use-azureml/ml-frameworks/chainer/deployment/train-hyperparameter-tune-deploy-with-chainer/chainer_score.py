@@ -28,7 +28,10 @@ class MyNetwork(Chain):
 def init():
     global model
 
-    model_root = Model.get_model_path('chainer-dnn-mnist')
+    # AZUREML_MODEL_DIR is an environment variable created during deployment.
+    # It is the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION)
+    # For multiple models, it points to the folder containing all deployed models (./azureml-models)
+    model_root = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model.npz')
 
     # Load our saved artifacts
     model = MyNetwork()

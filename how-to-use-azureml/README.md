@@ -11,7 +11,6 @@ As a pre-requisite, run the [configuration Notebook](../configuration.ipynb) not
 * [logging-api](./track-and-monitor-experiments/logging-api): Learn about the details of logging metrics to run history.
 * [register-model-create-image-deploy-service](./deployment/register-model-create-image-deploy-service): Learn about the details of model management.
 * [production-deploy-to-aks](./deployment/production-deploy-to-aks) Deploy a model to production at scale on Azure Kubernetes Service.
-* [enable-data-collection-for-models-in-aks](./deployment/enable-data-collection-for-models-in-aks) Learn about data collection APIs for deployed model.
 * [enable-app-insights-in-production-service](./deployment/enable-app-insights-in-production-service) Learn how to use App Insights with production web service.
  
 Find quickstarts, end-to-end tutorials, and how-tos on the [official documentation site for Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/).

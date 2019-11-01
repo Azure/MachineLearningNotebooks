@@ -20,6 +20,7 @@ dependencies:
   # Required packages for AzureML execution, history, and data preparation.
   - azureml-defaults
   - azureml-train-automl
+  - azureml-train
   - azureml-widgets
   - azureml-explain-model
   - azureml-contrib-interpret

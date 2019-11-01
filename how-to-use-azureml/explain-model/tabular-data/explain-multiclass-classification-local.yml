@@ -5,3 +5,4 @@ dependencies:
   - interpret
   - azureml-interpret
   - azureml-contrib-interpret
+  - ipywidgets
