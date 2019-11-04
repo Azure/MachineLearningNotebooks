@@ -18,38 +18,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
-| [Forecasting BikeShare Demand](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb) | forecasting | BikeShare | remote | None | Azure ML AutoML | Forecasting |
-
-| [Forecasting orange juice sales with deployment](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb) | Forecasting | Orange Juice Sales | remote | Azure Container Instance | Azure ML AutoML |  |
-
-| [Regression with deployment using concrete dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb) | Regression | Concrete | AML Compute | Azure Container Instance | Azure ML AutoML |  |
-
-| :star:[Regression with deployment using hardware performance dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb) | Regression | Concrete | AML Compute | Azure Container Instance | Azure ML AutoML |  |
-
-| [Forecasting with automated ML SQL integration](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/sql-server/energy-demand/auto-ml-sql-energy-demand.ipynb) | Forecasting | NYC Energy | Local | None | Azure ML AutoML |  |
-
-| [Setup automated ML SQL integration](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/sql-server/setup/auto-ml-sql-setup.ipynb) | None | None | None | None | Azure ML AutoML |  |
-
-| [Register a model and deploy locally](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) | Deployment |  | local | Local | None | None |
-
-| :star:[Data drift on aks](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb) | Filtering | NOAA | remote | AKS | Azure ML | Dataset, Timeseries, Drift |
-
-| [](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) | Training and deploying a model from a notebook | Diabetes | Local | Azure Container Instance | None | None |
-
-| :star:[Data drift quickdemo](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) | Filtering | NOAA | remote | None | Azure ML | Dataset, Timeseries, Drift |
-
-| :star:[Filtering data using Tabular Timeseiries Dataset related API](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/tabular-timeseries-dataset-filtering.ipynb) | Filtering | NOAA | local | None | Azure ML | Dataset, Tabular Timeseries |
-
-| :star:[Train with Datasets (Tabular and File)](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/train-with-datasets.ipynb) | Filtering | Iris, Daibetes | remote | None | Azure ML | Dataset |
-
-| [Forecasting away from training data](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-high-frequency/automl-forecasting-function.ipynb) | forecasting | None | remote | None | Azure ML AutoML | Forecasting, Confidence Intervals |
-
-| [Automated ML run with basic edition features.](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) | Classification | Bankmarketing | AML | ACI | None | featurization, explainability, remote_run, AutomatedML |
-
-| [Classification of credit card fraudulent transactions using Automated ML](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb) | Classification | creditcard | AML Compute | None | None | remote_run, AutomatedML |
-
-| [Automated ML run with featurization and model explainability.](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) | Regression | MachineData | AML | ACI | None | featurization, explainability, remote_run, AutomatedML |
-
 | [Use MLflow with Azure Machine Learning for training and deployment](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-deploy-pytorch/train-and-deploy-pytorch.ipynb) | Use MLflow with Azure Machine Learning to train and deploy Pa yTorch image classifier model | MNIST | AML Compute | Azure Container Instance | PyTorch | None |
 
 | :star:[Azure Machine Learning Pipeline with DataTranferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) | Demonstrates the use of DataTranferStep | Custom | ADF | None | Azure ML | None |
