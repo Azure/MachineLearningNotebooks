@@ -6,3 +6,4 @@ dependencies:
   - matplotlib
   - sklearn
   - pandas
+  - azureml-opendatasets

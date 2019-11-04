@@ -5,7 +5,7 @@ dependencies:
   - azureml-widgets
   - pandas
   - keras
-  - tensorflow-gpu==1.13.2
+  - tensorflow==1.14.0
   - matplotlib
   - azureml-dataprep
   - fuse

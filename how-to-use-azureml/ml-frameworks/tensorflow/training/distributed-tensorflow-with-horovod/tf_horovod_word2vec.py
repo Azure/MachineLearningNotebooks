@@ -16,6 +16,7 @@ import os
 import random
 import zipfile
 import argparse
+import glob
 
 import numpy as np
 from six.moves import urllib
@@ -35,30 +36,8 @@ args = parser.parse_args()
 input_data = args.input_data
 print("the input data is at %s" % input_data)
 
-# Step 1: Download the data.
-url = 'http://mattmahoney.net/dc/text8.zip'
-
-
-def maybe_download(filename, expected_bytes):
-    """Download a file if not present, and make sure it's the right size."""
-    if not filename:
-        filename = "text8.zip"
-    if not os.path.exists(filename):
-        print("Downloading the data from http://mattmahoney.net/dc/text8.zip")
-        filename, _ = urllib.request.urlretrieve(url, filename)
-    else:
-        print("Use the data from %s" % input_data)
-    statinfo = os.stat(filename)
-    if statinfo.st_size == expected_bytes:
-        print('Found and verified', filename)
-    else:
-        print(statinfo.st_size)
-        raise Exception(
-            'Failed to verify ' + url + '. Can you get to it with a browser?')
-    return filename
-
-
-filename = maybe_download(input_data, 31344016)
+# Step 1: Read data.
+filename = glob.glob(os.path.join(input_data, '**/text8.zip'), recursive=True)[0]
 
 
 # Read the data into a list of strings.

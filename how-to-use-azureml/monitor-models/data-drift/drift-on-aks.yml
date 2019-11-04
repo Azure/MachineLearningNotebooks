@@ -1,0 +1,8 @@
+name: drift-on-aks
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-datadrift
+  - azureml-monitoring
+  - azureml-opendatasets
+  - azureml-widgets

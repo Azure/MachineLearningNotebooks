@@ -8,3 +8,4 @@ dependencies:
   - sklearn-pandas
   - azureml-dataprep
   - azureml-core
+  - ipywidgets

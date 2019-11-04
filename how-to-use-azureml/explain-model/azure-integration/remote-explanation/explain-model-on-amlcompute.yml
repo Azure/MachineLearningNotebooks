@@ -7,3 +7,4 @@ dependencies:
   - azureml-contrib-interpret
   - sklearn-pandas
   - azureml-dataprep
+  - ipywidgets
