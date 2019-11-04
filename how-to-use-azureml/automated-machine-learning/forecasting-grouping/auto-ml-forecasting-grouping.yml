@@ -1,0 +1,10 @@
+name: auto-ml-forecasting-grouping
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-pipeline
+  - azureml-widgets
+  - pandas_ml
+  - statsmodels
+  - matplotlib

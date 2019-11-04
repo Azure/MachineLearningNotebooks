@@ -8,6 +8,6 @@ dependencies:
   - azureml-widgets
   - matplotlib
   - pandas_ml
-  - onnxruntime
+  - onnxruntime==0.4.0
   - azureml-explain-model
   - azureml-contrib-interpret
