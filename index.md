@@ -104,7 +104,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [azure-ml-with-nvidia-rapids](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/RAPIDS/azure-ml-with-nvidia-rapids.ipynb) |  |  |  |  |  |  |
 | [auto-ml-continuous-retraining](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb) |  |  |  |  |  |  |
 | [auto-ml-forecasting-beer-remote](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) |  |  |  |  |  |  |
-| :star:[auto-ml-forecasting-energy-demand](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) | Forecasting |  |  |  |  |  |
 | [auto-ml-regression](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) |  |  |  |  |  |  |
 | [build-model-run-history-03](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/amlsdk/build-model-run-history-03.ipynb) |  |  |  |  |  |  |
 | [deploy-to-aci-04](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/amlsdk/deploy-to-aci-04.ipynb) |  |  |  |  |  |  |
