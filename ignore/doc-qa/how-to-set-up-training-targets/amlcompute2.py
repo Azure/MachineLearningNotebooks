@@ -55,9 +55,6 @@ run_amlcompute.environment.docker.base_image = DEFAULT_CPU_IMAGE
 # Use conda_dependencies.yml to create a conda environment in the Docker image for execution
 run_amlcompute.environment.python.user_managed_dependencies = False
 
-# Auto-prepare the Docker image when used for execution (if it is not already prepared)
-run_amlcompute.auto_prepare_environment = True
-
 # Specify CondaDependencies obj, add necessary packages
 run_amlcompute.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 #</run_amlcompute>
