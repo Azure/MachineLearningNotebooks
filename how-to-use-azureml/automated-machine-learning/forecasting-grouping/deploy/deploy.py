@@ -1,9 +1,10 @@
 import argparse
-from azureml.core import Run, Model
-from azureml.core import Workspace
-from azureml.core.webservice import AciWebservice
-from azureml.core.model import InferenceConfig
 import json
+
+from azureml.core import Run, Model, Workspace
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.model import InferenceConfig
+from azureml.core.webservice import AciWebservice
 
 
 script_file_name = 'score.py'

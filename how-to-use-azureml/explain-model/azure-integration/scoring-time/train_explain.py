@@ -116,7 +116,7 @@ global_explanation = tabular_explainer.explain_global(x_test)
 
 # uploading model explanation data for storage or visualization
 comment = 'Global explanation on classification model trained on IBM employee attrition dataset'
-client.upload_model_explanation(global_explanation, comment=comment)
+client.upload_model_explanation(global_explanation, comment=comment, model_id=original_model.id)
 
 # also create a lightweight explainer for scoring time
 scoring_explainer = LinearScoringExplainer(tabular_explainer)

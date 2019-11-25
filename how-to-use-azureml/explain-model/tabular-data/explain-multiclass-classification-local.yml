@@ -1,8 +1,0 @@
-name: explain-multiclass-classification-local
-dependencies:
-- pip:
-  - azureml-sdk
-  - interpret
-  - azureml-interpret
-  - azureml-contrib-interpret
-  - ipywidgets

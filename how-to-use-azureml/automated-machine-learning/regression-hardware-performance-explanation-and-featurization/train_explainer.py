@@ -6,7 +6,8 @@ from azureml.core.run import Run
 from azureml.core.experiment import Experiment
 from sklearn.externals import joblib
 from azureml.core.dataset import Dataset
-from azureml.train.automl.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, \
+    automl_setup_model_explanations
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 from automl.client.core.common.constants import MODEL_PATH
