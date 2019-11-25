@@ -1,6 +1,6 @@
 import argparse
 import azureml.train.automl
-from azureml.automl.core._vendor.automl.client.core.runtime import forecasting_models
+from azureml.automl.runtime._vendor.automl.client.core.runtime import forecasting_models
 from azureml.core import Run
 from sklearn.externals import joblib
 import forecasting_helper

@@ -61,4 +61,4 @@ global_explanation = tabular_explainer.explain_global(X_test)
 # Uploading model explanation data for storage or visualization in webUX
 # The explanation can then be downloaded on any compute
 comment = 'Global explanation on regression model trained on boston dataset'
-client.upload_model_explanation(global_explanation, comment=comment)
+client.upload_model_explanation(global_explanation, comment=comment, model_id=original_model.id)

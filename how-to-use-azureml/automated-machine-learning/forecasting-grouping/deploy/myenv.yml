@@ -1,15 +1,11 @@
-name: project_environment
+name: automl_grouping_env
 dependencies:
   # The python interpreter version.
 
   # Currently Azure ML only supports 3.5.2 and later.
 
 - python=3.6.2
-
-- pip:
-  - azureml-defaults
-  - azureml-train-automl
-- numpy
-- scikit-learn
+- numpy>=1.16.0,<=1.16.2
+- scikit-learn>=0.19.0,<=0.20.3
 - conda-forge::fbprophet==0.5
 

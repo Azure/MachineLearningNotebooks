@@ -11,7 +11,7 @@ from azureml.core.dataset import Dataset
 from azureml.pipeline.core import PipelineData, PipelineParameter, TrainingOutput, StepSequence
 from azureml.pipeline.steps import PythonScriptStep
 from azureml.train.automl import AutoMLConfig
-from azureml.train.automl import AutoMLStep
+from azureml.train.automl.runtime import AutoMLStep
 
 
 def _get_groups(data: Dataset, group_column_names: List[str]) -> pd.DataFrame:
@@ -33,7 +33,7 @@ def _get_configs(automlconfig: AutoMLConfig,
         group_name = "#####".join(str(x) for x in group.values)
         group_name = valid_chars.sub('', group_name)
         for key in group.index:
-            single = data._dataflow.filter(data._dataflow[key] == group[key])
+            single = single._dataflow.filter(data._dataflow[key] == group[key])
         group_conf = copy.deepcopy(automlconfig)
         group_conf.user_settings['training_data'] = single
         group_conf.user_settings['label_column_name'] = target_column
@@ -106,6 +106,13 @@ def build_pipeline_steps(automlconfig: AutoMLConfig,
 
     final_steps = steps
     if deploy:
+        # modify the conda dependencies to ensure we pick up correct
+        # versions of azureml-defaults and azureml-train-automl
+        cd = CondaDependencies.create(pip_packages=['azureml-defaults', 'azureml-train-automl'])
+        automl_deps = CondaDependencies(conda_dependencies_file_path='deploy/myenv.yml')
+        cd._merge_dependencies(automl_deps)
+        cd.save('deploy/myenv.yml')
+
         # add deployment step
         pp_group_column_names = PipelineParameter(
             "group_column_names",

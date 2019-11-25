@@ -76,6 +76,8 @@ train, test = data.randomSplit([0.70, 0.30])
 lr = pyspark.ml.classification.LogisticRegression(regParam=reg)
 model = lr.fit(train)
 
+model.save(os.path.join("outputs", "iris.model"))
+
 # predict on the test set
 prediction = model.transform(test)
 print("Prediction")

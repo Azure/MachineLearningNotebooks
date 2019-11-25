@@ -27,10 +27,10 @@ dependencies:
   - azureml-explain-model
   - azureml-pipeline
   - azureml-contrib-interpret
-  - pandas_ml
   - pytorch-transformers==1.0.0
   - spacy==2.1.8
   - joblib
+  - onnxruntime==0.4.0
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
 
 channels:

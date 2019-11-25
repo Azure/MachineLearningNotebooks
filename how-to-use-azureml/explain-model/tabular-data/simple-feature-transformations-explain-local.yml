@@ -1,9 +1,0 @@
-name: simple-feature-transformations-explain-local
-dependencies:
-- pip:
-  - azureml-sdk
-  - interpret
-  - azureml-interpret
-  - azureml-contrib-interpret
-  - sklearn-pandas
-  - ipywidgets
