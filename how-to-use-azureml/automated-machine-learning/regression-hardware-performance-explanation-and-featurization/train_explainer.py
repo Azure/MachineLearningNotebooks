@@ -7,7 +7,7 @@ from azureml.core.experiment import Experiment
 from sklearn.externals import joblib
 from azureml.core.dataset import Dataset
 from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, \
-    automl_setup_model_explanations
+    automl_setup_model_explanations, automl_check_model_if_explainable
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 from automl.client.core.common.constants import MODEL_PATH
@@ -24,6 +24,11 @@ ws = run.experiment.workspace
 # Get the AutoML run object from the experiment name and the workspace
 experiment = Experiment(ws, '<<experimnet_name>>')
 automl_run = Run(experiment=experiment, run_id='<<run_id>>')
+
+# Check if this AutoML model is explainable
+if not automl_check_model_if_explainable(automl_run):
+    raise Exception("Model explanations is currently not supported for " + automl_run.get_properties().get(
+        'run_algorithm'))
 
 # Download the best model from the artifact store
 automl_run.download_file(name=MODEL_PATH, output_file_path='model.pkl')
