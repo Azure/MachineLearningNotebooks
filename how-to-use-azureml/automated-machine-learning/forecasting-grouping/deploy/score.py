@@ -44,7 +44,7 @@ def run(raw_data):
                 model_path = Model.get_model_path(cur_group)
                 model = joblib.load(model_path)
                 models[cur_group] = model
-            _, xtrans = models[cur_group].forecast(df_one, np.repeat(np.nan, len(df_one)))
+            _, xtrans = models[cur_group].forecast(df_one)
             dfs.append(xtrans)
         df_ret = pd.concat(dfs)
         df_ret.reset_index(drop=False, inplace=True)
