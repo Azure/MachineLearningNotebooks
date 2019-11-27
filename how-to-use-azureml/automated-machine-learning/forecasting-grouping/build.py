@@ -8,6 +8,7 @@ from azureml.core import RunConfiguration
 from azureml.core.compute import ComputeTarget
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.dataset import Dataset
+from azureml.data import TabularDataset
 from azureml.pipeline.core import PipelineData, PipelineParameter, TrainingOutput, StepSequence
 from azureml.pipeline.steps import PythonScriptStep
 from azureml.train.automl import AutoMLConfig
@@ -34,8 +35,9 @@ def _get_configs(automlconfig: AutoMLConfig,
         group_name = valid_chars.sub('', group_name)
         for key in group.index:
             single = single._dataflow.filter(data._dataflow[key] == group[key])
+        t_dataset = TabularDataset._create(single)
         group_conf = copy.deepcopy(automlconfig)
-        group_conf.user_settings['training_data'] = single
+        group_conf.user_settings['training_data'] = t_dataset
         group_conf.user_settings['label_column_name'] = target_column
         group_conf.user_settings['compute_target'] = compute_target
         configs[group_name] = group_conf

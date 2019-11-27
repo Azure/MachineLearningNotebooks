@@ -14,7 +14,7 @@ IF "%CONDA_EXE%"=="" GOTO CondaMissing
 call conda activate %conda_env_name% 2>nul:
 
 if not errorlevel 1 (
-  echo Upgrading azureml-sdk[automl,notebooks,explain] in existing conda environment %conda_env_name%
+  echo Upgrading existing conda environment %conda_env_name%
   call pip uninstall azureml-train-automl -y -q
   call conda env update --name %conda_env_name% --file %automl_env_file%
   if errorlevel 1 goto ErrorExit
