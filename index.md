@@ -10,7 +10,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
 | [Using Azure ML environments](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/using-environments/using-environments.ipynb) | Creating and registering environments | None | Local | None | None | None |
-
 | [Estimators in AML with hyperparameter tuning](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb) | Use the Estimator pattern in Azure Machine Learning SDK | None | AML Compute | None | None | None |
 
 
