@@ -32,18 +32,17 @@ test_dataset = run.input_datasets['test_data']
 
 grain_column_names = []
 
-df = test_dataset.to_pandas_dataframe()
+df = test_dataset.to_pandas_dataframe().reset_index(drop=True)
 
-X_test_df = test_dataset.drop_columns(columns=[target_column_name])
-y_test_df = test_dataset.with_timestamp_columns(
-    None).keep_columns(columns=[target_column_name])
+X_test_df = test_dataset.drop_columns(columns=[target_column_name]).to_pandas_dataframe().reset_index(drop=True)
+y_test_df = test_dataset.with_timestamp_columns(None).keep_columns(columns=[target_column_name]).to_pandas_dataframe()
 
 fitted_model = joblib.load('model.pkl')
 
 df_all = forecasting_helper.do_rolling_forecast(
     fitted_model,
-    X_test_df.to_pandas_dataframe(),
-    y_test_df.to_pandas_dataframe().values.T[0],
+    X_test_df,
+    y_test_df.values.T[0],
     target_column_name,
     time_column_name,
     max_horizon,
