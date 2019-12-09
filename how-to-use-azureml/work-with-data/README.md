@@ -10,7 +10,7 @@ With Azure Machine Learning datasets, you can:
 
 ## Learn how to use Azure Machine Learning datasets
 * [Create and register datasets](https://aka.ms/azureml/howto/createdatasets)
-* Use [Datasets in training](datasets-tutorial/train-with-datasets.ipynb)
+* Use [Datasets in training](datasets-tutorial/train-with-datasets/train-with-datasets.ipynb)
 * Use TabularDatasets in [automated machine learning training](https://aka.ms/automl-dataset)
 * Use FileDatasets in [image classification](https://aka.ms/filedataset-samplenotebook)
 * Use FileDatasets in [deep learning with hyperparameter tuning](https://aka.ms/filedataset-hyperdrive)
