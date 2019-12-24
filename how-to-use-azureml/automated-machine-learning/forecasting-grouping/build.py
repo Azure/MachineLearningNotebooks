@@ -30,11 +30,11 @@ def _get_configs(automlconfig: AutoMLConfig,
     groups = _get_groups(data, group_column_names)
     configs = {}
     for i, group in groups.iterrows():
-        single = data
+        single = data._dataflow
         group_name = "#####".join(str(x) for x in group.values)
         group_name = valid_chars.sub('', group_name)
         for key in group.index:
-            single = single._dataflow.filter(data._dataflow[key] == group[key])
+            single = single.filter(data._dataflow[key] == group[key])
         t_dataset = TabularDataset._create(single)
         group_conf = copy.deepcopy(automlconfig)
         group_conf.user_settings['training_data'] = t_dataset
