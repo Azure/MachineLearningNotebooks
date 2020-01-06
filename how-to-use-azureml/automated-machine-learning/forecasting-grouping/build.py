@@ -71,7 +71,7 @@ def build_pipeline_steps(automlconfig: AutoMLConfig,
     # create each automl step end-to-end (train, register)
     for group_name, conf in configs.items():
         # create automl metrics output
-        metirics_data = PipelineData(
+        metrics_data = PipelineData(
             name='metrics_data_{}'.format(group_name),
             pipeline_output_name=metrics_output_name.format(group_name),
             training_output=TrainingOutput(type='Metrics'))
@@ -84,7 +84,7 @@ def build_pipeline_steps(automlconfig: AutoMLConfig,
         automl_step = AutoMLStep(
             name='automl_{}'.format(group_name),
             automl_config=conf,
-            outputs=[metirics_data, model_data],
+            outputs=[metrics_data, model_data],
             allow_reuse=True)
         steps.append(automl_step)
 

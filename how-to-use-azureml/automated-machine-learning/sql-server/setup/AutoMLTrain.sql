@@ -56,7 +56,7 @@ CREATE OR ALTER PROCEDURE [dbo].[AutoMLTrain]
     @task NVARCHAR(40)='classification',             -- The type of task.  Can be classification, regression or forecasting.
     @experiment_name NVARCHAR(32)='automl-sql-test', -- This can be used to find the experiment in the Azure Portal.
     @iteration_timeout_minutes INT = 15,             -- The maximum time in minutes for training a single pipeline. 
-    @experiment_timeout_minutes INT = 60,            -- The maximum time in minutes for training all pipelines.
+    @experiment_timeout_hours FLOAT = 1,             -- The maximum time in hours for training all pipelines.
     @n_cross_validations INT = 3,                    -- The number of cross validations.
     @blacklist_models NVARCHAR(MAX) = '',            -- A comma separated list of algos that will not be used.
                                                      -- The list of possible models can be found at:
@@ -131,8 +131,8 @@ if __name__.startswith("sqlindb"):
 
     X_train = data_train
 
-    if experiment_timeout_minutes == 0:
-        experiment_timeout_minutes = None
+    if experiment_timeout_hours == 0:
+        experiment_timeout_hours = None
 
     if experiment_exit_score == 0:
         experiment_exit_score = None
@@ -163,7 +163,7 @@ if __name__.startswith("sqlindb"):
                                  debug_log = log_file_name, 
                                  primary_metric = primary_metric, 
                                  iteration_timeout_minutes = iteration_timeout_minutes, 
-                                 experiment_timeout_minutes = experiment_timeout_minutes,
+                                 experiment_timeout_hours = experiment_timeout_hours,
                                  iterations = iterations, 
                                  n_cross_validations = n_cross_validations, 
                                  preprocess = preprocess,
@@ -204,7 +204,7 @@ if __name__.startswith("sqlindb"):
 				  @iterations INT, @task NVARCHAR(40),
 				  @experiment_name NVARCHAR(32),
 				  @iteration_timeout_minutes INT,
-				  @experiment_timeout_minutes INT,
+				  @experiment_timeout_hours FLOAT,
 				  @n_cross_validations INT,
 				  @blacklist_models NVARCHAR(MAX),
 				  @whitelist_models NVARCHAR(MAX),
@@ -223,7 +223,7 @@ if __name__.startswith("sqlindb"):
 	, @task = @task
 	, @experiment_name = @experiment_name
 	, @iteration_timeout_minutes = @iteration_timeout_minutes
-	, @experiment_timeout_minutes = @experiment_timeout_minutes
+	, @experiment_timeout_hours = @experiment_timeout_hours
 	, @n_cross_validations = @n_cross_validations
 	, @blacklist_models = @blacklist_models
 	, @whitelist_models = @whitelist_models

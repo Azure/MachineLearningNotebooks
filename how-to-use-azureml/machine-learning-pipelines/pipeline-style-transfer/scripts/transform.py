@@ -1,28 +1,17 @@
-# Original source: https://github.com/pytorch/examples/blob/master/fast_neural_style/neural_style/neural_style.py
 import argparse
 import os
 import sys
 import re
-
+import json
+import traceback
 from PIL import Image
+
 import torch
 from torchvision import transforms
 
+from azureml.core.model import Model
 
-def load_image(filename, size=None, scale=None):
-    img = Image.open(filename)
-    if size is not None:
-        img = img.resize((size, size), Image.ANTIALIAS)
-    elif scale is not None:
-        img = img.resize((int(img.size[0] / scale), int(img.size[1] / scale)), Image.ANTIALIAS)
-    return img
-
-
-def save_image(filename, data):
-    img = data.clone().clamp(0, 255).numpy()
-    img = img.transpose(1, 2, 0).astype("uint8")
-    img = Image.fromarray(img)
-    img.save(filename)
+style_model = None
 
 
 class TransformerNet(torch.nn.Module):
@@ -123,62 +112,61 @@ class UpsampleConvLayer(torch.nn.Module):
         out = self.reflection_pad(x_in)
         out = self.conv2d(out)
         return out
-    
 
-def stylize(args):
-    device = torch.device("cuda" if args.cuda else "cpu")
+
+def load_image(filename):
+    img = Image.open(filename)
+    return img
+
+
+def save_image(filename, data):
+    img = data.clone().clamp(0, 255).numpy()
+    img = img.transpose(1, 2, 0).astype("uint8")
+    img = Image.fromarray(img)
+    img.save(filename)
+
+
+def init():
+    global output_path, args
+    global style_model, device
+    output_path = os.environ['AZUREML_BI_OUTPUT_PATH']
+    print(f'output path: {output_path}')
+    print(f'Cuda available? {torch.cuda.is_available()}')
+
+    arg_parser = argparse.ArgumentParser(description="parser for fast-neural-style")
+    arg_parser.add_argument("--style", type=str, help="style name")
+    args, unknown_args = arg_parser.parse_known_args()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     with torch.no_grad():
         style_model = TransformerNet()
-        state_dict = torch.load(os.path.join(args.model_dir, args.style+".pth"))
+        model_path = Model.get_model_path(args.style)
+        state_dict = torch.load(os.path.join(model_path))
         # remove saved deprecated running_* keys in InstanceNorm from the checkpoint
         for k in list(state_dict.keys()):
             if re.search(r'in\d+\.running_(mean|var)$', k):
                 del state_dict[k]
         style_model.load_state_dict(state_dict)
         style_model.to(device)
+    print(f'Model loaded successfully. Path: {model_path}')
 
-        filenames = os.listdir(args.content_dir)
 
-        for filename in filenames:
-            print("Processing {}".format(filename))
-            full_path = os.path.join(args.content_dir, filename)
-            content_image = load_image(full_path, scale=args.content_scale)
+def run(mini_batch):
+
+    result = []
+    for image_file_path in mini_batch:
+        img = load_image(image_file_path)
+
+        with torch.no_grad():
             content_transform = transforms.Compose([
                 transforms.ToTensor(),
                 transforms.Lambda(lambda x: x.mul(255))
             ])
-            content_image = content_transform(content_image)
+            content_image = content_transform(img)
             content_image = content_image.unsqueeze(0).to(device)
 
             output = style_model(content_image).cpu()
+            output_file_path = os.path.join(output_path, os.path.basename(image_file_path))
+            save_image(output_file_path, output[0])
+            result.append(output_file_path)
 
-            output_path = os.path.join(args.output_dir, filename)
-            save_image(output_path, output[0])
-
-def main():
-    arg_parser = argparse.ArgumentParser(description="parser for fast-neural-style")
-
-    arg_parser.add_argument("--content-scale", type=float, default=None,
-                                 help="factor for scaling down the content image")
-    arg_parser.add_argument("--model-dir", type=str, required=True,
-                                 help="saved model to be used for stylizing the image.")
-    arg_parser.add_argument("--cuda", type=int, required=True,
-                                 help="set it to 1 for running on GPU, 0 for CPU")
-    arg_parser.add_argument("--style", type=str,
-                                 help="style name")
-
-    arg_parser.add_argument("--content-dir", type=str, required=True,
-            help="directory holding the images")
-    arg_parser.add_argument("--output-dir", type=str, required=True,
-            help="directory holding the output images")
-    args = arg_parser.parse_args()
-
-    if args.cuda and not torch.cuda.is_available():
-        print("ERROR: cuda is not available, try running on CPU")
-        sys.exit(1)
-    os.makedirs(args.output_dir, exist_ok=True)
-    stylize(args)
-
-
-if __name__ == "__main__":
-    main()
+    return result
