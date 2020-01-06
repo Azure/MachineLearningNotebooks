@@ -11,13 +11,13 @@ Batch inference public preview offers a platform in which to do large inference 
 ### Python package installation
 Following the convention of most AzureML Public Preview features, Batch Inference SDK is currently available as a contrib package.
 
-If you're unfamiliar with creating a new Python environment, you may follow this example for [creating a conda environment](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#local).  Batch Inference package can be installed through the following pip command.
+If you're unfamiliar with creating a new Python environment, you may follow this example for [creating a conda environment](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#local). Batch Inference package can be installed through the following pip command.
 ```
 pip install azureml-contrib-pipeline-steps
 ```
 
 ### Creation of Azure Machine Learning Workspace
-If you do not already have a Azure ML Workspace, please run the [configuration Notebook](../../configuration.ipynb).
+If you do not already have a Azure ML Workspace, please run the [configuration Notebook](https://aka.ms/pl-config).
 
 ## Configure a Batch Inference job
 
@@ -124,4 +124,4 @@ pipeline_run.wait_for_completion(show_output=True)
 -  [file-dataset-image-inference-mnist.ipynb](./file-dataset-image-inference-mnist.ipynb) demonstrates how to run batch inference on an MNIST dataset.
 -  [tabular-dataset-inference-iris.ipynb](./tabular-dataset-inference-iris.ipynb) demonstrates how to run batch inference on an IRIS dataset.
 
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/contrib/batch_inferencing/README.png) 
+![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/parallel-run/README.png)

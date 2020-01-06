@@ -2,8 +2,3 @@ name: auto-ml-continuous-retraining
 dependencies:
 - pip:
   - azureml-sdk
-  - azureml-train-automl
-  - azureml-pipeline
-  - azureml-widgets
-  - matplotlib
-  - pandas_ml

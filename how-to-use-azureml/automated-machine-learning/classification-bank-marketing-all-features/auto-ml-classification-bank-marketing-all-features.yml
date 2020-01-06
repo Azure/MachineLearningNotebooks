@@ -2,12 +2,3 @@ name: auto-ml-classification-bank-marketing-all-features
 dependencies:
 - pip:
   - azureml-sdk
-  - interpret
-  - azureml-defaults
-  - azureml-train-automl
-  - azureml-widgets
-  - matplotlib
-  - pandas_ml
-  - onnxruntime==1.0.0
-  - azureml-explain-model
-  - azureml-contrib-interpret

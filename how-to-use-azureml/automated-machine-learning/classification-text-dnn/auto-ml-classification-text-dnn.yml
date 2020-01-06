@@ -2,9 +2,3 @@ name: auto-ml-classification-text-dnn
 dependencies:
 - pip:
   - azureml-sdk
-  - azureml-train-automl
-  - azureml-train
-  - azureml-widgets
-  - matplotlib
-  - pandas_ml
-  - statsmodels

@@ -2,5 +2,6 @@ name: pipeline-style-transfer
 dependencies:
 - pip:
   - azureml-sdk
+  - azureml-contrib-pipeline-steps
   - azureml-widgets
   - requests
