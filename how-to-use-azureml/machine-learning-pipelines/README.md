@@ -40,8 +40,8 @@ In this directory, there are two types of notebooks:
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
 
-1. [pipeline-batch-scoring.ipynb](https://aka.ms/pl-batch-score): This notebook demonstrates how to run a batch scoring job using Azure Machine Learning pipelines.
-2. [pipeline-style-transfer.ipynb](https://aka.ms/pl-style-trans): This notebook demonstrates a multi-step pipeline that uses GPU compute. This sample also showcases how to use conda dependencies using runconfig when using Pipelines.
+1. [pipeline-batch-scoring.ipynb](https://aka.ms/pl-batch-score): This notebook demonstrates how to run a batch scoring job in parallel using Azure Machine Learning pipelines and ParallelRunStep.
+2. [pipeline-style-transfer.ipynb](https://aka.ms/pl-style-trans): This notebook demonstrates a multi-step pipeline that uses GPU compute and ParallelRunStep. This sample also showcases how to use conda dependencies using runconfig when using Pipelines.
 3. [nyc-taxi-data-regression-model-building.ipynb](https://aka.ms/pl-nyctaxi-tutorial): This notebook is an AzureML Pipelines version of the previously published two part sample. 
 
  ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/README.png)
