@@ -1,8 +1,10 @@
 name: train-hyperparameter-tune-deploy-with-keras
 dependencies:
-- matplotlib
-- tensorflow
 - pip:
   - azureml-sdk
   - azureml-widgets
-  - keras
+  - tensorflow==1.13.1
+  - keras==2.2.5
+  - matplotlib==3.0.3
+  - numpy==1.16.2
+  - pandas

@@ -1,0 +1,6 @@
+name: tabular-dataset-inference-iris
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-contrib-pipeline-steps
+  - azureml-widgets

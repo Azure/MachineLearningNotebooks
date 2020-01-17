@@ -1,7 +1,0 @@
-name: simple-feature-transformations-explain-local
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-explain-model
-  - azureml-contrib-explain-model
-  - sklearn-pandas

@@ -14,9 +14,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn_pandas import DataFrameMapper
 
 from azureml.core.run import Run
-from azureml.explain.model.tabular_explainer import TabularExplainer
-from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
-from azureml.explain.model.scoring.scoring_explainer import LinearScoringExplainer, save
+from interpret.ext.blackbox import TabularExplainer
+from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+from azureml.interpret.scoring.scoring_explainer import LinearScoringExplainer, save
 
 OUTPUT_DIR = './outputs/'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -99,7 +99,8 @@ with open(model_file_name, 'wb') as file:
 
 # register the model with the model management service for later use
 run.upload_file('original_model.pkl', os.path.join(OUTPUT_DIR, model_file_name))
-original_model = run.register_model(model_name='original_model', model_path='original_model.pkl')
+original_model = run.register_model(model_name='amlcompute_deploy_model',
+                                    model_path='original_model.pkl')
 
 # create an explainer to validate or debug the model
 tabular_explainer = TabularExplainer(model,
@@ -115,7 +116,7 @@ global_explanation = tabular_explainer.explain_global(x_test)
 
 # uploading model explanation data for storage or visualization
 comment = 'Global explanation on classification model trained on IBM employee attrition dataset'
-client.upload_model_explanation(global_explanation, comment=comment)
+client.upload_model_explanation(global_explanation, comment=comment, model_id=original_model.id)
 
 # also create a lightweight explainer for scoring time
 scoring_explainer = LinearScoringExplainer(tabular_explainer)

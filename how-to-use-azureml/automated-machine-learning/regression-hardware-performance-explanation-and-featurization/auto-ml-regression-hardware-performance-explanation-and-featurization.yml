@@ -1,0 +1,4 @@
+name: auto-ml-regression-hardware-performance-explanation-and-featurization
+dependencies:
+- pip:
+  - azureml-sdk

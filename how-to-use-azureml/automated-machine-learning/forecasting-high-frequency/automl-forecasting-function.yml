@@ -1,0 +1,4 @@
+name: automl-forecasting-function
+dependencies:
+- pip:
+  - azureml-sdk

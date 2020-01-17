@@ -287,8 +287,6 @@ Notice how the parameters are modified when using the CPU-only mode.
 
 The outputs of the script can be observed in the master notebook as the script is executed
 
-![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/contrib/RAPIDS/README.png)
-
 
 
 

@@ -1,58 +1,38 @@
-import pickle
-import json
-import numpy
-import azureml.train.automl
-from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-from azureml.core.model import Model
-from azureml.core.run import Run
+import os
+
+import numpy as np
 from azureml.monitoring import ModelDataCollector
-import time
-import pandas as pd
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+from inference_schema.schema_decorators import input_schema, output_schema
+from sklearn.externals import joblib
 
 
 def init():
-    global model, inputs_dc, prediction_dc, feature_names, categorical_features
-
-    print("Model is initialized" + time.strftime("%H:%M:%S"))
-    model_path = Model.get_model_path(model_name="driftmodel")
+    global model
+    global inputs_dc
+    inputs_dc = ModelDataCollector('elevation-regression-model.pkl', designation='inputs',
+                                   feature_names=['latitude', 'longitude', 'temperature', 'windAngle', 'windSpeed'])
+    # note here "elevation-regression-model.pkl" is the name of the model registered under
+    # this is a different behavior than before when the code is run locally, even though the code is the same.
+    # AZUREML_MODEL_DIR is an environment variable created during deployment.
+    # It is the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION)
+    # For multiple models, it points to the folder containing all deployed models (./azureml-models)
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'elevation-regression-model.pkl')
     model = joblib.load(model_path)
 
-    feature_names = ["usaf", "wban", "latitude", "longitude", "station_name", "p_k",
-                     "sine_weekofyear", "cosine_weekofyear", "sine_hourofday", "cosine_hourofday",
-                     "temperature-7"]
 
-    categorical_features = ["usaf", "wban", "p_k", "station_name"]
-
-    inputs_dc = ModelDataCollector(model_name="driftmodel",
-                                   identifier="inputs",
-                                   feature_names=feature_names)
-
-    prediction_dc = ModelDataCollector("driftmodel",
-                                       identifier="predictions",
-                                       feature_names=["temperature"])
+input_sample = np.array([[30, -85, 21, 150, 6]])
+output_sample = np.array([8.995])
 
 
-def run(raw_data):
-    global inputs_dc, prediction_dc
-
+@input_schema('data', NumpyParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
     try:
-        data = json.loads(raw_data)["data"]
-        data = pd.DataFrame(data)
-
-        # Remove the categorical features as the model expects OHE values
-        input_data = data.drop(categorical_features, axis=1)
-
-        result = model.predict(input_data)
-
-        # Collect the non-OHE dataframe
-        collected_df = data[feature_names]
-
-        inputs_dc.collect(collected_df.values)
-        prediction_dc.collect(result)
+        inputs_dc.collect(data)
+        result = model.predict(data)
+        # you can return any datatype as long as it is JSON-serializable
         return result.tolist()
     except Exception as e:
         error = str(e)
-
-        print(error + time.strftime("%H:%M:%S"))
         return error

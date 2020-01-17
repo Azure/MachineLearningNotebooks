@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-grouping
+dependencies:
+- pip:
+  - azureml-sdk
