@@ -76,9 +76,12 @@ def get_result_df(remote_run):
 def run_inference(test_experiment, compute_target, script_folder, train_run,
                   test_dataset, lookback_dataset, max_horizon,
                   target_column_name, time_column_name, freq):
-    train_run.download_file('outputs/model.pkl', 'inference/model.pkl')
-    train_run.download_file('outputs/conda_env_v_1_0_0.yml',
-                            'inference/condafile.yml')
+    model_base_name = 'model.pkl'
+    if 'model_data_location' in train_run.properties:
+        model_location = train_run.properties['model_data_location']
+        _, model_base_name = model_location.rsplit('/', 1)
+    train_run.download_file('outputs/{}'.format(model_base_name), 'inference/{}'.format(model_base_name))
+    train_run.download_file('outputs/conda_env_v_1_0_0.yml', 'inference/condafile.yml')
 
     inference_env = Environment("myenv")
     inference_env.docker.enabled = True
@@ -91,7 +94,8 @@ def run_inference(test_experiment, compute_target, script_folder, train_run,
                         '--max_horizon': max_horizon,
                         '--target_column_name': target_column_name,
                         '--time_column_name': time_column_name,
-                        '--frequency': freq
+                        '--frequency': freq,
+                        '--model_path': model_base_name
                     },
                     inputs=[test_dataset.as_named_input('test_data'),
                             lookback_dataset.as_named_input('lookback_data')],

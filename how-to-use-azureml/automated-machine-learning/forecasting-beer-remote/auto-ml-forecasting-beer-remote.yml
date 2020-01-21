@@ -1,4 +1,10 @@
 name: auto-ml-forecasting-beer-remote
 dependencies:
+- fbprophet==0.5
+- py-xgboost<=0.80
 - pip:
   - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - azureml-train

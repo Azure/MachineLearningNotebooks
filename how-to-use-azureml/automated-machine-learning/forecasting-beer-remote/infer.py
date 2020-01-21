@@ -232,6 +232,9 @@ parser.add_argument(
 parser.add_argument(
     '--frequency', type=str, dest='freq',
     help='Frequency of prediction')
+parser.add_argument(
+    '--model_path', type=str, dest='model_path',
+    default='model.pkl', help='Filename of model to be loaded')
 
 
 args = parser.parse_args()
@@ -239,6 +242,7 @@ max_horizon = args.max_horizon
 target_column_name = args.target_column_name
 time_column_name = args.time_column_name
 freq = args.freq
+model_path = args.model_path
 
 
 print('args passed are: ')
@@ -246,6 +250,7 @@ print(max_horizon)
 print(target_column_name)
 print(time_column_name)
 print(freq)
+print(model_path)
 
 run = Run.get_context()
 # get input dataset by name
@@ -267,7 +272,8 @@ X_lookback_df = lookback_dataset.drop_columns(columns=[target_column_name])
 y_lookback_df = lookback_dataset.with_timestamp_columns(
     None).keep_columns(columns=[target_column_name])
 
-fitted_model = joblib.load('model.pkl')
+fitted_model = joblib.load(model_path)
+
 
 if hasattr(fitted_model, 'get_lookback'):
     lookback = fitted_model.get_lookback()
