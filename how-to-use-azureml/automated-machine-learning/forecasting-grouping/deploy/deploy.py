@@ -1,9 +1,9 @@
 import argparse
 import json
 
-from azureml.core import Run, Model, Workspace
-from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Run, Model
 from azureml.core.model import InferenceConfig
+from azureml.core.environment import Environment
 from azureml.core.webservice import AciWebservice
 
 
@@ -39,6 +39,8 @@ print(model_list)
 run = Run.get_context()
 ws = run.experiment.workspace
 
+myenv = Environment.from_conda_specification(name="env", file_path=conda_env_file_name)
+
 deployment_config = AciWebservice.deploy_configuration(
     cpu_cores=1,
     memory_gb=2,
@@ -46,11 +48,7 @@ deployment_config = AciWebservice.deploy_configuration(
     description='grouping demo aci deployment'
 )
 
-inference_config = InferenceConfig(
-    entry_script=script_file_name,
-    runtime='python',
-    conda_file=conda_env_file_name
-)
+inference_config = InferenceConfig(entry_script=script_file_name, environment=myenv)
 
 models = []
 for model_name in model_list:

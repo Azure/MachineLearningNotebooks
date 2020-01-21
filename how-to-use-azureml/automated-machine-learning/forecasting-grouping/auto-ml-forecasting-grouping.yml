@@ -2,3 +2,7 @@ name: auto-ml-forecasting-grouping
 dependencies:
 - pip:
   - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - azureml-pipeline
