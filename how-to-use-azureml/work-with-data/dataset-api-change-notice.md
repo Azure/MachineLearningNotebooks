@@ -18,7 +18,7 @@ Methods to be deprecated|Replacement in the new version|
 [Dataset.from_parquet_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false--partition-format-none-)|[Dataset.Tabular.from_parquet_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none-)
 [Dataset.from_sql_query()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)|[Dataset.Tabular.from_sql_query()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-)
 [Dataset.from_excel_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true--partition-format-none-)|We will support creating a TabularDataset from Excel files in a future release.
-[Dataset.from_json_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false--partition-format-none-)| We will support creating a TabularDataset from json files in a future release.
+[Dataset.from_json_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false--partition-format-none-)| [Dataset.Tabular.from_json_lines_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-json-lines-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-)
 [Dataset.to_pandas_dataframe()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--)|[TabularDataset.to_pandas_dataframe()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--)
 [Dataset.to_spark_dataframe()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-spark-dataframe--)|[TabularDataset.to_spark_dataframe()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-spark-dataframe--)
 [Dataset.head(3)](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#head-count-)|[TabularDataset.take(3).to_pandas_dataframe()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#take-count-)
@@ -29,27 +29,13 @@ Methods to be deprecated|Replacement in the new version|
 ## Why should I use the new Dataset API if I'm only dealing with tabular data?
 The current Dataset will be kept around for backward compatibility, but we strongly encourage you to move to TabularDataset for the new capabilities listed below: 
 
+- You are able to version and track the new typed Datasets. [Learn How](https://aka.ms/azureml/howto/versiondata)
 - You are able to use TabularDatasets as automated ML input. [Learn How](https://aka.ms/automl-dataset)
-- You are able to version the new typed Datasets. [Learn How](https://aka.ms/azureml/howto/createdatasets)
-- You will be able to use the new typed Datasets as ScriptRun, Estimator, HyperDrive input.
-- You will be able to use the new typed Datasets in Azure Machine Learning Pipelines.
-- You will be able to track the lineage of new typed Datasets for model reproducibility.
-
+- You are able to use the new typed Datasets as ScriptRun, Estimator, HyperDrive input. [Learn How](https://aka.ms/train-with-datasets)
+- You are be able to use the new typed Datasets in Azure Machine Learning Pipelines. [Learn How](https://aka.ms/pl-datasets)
 
 ## How to migrate registered Datasets to new typed Datasets?
-If you have registered Datasets created using the old API, you can easily migrate these old Datasets to the new typed Datasets using the following code.
-```Python
-from azureml.core.workspace import Workspace
-from azureml.core.dataset import Dataset
-
-# get existing workspace
-workspace = Workspace.from_config()
-# This method will convert old Dataset without type to either a TabularDataset or a FileDataset object automatically.
-new_ds = Dataset.get_by_name(workspace, 'old_ds_name')
-
-# register the new typed Dataset with the workspace
-new_ds.register(workspace, 'new_ds_name')
-```
+We handled the migration for you. All legacy datasets are migrated to new typed Datasets automatically. To use registered datasets, simply call [Dataset.get_by_name](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--).
 
 ## How to provide feedback?
 If you have any feedback about our product, or if there is any missing capability that is essential for you to use new Dataset API, please email us at [AskAzureMLData@microsoft.com](mailto:AskAzureMLData@microsoft.com).

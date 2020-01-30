@@ -197,6 +197,17 @@ If automl_setup_linux.sh fails on Ubuntu Linux with the error: `unable to execut
 4) Check that the region is one of the supported regions: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`
 5) Check that you have access to the region using the Azure Portal.
 
+## import AutoMLConfig fails after upgrade from before 1.0.76 to 1.0.76 or later
+There were package changes in automated machine learning version 1.0.76, which require the previous version to be uninstalled before upgrading to the new version.
+If you have manually upgraded from a version of automated machine learning before 1.0.76 to 1.0.76 or later, you may get the error:
+`ImportError: cannot import name 'AutoMLConfig'`
+
+This can be resolved by running:
+`pip uninstall azureml-train-automl` and then 
+`pip install azureml-train-automl`
+
+The automl_setup.cmd script does this automatically.
+
 ## workspace.from_config fails
 If the call `ws = Workspace.from_config()` fails:
 1) Make sure that you have run the `configuration.ipynb` notebook successfully.

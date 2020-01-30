@@ -2,3 +2,10 @@ name: auto-ml-regression-hardware-performance-explanation-and-featurization
 dependencies:
 - pip:
   - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib
+  - interpret
+  - azureml-explain-model
+  - azureml-explain-model
+  - azureml-contrib-interpret

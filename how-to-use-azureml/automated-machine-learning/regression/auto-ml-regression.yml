@@ -2,3 +2,6 @@ name: auto-ml-regression
 dependencies:
 - pip:
   - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib

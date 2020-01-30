@@ -1,8 +1,0 @@
-name: train-and-deploy-pytorch
-dependencies:
-- matplotlib
-- pip:
-  - azureml-sdk
-  - azureml-mlflow
-  - https://download.pytorch.org/whl/cpu/torch-1.1.0-cp35-cp35m-win_amd64.whl
-  - https://download.pytorch.org/whl/cpu/torchvision-0.3.0-cp35-cp35m-win_amd64.whl
