@@ -12,7 +12,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [Using Azure ML environments](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/using-environments/using-environments.ipynb) | Creating and registering environments | None | Local | None | None | None |
 | [Estimators in AML with hyperparameter tuning](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb) | Use the Estimator pattern in Azure Machine Learning SDK | None | AML Compute | None | None | None |
 
-
 ## Tutorials
 
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
@@ -50,7 +49,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | :star:[Azure Machine Learning Pipelines with Data Dependency](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-data-dependency-steps.ipynb) | Demonstrates how to construct a Pipeline with data dependency between steps | Custom | AML Compute | None | Azure ML | None |
 | [How to use run a notebook as a step in AML Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-notebook-runner-step.ipynb) | Demonstrates the use of NotebookRunnerStep | Custom | AML Compute | None | Azure ML | None |
 
-
 ## Training
 
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
@@ -78,7 +76,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [Use MLflow with AML for a remote training run](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-remote/train-remote.ipynb) | Use MLflow tracking APIs together with AML for storing your metrics and artifacts | Diabetes | AML Compute | None | None | None |
 
 
-
 ## Deployment
 
 
@@ -92,7 +89,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [Deploy ResNet50 with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb) | Image Classification | ImageNet | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
 | :star:[Convert and deploy TinyYolo with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb) | Object Detection | PASCAL VOC | local | Azure Container Instance | ONNX | ONNX Converter |
 | [Register Spark model and deploy as webservice](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/spark/model-register-and-deploy-spark.ipynb) |  | Iris | None | Azure Container Instance | PySpark |  |
-
 
 
 ## Other Notebooks
@@ -129,7 +125,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [train-explain-model-on-amlcompute-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/scoring-time/train-explain-model-on-amlcompute-and-deploy.ipynb) |  |  |  |  |  |  |
 | [training_notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) |  |  |  |  |  |  |
 | [nyc-taxi-data-regression-model-building](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |  |  |  |  |  |  |
-| [pipeline-batch-scoring](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb) |  |  |  |  |  |  |
 | [authentication-in-azureml](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb) |  |  |  |  |  |  |
 | [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None | None | None | None | None |
 | [distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/distributed-cntk-with-custom-docker/distributed-cntk-with-custom-docker.ipynb) |  |  |  |  |  |  |
@@ -139,5 +134,4 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [img-classification-part2-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/img-classification-part2-deploy.ipynb) |  |  |  |  |  |  |
 | [regression-automated-ml](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/regression-automated-ml.ipynb) |  |  |  |  |  |  |
 | [tutorial-1st-experiment-sdk-train](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/tutorial-1st-experiment-sdk-train.ipynb) |  |  |  |  |  |  |
-| [tutorial-pipeline-batch-scoring-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/tutorial-pipeline-batch-scoring-classification.ipynb) |  |  |  |  |  |  |
-
+| [tutorial-pipeline-batch-scoring-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb) |  |  |  |  |  |  |
