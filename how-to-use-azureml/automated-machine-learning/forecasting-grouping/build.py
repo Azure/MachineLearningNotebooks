@@ -17,7 +17,7 @@ from azureml.train.automl.runtime import AutoMLStep
 
 def _get_groups(data: Dataset, group_column_names: List[str]) -> pd.DataFrame:
     return data._dataflow.distinct(columns=group_column_names)\
-        .keep_columns(columns=group_column_names).to_pandas_dataframe()
+        .keep_columns(columns=group_column_names).to_pandas_dataframe()[group_column_names]
 
 
 def _get_configs(automlconfig: AutoMLConfig,
@@ -28,6 +28,9 @@ def _get_configs(automlconfig: AutoMLConfig,
     # remove invalid characters regex
     valid_chars = re.compile('[^a-zA-Z0-9-]')
     groups = _get_groups(data, group_column_names)
+    if groups.shape[0] > 40:
+        raise RuntimeError("AutoML only supports 40 or less groups. Please modify your "
+                           "group_column_names to ensure no more than 40 groups are present.")
     configs = {}
     for i, group in groups.iterrows():
         single = data._dataflow
@@ -118,7 +121,7 @@ def build_pipeline_steps(automlconfig: AutoMLConfig,
         # add deployment step
         pp_group_column_names = PipelineParameter(
             "group_column_names",
-            default_value="#####".join(list(reversed(group_column_names))))
+            default_value="#####".join(list(group_column_names)))
 
         pp_model_names = PipelineParameter(
             "model_names",

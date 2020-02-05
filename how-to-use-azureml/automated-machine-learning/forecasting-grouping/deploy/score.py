@@ -37,7 +37,7 @@ def run(raw_data):
             elif isinstance(grain, str):
                 cur_group = grain
             else:
-                cur_group = "#####".join(list(grain))
+                cur_group = "#####".join([str(v) for v in list(grain)])
             cur_group = valid_chars.sub('', cur_group)
             print("Query model for group {}".format(cur_group))
             if cur_group not in models:

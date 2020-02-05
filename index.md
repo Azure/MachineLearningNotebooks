@@ -10,70 +10,117 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
 | [Using Azure ML environments](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/using-environments/using-environments.ipynb) | Creating and registering environments | None | Local | None | None | None |
+
 | [Estimators in AML with hyperparameter tuning](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb) | Use the Estimator pattern in Azure Machine Learning SDK | None | AML Compute | None | None | None |
+
 
 ## Tutorials
 
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
 | [Forecasting BikeShare Demand](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb) | Forecasting | BikeShare | Remote | None | Azure ML AutoML | Forecasting |
+
 | [Forecasting orange juice sales with deployment](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb) | Forecasting | Orange Juice Sales | Remote | Azure Container Instance | Azure ML AutoML | None |
+
 | [Forecasting with automated ML SQL integration](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/sql-server/energy-demand/auto-ml-sql-energy-demand.ipynb) | Forecasting | NYC Energy | Local | None | Azure ML AutoML |  |
+
 | [Setup automated ML SQL integration](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/sql-server/setup/auto-ml-sql-setup.ipynb) | None | None | None | None | Azure ML AutoML |  |
+
 | [Register a model and deploy locally](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) | Deployment | None | Local | Local | None | None |
+
 | :star:[Data drift on aks](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb) | Filtering | NOAA | Remote | AKS | Azure ML | Dataset, Timeseries, Drift |
+
 | [Train and deploy a model using Python SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) | Training and deploying a model from a notebook | Diabetes | Local | Azure Container Instance | None | None |
+
 | :star:[Data drift quickdemo](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) | Filtering | NOAA | Remote | None | Azure ML | Dataset, Timeseries, Drift |
-| :star:[Filtering data using Tabular Timeseiries Dataset related API](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/tabular-timeseries-dataset-filtering.ipynb) | Filtering | NOAA | Local | None | Azure ML | Dataset, Tabular Timeseries |
-| :star:[Introduction to labeled datasets](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb) | Train |  | Remote | None | Azure ML | Dataset, label, Estimator |
-| :star:[Datasets with ML Pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) | Train | Fashion MNIST | Remote | None | Azure ML | Dataset, Pipeline, Estimator, ScriptRun |
-| :star:[Train with Datasets (Tabular and File)](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/train-with-datasets/train-with-datasets.ipynb) | Train | Iris, Diabetes | Remote | None | Azure ML | Dataset, Estimator, ScriptRun |
+
 | [Forecasting away from training data](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-high-frequency/automl-forecasting-function.ipynb) | Forecasting | None | Remote | None | Azure ML AutoML | Forecasting, Confidence Intervals |
+
 | [Automated ML run with basic edition features.](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) | Classification | Bankmarketing | AML | ACI | None | featurization, explainability, remote_run, AutomatedML |
+
 | [Classification of credit card fraudulent transactions using Automated ML](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb) | Classification | Creditcard | AML Compute | None | None | remote_run, AutomatedML |
+
 | [Automated ML run with featurization and model explainability.](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) | Regression | MachineData | AML | ACI | None | featurization, explainability, remote_run, AutomatedML |
+
 | :star:[Azure Machine Learning Pipeline with DataTranferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) | Demonstrates the use of DataTranferStep | Custom | ADF | None | Azure ML | None |
+
 | [Getting Started with Azure Machine Learning Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-getting-started.ipynb) | Getting Started notebook for ANML Pipelines | Custom | AML Compute | None | Azure ML | None |
+
 | [Azure Machine Learning Pipeline with AzureBatchStep](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-azurebatch-to-run-a-windows-executable.ipynb) | Demonstrates the use of AzureBatchStep | Custom | Azure Batch | None | Azure ML | None |
+
 | [Azure Machine Learning Pipeline with EstimatorStep](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb) | Demonstrates the use of EstimatorStep | Custom | AML Compute | None | Azure ML | None |
+
 | :star:[How to use ModuleStep with AML Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) | Demonstrates the use of ModuleStep | Custom | AML Compute | None | Azure ML | None |
+
 | :star:[How to use Pipeline Drafts to create a Published Pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-pipeline-drafts.ipynb) | Demonstrates the use of Pipeline Drafts | Custom | AML Compute | None | Azure ML | None |
+
 | :star:[Azure Machine Learning Pipeline with HyperDriveStep](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-parameter-tuning-with-hyperdrive.ipynb) | Demonstrates the use of HyperDriveStep | Custom | AML Compute | None | Azure ML | None |
+
 | :star:[How to Publish a Pipeline and Invoke the REST endpoint](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-publish-and-run-using-rest-endpoint.ipynb) | Demonstrates the use of Published Pipelines | Custom | AML Compute | None | Azure ML | None |
+
 | :star:[How to Setup a Schedule for a Published Pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-setup-schedule-for-a-published-pipeline.ipynb) | Demonstrates the use of Schedules for Published Pipelines | Custom | AML Compute | None | Azure ML | None |
+
 | [How to setup a versioned Pipeline Endpoint](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-setup-versioned-pipeline-endpoints.ipynb) | Demonstrates the use of PipelineEndpoint to run a specific version of the Published Pipeline | Custom | AML Compute | None | Azure ML | None |
+
 | :star:[How to use DataPath as a PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) | Demonstrates the use of DataPath as a PipelineParameter | Custom | AML Compute | None | Azure ML | None |
+
 | [How to use AdlaStep with AML Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-use-adla-as-compute-target.ipynb) | Demonstrates the use of AdlaStep | Custom | Azure Data Lake Analytics | None | Azure ML | None |
+
 | :star:[How to use DatabricksStep with AML Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-use-databricks-as-compute-target.ipynb) | Demonstrates the use of DatabricksStep | Custom | Azure Databricks | None | Azure ML, Azure Databricks | None |
+
 | :star:[How to use AutoMLStep with AML Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-automated-machine-learning-step.ipynb) | Demonstrates the use of AutoMLStep | Custom | AML Compute | None | Automated Machine Learning | None |
+
 | :star:[Azure Machine Learning Pipelines with Data Dependency](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-data-dependency-steps.ipynb) | Demonstrates how to construct a Pipeline with data dependency between steps | Custom | AML Compute | None | Azure ML | None |
+
 | [How to use run a notebook as a step in AML Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-notebook-runner-step.ipynb) | Demonstrates the use of NotebookRunnerStep | Custom | AML Compute | None | Azure ML | None |
+
 
 ## Training
 
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
 | [Train a model with hyperparameter tuning](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) | Train a Convolutional Neural Network (CNN) | MNIST | AML Compute | Azure Container Instance | Chainer | None |
+
 | [Distributed Training with Chainer](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb) | Use the Chainer estimator to perform distributed training | MNIST | AML Compute | None | Chainer | None |
+
 | [Training with hyperparameter tuning using PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) | Train an image classification model using transfer learning with the PyTorch estimator | ImageNet | AML Compute | Azure Container Instance | PyTorch | None |
+
 | [Distributed PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/pytorch/training/distributed-pytorch-with-horovod/distributed-pytorch-with-horovod.ipynb) | Train a model using the distributed training via Horovod | MNIST | AML Compute | None | PyTorch | None |
+
 | [Distributed training with PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/pytorch/training/distributed-pytorch-with-nccl-gloo/distributed-pytorch-with-nccl-gloo.ipynb) | Train a model using distributed training via Nccl/Gloo | MNIST | AML Compute | None | PyTorch | None |
+
 | [Training and hyperparameter tuning with Scikit-learn](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) | Train a support vector machine (SVM) to perform classification | Iris | AML Compute | None | Scikit-learn | None |
+
 | [Training and hyperparameter tuning using the TensorFlow estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) | Train a deep neural network | MNIST | AML Compute | Azure Container Instance | TensorFlow | None |
+
 | [Distributed training using TensorFlow with Horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/tensorflow/training/distributed-tensorflow-with-horovod/distributed-tensorflow-with-horovod.ipynb) | Use the TensorFlow estimator to train a word2vec model | None | AML Compute | None | TensorFlow | None |
+
 | [Distributed TensorFlow with parameter server](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/tensorflow/training/distributed-tensorflow-with-parameter-server/distributed-tensorflow-with-parameter-server.ipynb) | Use the TensorFlow estimator to train a model using distributed training | MNIST | AML Compute | None | TensorFlow | None |
+
 | [Hyperparameter tuning and warm start using the TensorFlow estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/tensorflow/training/hyperparameter-tune-and-warm-start-with-tensorflow/hyperparameter-tune-and-warm-start-with-tensorflow.ipynb) | Train a deep neural network | MNIST | AML Compute | Azure Container Instance | TensorFlow | None |
+
 | [Resuming a model](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb) | Resume a model in TensorFlow from a previously submitted run | MNIST | AML Compute | None | TensorFlow | None |
+
 | [Training in Spark](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/train-in-spark/train-in-spark.ipynb) | Submiting a run on a spark cluster | None | HDI cluster | None | PySpark | None |
+
 | [Train on Azure Machine Learning Compute](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb) | Submit a run on Azure Machine Learning Compute. | Diabetes | AML Compute | None | None | None |
+
 | [Train on local compute](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/train-on-local/train-on-local.ipynb) | Train a model locally | Diabetes | Local | None | None | None |
+
 | [Train in a remote Linux virtual machine](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb) | Configure and execute a run | Diabetes | Data Science Virtual Machine | None | None | None |
+
 | [Using Tensorboard](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) | Export the run history as Tensorboard logs | None | None | None | TensorFlow | None |
+
 | [Train a DNN using hyperparameter tuning and deploying with Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) | Create a multi-class classifier | MNIST | AML Compute | Azure Container Instance | TensorFlow | None |
+
 | [Managing your training runs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb) | Monitor and complete runs | None | Local | None | None | None |
+
 | [Tensorboard integration with run history](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/tensorboard/tensorboard.ipynb) | Run a TensorFlow job and view its Tensorboard output live | None | Local, DSVM, AML Compute | None | TensorFlow | None |
+
 | [Use MLflow with AML for a local training run](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-local/train-local.ipynb) | Use MLflow tracking APIs together with Azure Machine Learning for storing your metrics and artifacts | Diabetes | Local | None | None | None |
+
 | [Use MLflow with AML for a remote training run](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-remote/train-remote.ipynb) | Use MLflow tracking APIs together with AML for storing your metrics and artifacts | Diabetes | AML Compute | None | None | None |
+
 
 
 ## Deployment
@@ -82,56 +129,105 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
 | [Deploy MNIST digit recognition with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-inference-mnist-deploy.ipynb) | Image Classification | MNIST | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
+
 | [Deploy Facial Expression Recognition (FER+) with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb) | Facial Expression Recognition | Emotion FER | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
+
 | :star:[Register model and deploy as webservice](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-cloud/model-register-and-deploy.ipynb) | Deploy a model with Azure Machine Learning | Diabetes | None | Azure Container Instance | Scikit-learn | None |
+
 | :star:[Deploy models to AKS using controlled roll out](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-with-controlled-rollout/deploy-aks-with-controlled-rollout.ipynb) | Deploy a model with Azure Machine Learning | Diabetes | None | Azure Kubernetes Service | Scikit-learn | None |
+
 | [Train MNIST in PyTorch, convert, and deploy with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb) | Image Classification | MNIST | AML Compute | Azure Container Instance | ONNX | ONNX Converter |
+
 | [Deploy ResNet50 with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb) | Image Classification | ImageNet | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
+
 | :star:[Convert and deploy TinyYolo with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb) | Object Detection | PASCAL VOC | local | Azure Container Instance | ONNX | ONNX Converter |
+
 | [Register Spark model and deploy as webservice](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/spark/model-register-and-deploy-spark.ipynb) |  | Iris | None | Azure Container Instance | PySpark |  |
+
 
 
 ## Other Notebooks
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
 | [DNN Text Featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) | Text featurization using DNNs for classification | None | AML Compute | None | None | None |
+
 | [Automated ML Grouping with Pipeline.](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-grouping/auto-ml-forecasting-grouping.ipynb) | Use AzureML Pipeline to trigger multiple Automated ML runs. | Orange Juice Sales | AML Compute | Azure Container Instance | Scikit-learn, Pytorch | AutomatedML |
+
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) |  |  |  |  |  |  |
+
 | [lightgbm-example](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/gbdt/lightgbm/lightgbm-example.ipynb) |  |  |  |  |  |  |
+
 | [azure-ml-with-nvidia-rapids](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/RAPIDS/azure-ml-with-nvidia-rapids.ipynb) |  |  |  |  |  |  |
+
 | [auto-ml-continuous-retraining](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb) |  |  |  |  |  |  |
+
 | [auto-ml-forecasting-beer-remote](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) |  |  |  |  |  |  |
+
 | [auto-ml-forecasting-energy-demand](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) |  |  |  |  |  |  |
+
 | [auto-ml-regression](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) |  |  |  |  |  |  |
+
 | [build-model-run-history-03](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/amlsdk/build-model-run-history-03.ipynb) |  |  |  |  |  |  |
+
 | [deploy-to-aci-04](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/amlsdk/deploy-to-aci-04.ipynb) |  |  |  |  |  |  |
+
 | [ingest-data-02](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/amlsdk/ingest-data-02.ipynb) |  |  |  |  |  |  |
+
 | [installation-and-configuration-01](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/amlsdk/installation-and-configuration-01.ipynb) |  |  |  |  |  |  |
+
 | [automl-databricks-local-01](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/automl/automl-databricks-local-01.ipynb) |  |  |  |  |  |  |
+
 | [automl-databricks-local-with-deployment](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/automl/automl-databricks-local-with-deployment.ipynb) |  |  |  |  |  |  |
+
 | [aml-pipelines-use-databricks-as-compute-target](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/databricks-as-remote-compute-target/aml-pipelines-use-databricks-as-compute-target.ipynb) |  |  |  |  |  |  |
+
 | [accelerated-models-object-detection](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/accelerated-models/accelerated-models-object-detection.ipynb) |  |  |  |  |  |  |
+
 | [accelerated-models-quickstart](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/accelerated-models/accelerated-models-quickstart.ipynb) |  |  |  |  |  |  |
+
 | [accelerated-models-training](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/accelerated-models/accelerated-models-training.ipynb) |  |  |  |  |  |  |
+
 | [multi-model-register-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-multi-model/multi-model-register-and-deploy.ipynb) |  |  |  |  |  |  |
+
 | [register-model-deploy-local-advanced](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb) |  |  |  |  |  |  |
+
 | [enable-app-insights-in-production-service](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) |  |  |  |  |  |  |
+
 | [onnx-model-register-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-model-register-and-deploy.ipynb) |  |  |  |  |  |  |
+
 | [production-deploy-to-aks](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks.ipynb) |  |  |  |  |  |  |
+
 | [tensorflow-model-register-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/tensorflow/tensorflow-model-register-and-deploy.ipynb) |  |  |  |  |  |  |
+
 | [explain-model-on-amlcompute](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/remote-explanation/explain-model-on-amlcompute.ipynb) |  |  |  |  |  |  |
+
 | [save-retrieve-explanations-run-history](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/run-history/save-retrieve-explanations-run-history.ipynb) |  |  |  |  |  |  |
+
 | [train-explain-model-locally-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/scoring-time/train-explain-model-locally-and-deploy.ipynb) |  |  |  |  |  |  |
+
 | [train-explain-model-on-amlcompute-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/scoring-time/train-explain-model-on-amlcompute-and-deploy.ipynb) |  |  |  |  |  |  |
+
 | [training_notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) |  |  |  |  |  |  |
+
 | [nyc-taxi-data-regression-model-building](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |  |  |  |  |  |  |
+
 | [authentication-in-azureml](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb) |  |  |  |  |  |  |
+
 | [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None | None | None | None | None |
+
 | [distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/distributed-cntk-with-custom-docker/distributed-cntk-with-custom-docker.ipynb) |  |  |  |  |  |  |
+
 | [notebook_example](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) |  |  |  |  |  |  |
+
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master//setup-environment/configuration.ipynb) |  |  |  |  |  |  |
-| [img-classification-part1-training](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/img-classification-part1-training.ipynb) |  |  |  |  |  |  |
-| [img-classification-part2-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/img-classification-part2-deploy.ipynb) |  |  |  |  |  |  |
-| [regression-automated-ml](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/regression-automated-ml.ipynb) |  |  |  |  |  |  |
-| [tutorial-1st-experiment-sdk-train](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/tutorial-1st-experiment-sdk-train.ipynb) |  |  |  |  |  |  |
+
+| [tutorial-1st-experiment-sdk-train](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb) |  |  |  |  |  |  |
+
+| [img-classification-part1-training](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb) |  |  |  |  |  |  |
+
+| [img-classification-part2-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part2-deploy.ipynb) |  |  |  |  |  |  |
+
 | [tutorial-pipeline-batch-scoring-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb) |  |  |  |  |  |  |
+
+| [regression-automated-ml](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb) |  |  |  |  |  |  |
+
