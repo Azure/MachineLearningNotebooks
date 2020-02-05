@@ -2,7 +2,7 @@
 
 This repository contains example notebooks demonstrating the [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning-service/) Python SDK which allows you to build, train, deploy and manage machine learning solutions using Azure.  The AML SDK allows you the choice of using local or cloud compute resources, while managing and maintaining the complete data science workflow from the cloud.
 
-![Azure ML Workflow](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/machine-learning/service/media/concept-azure-machine-learning-architecture/workflow.png)
+![Azure ML Workflow](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/machine-learning/media/concept-azure-machine-learning-architecture/workflow.png)
 
 
 ## Quick installation
@@ -17,7 +17,7 @@ This [index](.index.md) should assist in navigating the Azure Machine Learning n
 
 If you want to...
 
- * ...try out and explore Azure ML, start with image classification tutorials: [Part 1 (Training)](./tutorials/img-classification-part1-training.ipynb) and [Part 2 (Deployment)](./tutorials/img-classification-part2-deploy.ipynb).
+ * ...try out and explore Azure ML, start with image classification tutorials: [Part 1 (Training)](./tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb) and [Part 2 (Deployment)](./tutorials/image-classification-mnist-data/img-classification-part2-deploy.ipynb).
  * ...learn about experimentation and tracking run history, first [train within Notebook](./how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb), then try [training on remote VM](./how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb) and [using logging APIs](./how-to-use-azureml/training/logging-api/logging-api.ipynb).
  * ...train deep learning models at scale, first learn about [Machine Learning Compute](./how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb), and then try [distributed hyperparameter tuning](./how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) and [distributed training](./how-to-use-azureml/training-with-deep-learning/distributed-pytorch-with-horovod/distributed-pytorch-with-horovod.ipynb).
  * ...deploy models as a realtime scoring service, first learn the basics by [training within Notebook and deploying to Azure Container Instance](./how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb), then learn how to [production deploy models on Azure Kubernetes Cluster](./how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks.ipynb).
