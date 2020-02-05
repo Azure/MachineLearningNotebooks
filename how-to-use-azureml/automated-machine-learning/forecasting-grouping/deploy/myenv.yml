@@ -6,6 +6,7 @@ dependencies:
 
 - python=3.6.2
 - numpy>=1.16.0,<=1.16.2
+- pandas>=0.21.0,<=0.23.4
 - scikit-learn>=0.19.0,<=0.20.3
 - conda-forge::fbprophet==0.5
 

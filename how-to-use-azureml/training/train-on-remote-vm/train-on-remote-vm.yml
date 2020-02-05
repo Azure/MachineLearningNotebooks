@@ -2,11 +2,9 @@ name: train-on-remote-vm
 dependencies:
 - matplotlib
 - tqdm
-- scikit-learn
+- scikit-learn==0.22.1
+- numpy==1.18.1
 - pip:
   - azureml-sdk
   - azureml-widgets
-  - azureml-dataprep
-  - pandas
-  - fuse
-  - scikit-learn
+  - azureml-dataprep[fuse,pandas]
