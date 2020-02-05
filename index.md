@@ -151,8 +151,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
 | [DNN Text Featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) | Text featurization using DNNs for classification | None | AML Compute | None | None | None |
 
-| [Automated ML Grouping with Pipeline.](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-grouping/auto-ml-forecasting-grouping.ipynb) | Use AzureML Pipeline to trigger multiple Automated ML runs. | Orange Juice Sales | AML Compute | Azure Container Instance | Scikit-learn, Pytorch | AutomatedML |
-
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) |  |  |  |  |  |  |
 
 | [lightgbm-example](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/gbdt/lightgbm/lightgbm-example.ipynb) |  |  |  |  |  |  |
