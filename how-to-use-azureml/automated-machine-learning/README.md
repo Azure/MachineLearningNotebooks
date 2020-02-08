@@ -17,7 +17,7 @@ If you are new to Data Science, automated ML will help you get jumpstarted by si
 If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. Automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
 
  <a name="jupyter"></a>
-## Setup using Azure ML 'compute Instance' (aka. Notebook VM) - Jupyter notebooks in an Azure VM
+## Setup using Azure ML 'Compute Instance' (aka. Notebook VM) - Jupyter notebooks in an Azure VM
 
 The easiest way to try these Azure Automated ML notebooks is by running them in the ready to use Azure Compute Instance (aka. Notebook VM) integrated to your Azure ML Workspace.
 
