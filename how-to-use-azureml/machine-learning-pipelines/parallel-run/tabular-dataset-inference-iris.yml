@@ -4,3 +4,4 @@ dependencies:
   - azureml-sdk
   - azureml-contrib-pipeline-steps
   - azureml-widgets
+  - pandas

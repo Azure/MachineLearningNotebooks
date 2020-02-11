@@ -24,7 +24,6 @@ dependencies:
   - azureml-train-automl
   - azureml-train
   - azureml-widgets
-  - azureml-explain-model
   - azureml-pipeline
   - azureml-contrib-interpret
   - pytorch-transformers==1.0.0
