@@ -1,0 +1,6 @@
+name: tabular-timeseries-dataset-filtering
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-dataprep
+  - pandas
