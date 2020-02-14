@@ -5,6 +5,7 @@ dependencies:
 - pip<=19.3.1
 - nomkl
 - python>=3.5.2,<3.6.8
+- wheel==0.30.0
 - nb_conda
 - matplotlib==2.1.0
 - numpy>=1.16.0,<=1.16.2

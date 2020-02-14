@@ -13,7 +13,7 @@ Read more detailed instructions on [how to set up your environment](./NBSETUP.md
 
 ## How to navigate and use the example notebooks?
 If you are using an Azure Machine Learning Notebook VM, you are all set. Otherwise, you should always run the [Configuration](./configuration.ipynb) notebook first when setting up a notebook library on a new machine or in a new environment. It configures your notebook library to connect to an Azure Machine Learning workspace, and sets up your workspace and compute to be used by many of the other examples. 
-This [index](./index.md) should assist in navigating the Azure Machine Learning notebook samples and encourage efficient retrieval of topics and content. 
+This [index](.index.md) should assist in navigating the Azure Machine Learning notebook samples and encourage efficient retrieval of topics and content. 
 
 If you want to...
 
