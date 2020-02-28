@@ -71,7 +71,7 @@ base_image_registry.password = "password"
   - **models**: zero or more model names already registered in Azure Machine Learning model registry.
   - **parallel_run_config**: ParallelRunConfig as defined above.
   - **inputs**: one or more Dataset objects.
-  - **output**: this should be a PipelineData object encapsulating an Azure BLOB container path. 
+  - **output**: this should be a PipelineData object encapsulating an Azure BLOB container path.
   - **arguments**: list of custom arguments passed to scoring script (optional)
   - **allow_reuse**: optional, default value is True. If the inputs remain the same as a previous run, it will make the previous run results immediately available (skips re-computing the step).
 
@@ -121,7 +121,8 @@ pipeline_run.wait_for_completion(show_output=True)
 
 # Sample notebooks
 
--  [file-dataset-image-inference-mnist.ipynb](./file-dataset-image-inference-mnist.ipynb) demonstrates how to run batch inference on an MNIST dataset.
--  [tabular-dataset-inference-iris.ipynb](./tabular-dataset-inference-iris.ipynb) demonstrates how to run batch inference on an IRIS dataset.
+-  [file-dataset-image-inference-mnist.ipynb](./file-dataset-image-inference-mnist.ipynb) demonstrates how to run batch inference on an MNIST dataset using FileDataset.
+-  [tabular-dataset-inference-iris.ipynb](./tabular-dataset-inference-iris.ipynb) demonstrates how to run batch inference on an IRIS dataset using TabularDataset.
+-  [pipeline-style-transfer.ipynb](../pipeline-style-transfer/pipeline-style-transfer.ipynb) demonstrates using ParallelRunStep in multi-step pipeline and using output from one step as input to ParallelRunStep.
 
 ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/parallel-run/README.png)

@@ -37,7 +37,7 @@ input_data = args.input_data
 print("the input data is at %s" % input_data)
 
 # Step 1: Read data.
-filename = glob.glob(os.path.join(input_data, '**/text8.zip'), recursive=True)[0]
+filename = input_data
 
 
 # Read the data into a list of strings.
