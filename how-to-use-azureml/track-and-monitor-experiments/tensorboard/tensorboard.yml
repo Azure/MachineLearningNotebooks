@@ -3,4 +3,5 @@ dependencies:
 - pip:
   - azureml-sdk
   - azureml-tensorboard
-  - tensorflow<1.15
+  - tensorflow
+  - setuptools>=41.0.0

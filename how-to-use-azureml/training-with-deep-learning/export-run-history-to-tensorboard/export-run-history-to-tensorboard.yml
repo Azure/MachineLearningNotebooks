@@ -3,7 +3,8 @@ dependencies:
 - pip:
   - azureml-sdk
   - azureml-tensorboard
-  - tensorflow<1.15.0
+  - tensorflow
   - tqdm
   - scipy
   - sklearn
+  - setuptools>=41.0.0

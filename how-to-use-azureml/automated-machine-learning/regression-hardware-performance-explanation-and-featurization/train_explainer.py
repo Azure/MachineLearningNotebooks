@@ -22,7 +22,7 @@ run = Run.get_context()
 ws = run.experiment.workspace
 
 # Get the AutoML run object from the experiment name and the workspace
-experiment = Experiment(ws, '<<experimnet_name>>')
+experiment = Experiment(ws, '<<experiment_name>>')
 automl_run = Run(experiment=experiment, run_id='<<run_id>>')
 
 # Check if this AutoML model is explainable
