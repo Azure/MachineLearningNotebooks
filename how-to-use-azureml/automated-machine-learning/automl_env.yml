@@ -28,7 +28,6 @@ dependencies:
   - azureml-contrib-interpret
   - pytorch-transformers==1.0.0
   - spacy==2.1.8
-  - joblib
   - onnxruntime==1.0.0
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
 
