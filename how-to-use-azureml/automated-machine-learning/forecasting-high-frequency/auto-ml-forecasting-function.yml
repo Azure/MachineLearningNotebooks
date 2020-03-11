@@ -1,4 +1,4 @@
-name: automl-forecasting-function
+name: auto-ml-forecasting-function
 dependencies:
 - fbprophet==0.5
 - py-xgboost<=0.80

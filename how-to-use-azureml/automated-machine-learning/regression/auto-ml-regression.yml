@@ -2,6 +2,7 @@ name: auto-ml-regression
 dependencies:
 - pip:
   - azureml-sdk
+  - pandas==0.23.4
   - azureml-train-automl
   - azureml-widgets
   - matplotlib

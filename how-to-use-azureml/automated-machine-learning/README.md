@@ -144,7 +144,7 @@ jupyter notebook
     - Dataset: forecasting for a bike-sharing
     - Example of training an automated ML forecasting model on multiple time-series
 
-- [automl-forecasting-function.ipynb](forecasting-high-frequency/automl-forecasting-function.ipynb)
+- [auto-ml-forecasting-function.ipynb](forecasting-high-frequency/auto-ml-forecasting-function.ipynb)
     - Example of training an automated ML forecasting model on multiple time-series
 
 - [auto-ml-forecasting-beer-remote.ipynb](forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
