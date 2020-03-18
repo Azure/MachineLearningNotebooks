@@ -28,7 +28,6 @@ The following tutorials are intended to provide examples of more advanced featur
 | Tutorial | Description | Notebook | Task | Framework | 
 | --- | --- | --- | --- | --- |
 | [Build an Azure Machine Learning pipeline for batch scoring](https://docs.microsoft.com/azure/machine-learning/tutorial-pipeline-batch-scoring-classification) | Create an Azure Machine Learning pipeline to run batch scoring image classification jobs | [tutorial-pipeline-batch-scoring-classification.ipynb](machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb) | Image Classification | TensorFlow
-Complete these tutorials to learn how to train and deploy models using Azure Machine Learning services and Python SDK. These Notebooks accompany the tutorial articles for:
 
 For additional documentation and resources, see the [official documentation site for Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/).
 

@@ -4,6 +4,7 @@ dependencies:
 - py-xgboost<=0.80
 - pip:
   - azureml-sdk
+  - pandas==0.23.4
   - azureml-train-automl
   - azureml-widgets
   - matplotlib
