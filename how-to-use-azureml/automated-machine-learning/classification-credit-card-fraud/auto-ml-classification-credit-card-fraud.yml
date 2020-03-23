@@ -5,5 +5,4 @@ dependencies:
   - azureml-train-automl
   - azureml-widgets
   - matplotlib
-  - interpret
   - azureml-explain-model

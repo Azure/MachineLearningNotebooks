@@ -1,10 +1,9 @@
 name: auto-ml-forecasting-orange-juice-sales
 dependencies:
-- fbprophet==0.5
-- numpy==1.16.2
 - py-xgboost<=0.90
 - pip:
   - azureml-sdk
+  - numpy==1.16.2
   - pandas==0.23.4
   - azureml-train-automl
   - azureml-widgets
