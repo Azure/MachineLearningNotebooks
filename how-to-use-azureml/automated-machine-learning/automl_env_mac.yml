@@ -34,5 +34,6 @@ dependencies:
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz  
 
 channels:
+- anaconda
 - conda-forge
 - pytorch
