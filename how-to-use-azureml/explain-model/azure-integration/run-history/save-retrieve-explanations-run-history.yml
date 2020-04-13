@@ -3,5 +3,7 @@ dependencies:
 - pip:
   - azureml-sdk
   - azureml-interpret
+  - interpret-community[visualization]
+  - matplotlib
   - azureml-contrib-interpret
   - ipywidgets

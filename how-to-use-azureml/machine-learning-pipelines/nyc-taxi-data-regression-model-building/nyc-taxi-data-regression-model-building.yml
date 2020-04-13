@@ -4,6 +4,7 @@ dependencies:
   - azureml-sdk
   - azureml-widgets
   - azureml-opendatasets
-  - azureml-dataprep
   - azureml-train-automl
   - matplotlib
+  - pandas
+  - pyarrow

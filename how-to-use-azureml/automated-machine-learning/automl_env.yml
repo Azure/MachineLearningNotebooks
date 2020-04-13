@@ -26,7 +26,6 @@ dependencies:
   - azureml-train
   - azureml-widgets
   - azureml-pipeline
-  - azureml-contrib-interpret
   - pytorch-transformers==1.0.0
   - spacy==2.1.8
   - onnxruntime==1.0.0
