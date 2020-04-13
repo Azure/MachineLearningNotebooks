@@ -1,29 +1,30 @@
-
 import argparse
 import os
-import azureml.dataprep as dprep
+from azureml.core import Run
 
 print("Merge Green and Yellow taxi data")
 
+run = Run.get_context()
+
+# To learn more about how to access dataset in your script, please
+# see https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-with-datasets.
+cleansed_green_data = run.input_datasets["cleansed_green_data"]
+cleansed_yellow_data = run.input_datasets["cleansed_yellow_data"]
+green_df = cleansed_green_data.to_pandas_dataframe()
+yellow_df = cleansed_yellow_data.to_pandas_dataframe()
+
 parser = argparse.ArgumentParser("merge")
-parser.add_argument("--input_green_merge", type=str, help="cleaned green taxi data directory")
-parser.add_argument("--input_yellow_merge", type=str, help="cleaned yellow taxi data directory")
 parser.add_argument("--output_merge", type=str, help="green and yellow taxi data merged")
 
 args = parser.parse_args()
-
-print("Argument 1(input green taxi data path): %s" % args.input_green_merge)
-print("Argument 2(input yellow taxi data path): %s" % args.input_yellow_merge)
-print("Argument 3(output merge taxi data path): %s" % args.output_merge)
-
-green_df = dprep.read_csv(args.input_green_merge + '/part-*')
-yellow_df = dprep.read_csv(args.input_yellow_merge + '/part-*')
+print("Argument (output merge taxi data path): %s" % args.output_merge)
 
 # Appending yellow data to green data
-combined_df = green_df.append_rows([yellow_df])
+combined_df = green_df.append(yellow_df, ignore_index=True)
+combined_df.reset_index(inplace=True, drop=True)
 
 if not (args.output_merge is None):
     os.makedirs(args.output_merge, exist_ok=True)
     print("%s created" % args.output_merge)
-    write_df = combined_df.write_to_csv(directory_path=dprep.LocalFileOutput(args.output_merge))
-    write_df.run_local()
+    path = args.output_merge + "/processed.parquet"
+    write_df = combined_df.to_parquet(path)

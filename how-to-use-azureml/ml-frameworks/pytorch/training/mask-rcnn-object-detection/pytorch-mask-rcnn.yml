@@ -1,0 +1,14 @@
+name: pytorch-mask-rcnn
+dependencies:
+- cython
+- pytorch -c pytorch
+- torchvision -c pytorch
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - azureml-dataprep
+  - fuse
+  - pandas
+  - matplotlib
+  - pillow==7.0.0
+  - git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI

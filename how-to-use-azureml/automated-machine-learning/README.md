@@ -117,7 +117,7 @@ jupyter notebook
     - Simple example of using automated ML for regression
     - Uses azure compute for training
 
-- [auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb](regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
+- [auto-ml-regression-explanation-featurization.ipynb](regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb)
     - Dataset: Hardware Performance Dataset
     - Shows featurization and excplanation
     - Uses azure compute for training
@@ -152,7 +152,7 @@ jupyter notebook
     - Beer Production Forecasting
 
 - [auto-ml-continuous-retraining.ipynb](continuous-retraining/auto-ml-continuous-retraining.ipynb)
-    - Continous retraining using Pipelines and Time-Series TabularDataset
+    - Continuous retraining using Pipelines and Time-Series TabularDataset
 
 - [auto-ml-classification-text-dnn.ipynb](classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
     - Classification with text data using deep learning in AutoML
