@@ -11,7 +11,6 @@ from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplaine
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 from automl.client.core.common.constants import MODEL_PATH
-from azureml.automl.core.shared.constants import MODEL_EXPLANATION_TAG
 from azureml.explain.model.scoring.scoring_explainer import TreeScoringExplainer, save
 
 
@@ -68,9 +67,6 @@ engineered_explanations = explainer.explain(['local', 'global'], tag='engineered
 raw_explanations = explainer.explain(['local', 'global'], get_raw=True, tag='raw explanations',
                                      raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
                                      eval_dataset=automl_explainer_setup_obj.X_test_transform)
-
-# Set tag that explanations completed
-automl_run.tag(MODEL_EXPLANATION_TAG, 'True')
 
 print("Engineered and raw explanations computed successfully")
 
