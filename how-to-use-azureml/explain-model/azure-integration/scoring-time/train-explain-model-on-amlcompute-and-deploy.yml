@@ -2,8 +2,9 @@ name: train-explain-model-on-amlcompute-and-deploy
 dependencies:
 - pip:
   - azureml-sdk
-  - interpret
   - azureml-interpret
+  - interpret-community[visualization]
+  - matplotlib
   - azureml-contrib-interpret
   - sklearn-pandas
   - azureml-dataprep

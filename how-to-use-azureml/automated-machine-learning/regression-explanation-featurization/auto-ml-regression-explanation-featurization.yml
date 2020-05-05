@@ -1,0 +1,7 @@
+name: auto-ml-regression-explanation-featurization
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-train-automl
+  - azureml-widgets
+  - matplotlib

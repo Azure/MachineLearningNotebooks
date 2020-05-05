@@ -1,47 +1,48 @@
 import argparse
 import os
-import azureml.dataprep as dprep
+import pandas as pd
+from azureml.core import Run
 
 print("Replace undefined values to relavant values and rename columns to meaningful names")
 
+run = Run.get_context()
+
+# To learn more about how to access dataset in your script, please
+# see https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-with-datasets.
+filtered_data = run.input_datasets['filtered_data']
+combined_converted_df = filtered_data.to_pandas_dataframe()
+
 parser = argparse.ArgumentParser("normalize")
-parser.add_argument("--input_normalize", type=str, help="combined and converted taxi data")
 parser.add_argument("--output_normalize", type=str, help="replaced undefined values and renamed columns")
 
 args = parser.parse_args()
 
-print("Argument 1(input taxi data path): %s" % args.input_normalize)
-print("Argument 2(output normalized taxi data path): %s" % args.output_normalize)
-
-combined_converted_df = dprep.read_csv(args.input_normalize + '/part-*')
+print("Argument (output normalized taxi data path): %s" % args.output_normalize)
 
 # These functions replace undefined values and rename to use meaningful names.
-# Visit https://docs.microsoft.com/en-us/azure/machine-learning/service/tutorial-data-prep for more details
+replaced_stfor_vals_df = (combined_converted_df.replace({"store_forward": "0"}, {"store_forward": "N"})
+                          .fillna({"store_forward": "N"}))
 
-replaced_stfor_vals_df = combined_converted_df.replace(columns="store_forward",
-                                                       find="0",
-                                                       replace_with="N").fill_nulls("store_forward", "N")
+replaced_distance_vals_df = (replaced_stfor_vals_df.replace({"distance": ".00"}, {"distance": 0})
+                             .fillna({"distance": 0}))
 
-replaced_distance_vals_df = replaced_stfor_vals_df.replace(columns="distance",
-                                                           find=".00",
-                                                           replace_with=0).fill_nulls("distance", 0)
+normalized_df = replaced_distance_vals_df.astype({"distance": 'float64'})
 
-replaced_distance_vals_df = replaced_distance_vals_df.to_number(["distance"])
+temp = pd.DatetimeIndex(normalized_df["pickup_datetime"])
+normalized_df["pickup_date"] = temp.date
+normalized_df["pickup_time"] = temp.time
 
-time_split_df = (replaced_distance_vals_df
-                 .split_column_by_example(source_column="pickup_datetime")
-                 .split_column_by_example(source_column="dropoff_datetime"))
+temp = pd.DatetimeIndex(normalized_df["dropoff_datetime"])
+normalized_df["dropoff_date"] = temp.date
+normalized_df["dropoff_time"] = temp.time
 
-# Split the pickup and dropoff datetime values into the respective date and time columns
-renamed_col_df = (time_split_df
-                  .rename_columns(column_pairs={
-                      "pickup_datetime_1": "pickup_date",
-                      "pickup_datetime_2": "pickup_time",
-                      "dropoff_datetime_1": "dropoff_date",
-                      "dropoff_datetime_2": "dropoff_time"}))
+del normalized_df["pickup_datetime"]
+del normalized_df["dropoff_datetime"]
+
+normalized_df.reset_index(inplace=True, drop=True)
 
 if not (args.output_normalize is None):
     os.makedirs(args.output_normalize, exist_ok=True)
     print("%s created" % args.output_normalize)
-    write_df = renamed_col_df.write_to_csv(directory_path=dprep.LocalFileOutput(args.output_normalize))
-    write_df.run_local()
+    path = args.output_normalize + "/processed.parquet"
+    write_df = normalized_df.to_parquet(path)

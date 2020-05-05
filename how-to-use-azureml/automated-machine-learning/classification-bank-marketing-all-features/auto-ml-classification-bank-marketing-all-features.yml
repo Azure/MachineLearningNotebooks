@@ -5,7 +5,4 @@ dependencies:
   - azureml-train-automl
   - azureml-widgets
   - matplotlib
-  - interpret
   - onnxruntime==1.0.0
-  - azureml-explain-model
-  - azureml-contrib-interpret

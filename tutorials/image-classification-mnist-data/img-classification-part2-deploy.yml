@@ -4,3 +4,5 @@ dependencies:
   - azureml-sdk
   - matplotlib
   - sklearn
+  - pandas
+  - azureml-opendatasets
