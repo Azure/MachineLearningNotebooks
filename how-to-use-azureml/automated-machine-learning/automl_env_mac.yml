@@ -16,7 +16,7 @@ dependencies:
 - py-xgboost<=0.80
 - conda-forge::fbprophet==0.5
 - pytorch::pytorch=1.4.0
-- cudatoolkit=10.1.243
+- cudatoolkit=9.0
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
