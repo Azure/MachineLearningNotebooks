@@ -6,4 +6,4 @@ dependencies:
   - matplotlib
   - numpy
   - onnx
-  - opencv-python
+  - opencv-python-headless

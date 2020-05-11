@@ -5,19 +5,18 @@ dependencies:
 - pip<=19.3.1
 - nomkl
 - python>=3.5.2,<3.6.8
-- wheel==0.30.0
 - nb_conda
 - matplotlib==2.1.0
 - numpy>=1.16.0,<=1.16.2
 - cython
 - urllib3<1.24
-- scipy>=1.0.0,<=1.1.0
+- scipy==1.4.1
 - scikit-learn>=0.19.0,<=0.20.3
 - pandas>=0.22.0,<0.23.0
 - py-xgboost<=0.80
-- fbprophet==0.5
-- pytorch=1.1.0
-- cudatoolkit=9.0
+- conda-forge::fbprophet==0.5
+- pytorch::pytorch=1.4.0
+- cudatoolkit=10.1.243
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
@@ -30,8 +29,3 @@ dependencies:
   - pytorch-transformers==1.0.0
   - spacy==2.1.8
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz  
-
-channels:
-- anaconda
-- conda-forge
-- pytorch

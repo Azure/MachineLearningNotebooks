@@ -4,8 +4,7 @@ import argparse
 from azureml.core import Run
 from sklearn.externals import joblib
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-from azureml.automl.core._vendor.automl.client.core.common import metrics
-from automl.client.core.common import constants
+from azureml.automl.core.shared import constants, metrics
 from pandas.tseries.frequencies import to_offset
 
 

@@ -10,7 +10,7 @@ from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplaine
     automl_setup_model_explanations, automl_check_model_if_explainable
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
-from automl.client.core.common.constants import MODEL_PATH
+from azureml.automl.core.shared.constants import MODEL_PATH
 from azureml.explain.model.scoring.scoring_explainer import TreeScoringExplainer, save
 
 
