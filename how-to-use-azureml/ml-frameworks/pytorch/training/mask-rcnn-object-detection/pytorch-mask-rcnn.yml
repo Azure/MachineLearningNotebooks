@@ -1,7 +1,7 @@
 name: pytorch-mask-rcnn
 dependencies:
 - cython
-- pytorch -c pytorch
+- pytorch==1.4.0 -c pytorch
 - torchvision -c pytorch
 - pip:
   - azureml-sdk

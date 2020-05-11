@@ -1,8 +1,8 @@
 # Table of Contents
 1. [Automated ML Introduction](#introduction)
-1. [Setup using Azure Notebooks](#jupyter)
-1. [Setup using Azure Databricks](#databricks)
+1. [Setup using Compute Instances](#jupyter)
 1. [Setup using a Local Conda environment](#localconda)
+1. [Setup using Azure Databricks](#databricks)
 1. [Automated ML SDK Sample Notebooks](#samples)
 1. [Documentation](#documentation)
 1. [Running using python command](#pythoncommand)
@@ -21,13 +21,13 @@ Below are the three execution environments supported by automated ML.
 
 
  <a name="jupyter"></a>
-## Setup using Notebook VMs - Jupyter based notebooks from a Azure VM
+## Setup using Compute Instances - Jupyter based notebooks from a Azure Virtual Machine
 
 1. Open the [ML Azure portal](https://ml.azure.com)
 1. Select Compute
-1. Select Notebook VMs
+1. Select Compute Instances
 1. Click New
-1. Type a name for the Vm and select a VM type
+1. Type a Compute Name, select a Virtual Machine type and select a Virtual Machine size
 1. Click Create
 
 <a name="localconda"></a>

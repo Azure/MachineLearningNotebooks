@@ -23,7 +23,7 @@ print("Keras version:", keras.__version__)
 print("Tensorflow version:", tf.__version__)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
+parser.add_argument('--data-folder', type=str, dest='data_folder', default='data', help='data folder mounting point')
 parser.add_argument('--batch-size', type=int, dest='batch_size', default=50, help='mini batch size for training')
 parser.add_argument('--first-layer-neurons', type=int, dest='n_hidden_1', default=100,
                     help='# of neurons in the first layer')
@@ -84,8 +84,8 @@ class LogRunMetrics(Callback):
     # callback at the end of every epoch
     def on_epoch_end(self, epoch, log):
         # log a value repeated which creates a list
-        run.log('Loss', log['loss'])
-        run.log('Accuracy', log['acc'])
+        run.log('Loss', log['val_loss'])
+        run.log('Accuracy', log['val_accuracy'])
 
 
 history = model.fit(X_train, y_train,
@@ -106,8 +106,8 @@ print('Test accuracy:', score[1])
 
 plt.figure(figsize=(6, 3))
 plt.title('MNIST with Keras MLP ({} epochs)'.format(n_epochs), fontsize=14)
-plt.plot(history.history['acc'], 'b-', label='Accuracy', lw=4, alpha=0.5)
-plt.plot(history.history['loss'], 'r--', label='Loss', lw=4, alpha=0.5)
+plt.plot(history.history['val_accuracy'], 'b-', label='Accuracy', lw=4, alpha=0.5)
+plt.plot(history.history['val_loss'], 'r--', label='Loss', lw=4, alpha=0.5)
 plt.legend(fontsize=12)
 plt.grid(True)
 
