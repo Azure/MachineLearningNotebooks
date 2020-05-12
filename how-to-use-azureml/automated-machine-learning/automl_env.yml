@@ -13,8 +13,8 @@ dependencies:
 - scikit-learn>=0.19.0,<=0.20.3
 - pandas>=0.22.0,<=0.23.4
 - py-xgboost<=0.90
-- fbprophet==0.5
-- pytorch=1.4.0
+- conda-forge::fbprophet==0.5
+- pytorch::pytorch=1.4.0
 - cudatoolkit=10.1.243
 
 - pip:

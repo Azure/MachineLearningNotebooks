@@ -9,5 +9,4 @@ dependencies:
   - keras
   - tensorflow
   - matplotlib
-  - azureml-dataprep
   - fuse
