@@ -21,11 +21,11 @@ dependencies:
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
   - azureml-defaults
-  - azureml-dataprep[pandas]
   - azureml-train-automl
   - azureml-train
   - azureml-widgets
   - azureml-pipeline
   - pytorch-transformers==1.0.0
   - spacy==2.1.8
+  - pyarrow==0.17.0
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz  
