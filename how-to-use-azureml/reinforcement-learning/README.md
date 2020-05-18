@@ -20,11 +20,11 @@ Using these samples, you will be able to do the following.
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| [README.md](README.md)       | This README file.                          |
 | [devenv_setup.ipynb](setup/devenv_setup.ipynb) | Notebook to setup development environment for Azure ML RL |
 | [cartpole_ci.ipynb](cartpole-on-compute-instance/cartpole_ci.ipynb)  | Notebook to train a Cartpole playing agent on an Azure ML Compute Instance |
 | [cartpole_cc.ipynb](cartpole-on-single-compute/cartpole_cc.ipynb)  | Notebook to train a Cartpole playing agent on an Azure ML Compute Cluster (single node) |
 | [pong_rllib.ipynb](atari-on-distributed-compute/pong_rllib.ipynb)   | Notebook to train Pong agent using RLlib on multiple compute targets |
+| [minecraft.ipynb](minecraft-on-distributed-compute/minecraft.ipynb)   | Notebook to train an agent to navigate through a lava maze in the Minecraft game |
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 For more on SDK concepts, please refer to [notebooks](https://github.com/Azure/MachineLearningNotebooks).
 
-**Please let us know your feedback.**
+**Please let us know your [feedback](https://github.com/Azure/MachineLearningNotebooks/labels/Reinforcement%20Learning).**
 
  
 
