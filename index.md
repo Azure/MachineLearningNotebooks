@@ -124,6 +124,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [pong_rllib](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb) |  |  |  |  |  |  |
 | [cartpole_ci](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/cartpole-on-compute-instance/cartpole_ci.ipynb) |  |  |  |  |  |  |
 | [cartpole_cc](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/cartpole-on-single-compute/cartpole_cc.ipynb) |  |  |  |  |  |  |
+| [minecraft](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/minecraft-on-distributed-compute/minecraft.ipynb) |  |  |  |  |  |  |
 | [devenv_setup](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb) |  |  |  |  |  |  |
 | [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None | None | None | None | None |
 | [distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/distributed-cntk-with-custom-docker/distributed-cntk-with-custom-docker.ipynb) |  |  |  |  |  |  |
@@ -132,5 +133,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [tutorial-1st-experiment-sdk-train](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb) |  |  |  |  |  |  |
 | [img-classification-part1-training](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb) |  |  |  |  |  |  |
 | [img-classification-part2-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part2-deploy.ipynb) |  |  |  |  |  |  |
+| [img-classification-part3-deploy-encrypted](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part3-deploy-encrypted.ipynb) |  |  |  |  |  |  |
 | [tutorial-pipeline-batch-scoring-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb) |  |  |  |  |  |  |
 | [regression-automated-ml](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb) |  |  |  |  |  |  |
