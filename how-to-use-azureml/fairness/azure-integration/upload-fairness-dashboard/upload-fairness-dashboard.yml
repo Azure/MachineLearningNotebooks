@@ -1,0 +1,7 @@
+name: upload-fairness-dashboard
+dependencies:
+- pip:
+  - azureml-sdk
+  - fairlearn
+  - azureml-contrib-fairness
+  - ipywidgets
