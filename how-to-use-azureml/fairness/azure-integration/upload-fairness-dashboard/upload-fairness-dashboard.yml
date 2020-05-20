@@ -4,4 +4,5 @@ dependencies:
   - azureml-sdk
   - fairlearn
   - azureml-contrib-fairness
+  - shap
   - ipywidgets
