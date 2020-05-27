@@ -1,4 +1,4 @@
-name: cartpole_cc
+name: cartpole_sc
 dependencies:
 - pip:
   - azureml-sdk
