@@ -7,7 +7,7 @@ import azureml.train.automl
 import azureml.explain.model
 from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, \
     automl_setup_model_explanations
-from sklearn.externals import joblib
+import joblib
 from azureml.core.model import Model
 
 

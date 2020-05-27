@@ -1,3 +1,5 @@
+import os
+
 import ray
 import ray.tune as tune
 
@@ -6,8 +8,10 @@ from minecraft_environment import create_env
 
 
 def stop(trial_id, result):
+    max_train_time = int(os.environ.get("AML_MAX_TRAIN_TIME_SECONDS", 5 * 60 * 60))
+
     return result["episode_reward_mean"] >= 1 \
-        or result["time_total_s"] > 5 * 60 * 60
+        or result["time_total_s"] >= max_train_time
 
 
 if __name__ == '__main__':

@@ -40,6 +40,7 @@ The [How to use Azure ML](./how-to-use-azureml) folder contains specific example
 - [Deployment](./how-to-use-azureml/deployment) - Examples showing how to deploy and manage machine learning models and solutions
 - [Azure Databricks](./how-to-use-azureml/azure-databricks) - Examples showing how to use Azure ML with Azure Databricks
 - [Monitor Models](./how-to-use-azureml/monitor-models) - Examples showing how to enable model monitoring services such as DataDrift
+- [Reinforcement Learning](./how-to-use-azureml/reinforcement-learning) - Examples showing how to train reinforcement learning agents
 
 ---
 ## Documentation

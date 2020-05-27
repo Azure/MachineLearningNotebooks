@@ -3,7 +3,7 @@ dependencies:
 - pip:
   - azureml-sdk
   - azureml-pipeline-core
-  - azureml-contrib-pipeline-steps
+  - azureml-pipeline-steps
   - pandas
   - requests
   - azureml-widgets

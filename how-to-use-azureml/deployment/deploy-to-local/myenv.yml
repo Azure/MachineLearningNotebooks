@@ -3,6 +3,6 @@ dependencies:
   - python=3.6.2
   - pip:
     - azureml-defaults
-    - scikit-learn
+    - scikit-learn==0.19.1
     - numpy
     - inference-schema[numpy-support]

@@ -2,18 +2,16 @@
 
 Azure Machine Learning Batch Inference targets large inference jobs that are not time-sensitive. Batch Inference provides cost-effective inference compute scaling, with unparalleled throughput for asynchronous applications. It is optimized for high-throughput, fire-and-forget inference over large collections of data.
 
-# Getting Started with Batch Inference Public Preview
+# Getting Started with Batch Inference
 
-Batch inference public preview offers a platform in which to do large inference or generic parallel map-style operations. Below introduces the major steps to use this new functionality. For a quick try, please follow the prerequisites and simply run the sample notebooks provided in this directory.
+Batch inference offers a platform in which to do large inference or generic parallel map-style operations. Below introduces the major steps to use this new functionality. For a quick try, please follow the prerequisites and simply run the sample notebooks provided in this directory.
 
 ## Prerequisites
 
 ### Python package installation
-Following the convention of most AzureML Public Preview features, Batch Inference SDK is currently available as a contrib package.
-
 If you're unfamiliar with creating a new Python environment, you may follow this example for [creating a conda environment](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#local). Batch Inference package can be installed through the following pip command.
 ```
-pip install azureml-contrib-pipeline-steps
+pip install azureml-pipeline-steps
 ```
 
 ### Creation of Azure Machine Learning Workspace
@@ -66,9 +64,8 @@ base_image_registry.password = "password"
 
 ## Create a batch inference job
 
-**ParallelRunStep** is a newly added step in the azureml.contrib.pipeline.steps package. You will use it to add a step to create a batch inference job with your Azure machine learning pipeline. (Use batch inference without an Azure machine learning pipeline is not supported yet). ParallelRunStep has all the following parameters:
+**ParallelRunStep** is a newly added step in the azureml.pipeline.steps package. You will use it to add a step to create a batch inference job with your Azure machine learning pipeline. (Use batch inference without an Azure machine learning pipeline is not supported yet). ParallelRunStep has all the following parameters:
   - **name**: this name will be used to register batch inference service, has the following naming restrictions: (unique, 3-32 chars and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$)
-  - **models**: zero or more model names already registered in Azure Machine Learning model registry.
   - **parallel_run_config**: ParallelRunConfig as defined above.
   - **inputs**: one or more Dataset objects.
   - **output**: this should be a PipelineData object encapsulating an Azure BLOB container path.
