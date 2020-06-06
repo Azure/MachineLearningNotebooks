@@ -1,0 +1,7 @@
+name: pong_rllib
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-contrib-reinforcementlearning
+  - azureml-widgets
+  - matplotlib

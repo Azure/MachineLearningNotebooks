@@ -3,7 +3,6 @@ dependencies:
 - pip:
   - azureml-sdk
   - azureml-widgets
-  - azureml-dataprep
   - pandas<=0.23.4
   - fuse
   - scikit-learn

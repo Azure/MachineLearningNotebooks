@@ -7,6 +7,5 @@ dependencies:
   - tensorflow-gpu==1.13.2
   - horovod==0.16.1
   - matplotlib
-  - azureml-dataprep
   - pandas
   - fuse

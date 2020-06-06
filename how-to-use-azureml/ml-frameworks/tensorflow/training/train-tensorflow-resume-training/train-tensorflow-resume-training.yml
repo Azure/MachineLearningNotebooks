@@ -7,5 +7,4 @@ dependencies:
   - keras
   - tensorflow==1.14.0
   - matplotlib
-  - azureml-dataprep
   - fuse

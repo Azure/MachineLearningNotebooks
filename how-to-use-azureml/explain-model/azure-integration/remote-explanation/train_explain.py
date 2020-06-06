@@ -7,7 +7,7 @@ from interpret.ext.blackbox import TabularExplainer
 from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
 from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
-from sklearn.externals import joblib
+import joblib
 import os
 import numpy as np
 
