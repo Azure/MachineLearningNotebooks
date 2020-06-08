@@ -1,11 +1,14 @@
-import pandas as pd
-import numpy as np
 import argparse
-from azureml.core import Run
+
+import numpy as np
+import pandas as pd
+
+from pandas.tseries.frequencies import to_offset
 from sklearn.externals import joblib
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-from azureml.automl.core.shared import constants, metrics
-from pandas.tseries.frequencies import to_offset
+
+from azureml.automl.runtime.shared.score import scoring, constants
+from azureml.core import Run
 
 
 def align_outputs(y_predicted, X_trans, X_test, y_test,
@@ -299,12 +302,11 @@ print(df_all[target_column_name])
 print("predicted values:::")
 print(df_all['predicted'])
 
-# use automl metrics module
-scores = metrics.compute_metrics_regression(
-    df_all['predicted'],
-    df_all[target_column_name],
-    list(constants.Metric.SCALAR_REGRESSION_SET),
-    None, None, None)
+# Use the AutoML scoring module
+regression_metrics = list(constants.REGRESSION_SCALAR_SET)
+y_test = np.array(df_all[target_column_name])
+y_pred = np.array(df_all['predicted'])
+scores = scoring.score_regression(y_test, y_pred, regression_metrics)
 
 print("scores:")
 print(scores)
