@@ -112,6 +112,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [register-model-deploy-local-advanced](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb) |  |  |  |  |  |  |
 | [enable-app-insights-in-production-service](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) |  |  |  |  |  |  |
 | [onnx-model-register-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-model-register-and-deploy.ipynb) |  |  |  |  |  |  |
+| [production-deploy-to-aks-ssl](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks-ssl.ipynb) |  |  |  |  |  |  |
 | [production-deploy-to-aks](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks.ipynb) |  |  |  |  |  |  |
 | [production-deploy-to-aks-gpu](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb) |  |  |  |  |  |  |
 | [explain-model-on-amlcompute](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/remote-explanation/explain-model-on-amlcompute.ipynb) |  |  |  |  |  |  |

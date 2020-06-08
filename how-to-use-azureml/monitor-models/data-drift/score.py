@@ -4,7 +4,13 @@ import numpy as np
 from azureml.monitoring import ModelDataCollector
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.schema_decorators import input_schema, output_schema
-from sklearn.externals import joblib
+# sklearn.externals.joblib is removed in 0.23
+from sklearn import __version__ as sklearnver
+from packaging.version import Version
+if Version(sklearnver) < Version("0.23.0"):
+    from sklearn.externals import joblib
+else:
+    import joblib
 
 
 def init():

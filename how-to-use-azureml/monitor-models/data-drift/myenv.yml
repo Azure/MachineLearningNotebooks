@@ -7,4 +7,5 @@ dependencies:
     - azureml-monitoring
     - scikit-learn
     - numpy
+    - packaging
     - inference-schema[numpy-support]

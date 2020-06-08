@@ -11,19 +11,29 @@ Taxonomies for products and languages: https://review.docs.microsoft.com/new-hop
 
 This is an introduction to the [Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/service/) Reinforcement Learning (Public Preview) using the [Ray](https://github.com/ray-project/ray/) framework.
 
-Using these samples, you will be able to do the following.
+## What is reinforcement learning?
 
-1. Use an Azure Machine Learning workspace, set up virtual network and create compute clusters for running Ray.
-2. Run some experiments to train a reinforcement learning agent using Ray and RLlib.
+Reinforcement learning is an approach to machine learning to train agents to make a sequence of decisions.  This technique has gained popularity over the last few years as breakthroughs have been made to teach reinforcement learning agents to excel at complex tasks like playing video games.  There are many practical real-world use cases as well, including robotics, chemistry, online recommendations, advertising and more.
+
+In reinforcement learning, the goal is to train an agent *policy* that outputs actions based on the agent’s observations of its environment.  Actions result in further observations and *rewards* for taking the actions.  In reinforcement learning, the full reward for policy actions may take many steps to obtain.  Learning a policy involves many trial-and-error runs of the agent interacting with the environment and improving its policy. 
+
+## Reinforcement learning on Azure Machine Learning
+
+Reinforcement learning support in Azure Machine Learning service enables data scientists to scale training to many powerful CPU or GPU enabled VMs using [Azure Machine Learning compute clusters](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-set-up-training-targets#amlcompute) which automatically provision, manage, and scale down these VMs to help manage your costs.
+
+Using these samples, you will learn how to do the following.
+
+1. Use an Azure Machine Learning workspace, set up virtual network and create compute clusters for distributed training.
+2. Train reinforcement learning agents using Ray RLlib.
 
 ## Contents
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| [devenv_setup.ipynb](setup/devenv_setup.ipynb) | Notebook to setup development environment for Azure ML RL |
-| [cartpole_ci.ipynb](cartpole-on-compute-instance/cartpole_ci.ipynb)  | Notebook to train a Cartpole playing agent on an Azure ML Compute Instance |
-| [cartpole_sc.ipynb](cartpole-on-single-compute/cartpole_sc.ipynb)  | Notebook to train a Cartpole playing agent on an Azure ML Compute Cluster (single node) |
-| [pong_rllib.ipynb](atari-on-distributed-compute/pong_rllib.ipynb)   | Notebook to train Pong agent using RLlib on multiple compute targets |
+| [devenv_setup.ipynb](setup/devenv_setup.ipynb) | Notebook to setup virtual network for using Azure Machine Learning.  Needed for the Pong and Minecraft examples. |
+| [cartpole_ci.ipynb](cartpole-on-compute-instance/cartpole_ci.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Instance |
+| [cartpole_sc.ipynb](cartpole-on-single-compute/cartpole_sc.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Cluster (single node) |
+| [pong_rllib.ipynb](atari-on-distributed-compute/pong_rllib.ipynb)   | Notebook for distributed training of Pong agent using RLlib on multiple compute targets |
 | [minecraft.ipynb](minecraft-on-distributed-compute/minecraft.ipynb)   | Notebook to train an agent to navigate through a lava maze in the Minecraft game |
 
 ## Prerequisites
@@ -32,9 +42,10 @@ To make use of these samples, you need the following.
 
 * A Microsoft Azure subscription.
 * A Microsoft Azure resource group.
-* An Azure Machine Learning Workspace in the resource group. Please make sure that the VM sizes `STANDARD_NC6` and `STANDARD_D2_V2` are supported in the workspace's region.
-* A virtual network set up in the resource group.
-  * A virtual network is needed for the examples training on multiple compute targets.
+* An Azure Machine Learning Workspace in the resource group.
+* Azure Machine Learning training compute. These samples use the VM sizes `STANDARD_NC6` and `STANDARD_D2_V2`.  If these are not available in your region,
+you can replace them with other sizes.
+* A virtual network set up in the resource group for samples that use multiple compute targets.  The Cartpole examples do not need a virtual network.
   * The [devenv_setup.ipynb](setup/devenv_setup.ipynb) notebook shows you how to create a virtual network. You can alternatively use an existing virtual network, make sure it's in the same region as workspace is.
   * Any network security group defined on the virtual network must allow network traffic on ports used by Azure infrastructure services. This is described in more detail in the [devenv_setup.ipynb](setup/devenv_setup.ipynb) notebook.
 
@@ -43,10 +54,10 @@ To make use of these samples, you need the following.
 
 You can run these samples in the following ways.
 
-* On an Azure ML Compute Instance or Notebook VM.
+* On an Azure Machine Learning Compute Instance or Azure Data Science Virtual Machine (DSVM).
 * On a workstation with Python and the Azure ML Python SDK installed.
 
-### Azure ML Compute Instance or Notebook VM
+### Compute Instance or DSVM
 #### Update packages
 
 

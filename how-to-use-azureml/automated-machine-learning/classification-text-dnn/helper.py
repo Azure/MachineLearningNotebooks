@@ -6,7 +6,7 @@ from azureml.core.run import Run
 
 
 def run_inference(test_experiment, compute_target, script_folder, train_run,
-                  test_dataset, target_column_name, model_name):
+                  train_dataset, test_dataset, target_column_name, model_name):
 
     train_run.download_file('outputs/conda_env_v_1_0_0.yml',
                             'inference/condafile.yml')
@@ -22,7 +22,10 @@ def run_inference(test_experiment, compute_target, script_folder, train_run,
                         '--target_column_name': target_column_name,
                         '--model_name': model_name
                     },
-                    inputs=[test_dataset.as_named_input('test_data')],
+                    inputs=[
+                        train_dataset.as_named_input('train_data'),
+                        test_dataset.as_named_input('test_data')
+                    ],
                     compute_target=compute_target,
                     environment_definition=inference_env)
 
