@@ -1,0 +1,6 @@
+name: train-on-computeinstance
+dependencies:
+- scikit-learn
+- pip:
+  - azureml-sdk
+  - azureml-widgets

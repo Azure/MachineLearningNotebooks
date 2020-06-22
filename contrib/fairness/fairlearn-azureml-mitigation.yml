@@ -1,0 +1,8 @@
+name: fairlearn-azureml-mitigation
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-contrib-fairness
+  - fairlearn==0.4.6
+  - joblib
+  - shap
