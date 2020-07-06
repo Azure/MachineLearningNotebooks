@@ -4,4 +4,3 @@ dependencies:
   - azureml-sdk
   - azureml-contrib-reinforcementlearning
   - azureml-widgets
-  - azureml-dataprep

@@ -50,10 +50,12 @@ pip install azureml-accel-models[gpu]
 
 ### Step 4: Follow our notebooks
 
-The notebooks in this repo walk through the following scenarios: 
-* [Quickstart](accelerated-models-quickstart.ipynb), deploy and inference a ResNet50 model trained on ImageNet
-* [Object Detection](accelerated-models-object-detection.ipynb), deploy and inference an SSD-VGG model that can do object detection
-* [Training models](accelerated-models-training.ipynb), train one of our accelerated models on the Kaggle Cats and Dogs dataset to see how to improve accuracy on custom datasets
+We provide notebooks to walk through the following scenarios, linked below: 
+* [Quickstart](https://github.com/Azure/MachineLearningNotebooks/blob/33d6def8c30d3dd3a5bfbea50b9c727788185faf/how-to-use-azureml/deployment/accelerated-models/accelerated-models-quickstart.ipynb), deploy and inference a ResNet50 model trained on ImageNet
+* [Object Detection](https://github.com/Azure/MachineLearningNotebooks/blob/33d6def8c30d3dd3a5bfbea50b9c727788185faf/how-to-use-azureml/deployment/accelerated-models/accelerated-models-object-detection.ipynb), deploy and inference an SSD-VGG model that can do object detection
+* [Training models](https://github.com/Azure/MachineLearningNotebooks/blob/33d6def8c30d3dd3a5bfbea50b9c727788185faf/how-to-use-azureml/deployment/accelerated-models/accelerated-models-training.ipynb), train one of our accelerated models on the Kaggle Cats and Dogs dataset to see how to improve accuracy on custom datasets
+
+**Note**: the above notebooks work only for tensorflow >= 1.6,<2.0.
 
 <a name="model-classes"></a>
 ## Model Classes

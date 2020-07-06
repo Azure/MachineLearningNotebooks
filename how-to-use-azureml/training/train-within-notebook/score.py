@@ -1,9 +1,13 @@
 import pickle
 import json
 import numpy as np
-from sklearn.externals import joblib
 from sklearn.linear_model import Ridge
 from azureml.core.model import Model
+# sklearn.externals.joblib is removed in 0.23
+try:
+    from sklearn.externals import joblib
+except ImportError:
+    import joblib
 
 
 def init():
