@@ -6,9 +6,14 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
-from sklearn.externals import joblib
 import os
 import numpy as np
+from sklearn import __version__ as sklearnver
+from packaging.version import Version
+if Version(sklearnver) < Version("0.23.0"):
+    from sklearn.externals import joblib
+else:
+    import joblib
 
 os.makedirs('./outputs', exist_ok=True)
 

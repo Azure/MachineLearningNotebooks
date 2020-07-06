@@ -6,10 +6,14 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
-from sklearn.externals import joblib
 import os
 import numpy as np
 import mylib
+# sklearn.externals.joblib is removed in 0.23
+try:
+    from sklearn.externals import joblib
+except ImportError:
+    import joblib
 
 os.makedirs('./outputs', exist_ok=True)
 

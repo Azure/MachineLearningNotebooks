@@ -1,6 +1,5 @@
-name: multi-model-register-and-deploy
+name: register-model-deploy-local-advanced
 dependencies:
 - pip:
   - azureml-sdk
-  - numpy
   - scikit-learn
