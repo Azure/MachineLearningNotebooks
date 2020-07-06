@@ -120,6 +120,6 @@ pipeline_run.wait_for_completion(show_output=True)
 
 -  [file-dataset-image-inference-mnist.ipynb](./file-dataset-image-inference-mnist.ipynb) demonstrates how to run batch inference on an MNIST dataset using FileDataset.
 -  [tabular-dataset-inference-iris.ipynb](./tabular-dataset-inference-iris.ipynb) demonstrates how to run batch inference on an IRIS dataset using TabularDataset.
--  [pipeline-style-transfer.ipynb](../pipeline-style-transfer/pipeline-style-transfer.ipynb) demonstrates using ParallelRunStep in multi-step pipeline and using output from one step as input to ParallelRunStep.
+-  [pipeline-style-transfer.ipynb](../pipeline-style-transfer/pipeline-style-transfer-parallel-run.ipynb) demonstrates using ParallelRunStep in multi-step pipeline and using output from one step as input to ParallelRunStep.
 
 ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/parallel-run/README.png)

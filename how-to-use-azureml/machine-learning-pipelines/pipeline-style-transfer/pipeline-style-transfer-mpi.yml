@@ -1,4 +1,4 @@
-name: pipeline-style-transfer
+name: pipeline-style-transfer-mpi
 dependencies:
 - pip:
   - azureml-sdk
