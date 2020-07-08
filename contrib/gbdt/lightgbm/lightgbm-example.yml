@@ -1,7 +1,0 @@
-name: lightgbm-example
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-contrib-gbdt
-  - azureml-widgets
-  - azureml-core
