@@ -6,7 +6,7 @@ dependencies:
 - python>=3.5.2,<3.6.8
 - nb_conda
 - matplotlib==2.1.0
-- numpy>=1.16.0,<=1.16.2
+- numpy~=1.16.0
 - cython
 - urllib3<1.24
 - scipy==1.4.1

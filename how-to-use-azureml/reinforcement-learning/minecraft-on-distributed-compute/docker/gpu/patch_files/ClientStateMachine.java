@@ -1477,7 +1477,7 @@ public class ClientStateMachine extends StateMachine implements IMalmoMessageLis
      * Pause the old server. It's vital that we do this, otherwise it will
      * respond to the quit disconnect package straight away and kill the server
      * thread, which means there will be no server to respond to the loadWorld
-     * code. (This was the cause of the infamous "Holder Lookups" hang.)
+     * code.
      */
     public class PauseOldServerEpisode extends ConfigAwareStateEpisode
     {
@@ -1505,7 +1505,6 @@ public class ClientStateMachine extends StateMachine implements IMalmoMessageLis
                 {
                     if (!killPublicFlag(Minecraft.getMinecraft().getIntegratedServer()))
                     {
-                        // Can't pause, don't want to risk the hang - so bail.
                         episodeHasCompletedWithErrors(ClientState.ERROR_CANNOT_CREATE_WORLD, "Can not pause the old server since it's open to LAN; no way to safely create new world.");
                     }
                 }
@@ -1555,8 +1554,7 @@ public class ClientStateMachine extends StateMachine implements IMalmoMessageLis
             if (inAbortState())
                 episodeHasCompleted(ClientState.MISSION_ABORTED);
 
-            // We need to make sure that both the client and server have paused,
-            // otherwise we are still susceptible to the "Holder Lookups" hang.
+            // We need to make sure that both the client and server have paused.
             
             // Since the server sets its pause state in response to the client's pause state,
             // and it only performs this check once, at the top of its tick method,
@@ -1615,7 +1613,7 @@ public class ClientStateMachine extends StateMachine implements IMalmoMessageLis
                 // If the Minecraft server isn't paused at this point,
                 // then the following line will cause the server thread to exit...
                 Minecraft.getMinecraft().world.sendQuittingDisconnectingPacket();
-                // ...in which case the next line will hang.
+                // ...in which case the next line will block.
                 Minecraft.getMinecraft().loadWorld((WorldClient) null);
                 // Must display the GUI or Minecraft will attempt to access a non-existent player in the client tick.
                 Minecraft.getMinecraft().displayGuiScreen(new GuiMainMenu());
@@ -2135,7 +2133,6 @@ public class ClientStateMachine extends StateMachine implements IMalmoMessageLis
                         envServer.observation(data);
                     }
                 } else {
-                    // Bung the whole shebang off via TCP:
                     if (this.observationSocket.sendTCPString(data)) {
                         this.failedTCPObservationSendCount = 0;
                     } else {
