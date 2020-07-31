@@ -130,6 +130,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [cartpole_ci](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/cartpole-on-compute-instance/cartpole_ci.ipynb) |  |  |  |  |  |  |
 | [cartpole_sc](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/cartpole-on-single-compute/cartpole_sc.ipynb) |  |  |  |  |  |  |
 | [minecraft](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/minecraft-on-distributed-compute/minecraft.ipynb) |  |  |  |  |  |  |
+| [particle](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/multiagent-particle-envs/particle.ipynb) |  |  |  |  |  |  |
 | [devenv_setup](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb) |  |  |  |  |  |  |
 | [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None | None | None | None | None |
 | [distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/training-with-deep-learning/distributed-cntk-with-custom-docker/distributed-cntk-with-custom-docker.ipynb) |  |  |  |  |  |  |
