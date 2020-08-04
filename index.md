@@ -98,7 +98,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) |  |  |  |  |  |  |
 | [fairlearn-azureml-mitigation](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/fairness/fairlearn-azureml-mitigation.ipynb) |  |  |  |  |  |  |
 | [upload-fairness-dashboard](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/fairness/upload-fairness-dashboard.ipynb) |  |  |  |  |  |  |
-| [lightgbm-example](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/gbdt/lightgbm/lightgbm-example.ipynb) |  |  |  |  |  |  |
 | [azure-ml-with-nvidia-rapids](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/RAPIDS/azure-ml-with-nvidia-rapids.ipynb) |  |  |  |  |  |  |
 | [auto-ml-continuous-retraining](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb) |  |  |  |  |  |  |
 | [auto-ml-forecasting-beer-remote](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) |  |  |  |  |  |  |
