@@ -7,5 +7,5 @@ dependencies:
   - matplotlib
   - azureml-contrib-interpret
   - sklearn-pandas
-  - azureml-dataprep
+  - azureml-dataset-runtime
   - ipywidgets

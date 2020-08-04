@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu18.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20200423.v1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python-opengl \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN conda install -y conda=4.7.12 python=3.6.2 && conda clean -ay && \
     pip install --no-cache-dir \
     azureml-defaults \
-    azureml-dataprep[fuse,pandas] \
+    azureml-dataset-runtime[fuse,pandas] \
     azureml-contrib-reinforcementlearning \
     gputil \
     cloudpickle==1.3.0 \
