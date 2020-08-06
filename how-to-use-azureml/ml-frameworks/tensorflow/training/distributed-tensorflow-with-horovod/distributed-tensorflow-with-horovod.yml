@@ -5,7 +5,7 @@ dependencies:
   - azureml-widgets
   - keras
   - tensorflow-gpu==1.13.2
-  - horovod==0.16.1
+  - horovod==0.19.1
   - matplotlib
   - pandas
   - fuse

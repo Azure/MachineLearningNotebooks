@@ -58,7 +58,7 @@ Visit this [community repository](https://github.com/microsoft/MLOps/tree/master
 ## Projects using Azure Machine Learning
 
 Visit following repos to see projects contributed by Azure ML users:
- - [AMLSamples](https://github.com/microsoft/MLOps) Number of end-to-end examples, including face recognition, predictive maintenance, customer churn and sentiment analysis.
+ - [AMLSamples](https://github.com/Azure/AMLSamples) Number of end-to-end examples, including face recognition, predictive maintenance, customer churn and sentiment analysis.
  - [Learn about Natural Language Processing best practices using Azure Machine Learning service](https://github.com/microsoft/nlp)
  - [Pre-Train BERT models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)

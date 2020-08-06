@@ -2,3 +2,5 @@ name: multi-model-register-and-deploy
 dependencies:
 - pip:
   - azureml-sdk
+  - numpy
+  - scikit-learn

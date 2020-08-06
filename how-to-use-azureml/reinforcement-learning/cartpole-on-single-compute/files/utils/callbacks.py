@@ -15,3 +15,9 @@ def on_train_result(info):
     run.log(
         name='episodes_total',
         value=info["result"]["episodes_total"])
+    run.log(
+        name='perf_cpu_percent',
+        value=info["result"]["perf"]["cpu_util_percent"])
+    run.log(
+        name='perf_memory_percent',
+        value=info["result"]["perf"]["ram_util_percent"])

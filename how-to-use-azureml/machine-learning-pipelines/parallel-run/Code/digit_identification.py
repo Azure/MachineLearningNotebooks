@@ -13,7 +13,7 @@ def init():
     global g_tf_sess
 
     # pull down model from workspace
-    model_path = Model.get_model_path("mnist")
+    model_path = Model.get_model_path("mnist-prs")
 
     # contruct graph to execute
     tf.reset_default_graph()
