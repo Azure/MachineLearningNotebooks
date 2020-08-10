@@ -12,8 +12,6 @@
 Try out the sample notebooks:
 1. [Use MLflow with Azure Machine Learning for Local Training Run](./train-local/train-local.ipynb)
 1. [Use MLflow with Azure Machine Learning for Remote Training Run](./train-remote/train-remote.ipynb)
-1. [Deploy Model as Azure Machine Learning Web Service using MLflow](./deploy-model/deploy-model.ipynb)
-1. [Train and Deploy PyTorch Image Classifier](./train-deploy-pytorch/train-deploy-pytorch.ipynb)
 
  ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/track-and-monitor-experiments/README.png)
 
