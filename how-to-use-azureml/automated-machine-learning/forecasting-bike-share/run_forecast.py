@@ -5,8 +5,7 @@ from azureml.core.run import Run
 
 
 def run_rolling_forecast(test_experiment, compute_target, train_run, test_dataset,
-                         max_horizon, target_column_name, time_column_name,
-                         freq='D', inference_folder='./forecast'):
+                         target_column_name, inference_folder='./forecast'):
     condafile = inference_folder + '/condafile.yml'
     train_run.download_file('outputs/model.pkl',
                             inference_folder + '/model.pkl')
@@ -20,10 +19,7 @@ def run_rolling_forecast(test_experiment, compute_target, train_run, test_datase
     est = Estimator(source_directory=inference_folder,
                     entry_script='forecasting_script.py',
                     script_params={
-                        '--max_horizon': max_horizon,
-                        '--target_column_name': target_column_name,
-                        '--time_column_name': time_column_name,
-                        '--frequency': freq
+                        '--target_column_name': target_column_name
                     },
                     inputs=[test_dataset.as_named_input('test_data')],
                     compute_target=compute_target,

@@ -1,0 +1,9 @@
+name: train-and-deploy-keras-auto-logging
+dependencies:
+- pip:
+  - azureml-sdk
+  - numpy
+  - azureml-mlflow
+  - matplotlib
+  - tensorflow==2.1
+  - keras

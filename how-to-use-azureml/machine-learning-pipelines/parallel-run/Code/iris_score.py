@@ -6,9 +6,14 @@ import numpy as np
 from azureml.core.model import Model
 from sklearn.linear_model import LogisticRegression
 
+from azureml_user.parallel_run import EntryScript
+
 
 def init():
     global iris_model
+
+    logger = EntryScript().logger
+    logger.info("init() is called.")
 
     parser = argparse.ArgumentParser(description="Iris model serving")
     parser.add_argument('--model_name', dest="model_name", required=True)
@@ -20,6 +25,9 @@ def init():
 
 
 def run(input_data):
+    logger = EntryScript().logger
+    logger.info("run() is called with: {}.".format(input_data))
+
     # make inference
     num_rows, num_cols = input_data.shape
     pred = iris_model.predict(input_data).reshape((num_rows, 1))
