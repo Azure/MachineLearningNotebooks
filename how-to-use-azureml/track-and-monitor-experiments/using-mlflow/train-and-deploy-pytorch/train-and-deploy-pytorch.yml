@@ -1,0 +1,9 @@
+name: train-and-deploy-pytorch
+dependencies:
+- pytorch==1.4.0 -c pytorch
+- torchvision -c pytorch
+- pip:
+  - azureml-sdk
+  - numpy
+  - azureml-mlflow
+  - matplotlib

@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/*
 
-RUN conda install -y conda=4.7.12 python=3.6.2 && conda clean -ay && \
+RUN conda install -y conda=4.7.12 python=3.7 && conda clean -ay && \
     pip install --no-cache-dir \
     azureml-defaults \
     azureml-dataset-runtime[fuse,pandas] \
@@ -26,4 +26,4 @@ RUN conda install -y conda=4.7.12 python=3.6.2 && conda clean -ay && \
     setproctitle \
     gym[atari] && \
     conda install -y -c conda-forge x264='1!152.20180717' ffmpeg=4.0.2 && \
-    conda install opencv
+    conda install -c anaconda opencv
