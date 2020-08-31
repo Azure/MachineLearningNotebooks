@@ -7,12 +7,12 @@ PIP_NO_WARN_SCRIPT_LOCATION=0
 
 if [ "$CONDA_ENV_NAME" == "" ]
 then
-  CONDA_ENV_NAME="azure_automl"
+  CONDA_ENV_NAME="azure_automl_experimental"
 fi
 
 if [ "$AUTOML_ENV_FILE" == "" ]
 then
-  AUTOML_ENV_FILE="automl_env_linux.yml"
+  AUTOML_ENV_FILE="automl_env.yml"
 fi
 
 if [ ! -f $AUTOML_ENV_FILE ]; then

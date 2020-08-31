@@ -1,14 +1,7 @@
-import json
-import numpy as np
 import pandas as pd
-import os
-import pickle
-import azureml.train.automl
-import azureml.interpret
-from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, \
-    automl_setup_model_explanations
 import joblib
 from azureml.core.model import Model
+from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
 
 
 def init():

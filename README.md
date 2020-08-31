@@ -65,7 +65,7 @@ Visit following repos to see projects contributed by Azure ML users:
  - [UMass Amherst Student Samples](https://github.com/katiehouse3/microsoft-azure-ml-notebooks) - A number of end-to-end machine learning notebooks, including machine translation, image classification, and customer churn, created by students in the 696DS course at UMass Amherst.
  
 ## Data/Telemetry 
-This repository collects usage data and sends it to Mircosoft to help improve our products and services. Read Microsoft's [privacy statement to learn more](https://privacy.microsoft.com/en-US/privacystatement)
+This repository collects usage data and sends it to Microsoft to help improve our products and services. Read Microsoft's [privacy statement to learn more](https://privacy.microsoft.com/en-US/privacystatement)
 
 To opt out of tracking, please go to the raw markdown or .ipynb files and remove the following line of code:
 
