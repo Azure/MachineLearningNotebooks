@@ -24,5 +24,5 @@ dependencies:
   - pytorch-transformers==1.0.0
   - spacy==2.1.8
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
-  - -r https://automlcesdkdataresources.blob.core.windows.net/validated-requirements/1.13.0/validated_win32_requirements.txt [--no-deps]
+  - -r https://automlcesdkdataresources.blob.core.windows.net/validated-requirements/1.13.0/validated_linux_requirements.txt [--no-deps]
 

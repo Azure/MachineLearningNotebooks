@@ -29,8 +29,8 @@ print("Argument 2(output final transformed taxi data): %s" % args.output_transfo
 # use the drop_columns() function to delete the original fields as the newly generated features are preferred.
 # Rename the rest of the fields to use meaningful descriptions.
 
-normalized_df = normalized_df.astype({"pickup_date": 'datetime64', "dropoff_date": 'datetime64',
-                                      "pickup_time": 'datetime64', "dropoff_time": 'datetime64',
+normalized_df = normalized_df.astype({"pickup_date": 'datetime64[ns]', "dropoff_date": 'datetime64[ns]',
+                                      "pickup_time": 'datetime64[us]', "dropoff_time": 'datetime64[us]',
                                       "distance": 'float64', "cost": 'float64'})
 
 normalized_df["pickup_weekday"] = normalized_df["pickup_date"].dt.dayofweek

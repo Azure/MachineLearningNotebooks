@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 def convert(imgf, labelf, outf, n):
@@ -23,8 +24,8 @@ def convert(imgf, labelf, outf, n):
     l.close()
 
 
-mounted_input_path = os.environ['fashion_ds']
-mounted_output_path = os.environ['AZUREML_DATAREFERENCE_prepared_fashion_ds']
+mounted_input_path = sys.argv[1]
+mounted_output_path = sys.argv[2]
 os.makedirs(mounted_output_path, exist_ok=True)
 
 convert(os.path.join(mounted_input_path, 'train-images-idx3-ubyte'),
