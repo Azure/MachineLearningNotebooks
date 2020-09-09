@@ -154,12 +154,6 @@ jupyter notebook
 - [auto-ml-continuous-retraining.ipynb](continuous-retraining/auto-ml-continuous-retraining.ipynb)
     - Continuous retraining using Pipelines and Time-Series TabularDataset
 
-- [auto-ml-classification-text-dnn.ipynb](classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
-    - Classification with text data using deep learning in AutoML
-    - AutoML highlights here include using deep neural networks (DNNs) to create embedded features from text data.
-    - Depending on the compute cluster the user provides, AutoML tried out Bidirectional Encoder Representations from Transformers (BERT) when a GPU compute is used.
-    - Bidirectional Long-Short Term neural network (BiLSTM) when a CPU compute is used, thereby optimizing the choice of DNN for the uesr's setup.
-
 <a name="documentation"></a>
 See [Configure automated machine learning experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) to learn how more about the the settings and features available for automated machine learning experiments.
 
