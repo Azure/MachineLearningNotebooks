@@ -75,14 +75,14 @@ base_image_registry.password = "password"
 ## Passing arguments from pipeline submission to script
 
 Many tasks require arguments to be passed from job submission to the distributed runs. Below is an example to pass such information.
-```
+```python
 # from script which creates pipeline job
 parallelrun_step = ParallelRunStep(
   ...
   arguments=["--model_name", "mosaic"]     # name of the model we want to use, in case we have more than one option
 )
 ```
-```
+```python
 # from driver.py/score.py/task.py
 import argparse
 
