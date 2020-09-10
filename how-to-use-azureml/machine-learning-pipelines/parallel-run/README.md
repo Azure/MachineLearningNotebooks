@@ -37,12 +37,12 @@ To run a Batch Inference job, you will need to gather some configuration data.
     - **environment**: The environment definition. This field configures the Python environment. It can be configured to use an existing Python environment or to set up a temp environment for the experiment. The definition is also responsible for setting the required application dependencies.
     - **description**: name given to batch service.
 
-2. **Inference script**: entry point for execution, also called scoring (entry) script. Check [Test-Driven Inference Script Development](./parallel-run-tdd/README.md) if you're new to this. There are three functions in the script will be called by ParallelRunStep:
-    - **init()**: (optional), this function should be used for any costly or common preparation for subsequent inferences, e.g., deserializing and loading the model into a global object.
-    - **run(mini_batch)**: (required), The method to be parallelized. Each invocation will have one minibatch.
+2. **Entry (Scoring) script**: entry point for execution. Check [Test-Driven Entry Script Development](./parallel-run-tdd/README.md) if you're new to this. There are three functions in the script will be called by ParallelRunStep:
+    - **init()**: (optional) Called before processing any minibatch. Use this function for any costly or common preparation for subsequent inferences, e.g., deserializing and loading the model into a global object.
+    - **run(mini_batch)**: (required) Called on each minibatch. The method to be parallelized. Each invocation will have one minibatch.
         - **mini_batch**: Batch inference will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a filepath if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
         - **return value**: run() method should return a Pandas DataFrame or an list. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful inference of input element in the input mini-batch.
-    - **shutdown()**: (optional), this function should be used for finalization before a worker process exits.
+    - **shutdown()**: (optional) Called before an agent (worker) process exit. Use this function to do finalization work before a worker process exits.
 3. **Base image** (optional)
     - if GPU is required, use DEFAULT_GPU_IMAGE as base image in environment. [Example GPU environment](./file-dataset-image-inference-mnist.ipynb#specify-the-environment-to-run-the-script)
 
