@@ -1,6 +1,6 @@
-# Azure Machine Learning datasets (preview)
+# Azure Machine Learning datasets
 
-Azure Machine Learning datasets (preview) let data scientists and machine learning engineers apply data for ML with confidence. By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred.
+Azure Machine Learning datasets let data scientists and machine learning engineers apply data for ML with confidence. By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred.
 
 With Azure Machine Learning datasets, you can: 
 

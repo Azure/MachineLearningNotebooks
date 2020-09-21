@@ -6,3 +6,4 @@ dependencies:
   - matplotlib
   - numpy
   - pandas_ml
+  - azureml-dataset-runtime[pandas,fuse]

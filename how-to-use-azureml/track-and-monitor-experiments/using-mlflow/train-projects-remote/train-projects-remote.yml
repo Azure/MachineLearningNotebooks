@@ -1,0 +1,7 @@
+name: train-projects-remote
+dependencies:
+- scikit-learn
+- pip:
+  - azureml-sdk
+  - scikit-learn
+  - azureml-mlflow
