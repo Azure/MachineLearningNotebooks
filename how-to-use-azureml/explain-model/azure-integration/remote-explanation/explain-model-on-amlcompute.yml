@@ -6,6 +6,6 @@ dependencies:
   - interpret-community[visualization]
   - matplotlib
   - azureml-contrib-interpret
-  - sklearn-pandas
+  - sklearn-pandas<2.0.0
   - azureml-dataset-runtime
   - ipywidgets
