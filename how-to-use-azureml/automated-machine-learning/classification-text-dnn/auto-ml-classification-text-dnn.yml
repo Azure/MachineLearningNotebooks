@@ -1,4 +1,0 @@
-name: auto-ml-classification-text-dnn
-dependencies:
-- pip:
-  - azureml-sdk
