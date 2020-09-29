@@ -4,7 +4,7 @@
 from sklearn import datasets
 from sklearn.linear_model import Ridge
 from interpret.ext.blackbox import TabularExplainer
-from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+from azureml.interpret import ExplanationClient
 from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
 import joblib
