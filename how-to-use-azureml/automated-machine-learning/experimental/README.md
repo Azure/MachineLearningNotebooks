@@ -17,16 +17,16 @@ There's no need to install mini-conda specifically.
 - Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks) as zip and extract the contents to a local directory.  The automated ML sample notebooks are in the "automated-machine-learning" folder.
 
 ### 3. Setup a new conda environment
-The **automl_setup** script creates a new conda environment, installs the necessary packages, configures the widget and starts a jupyter notebook. It takes the conda environment name as an optional parameter.  The default conda environment name is azure_automl.  The exact command depends on the operating system.  See the specific sections below for Windows, Mac and Linux.  It can take about 10 minutes to execute.
+The **automl_setup_thin_client** script creates a new conda environment, installs the necessary packages, configures the widget and starts a jupyter notebook. It takes the conda environment name as an optional parameter.  The default conda environment name is azure_automl_experimental.  The exact command depends on the operating system.  See the specific sections below for Windows, Mac and Linux.  It can take about 10 minutes to execute.
 
 Packages installed by the **automl_setup** script:
     <ul><li>python</li><li>nb_conda</li><li>matplotlib</li><li>numpy</li><li>cython</li><li>urllib3</li><li>pandas</li><li>azureml-sdk</li><li>azureml-widgets</li><li>pandas-ml</li></ul>
 
-For more details refer to the [automl_env.yml](./automl_env.yml)
+For more details refer to the [automl_env_thin_client.yml](./automl_env_thin_client.yml)
 ## Windows
 Start an **Anaconda Prompt** window, cd to the **how-to-use-azureml/automated-machine-learning/experimental** folder where the sample notebooks were extracted and then run:
 ```
-automl_setup
+automl_setup_thin_client
 ```
 ## Mac
 Install "Command line developer tools" if it is not already installed (you can use the command: `xcode-select --install`).
@@ -34,14 +34,14 @@ Install "Command line developer tools" if it is not already installed (you can u
 Start a Terminal windows, cd to the **how-to-use-azureml/automated-machine-learning/experimental** folder where the sample notebooks were extracted and then run:
 
 ```
-bash automl_setup_mac.sh
+bash automl_setup_thin_client_mac.sh
 ```
 
 ## Linux
 cd to the **how-to-use-azureml/automated-machine-learning/experimental** folder where the sample notebooks were extracted and then run:
 
 ```
-bash automl_setup_linux.sh
+bash automl_setup_thin_client_linux.sh
 ```
 
 ### 4. Running configuration.ipynb
@@ -49,7 +49,7 @@ bash automl_setup_linux.sh
 - Execute the cells in the notebook to Register Machine Learning Services Resource Provider and create a workspace. (*instructions in notebook*)
 
 ### 5. Running Samples
-- Please make sure you use the Python [conda env:azure_automl] kernel when trying the sample Notebooks.
+- Please make sure you use the Python [conda env:azure_automl_experimental] kernel when trying the sample Notebooks.
 - Follow the instructions in the individual notebooks to explore various features in automated ML.
 
 ### 6. Starting jupyter notebook manually
@@ -71,7 +71,7 @@ jupyter notebook
 <a name="samples"></a>
 # Automated ML SDK Sample Notebooks
 
-- [auto-ml-regression.ipynb](regression/auto-ml-regression.ipynb)
+- [auto-ml-regression-model-proxy.ipynb](regression-model-proxy/auto-ml-regression-model-proxy.ipynb)
     - Dataset: Hardware Performance Dataset
     - Simple example of using automated ML for regression
     - Uses azure compute for training

@@ -15,7 +15,7 @@ from sklearn_pandas import DataFrameMapper
 
 from azureml.core.run import Run
 from interpret.ext.blackbox import TabularExplainer
-from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+from azureml.interpret import ExplanationClient
 from azureml.interpret.scoring.scoring_explainer import LinearScoringExplainer, save
 
 OUTPUT_DIR = './outputs/'
