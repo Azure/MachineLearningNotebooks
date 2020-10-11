@@ -1,0 +1,20 @@
+name: azure_automl_experimental
+dependencies:
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- pip<=19.3.1
+- python>=3.5.2,<3.8
+- nb_conda
+- matplotlib==2.1.0
+- numpy~=1.18.0
+- cython
+- urllib3<1.24
+- scikit-learn==0.22.1
+- pandas==0.25.1
+
+- pip:
+  # Required packages for AzureML execution, history, and data preparation.
+  - azureml-defaults
+  - azureml-sdk
+  - azureml-widgets
+  - azureml-explain-model

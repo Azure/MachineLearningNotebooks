@@ -1,0 +1,4 @@
+name: model-register-and-deploy-spark
+dependencies:
+- pip:
+  - azureml-sdk

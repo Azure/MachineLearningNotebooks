@@ -36,13 +36,14 @@ Azure Machine Learning Pipelines optimize for simplicity, speed, and efficiency.
 
 In this directory, there are two types of notebooks: 
 
-* The first type of notebooks will introduce you to core Azure Machine Learning Pipelines features. These notebooks below belong in this category, and are designed to go in sequence; they're all located in the "intro-to-pipelines" folder:
-Take a look at [intro-to-pipelines](./intro-to-pipelines/) for the list of notebooks that introduce Azure Machine Learning concepts for you.
+* The first type of notebooks will introduce you to core Azure Machine Learning Pipelines features. Notebooks in this category are designed to go in sequence; they're all located in the [intro-to-pipelines](./intro-to-pipelines/) folder.
 
 * The second type of notebooks illustrate more sophisticated scenarios, and are independent of each other. These notebooks include:
 
 1. [pipeline-batch-scoring.ipynb](https://aka.ms/pl-batch-score): This notebook demonstrates how to run a batch scoring job using Azure Machine Learning pipelines.
 2. [pipeline-style-transfer.ipynb](https://aka.ms/pl-style-trans): This notebook demonstrates a multi-step pipeline that uses GPU compute. This sample also showcases how to use conda dependencies using runconfig when using Pipelines.
-3. [nyc-taxi-data-regression-model-building.ipynb](https://aka.ms/pl-nyctaxi-tutorial): This notebook is an AzureML Pipelines version of the previously published two part sample. 
+3. [nyc-taxi-data-regression-model-building.ipynb](https://aka.ms/pl-nyctaxi-tutorial): This notebook is an AzureML Pipelines version of the previously published two part sample.
+4. [file-dataset-image-inference-mnist.ipynb](https://aka.ms/pl-pr-filedata): This notebook demonstrates how to use ParallelRunStep to process unstructured data (file dataset).
+5. [tabular-dataset-inference-iris.ipynb](https://aka.ms/pl-pr-tabulardata): This notebook demonstrates how to use ParallelRunStep to process structured data (tabular dataset).
 
  ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/README.png)

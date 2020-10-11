@@ -1,0 +1,4 @@
+name: devenv_setup
+dependencies:
+- pip:
+  - azureml-sdk

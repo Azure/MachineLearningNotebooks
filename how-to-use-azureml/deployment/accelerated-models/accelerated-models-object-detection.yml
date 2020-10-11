@@ -1,8 +1,0 @@
-name: accelerated-models-object-detection
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-accel-models
-  - tensorflow
-  - opencv-python
-  - matplotlib

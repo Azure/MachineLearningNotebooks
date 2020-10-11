@@ -1,6 +1,0 @@
-name: img-classification-part2-deploy
-dependencies:
-- pip:
-  - azureml-sdk
-  - matplotlib
-  - sklearn

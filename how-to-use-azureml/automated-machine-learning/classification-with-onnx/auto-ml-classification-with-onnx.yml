@@ -1,9 +1,0 @@
-name: auto-ml-classification-with-onnx
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-train-automl
-  - azureml-widgets
-  - matplotlib
-  - pandas_ml
-  - onnxruntime

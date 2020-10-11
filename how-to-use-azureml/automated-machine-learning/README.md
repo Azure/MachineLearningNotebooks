@@ -1,8 +1,8 @@
 # Table of Contents
 1. [Automated ML Introduction](#introduction)
-1. [Setup using Azure Notebooks](#jupyter)
-1. [Setup using Azure Databricks](#databricks)
+1. [Setup using Compute Instances](#jupyter)
 1. [Setup using a Local Conda environment](#localconda)
+1. [Setup using Azure Databricks](#databricks)
 1. [Automated ML SDK Sample Notebooks](#samples)
 1. [Documentation](#documentation)
 1. [Running using python command](#pythoncommand)
@@ -21,22 +21,14 @@ Below are the three execution environments supported by automated ML.
 
 
  <a name="jupyter"></a>
-## Setup using Azure Notebooks - Jupyter based notebooks in the Azure cloud
+## Setup using Compute Instances - Jupyter based notebooks from a Azure Virtual Machine
 
-1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[Import sample notebooks ](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
-1. Follow the instructions in the [configuration](../../configuration.ipynb) notebook to create and connect to a workspace.
-1. Open one of the sample notebooks.
-
- <a name="databricks"></a>
-## Setup using Azure Databricks
-
-**NOTE**: Please create your Azure Databricks cluster as v4.x (high concurrency preferred) with **Python 3** (dropdown).
-**NOTE**: You should at least have contributor access to your Azure subcription to run the notebook.
-- Please remove the previous SDK version if there is any and install the latest SDK by installing **azureml-sdk[automl_databricks]** as a PyPi library in Azure Databricks workspace.
-- You can find the detail Readme instructions at [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks).
-- Download the sample notebook automl-databricks-local-01.ipynb from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks) and import into the Azure databricks workspace.
-- Attach the notebook to the cluster.
+1. Open the [ML Azure portal](https://ml.azure.com)
+1. Select Compute
+1. Select Compute Instances
+1. Click New
+1. Type a Compute Name, select a Virtual Machine type and select a Virtual Machine size
+1. Click Create
 
 <a name="localconda"></a>
 ## Setup using a Local Conda environment
@@ -102,111 +94,65 @@ source activate azure_automl
 jupyter notebook
 ```
 
+ <a name="databricks"></a>
+## Setup using Azure Databricks
+
+**NOTE**: Please create your Azure Databricks cluster as v6.0 (high concurrency preferred) with **Python 3** (dropdown).
+**NOTE**: You should at least have contributor access to your Azure subcription to run the notebook.
+- Please remove the previous SDK version if there is any and install the latest SDK by installing **azureml-sdk[automl]** as a PyPi library in Azure Databricks workspace.
+- You can find the detail Readme instructions at [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks).
+- Download the sample notebook automl-databricks-local-01.ipynb from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks) and import into the Azure databricks workspace.
+- Attach the notebook to the cluster.
+
 <a name="samples"></a>
 # Automated ML SDK Sample Notebooks
 
-- [auto-ml-classification.ipynb](classification/auto-ml-classification.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Simple example of using automated ML for classification
-    - Uses local compute for training
+- [auto-ml-classification-credit-card-fraud.ipynb](classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
+    - Dataset: Kaggle's [credit card fraud detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+    - Simple example of using automated ML for classification to fraudulent credit card transactions
+    - Uses azure compute for training
 
 - [auto-ml-regression.ipynb](regression/auto-ml-regression.ipynb)
-    - Dataset: scikit learn's [diabetes dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html)
+    - Dataset: Hardware Performance Dataset
     - Simple example of using automated ML for regression
-    - Uses local compute for training
+    - Uses azure compute for training
 
-- [auto-ml-remote-amlcompute.ipynb](remote-amlcompute/auto-ml-remote-amlcompute.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Example of using automated ML for classification using remote AmlCompute for training
-    - Parallel execution of iterations
-    - Async tracking of progress
-    - Cancelling individual iterations or entire run
-    - Retrieving models for any iteration or logged metric
-    - Specify automated ML settings as kwargs
-
-- [auto-ml-missing-data-blacklist-early-termination.ipynb](missing-data-blacklist-early-termination/auto-ml-missing-data-blacklist-early-termination.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Blacklist certain pipelines
-    - Specify a target metrics to indicate stopping criteria
-    - Handling Missing Data in the input
-
-- [auto-ml-sparse-data-train-test-split.ipynb](sparse-data-train-test-split/auto-ml-sparse-data-train-test-split.ipynb)
-    - Dataset: Scikit learn's [20newsgroup](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html)
-    - Handle sparse datasets
-    - Specify custom train and validation set
-
-- [auto-ml-exploring-previous-runs.ipynb](exploring-previous-runs/auto-ml-exploring-previous-runs.ipynb)
-    - List all projects for the workspace
-    - List all automated ML Runs for a given project
-    - Get details for a automated ML Run. (automated ML settings, run widget & all metrics)
-    - Download fitted pipeline for any iteration
-
-- [auto-ml-classification-with-deployment.ipynb](classification-with-deployment/auto-ml-classification-with-deployment.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Simple example of using automated ML for classification
-    - Registering the model
-    - Creating Image and creating aci service
-    - Testing the aci service
-
-- [auto-ml-sample-weight.ipynb](sample-weight/auto-ml-sample-weight.ipynb)
-    - How to specifying sample_weight
-    - The difference that it makes to test results
-
-- [auto-ml-subsampling-local.ipynb](subsampling/auto-ml-subsampling-local.ipynb)
-    - How to enable subsampling
-
-- [auto-ml-dataset.ipynb](dataprep/auto-ml-dataset.ipynb)
-    - Using Dataset for reading data
-
-- [auto-ml-dataset-remote-execution.ipynb](dataprep-remote-execution/auto-ml-dataset-remote-execution.ipynb)
-    - Using Dataset for reading data with remote execution
-
-- [auto-ml-classification-with-whitelisting.ipynb](classification-with-whitelisting/auto-ml-classification-with-whitelisting.ipynb)
-    - Dataset: scikit learn's [digit dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits)
-    - Simple example of using automated ML for classification with whitelisting tensorflow models.
-    - Uses local compute for training
+- [auto-ml-regression-explanation-featurization.ipynb](regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb)
+    - Dataset: Hardware Performance Dataset
+    - Shows featurization and excplanation
+    - Uses azure compute for training
 
 - [auto-ml-forecasting-energy-demand.ipynb](forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
     - Dataset: [NYC energy demand data](forecasting-a/nyc_energy.csv)
     - Example of using automated ML for training a forecasting model
 
-- [auto-ml-forecasting-orange-juice-sales.ipynb](forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
-    - Dataset: [Dominick's grocery sales of orange juice](forecasting-b/dominicks_OJ.csv)
-    - Example of training an automated ML forecasting model on multiple time-series
-
-- [auto-ml-classification-with-onnx.ipynb](classification-with-onnx/auto-ml-classification-with-onnx.ipynb)
-    - Dataset: scikit learn's [iris dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html)
-    - Simple example of using automated ML for classification with ONNX models
+- [auto-ml-classification-credit-card-fraud-local.ipynb](local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb)
+    - Dataset: Kaggle's [credit card fraud detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+    - Simple example of using automated ML for classification to fraudulent credit card transactions
     - Uses local compute for training
 
-- [auto-ml-remote-amlcompute-with-onnx.ipynb](remote-amlcompute-with-onnx/auto-ml-remote-amlcompute-with-onnx.ipynb)
-    - Dataset: scikit learn's [iris dataset](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html)
-    - Example of using automated ML for classification using remote AmlCompute for training
-    - Train the models with ONNX compatible config on
-    - Parallel execution of iterations
-    - Async tracking of progress
-    - Cancelling individual iterations or entire run
-    - Retrieving the ONNX models and do the inference with them
-
-- [auto-ml-bank-marketing-subscribers-with-deployment.ipynb](bank-marketing-subscribers-with-deployment/auto-ml-bank-marketing-with-deployment.ipynb)
+- [auto-ml-classification-bank-marketing-all-features.ipynb](classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)
     - Dataset: UCI's [bank marketing dataset](https://www.kaggle.com/janiobachmann/bank-marketing-dataset)
     - Simple example of using automated ML for classification to predict term deposit subscriptions for a bank
     - Uses azure compute for training
 
-- [auto-ml-creditcard-with-deployment.ipynb](credit-card-fraud-detection-with-deployment/auto-ml-creditcard-with-deployment.ipynb)
-    - Dataset: Kaggle's [credit card fraud detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud)
-    - Simple example of using automated ML for classification to fraudulent credit card transactions
-    - Uses azure compute for training
+- [auto-ml-forecasting-orange-juice-sales.ipynb](forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
+    - Dataset: [Dominick's grocery sales of orange juice](forecasting-b/dominicks_OJ.csv)
+    - Example of training an automated ML forecasting model on multiple time-series
 
-- [auto-ml-hardware-performance-with-deployment.ipynb](hardware-performance-prediction-with-deployment/auto-ml-hardware-performance-with-deployment.ipynb)
-    - Dataset: UCI's [computer hardware dataset](https://archive.ics.uci.edu/ml/datasets/Computer+Hardware)
-    - Simple example of using automated ML for regression to predict the performance of certain combinations of hardware components
-    - Uses azure compute for training
+- [auto-ml-forecasting-bike-share.ipynb](forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+    - Dataset: forecasting for a bike-sharing
+    - Example of training an automated ML forecasting model on multiple time-series
 
-- [auto-ml-concrete-strength-with-deployment.ipynb](predicting-concrete-strength-with-deployment/auto-ml-concrete-strength-with-deployment.ipynb)
-    - Dataset: UCI's [concrete compressive strength dataset](https://www.kaggle.com/pavanraj159/concrete-compressive-strength-data-set)
-    - Simple example of using automated ML for regression to predict the strength  predict the compressive strength of concrete based off of different ingredient combinations and quantities of those ingredients
-    - Uses azure compute for training
+- [auto-ml-forecasting-function.ipynb](forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
+    - Example of training an automated ML forecasting model on multiple time-series
+
+- [auto-ml-forecasting-beer-remote.ipynb](forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
+    - Example of training an automated ML forecasting model on multiple time-series
+    - Beer Production Forecasting
+
+- [auto-ml-continuous-retraining.ipynb](continuous-retraining/auto-ml-continuous-retraining.ipynb)
+    - Continuous retraining using Pipelines and Time-Series TabularDataset
 
 <a name="documentation"></a>
 See [Configure automated machine learning experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) to learn how more about the the settings and features available for automated machine learning experiments.
@@ -245,6 +191,17 @@ If automl_setup_linux.sh fails on Ubuntu Linux with the error: `unable to execut
 4) Check that the region is one of the supported regions: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`
 5) Check that you have access to the region using the Azure Portal.
 
+## import AutoMLConfig fails after upgrade from before 1.0.76 to 1.0.76 or later
+There were package changes in automated machine learning version 1.0.76, which require the previous version to be uninstalled before upgrading to the new version.
+If you have manually upgraded from a version of automated machine learning before 1.0.76 to 1.0.76 or later, you may get the error:
+`ImportError: cannot import name 'AutoMLConfig'`
+
+This can be resolved by running:
+`pip uninstall azureml-train-automl` and then 
+`pip install azureml-train-automl`
+
+The automl_setup.cmd script does this automatically.
+
 ## workspace.from_config fails
 If the call `ws = Workspace.from_config()` fails:
 1) Make sure that you have run the `configuration.ipynb` notebook successfully.
@@ -266,6 +223,15 @@ You may check the version of tensorflow and uninstall as follows
 1) start a command shell, activate conda environment where automated ml packages are installed
 2) enter `pip freeze` and look for `tensorflow` , if found, the version listed should be < 1.13
 3) If the listed version is a not a supported version,  `pip uninstall tensorflow` in the command shell and enter y for confirmation.
+
+## KeyError: 'brand' when running AutoML on local compute or Azure Databricks cluster**
+If a new environment was created after 10 June 2020 using SDK 1.7.0 or lower, training may fail with the above error due to an update in the py-cpuinfo package. (Environments created on or before 10 June 2020 are unaffected, as well as experiments run on remote compute as cached training images are used.) To work around this issue, either of the two following steps can be taken:
+
+1) Update the SDK version to 1.8.0 or higher (this will also downgrade py-cpuinfo to 5.0.0):
+`pip install --upgrade azureml-sdk[automl]`
+
+2) Downgrade the installed version of py-cpuinfo to 5.0.0:
+`pip install py-cpuinfo==5.0.0`
 
 ## Remote run: DsvmCompute.create fails
 There are several reasons why the DsvmCompute.create can fail.  The reason is usually in the error message but you have to look at the end of the error message for the detailed reason.  Some common reasons are:

@@ -1,11 +1,14 @@
-## Using explain model APIs
+## Using AzureML Interpret APIs
 
 <a name="samples"></a>
-# Explain Model SDK Sample Notebooks
+# AzureML Interpret SDK Sample Notebooks
 
-Follow these sample notebooks to learn:
+You can run the interpret-community SDK to explain models locally without Azure.
+For notebooks on the local experience, please see:
+https://github.com/interpretml/interpret-community/tree/master/notebooks
 
-1. [Explain tabular data locally](tabular-data): Basic examples of explaining model trained on tabular data.
-2. [Explain on remote AMLCompute](azure-integration/remote-explanation): Explain a model on a remote AMLCompute target.
-3. [Explain tabular data with Run History](azure-integration/run-history): Explain a model with Run History.
-4. [Operationalize model explanation](azure-integration/scoring-time): Operationalize model explanation as a web service.
+Follow these sample notebooks to learn about the model interpretability integration with Azure:
+
+1. [Explain on remote AMLCompute](azure-integration/remote-explanation): Explain a model on a remote AMLCompute target.
+2. [Explain tabular data with Run History](azure-integration/run-history): Explain a model with Run History.
+3. [Operationalize model explanation](azure-integration/scoring-time): Operationalize model explanation as a web service.

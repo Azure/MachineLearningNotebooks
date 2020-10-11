@@ -1,0 +1,10 @@
+name: img-classification-part3-deploy-encrypted
+dependencies:
+- pip:
+  - azureml-sdk
+  - matplotlib
+  - sklearn
+  - pandas
+  - azureml-opendatasets
+  - encrypted-inference==0.9
+  - azure-storage-blob

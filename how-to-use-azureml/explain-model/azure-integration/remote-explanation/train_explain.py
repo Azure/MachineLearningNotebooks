@@ -3,11 +3,11 @@
 
 from sklearn import datasets
 from sklearn.linear_model import Ridge
-from azureml.explain.model.tabular_explainer import TabularExplainer
-from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
+from interpret.ext.blackbox import TabularExplainer
+from azureml.interpret import ExplanationClient
 from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
-from sklearn.externals import joblib
+import joblib
 import os
 import numpy as np
 
@@ -46,7 +46,8 @@ with open(model_file_name, 'wb') as file:
 
 # register the model
 run.upload_file('original_model.pkl', os.path.join('./outputs/', model_file_name))
-original_model = run.register_model(model_name='original_model', model_path='original_model.pkl')
+original_model = run.register_model(model_name='model_explain_model_on_amlcomp',
+                                    model_path='original_model.pkl')
 
 # Explain predictions on your local machine
 tabular_explainer = TabularExplainer(model, X_train, features=boston_data.feature_names)
@@ -60,4 +61,4 @@ global_explanation = tabular_explainer.explain_global(X_test)
 # Uploading model explanation data for storage or visualization in webUX
 # The explanation can then be downloaded on any compute
 comment = 'Global explanation on regression model trained on boston dataset'
-client.upload_model_explanation(global_explanation, comment=comment)
+client.upload_model_explanation(global_explanation, comment=comment, model_id=original_model.id)

@@ -1,0 +1,4 @@
+name: auto-ml-regression-model-proxy
+dependencies:
+- pip:
+  - azureml-sdk

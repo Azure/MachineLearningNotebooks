@@ -2,9 +2,3 @@ name: auto-ml-classification-credit-card-fraud
 dependencies:
 - pip:
   - azureml-sdk
-  - azureml-defaults
-  - azureml-explain-model
-  - azureml-train-automl
-  - azureml-widgets
-  - matplotlib
-  - pandas_ml

@@ -1,9 +1,0 @@
-name: export-run-history-to-tensorboard
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-tensorboard
-  - tensorflow
-  - tqdm
-  - scipy
-  - sklearn

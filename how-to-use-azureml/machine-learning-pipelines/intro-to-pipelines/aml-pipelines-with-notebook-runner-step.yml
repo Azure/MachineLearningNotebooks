@@ -1,0 +1,6 @@
+name: aml-pipelines-with-notebook-runner-step
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - azureml-contrib-notebook

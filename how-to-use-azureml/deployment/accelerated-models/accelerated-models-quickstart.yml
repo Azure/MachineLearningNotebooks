@@ -1,6 +1,0 @@
-name: accelerated-models-quickstart
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-accel-models
-  - tensorflow

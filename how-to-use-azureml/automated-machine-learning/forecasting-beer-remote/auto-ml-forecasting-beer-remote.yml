@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-beer-remote
+dependencies:
+- pip:
+  - azureml-sdk

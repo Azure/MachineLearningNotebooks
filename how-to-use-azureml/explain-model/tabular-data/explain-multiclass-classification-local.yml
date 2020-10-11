@@ -1,6 +1,0 @@
-name: explain-multiclass-classification-local
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-explain-model
-  - azureml-contrib-explain-model
