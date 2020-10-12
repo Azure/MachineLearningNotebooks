@@ -1,0 +1,50 @@
+name: mask-rcnn
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - astroid=2.4.2=py36_0
+  - ca-certificates=2020.7.22=0
+  - certifi=2020.6.20=py36_0
+  - colorama=0.4.3=py_0
+  - freetype=2.10.3=hd328e21_0
+  - icu=67.1=h33f27b4_0
+  - intel-openmp=2020.1=216
+  - isort=5.6.1=py36_0
+  - jpeg=9d=he774522_0
+  - lazy-object-proxy=1.4.3=py36he774522_0
+  - libblas=3.8.0=16_mkl
+  - libcblas=3.8.0=16_mkl
+  - libclang=10.0.1=default_hf44288c_1
+  - liblapack=3.8.0=16_mkl
+  - liblapacke=3.8.0=16_mkl
+  - libopencv=4.4.0=py36_2
+  - libpng=1.6.37=ha81a0f5_2
+  - libtiff=4.1.0=h885aae3_6
+  - libwebp-base=1.1.0=hfa6e2cd_3
+  - lz4-c=1.9.2=h62dcd97_2
+  - mccabe=0.6.1=py36_1
+  - mkl=2020.1=216
+  - numpy=1.19.1=py36h12ee977_2
+  - opencv=4.4.0=py36_2
+  - openssl=1.1.1h=he774522_0
+  - pip=20.2.3=py36_0
+  - py-opencv=4.4.0=py36h95af2a2_2
+  - pylint=2.6.0=py36_0
+  - python=3.6.12=h5500b2f_2
+  - python_abi=3.6=1_cp36m
+  - qt=5.12.9=hb2cf2c5_0
+  - setuptools=50.3.0=py36h9490d1a_1
+  - six=1.15.0=py_0
+  - sqlite=3.33.0=h2a8f88b_0
+  - toml=0.10.1=py_0
+  - typed-ast=1.4.1=py36he774522_0
+  - vc=14.1=h0510ff6_4
+  - vs2015_runtime=14.16.27012=hf0eaf9b_3
+  - wheel=0.35.1=py_0
+  - wincertstore=0.2=py36h7fe50ca_0
+  - wrapt=1.11.2=py36he774522_0
+  - xz=5.2.5=h62dcd97_1
+  - zlib=1.2.11=h62dcd97_4
+  - zstd=1.4.5=h1f3a1b7_2
+prefix: C:\Users\Tom\.conda\envs\mask-rcnn
