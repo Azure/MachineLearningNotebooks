@@ -1,0 +1,4 @@
+name: day1-part1-setup
+dependencies:
+- pip:
+  - azureml-sdk

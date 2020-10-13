@@ -5,4 +5,3 @@ dependencies:
   - azureml-contrib-fairness
   - fairlearn==0.4.6
   - joblib
-  - shap

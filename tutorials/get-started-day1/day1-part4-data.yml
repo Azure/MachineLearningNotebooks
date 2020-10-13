@@ -1,0 +1,7 @@
+name: day1-part4-data
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - pytorch
+  - torchvision
