@@ -1,0 +1,5 @@
+name: day1-part2-hello-world
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets

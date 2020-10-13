@@ -173,7 +173,7 @@ The main code of the file must be indented so that it is under this condition.
 ## automl_setup fails
 1. On Windows, make sure that you are running automl_setup from an Anconda Prompt window rather than a regular cmd window.  You can launch the "Anaconda Prompt" window by hitting the Start button and typing "Anaconda Prompt".  If you don't see the application "Anaconda Prompt", you might not have conda or mini conda installed.  In that case, you can install it [here](https://conda.io/miniconda.html)
 2. Check that you have conda 64-bit installed rather than 32-bit.  You can check this with the command `conda info`.  The `platform` should be `win-64` for Windows or `osx-64` for Mac.
-3. Check that you have conda 4.4.10 or later.  You can check the version with the command `conda -V`.  If you have a previous version installed, you can update it using the command: `conda update conda`.
+3. Check that you have conda 4.7.8 or later.  You can check the version with the command `conda -V`.  If you have a previous version installed, you can update it using the command: `conda update conda`.
 4. On Linux, if the error is `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`, install build essentials using the command `sudo apt-get install build-essential`.
 5. Pass a new name as the first parameter to automl_setup so that it creates a new conda environment. You can view existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`.
 
