@@ -1,9 +1,21 @@
-# Adding an init script to an Azure Databricks cluster
+# Automated ML introduction
+Automated machine learning (automated ML) builds high quality machine learning models for you by automating model and hyperparameter selection. Bring a labelled dataset that you want to build a model for, automated ML will give you a high quality machine learning model that you can use for predictions.
 
-The [azureml-cluster-init.sh](./azureml-cluster-init.sh) script configures the environment to
-1. Install the latest AutoML library
 
-To create the Azure Databricks cluster-scoped init script
+If you are new to Data Science, automated ML will help you get jumpstarted by simplifying machine learning model building. It abstracts you from needing to perform model selection, hyperparameter selection and in one step creates a high quality trained model for you to use.
+
+If you are an experienced data scientist, automated ML will help increase your productivity by intelligently performing the model and hyperparameter selection for your training and generates high quality models much quicker than manually specifying several combinations of the parameters and running training jobs. Automated ML provides visibility and access to all the training jobs and the performance characteristics of the models to help you further tune the pipeline if you desire.
+
+# Install Instructions using Azure Databricks :
+
+#### For Databricks non ML runtime 7.1(scala 2.21, spark 3.0.0) and up, Install Automated Machine Learning sdk by adding and running the following command as the first cell of your notebook. This will install AutoML dependencies specific for your notebook.
+
+%pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
+
+
+#### For Databricks non ML runtime 7.0 and lower, Install Automated Machine Learning sdk using init script as shown below before running the notebook.**
+
+**Create the Azure Databricks cluster-scoped init script 'azureml-cluster-init.sh' as below
 
 1. Create the base directory you want to store the init script in if it does not exist.
     ```
@@ -15,7 +27,7 @@ To create the Azure Databricks cluster-scoped init script
     dbutils.fs.put("/databricks/init/azureml-cluster-init.sh","""
     #!/bin/bash
 	set -ex
-	/databricks/python/bin/pip install -r https://aka.ms/automl_linux_requirements.txt
+	/databricks/python/bin/pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
     """, True)
     ```
 
@@ -23,6 +35,8 @@ To create the Azure Databricks cluster-scoped init script
     ```
     display(dbutils.fs.ls("dbfs:/databricks/init/azureml-cluster-init.sh"))
     ```
+
+**Install libraries to cluster using init script 'azureml-cluster-init.sh' created in previous step
 
 1. Configure the cluster to run the script.
     * Using the cluster configuration page
