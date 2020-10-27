@@ -1,0 +1,7 @@
+name: azureml-quickstart
+dependencies:
+- pip:
+  - azureml-sdk
+  - pytorch
+  - torchvision
+  - matplotlib

@@ -140,4 +140,5 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [img-classification-part2-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part2-deploy.ipynb) |  |  |  |  |  |  |
 | [img-classification-part3-deploy-encrypted](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part3-deploy-encrypted.ipynb) |  |  |  |  |  |  |
 | [tutorial-pipeline-batch-scoring-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb) |  |  |  |  |  |  |
+| [azureml-quickstart](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/quickstart/azureml-quickstart.ipynb) |  |  |  |  |  |  |
 | [regression-automated-ml](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb) |  |  |  |  |  |  |
