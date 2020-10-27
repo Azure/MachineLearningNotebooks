@@ -10,7 +10,7 @@ dependencies:
 - numpy==1.18.5
 - cython
 - urllib3<1.24
-- scipy==1.4.1
+- scipy>=1.4.1,<=1.5.2
 - scikit-learn==0.22.1
 - pandas==0.25.1
 - py-xgboost<=0.90
@@ -25,4 +25,4 @@ dependencies:
   - pytorch-transformers==1.0.0
   - spacy==2.1.8
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz  
-  - -r https://automlcesdkdataresources.blob.core.windows.net/validated-requirements/1.16.0/validated_darwin_requirements.txt [--no-deps]
+  - -r https://automlcesdkdataresources.blob.core.windows.net/validated-requirements/1.17.0/validated_darwin_requirements.txt [--no-deps]

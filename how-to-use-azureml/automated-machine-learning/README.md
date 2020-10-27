@@ -97,11 +97,10 @@ jupyter notebook
  <a name="databricks"></a>
 ## Setup using Azure Databricks
 
-**NOTE**: Please create your Azure Databricks cluster as v6.0 (high concurrency preferred) with **Python 3** (dropdown).
+**NOTE**: Please create your Azure Databricks cluster as v7.1 (high concurrency preferred) with **Python 3** (dropdown).
 **NOTE**: You should at least have contributor access to your Azure subcription to run the notebook.
-- Please remove the previous SDK version if there is any and install the latest SDK by installing **azureml-sdk[automl]** as a PyPi library in Azure Databricks workspace.
-- You can find the detail Readme instructions at [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks).
-- Download the sample notebook automl-databricks-local-01.ipynb from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks) and import into the Azure databricks workspace.
+- You can find the detail Readme instructions at [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl).
+- Download the sample notebook automl-databricks-local-01.ipynb from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) and import into the Azure databricks workspace.
 - Attach the notebook to the cluster.
 
 <a name="samples"></a>
