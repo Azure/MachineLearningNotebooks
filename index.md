@@ -97,6 +97,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 ## Other Notebooks
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
+| [DNN Text Featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) | Text featurization using DNNs for classification | None | AML Compute | None | None | None |
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) |  |  |  |  |  |  |
 | [fairlearn-azureml-mitigation](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/fairness/fairlearn-azureml-mitigation.ipynb) |  |  |  |  |  |  |
 | [upload-fairness-dashboard](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/fairness/upload-fairness-dashboard.ipynb) |  |  |  |  |  |  |
