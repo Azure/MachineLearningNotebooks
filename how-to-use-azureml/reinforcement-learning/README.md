@@ -30,7 +30,6 @@ Using these samples, you will learn how to do the following.
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| [devenv_setup.ipynb](setup/devenv_setup.ipynb) | Notebook to setup virtual network for using Azure Machine Learning.  Needed for the Pong and Minecraft examples. |
 | [cartpole_ci.ipynb](cartpole-on-compute-instance/cartpole_ci.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Instance |
 | [cartpole_sc.ipynb](cartpole-on-single-compute/cartpole_sc.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Cluster (single node) |
 | [pong_rllib.ipynb](atari-on-distributed-compute/pong_rllib.ipynb)   | Notebook for distributed training of Pong agent using RLlib on multiple compute targets |
@@ -46,9 +45,7 @@ To make use of these samples, you need the following.
 * An Azure Machine Learning Workspace in the resource group.
 * Azure Machine Learning training compute. These samples use the VM sizes `STANDARD_NC6` and `STANDARD_D2_V2`.  If these are not available in your region,
 you can replace them with other sizes.
-* A virtual network set up in the resource group for samples that use multiple compute targets.  The Cartpole examples do not need a virtual network.
-  * The [devenv_setup.ipynb](setup/devenv_setup.ipynb) notebook shows you how to create a virtual network. You can alternatively use an existing virtual network, make sure it's in the same region as workspace is.
-  * Any network security group defined on the virtual network must allow network traffic on ports used by Azure infrastructure services. This is described in more detail in the [devenv_setup.ipynb](setup/devenv_setup.ipynb) notebook.
+* A virtual network set up in the resource group for samples that use multiple compute targets.  The Cartpole and Multi-agent Particle examples do not need a virtual network. Any network security group defined on the virtual network must allow network traffic on ports used by Azure infrastructure services. Sample instructions are provided in Atari Pong and Minecraft example notebooks.
 
 
 ## Setup

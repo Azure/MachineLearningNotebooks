@@ -2,7 +2,7 @@
 
 > a community-driven repository of examples using mlflow for tracking can be found at https://github.com/Azure/azureml-examples
 
-This repository contains example notebooks demonstrating the [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning-service/) Python SDK which allows you to build, train, deploy and manage machine learning solutions using Azure.  The AML SDK allows you the choice of using local or cloud compute resources, while managing and maintaining the complete data science workflow from the cloud.
+This repository contains example notebooks demonstrating the [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-service/) Python SDK which allows you to build, train, deploy and manage machine learning solutions using Azure.  The AML SDK allows you the choice of using local or cloud compute resources, while managing and maintaining the complete data science workflow from the cloud.
 
 ![Azure ML Workflow](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/machine-learning/media/concept-azure-machine-learning-architecture/workflow.png)
 
@@ -20,10 +20,10 @@ This [index](./index.md) should assist in navigating the Azure Machine Learning 
 If you want to...
 
  * ...try out and explore Azure ML, start with image classification tutorials: [Part 1 (Training)](./tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb) and [Part 2 (Deployment)](./tutorials/image-classification-mnist-data/img-classification-part2-deploy.ipynb).
- * ...learn about experimentation and tracking run history, first [train within Notebook](./how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb), then try [training on remote VM](./how-to-use-azureml/training/train-on-remote-vm/train-on-remote-vm.ipynb) and [using logging APIs](./how-to-use-azureml/training/logging-api/logging-api.ipynb).
- * ...train deep learning models at scale, first learn about [Machine Learning Compute](./how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb), and then try [distributed hyperparameter tuning](./how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) and [distributed training](./how-to-use-azureml/training-with-deep-learning/distributed-pytorch-with-horovod/distributed-pytorch-with-horovod.ipynb).
- * ...deploy models as a realtime scoring service, first learn the basics by [training within Notebook and deploying to Azure Container Instance](./how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb), then learn how to [production deploy models on Azure Kubernetes Cluster](./how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks.ipynb).
- * ...deploy models as a batch scoring service, first [train a model within Notebook](./how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb), then [create Machine Learning Compute for scoring compute](./how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb), and [use Machine Learning Pipelines to deploy your model](https://aka.ms/pl-batch-scoring).
+ * ...learn about experimentation and tracking run history: [track and monitor experiments](./how-to-use-azureml/track-and-monitor-experiments).
+ * ...train deep learning models at scale, first learn about [Machine Learning Compute](./how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb), and then try [distributed hyperparameter tuning](./how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) and [distributed training](./how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-horovod/distributed-pytorch-with-horovod.ipynb).
+ * ...deploy models as a realtime scoring service, first learn the basics by [deploying to Azure Container Instance](./how-to-use-azureml/deployment/deploy-to-cloud/model-register-and-deploy.ipynb), then learn how to [production deploy models on Azure Kubernetes Cluster](./how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks.ipynb).
+ * ...deploy models as a batch scoring service: [create Machine Learning Compute for scoring compute](./how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb) and [use Machine Learning Pipelines to deploy your model](https://aka.ms/pl-batch-scoring).
  * ...monitor your deployed models, learn about using [App Insights](./how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb).
 
 ## Tutorials
@@ -35,13 +35,12 @@ The [Tutorials](./tutorials) folder contains notebooks for the tutorials describ
 The [How to use Azure ML](./how-to-use-azureml) folder contains specific examples demonstrating the features of the Azure Machine Learning SDK
 
 - [Training](./how-to-use-azureml/training) - Examples of how to build models using Azure ML's logging and execution capabilities on local and remote compute targets
-- [Training with Deep Learning](./how-to-use-azureml/training-with-deep-learning) - Examples demonstrating how to build deep learning models using estimators and parameter sweeps
+- [Training with ML and DL frameworks](./how-to-use-azureml/ml-frameworks) - Examples demonstrating how to build and train machine learning models at scale on Azure ML and perform hyperparameter tuning.
 - [Manage Azure ML Service](./how-to-use-azureml/manage-azureml-service) - Examples how to perform tasks, such as authenticate against Azure ML service in different ways.
 - [Automated Machine Learning](./how-to-use-azureml/automated-machine-learning) - Examples using Automated Machine Learning to automatically generate optimal machine learning pipelines and models
 - [Machine Learning Pipelines](./how-to-use-azureml/machine-learning-pipelines) - Examples showing how to create and use reusable pipelines for training and batch scoring
 - [Deployment](./how-to-use-azureml/deployment) - Examples showing how to deploy and manage machine learning models and solutions
 - [Azure Databricks](./how-to-use-azureml/azure-databricks) - Examples showing how to use Azure ML with Azure Databricks
-- [Monitor Models](./how-to-use-azureml/monitor-models) - Examples showing how to enable model monitoring services such as DataDrift
 - [Reinforcement Learning](./how-to-use-azureml/reinforcement-learning) - Examples showing how to train reinforcement learning agents
 
 ---
@@ -60,7 +59,6 @@ Visit this [community repository](https://github.com/microsoft/MLOps/tree/master
 ## Projects using Azure Machine Learning
 
 Visit following repos to see projects contributed by Azure ML users:
- - [AMLSamples](https://github.com/Azure/AMLSamples) Number of end-to-end examples, including face recognition, predictive maintenance, customer churn and sentiment analysis.
  - [Learn about Natural Language Processing best practices using Azure Machine Learning service](https://github.com/microsoft/nlp)
  - [Pre-Train BERT models using Azure Machine Learning service](https://github.com/Microsoft/AzureML-BERT)
  - [Fashion MNIST with Azure ML SDK](https://github.com/amynic/azureml-sdk-fashion)
