@@ -28,7 +28,7 @@ git clone https://github.com/Azure/MachineLearningNotebooks.git
 pip install azureml-sdk[notebooks,tensorboard]
 
 # install model explainability component
-pip install azureml-sdk[explain]
+pip install azureml-sdk[interpret]
 
 # install automated ml components
 pip install azureml-sdk[automl]
@@ -86,7 +86,7 @@ If you need additional Azure ML SDK components, you can either modify the Docker
 pip install azureml-sdk[automl]
 
 # install the core SDK and model explainability component
-pip install azureml-sdk[explain]
+pip install azureml-sdk[interpret]
 
 # install the core SDK and experimental components
 pip install azureml-sdk[contrib]

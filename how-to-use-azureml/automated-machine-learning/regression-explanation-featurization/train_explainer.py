@@ -4,7 +4,7 @@ import os
 import joblib
 
 from interpret.ext.glassbox import LGBMExplainableModel
-from automl.client.core.common.constants import MODEL_PATH
+from azureml.automl.core.shared.constants import MODEL_PATH
 from azureml.core.experiment import Experiment
 from azureml.core.dataset import Dataset
 from azureml.core.run import Run
