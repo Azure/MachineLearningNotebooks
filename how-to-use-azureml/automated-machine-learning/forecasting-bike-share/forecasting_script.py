@@ -1,22 +1,24 @@
 import argparse
-import azureml.train.automl
-from azureml.core import Run
+from azureml.core import Dataset, Run
 from sklearn.externals import joblib
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
     '--target_column_name', type=str, dest='target_column_name',
     help='Target Column Name')
+parser.add_argument(
+    '--test_dataset', type=str, dest='test_dataset',
+    help='Test Dataset')
 
 args = parser.parse_args()
 target_column_name = args.target_column_name
+test_dataset_id = args.test_dataset
 
 run = Run.get_context()
-# get input dataset by name
-test_dataset = run.input_datasets['test_data']
+ws = run.experiment.workspace
 
-df = test_dataset.to_pandas_dataframe().reset_index(drop=True)
+# get the input dataset by id
+test_dataset = Dataset.get_by_id(ws, id=test_dataset_id)
 
 X_test_df = test_dataset.drop_columns(columns=[target_column_name]).to_pandas_dataframe().reset_index(drop=True)
 y_test_df = test_dataset.with_timestamp_columns(None).keep_columns(columns=[target_column_name]).to_pandas_dataframe()

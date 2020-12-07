@@ -3,11 +3,11 @@ from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.train.estimator import Estimator
 from azureml.core.run import Run
+from azureml.automl.core.shared import constants
 
 
 def split_fraction_by_grain(df, fraction, time_column_name,
                             grain_column_names=None):
-
     if not grain_column_names:
         df['tmp_grain_column'] = 'grain'
         grain_column_names = ['tmp_grain_column']
@@ -17,10 +17,10 @@ def split_fraction_by_grain(df, fraction, time_column_name,
                   .groupby(grain_column_names, group_keys=False))
 
     df_head = df_grouped.apply(lambda dfg: dfg.iloc[:-int(len(dfg) *
-                               fraction)] if fraction > 0 else dfg)
+                                                          fraction)] if fraction > 0 else dfg)
 
     df_tail = df_grouped.apply(lambda dfg: dfg.iloc[-int(len(dfg) *
-                               fraction):] if fraction > 0 else dfg[:0])
+                                                         fraction):] if fraction > 0 else dfg[:0])
 
     if 'tmp_grain_column' in grain_column_names:
         for df2 in (df, df_head, df_tail):
@@ -59,11 +59,13 @@ def get_result_df(remote_run):
                                      'primary_metric', 'Score'])
     goal_minimize = False
     for run in children:
-        if('run_algorithm' in run.properties and 'score' in run.properties):
+        if run.get_status().lower() == constants.RunState.COMPLETE_RUN \
+                and 'run_algorithm' in run.properties and 'score' in run.properties:
+            # We only count in the completed child runs.
             summary_df[run.id] = [run.id, run.properties['run_algorithm'],
                                   run.properties['primary_metric'],
                                   float(run.properties['score'])]
-            if('goal' in run.properties):
+            if ('goal' in run.properties):
                 goal_minimize = run.properties['goal'].split('_')[-1] == 'min'
 
     summary_df = summary_df.T.sort_values(
@@ -118,7 +120,6 @@ def run_multiple_inferences(summary_df, train_experiment, test_experiment,
                             compute_target, script_folder, test_dataset,
                             lookback_dataset, max_horizon, target_column_name,
                             time_column_name, freq):
-
     for run_name, run_summary in summary_df.iterrows():
         print(run_name)
         print(run_summary)
