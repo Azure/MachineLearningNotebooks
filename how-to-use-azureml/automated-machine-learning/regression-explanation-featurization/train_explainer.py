@@ -66,7 +66,8 @@ engineered_explanations = explainer.explain(['local', 'global'], tag='engineered
 # Compute the raw explanations
 raw_explanations = explainer.explain(['local', 'global'], get_raw=True, tag='raw explanations',
                                      raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
-                                     eval_dataset=automl_explainer_setup_obj.X_test_transform)
+                                     eval_dataset=automl_explainer_setup_obj.X_test_transform,
+                                     raw_eval_dataset=automl_explainer_setup_obj.X_test_raw)
 
 print("Engineered and raw explanations computed successfully")
 

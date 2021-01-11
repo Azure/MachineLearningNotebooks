@@ -1,7 +1,0 @@
-name: pipeline-style-transfer-mpi
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-pipeline-steps
-  - azureml-widgets
-  - requests
