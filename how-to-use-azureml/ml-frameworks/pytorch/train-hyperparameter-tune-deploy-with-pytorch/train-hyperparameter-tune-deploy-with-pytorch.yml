@@ -5,5 +5,6 @@ dependencies:
   - azureml-widgets
   - pillow==5.4.1
   - matplotlib
-  - https://download.pytorch.org/whl/cpu/torch-1.1.0-cp35-cp35m-win_amd64.whl
-  - https://download.pytorch.org/whl/cpu/torchvision-0.3.0-cp35-cp35m-win_amd64.whl
+  - numpy==1.19.3
+  - https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp36-cp36m-win_amd64.whl
+  - https://download.pytorch.org/whl/cpu/torchvision-0.7.0%2Bcpu-cp36-cp36m-win_amd64.whl
