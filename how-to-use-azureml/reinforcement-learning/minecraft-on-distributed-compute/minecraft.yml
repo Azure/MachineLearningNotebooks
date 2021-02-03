@@ -1,8 +1,0 @@
-name: minecraft
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-contrib-reinforcementlearning
-  - azureml-widgets
-  - tensorboard
-  - azureml-tensorboard

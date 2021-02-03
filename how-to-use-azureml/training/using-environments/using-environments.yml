@@ -1,4 +1,0 @@
-name: using-environments
-dependencies:
-- pip:
-  - azureml-sdk

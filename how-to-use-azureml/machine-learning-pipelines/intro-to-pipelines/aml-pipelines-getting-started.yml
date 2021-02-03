@@ -1,5 +1,0 @@
-name: aml-pipelines-getting-started
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets

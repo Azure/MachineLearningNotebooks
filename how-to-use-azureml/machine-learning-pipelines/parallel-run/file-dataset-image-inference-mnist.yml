@@ -1,7 +1,0 @@
-name: file-dataset-image-inference-mnist
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-pipeline-steps
-  - azureml-widgets
-  - pandas

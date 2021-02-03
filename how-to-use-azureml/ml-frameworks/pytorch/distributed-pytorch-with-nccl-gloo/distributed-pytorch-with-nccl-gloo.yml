@@ -1,5 +1,0 @@
-name: distributed-pytorch-with-nccl-gloo
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets
