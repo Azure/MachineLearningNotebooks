@@ -6,21 +6,6 @@ After following the directions, the user should end up setting a conda environme
 
 The user would also require an Azure Subscription with a Machine Learning Services quota on the desired region for 24 nodes or more (to be able to select a vmSize with 4 GPUs as it is used on the Notebook) on the desired VM family ([NC\_v3](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu#ncv3-series),  [NC\_v2](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu#ncv2-series), [ND](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu#nd-series) or [ND_v2](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu#ndv2-series-preview)), the specific vmSize to be used within the chosen family would also need to be whitelisted for Machine Learning Services usage.  
 
-&nbsp;
-The following examples are available:
-    
-## 1) RAPIDS Hyperparameter Optimization (HPO) on AzureML
-    
-This example is available from: https://github.com/Azure/azureml-examples/tree/main/tutorials/using-rapids, and will walk you through single GPU and single-node multi-GPU accelerated HPO jobs on AzureML. You will be able to train and evaluate models with many different variations of key parameters in order to find the combination that yields the highest accuracy. 
-    
-## 2) RAPIDS Multi-Node Multi-GPU Training using Dask Cloud Provider
-    
-This notebook: https://github.com/rapidsai/cloud-ml-examples/blob/main/azure/notebooks/azure_mnmg.ipynb will use the [AzureVMCluster](https://cloudprovider.dask.org/en/latest/azure.html#azurevm) class from [Dask Cloud Provider](https://cloudprovider.dask.org/en/latest/) to set up a Dask cluster on Azure VM instances and train a multi-node multi-GPU Random Forest model.
-    
-## 3) RAPIDS End-to-End (E2E) Mortgage Workflow
-
-The example below will use a dataset from [Fannie Mae’s Single-Family Loan Performance Data](http://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html) and the processed dataset is available at [RAPIDS Datasets Homepage](https://docs.rapids.ai/datasets/mortgage-data), which is redistributed with permission and consent from Fannie Mae (note the example below has not been updated with the latest version of RAPIDS, recent examples are available in the repositories mentioned above).  
-
 &nbsp;  
 ### Getting and running the material 
 Clone the AzureML Notebooks repository in GitHub by running the following command on a local_directory: 
@@ -99,7 +84,7 @@ The successful creation of the compute target would have an output like the foll
 ![](imgs/targetsuccess.png)
 &nbsp;  
 #### RAPIDS script uploading and viewing
-The next step copies the RAPIDS script process_data.py, which is a slightly modified implementation of the [RAPIDS E2E example](https://github.com/rapidsai-community/notebooks-contrib/blob/branch-0.14/intermediate_notebooks/E2E/mortgage/mortgage_e2e.ipynb), into a script processing folder and it presents its contents to the user. (The script is discussed in the next section in detail). 
+The next step copies the RAPIDS script process_data.py, which is a slightly modified implementation of the [RAPIDS E2E example](https://github.com/rapidsai/notebooks/blob/master/mortgage/E2E.ipynb), into a script processing folder and it presents its contents to the user. (The script is discussed in the next section in detail). 
 If the user wants to use a different RAPIDS script, the references to the  <span style="font-family: Courier New;">process_data.py</span> script have to be changed
 
 ![](imgs/scriptuploading.png)

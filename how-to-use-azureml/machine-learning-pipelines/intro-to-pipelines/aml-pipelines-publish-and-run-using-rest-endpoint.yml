@@ -1,6 +1,0 @@
-name: aml-pipelines-publish-and-run-using-rest-endpoint
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets
-  - requests
