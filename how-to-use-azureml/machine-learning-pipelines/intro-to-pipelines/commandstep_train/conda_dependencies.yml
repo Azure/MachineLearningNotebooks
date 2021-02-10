@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pip:
+    - azureml-defaults
+    - tensorflow-gpu==2.3.0
+    - horovod==0.19.5
