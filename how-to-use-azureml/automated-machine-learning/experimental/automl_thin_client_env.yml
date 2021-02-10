@@ -18,4 +18,3 @@ dependencies:
   - azureml-sdk
   - azureml-widgets
   - azureml-explain-model
-  - PyJWT < 2.0.0
