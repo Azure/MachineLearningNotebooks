@@ -3,7 +3,7 @@
 ## Why are Dataset API changes essential?
 
 The existing Dataset class only supports data in tabular format. In order to support binary data and address a wider range of machine learning scenarios including deep learning, we will introduce Dataset types. Datasets are categorized into various types based on how users consume them in training. List of Dataset types:
-- **TabularDataset**: Represents data in a tabular format by parsing the provided file or list of files. TabularDataset can be created from csv, tsv, parquet files, SQL query results etc. For the complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference). It provides you with the ability to materialize the data into a pandas DataFrame.
+- **TabularDataset**: Represents data in a tabular format by parsing the provided file or list of files. TabularDataset can be created from csv, tsv, parquet files, SQL query results, etc. For the complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference). It provides you with the ability to materialize the data into a pandas DataFrame.
 - **FileDataset**: References single or multiple files in your datastores or public urls. The files can be of any format. FileDataset provides you with the ability to download or mount the files to your compute.
 
 In order to transit from the current Dataset design to typed Dataset, we will deprecate the following methods over time.
