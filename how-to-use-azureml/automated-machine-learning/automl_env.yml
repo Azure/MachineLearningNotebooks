@@ -26,4 +26,3 @@ dependencies:
   - spacy==2.1.8
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
   - -r https://automlcesdkdataresources.blob.core.windows.net/validated-requirements/1.23.0/validated_win32_requirements.txt [--no-deps]
-  - PyJWT < 2.0.0
