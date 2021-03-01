@@ -8,6 +8,7 @@ dependencies:
 - nb_conda
 - cython
 - urllib3<1.24
+- numpy==1.18.5
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
