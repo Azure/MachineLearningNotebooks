@@ -1,0 +1,13 @@
+pandas
+librosa
+azure-storage-blob
+azure-core
+tqdm
+pydub
+noisereduce
+matplotlib
+jupyterlab
+azureml-sdk
+azureml-core
+python-dotenv
+opencv-python

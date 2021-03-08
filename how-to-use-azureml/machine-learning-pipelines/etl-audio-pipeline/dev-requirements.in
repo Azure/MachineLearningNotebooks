@@ -1,0 +1,8 @@
+-c requirements.txt
+black
+isort
+jupytext
+pre-commit
+pylint
+pytest
+pip-tools
