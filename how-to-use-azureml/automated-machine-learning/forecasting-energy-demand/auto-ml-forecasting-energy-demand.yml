@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-energy-demand
+dependencies:
+- pip:
+  - azureml-sdk

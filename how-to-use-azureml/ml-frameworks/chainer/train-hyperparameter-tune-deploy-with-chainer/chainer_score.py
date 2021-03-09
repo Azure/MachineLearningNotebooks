@@ -2,6 +2,8 @@ import numpy as np
 import os
 import json
 
+from utils import download_mnist
+
 from chainer import serializers, using_config, Variable, datasets
 import chainer.functions as F
 import chainer.links as L
@@ -41,7 +43,7 @@ def init():
 def run(input_data):
     i = np.array(json.loads(input_data)['data'])
 
-    _, test = datasets.get_mnist()
+    _, test = download_mnist()
     x = Variable(np.asarray([test[i][0]]))
     y = model(x)
 

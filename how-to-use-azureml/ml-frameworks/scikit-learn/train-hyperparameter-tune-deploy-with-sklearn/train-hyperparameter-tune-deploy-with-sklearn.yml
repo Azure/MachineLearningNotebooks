@@ -1,0 +1,6 @@
+name: train-hyperparameter-tune-deploy-with-sklearn
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - numpy

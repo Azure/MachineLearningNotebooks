@@ -1,0 +1,5 @@
+name: onnx-train-pytorch-aml-deploy-mnist
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets

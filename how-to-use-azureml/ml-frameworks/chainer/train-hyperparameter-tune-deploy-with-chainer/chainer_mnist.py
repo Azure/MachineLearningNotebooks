@@ -4,6 +4,8 @@ import os
 
 import numpy as np
 
+from utils import download_mnist
+
 import chainer
 from chainer import backend
 from chainer import backends
@@ -16,6 +18,7 @@ import chainer.links as L
 from chainer.training import extensions
 from chainer.dataset import concat_examples
 from chainer.backends.cuda import to_cpu
+
 
 from azureml.core.run import Run
 run = Run.get_context()
@@ -49,7 +52,7 @@ def main():
     args = parser.parse_args()
 
     # Download the MNIST data if you haven't downloaded it yet
-    train, test = datasets.mnist.get_mnist(withlabel=True, ndim=1)
+    train, test = download_mnist()
 
     gpu_id = args.gpu_id
     batchsize = args.batchsize

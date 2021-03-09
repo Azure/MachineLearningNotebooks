@@ -1,0 +1,8 @@
+name: save-retrieve-explanations-run-history
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-interpret
+  - interpret-community[visualization]
+  - matplotlib
+  - ipywidgets
