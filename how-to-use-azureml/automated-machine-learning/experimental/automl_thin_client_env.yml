@@ -7,6 +7,7 @@ dependencies:
 - nb_conda
 - cython
 - urllib3<1.24
+- PyJWT < 2.0.0
 - numpy==1.18.5
 
 - pip:
@@ -15,4 +16,3 @@ dependencies:
   - azureml-sdk
   - azureml-widgets
   - pandas
-  - PyJWT < 2.0.0

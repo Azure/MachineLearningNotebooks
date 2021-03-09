@@ -1,0 +1,9 @@
+name: explain-model-on-amlcompute
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-interpret
+  - interpret-community[visualization]
+  - matplotlib
+  - azureml-dataset-runtime
+  - ipywidgets

@@ -1,0 +1,8 @@
+name: train-with-datasets
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - pandas<=0.23.4
+  - fuse
+  - scikit-learn

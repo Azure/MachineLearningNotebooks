@@ -1,0 +1,6 @@
+name: pipeline-for-image-classification
+dependencies:
+- pip:
+  - azureml-sdk
+  - pandas<=0.23.4
+  - fuse

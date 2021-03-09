@@ -12,7 +12,7 @@ fi
 
 if [ "$AUTOML_ENV_FILE" == "" ]
 then
-  AUTOML_ENV_FILE="automl_env.yml"
+  AUTOML_ENV_FILE="automl_thin_client_env.yml"
 fi
 
 if [ ! -f $AUTOML_ENV_FILE ]; then

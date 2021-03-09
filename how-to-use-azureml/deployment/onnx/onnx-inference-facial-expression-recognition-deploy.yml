@@ -1,0 +1,9 @@
+name: onnx-inference-facial-expression-recognition-deploy
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - matplotlib
+  - numpy
+  - onnx<1.7.0
+  - opencv-python-headless

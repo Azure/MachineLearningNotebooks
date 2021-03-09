@@ -1,0 +1,4 @@
+name: onnx-modelzoo-aml-deploy-resnet50
+dependencies:
+- pip:
+  - azureml-sdk

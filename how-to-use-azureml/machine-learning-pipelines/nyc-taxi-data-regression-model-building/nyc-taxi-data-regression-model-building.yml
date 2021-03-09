@@ -1,0 +1,10 @@
+name: nyc-taxi-data-regression-model-building
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - azureml-opendatasets
+  - azureml-train-automl
+  - matplotlib
+  - pandas
+  - pyarrow

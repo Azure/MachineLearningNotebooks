@@ -1,0 +1,8 @@
+name: train-explain-model-locally-and-deploy
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-interpret
+  - interpret-community[visualization]
+  - matplotlib
+  - ipywidgets
