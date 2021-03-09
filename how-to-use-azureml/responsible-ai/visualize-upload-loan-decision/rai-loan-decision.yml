@@ -1,0 +1,12 @@
+name: rai-loan-decision
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-interpret
+  - azureml-contrib-fairness
+  - interpret-community[visualization]
+  - fairlearn
+  - matplotlib
+  - azureml-dataset-runtime
+  - ipywidgets
+  - raiwidgets

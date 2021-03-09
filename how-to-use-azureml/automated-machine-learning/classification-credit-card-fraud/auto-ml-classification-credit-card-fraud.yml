@@ -1,0 +1,4 @@
+name: auto-ml-classification-credit-card-fraud
+dependencies:
+- pip:
+  - azureml-sdk

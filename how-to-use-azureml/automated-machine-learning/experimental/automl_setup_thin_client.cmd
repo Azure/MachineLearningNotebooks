@@ -5,7 +5,7 @@ set options=%3
 set PIP_NO_WARN_SCRIPT_LOCATION=0
 
 IF "%conda_env_name%"=="" SET conda_env_name="azure_automl_experimental"
-IF "%automl_env_file%"=="" SET automl_env_file="automl_env.yml"
+IF "%automl_env_file%"=="" SET automl_env_file="automl_thin_client_env.yml"
 
 IF NOT EXIST %automl_env_file% GOTO YmlMissing
 

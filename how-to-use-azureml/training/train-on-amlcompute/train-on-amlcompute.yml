@@ -1,0 +1,6 @@
+name: train-on-amlcompute
+dependencies:
+- scikit-learn
+- pip:
+  - azureml-sdk
+  - azureml-widgets

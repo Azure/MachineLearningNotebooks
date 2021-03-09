@@ -1,0 +1,4 @@
+name: deploy-aks-with-controlled-rollout
+dependencies:
+- pip:
+  - azureml-sdk

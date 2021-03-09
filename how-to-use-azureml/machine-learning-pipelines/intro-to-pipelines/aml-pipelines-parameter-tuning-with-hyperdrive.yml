@@ -1,0 +1,9 @@
+name: aml-pipelines-parameter-tuning-with-hyperdrive
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - matplotlib
+  - numpy
+  - pandas_ml
+  - azureml-dataset-runtime[pandas,fuse]

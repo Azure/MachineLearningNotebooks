@@ -5,13 +5,13 @@
 import os
 import pandas as pd
 import zipfile
-from sklearn.model_selection import train_test_split
 import joblib
+from sklearn.compose import ColumnTransformer
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
-from sklearn_pandas import DataFrameMapper
 
 from azureml.core.run import Run
 from interpret.ext.blackbox import TabularExplainer
@@ -57,16 +57,22 @@ for col, value in attritionXData.iteritems():
 # store the numerical columns
 numerical = attritionXData.columns.difference(categorical)
 
-numeric_transformations = [([f], Pipeline(steps=[
+# We create the preprocessing pipelines for both numeric and categorical data.
+numeric_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='median')),
-    ('scaler', StandardScaler())])) for f in numerical]
+    ('scaler', StandardScaler())])
 
-categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+categorical_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))])
 
-transformations = numeric_transformations + categorical_transformations
+transformations = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, numerical),
+        ('cat', categorical_transformer, categorical)])
 
 # append classifier to preprocessing pipeline
-clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
+clf = Pipeline(steps=[('preprocessor', transformations),
                       ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # get the run this was submitted from to interact with run history
