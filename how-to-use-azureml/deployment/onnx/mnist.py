@@ -94,6 +94,17 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
+    # Use Azure Open Datasets for MNIST dataset
+    datasets.MNIST.resources = [
+        ("https://azureopendatastorage.azurefd.net/mnist/train-images-idx3-ubyte.gz",
+         "f68b3c2dcbeaaa9fbdd348bbdeb94873"),
+        ("https://azureopendatastorage.azurefd.net/mnist/train-labels-idx1-ubyte.gz",
+         "d53e105ee54ea40749a09fcbcd1e9432"),
+        ("https://azureopendatastorage.azurefd.net/mnist/t10k-images-idx3-ubyte.gz",
+         "9fb629c4189551a2d022fa330f9573f3"),
+        ("https://azureopendatastorage.azurefd.net/mnist/t10k-labels-idx1-ubyte.gz",
+         "ec29112dd5afa0611ce80d1b7f02629c")
+    ]
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST('data', train=True, download=True,
                        transform=transforms.Compose([transforms.ToTensor(),
