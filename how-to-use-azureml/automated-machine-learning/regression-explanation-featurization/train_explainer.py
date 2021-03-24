@@ -27,7 +27,7 @@ automl_run = Run(experiment=experiment, run_id='<<run_id>>')
 
 # Check if this AutoML model is explainable
 if not automl_check_model_if_explainable(automl_run):
-    raise Exception("Model explanations is currently not supported for " + automl_run.get_properties().get(
+    raise Exception("Model explanations are currently not supported for " + automl_run.get_properties().get(
         'run_algorithm'))
 
 # Download the best model from the artifact store
@@ -38,16 +38,16 @@ fitted_model = joblib.load('model.pkl')
 
 # Get the train dataset from the workspace
 train_dataset = Dataset.get_by_name(workspace=ws, name='<<train_dataset_name>>')
-# Drop the lablled column to get the training set.
+# Drop the labeled column to get the training set.
 X_train = train_dataset.drop_columns(columns=['<<target_column_name>>'])
 y_train = train_dataset.keep_columns(columns=['<<target_column_name>>'], validate=True)
 
-# Get the train dataset from the workspace
+# Get the test dataset from the workspace
 test_dataset = Dataset.get_by_name(workspace=ws, name='<<test_dataset_name>>')
-# Drop the lablled column to get the testing set.
+# Drop the labeled column to get the testing set.
 X_test = test_dataset.drop_columns(columns=['<<target_column_name>>'])
 
-# Setup the class for explaining the AtuoML models
+# Setup the class for explaining the AutoML models
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, '<<task>>',
                                                              X=X_train, X_test=X_test,
                                                              y=y_train)

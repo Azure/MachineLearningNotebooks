@@ -4,7 +4,6 @@ dependencies:
   - azureml-sdk
   - azureml-interpret
   - azureml-contrib-fairness
-  - interpret-community[visualization]
   - fairlearn==0.4.6
   - matplotlib
   - azureml-dataset-runtime
