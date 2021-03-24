@@ -1,0 +1,11 @@
+name: GettingStartedWithPythonSDK
+dependencies:
+- pip:
+  - azureml-sdk
+  - sklearn
+  - numpy
+  - matplotlib
+  - joblib
+  - uuid
+  - requests
+  - azureml-opendatasets
