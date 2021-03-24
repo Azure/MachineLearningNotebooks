@@ -32,6 +32,7 @@ if [ $? -ne 0 ]; then
 fi
 
 sed -i '' 's/AZUREML-SDK-VERSION/latest/' $AUTOML_ENV_FILE
+brew install libomp
 
 if source activate $CONDA_ENV_NAME 2> /dev/null
 then
