@@ -9,3 +9,4 @@ dependencies:
   - azureml-dataset-runtime
   - ipywidgets
   - raiwidgets
+  - liac-arff
