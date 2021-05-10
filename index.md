@@ -132,17 +132,12 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [rai-loan-decision](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/responsible-ai/visualize-upload-loan-decision/rai-loan-decision.ipynb) |  |  |  |  |  |  |
 | [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None | None | None | None | None |
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master//setup-environment/configuration.ipynb) |  |  |  |  |  |  |
+| [quickstart-azureml-automl](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/compute-instance-quickstarts/quickstart-azureml-automl/quickstart-azureml-automl.ipynb) |  |  |  |  |  |  |
+| [quickstart-azureml-in-10mins](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins/quickstart-azureml-in-10mins.ipynb) |  |  |  |  |  |  |
+| [quickstart-azureml-python-sdk](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/compute-instance-quickstarts/quickstart-azureml-python-sdk/quickstart-azureml-python-sdk.ipynb) |  |  |  |  |  |  |
 | [tutorial-1st-experiment-sdk-train](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb) |  |  |  |  |  |  |
-| [day1-part1-setup](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/get-started-day1/day1-part1-setup.ipynb) |  |  |  |  |  |  |
-| [day1-part2-hello-world](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/get-started-day1/day1-part2-hello-world.ipynb) |  |  |  |  |  |  |
-| [day1-part3-train-model](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/get-started-day1/day1-part3-train-model.ipynb) |  |  |  |  |  |  |
-| [day1-part4-data](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/get-started-day1/day1-part4-data.ipynb) |  |  |  |  |  |  |
 | [img-classification-part1-training](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb) |  |  |  |  |  |  |
 | [img-classification-part2-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part2-deploy.ipynb) |  |  |  |  |  |  |
 | [img-classification-part3-deploy-encrypted](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/image-classification-mnist-data/img-classification-part3-deploy-encrypted.ipynb) |  |  |  |  |  |  |
 | [tutorial-pipeline-batch-scoring-classification](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb) |  |  |  |  |  |  |
-| [azureml-quickstart](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/quickstart/azureml-quickstart.ipynb) |  |  |  |  |  |  |
-| [AzureMLIn10mins](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/quickstart-ci/AzureMLIn10mins.ipynb) |  |  |  |  |  |  |
-| [ClassificationWithAutomatedML](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/quickstart-ci/ClassificationWithAutomatedML.ipynb) |  |  |  |  |  |  |
-| [GettingStartedWithPythonSDK](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/quickstart-ci/GettingStartedWithPythonSDK.ipynb) |  |  |  |  |  |  |
 | [regression-automated-ml](https://github.com/Azure/MachineLearningNotebooks/blob/master//tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb) |  |  |  |  |  |  |

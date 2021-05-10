@@ -1,4 +1,0 @@
-name: ClassificationWithAutomatedML
-dependencies:
-- pip:
-  - azureml-sdk

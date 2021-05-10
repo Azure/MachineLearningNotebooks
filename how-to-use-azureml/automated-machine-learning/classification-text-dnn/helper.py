@@ -5,7 +5,7 @@ from azureml.core.run import Run
 
 
 def run_inference(test_experiment, compute_target, script_folder, train_run,
-                  train_dataset, test_dataset, target_column_name, model_name):
+                  test_dataset, target_column_name, model_name):
 
     inference_env = train_run.get_environment()
 
@@ -16,7 +16,6 @@ def run_inference(test_experiment, compute_target, script_folder, train_run,
                         '--model_name': model_name
                     },
                     inputs=[
-                        train_dataset.as_named_input('train_data'),
                         test_dataset.as_named_input('test_data')
                     ],
                     compute_target=compute_target,
