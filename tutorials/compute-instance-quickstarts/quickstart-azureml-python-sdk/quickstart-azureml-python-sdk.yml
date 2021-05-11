@@ -1,4 +1,4 @@
-name: GettingStartedWithPythonSDK
+name: quickstart-azureml-python-sdk
 dependencies:
 - pip:
   - azureml-sdk
@@ -9,3 +9,4 @@ dependencies:
   - uuid
   - requests
   - azureml-opendatasets
+  - azureml-widgets

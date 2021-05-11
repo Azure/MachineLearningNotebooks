@@ -1,4 +1,4 @@
-name: day1-part1-setup
+name: quickstart-azureml-automl
 dependencies:
 - pip:
   - azureml-sdk

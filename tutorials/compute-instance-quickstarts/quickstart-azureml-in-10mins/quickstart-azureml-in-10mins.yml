@@ -1,4 +1,4 @@
-name: AzureMLIn10mins
+name: quickstart-azureml-in-10mins
 dependencies:
 - pip:
   - azureml-sdk

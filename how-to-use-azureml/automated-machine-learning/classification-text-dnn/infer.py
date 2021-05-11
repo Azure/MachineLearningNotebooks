@@ -1,5 +1,6 @@
 import argparse
 
+import pandas as pd
 import numpy as np
 
 from sklearn.externals import joblib
@@ -32,22 +33,21 @@ model = joblib.load(model_path)
 run = Run.get_context()
 # get input dataset by name
 test_dataset = run.input_datasets['test_data']
-train_dataset = run.input_datasets['train_data']
 
 X_test_df = test_dataset.drop_columns(columns=[target_column_name]) \
                         .to_pandas_dataframe()
 y_test_df = test_dataset.with_timestamp_columns(None) \
                         .keep_columns(columns=[target_column_name]) \
                         .to_pandas_dataframe()
-y_train_df = test_dataset.with_timestamp_columns(None) \
-                         .keep_columns(columns=[target_column_name]) \
-                         .to_pandas_dataframe()
 
 predicted = model.predict_proba(X_test_df)
 
+if isinstance(predicted, pd.DataFrame):
+    predicted = predicted.values
+
 # Use the AutoML scoring module
-class_labels = np.unique(np.concatenate((y_train_df.values, y_test_df.values)))
 train_labels = model.classes_
+class_labels = np.unique(np.concatenate((y_test_df.values, np.reshape(train_labels, (-1, 1)))))
 classification_metrics = list(constants.CLASSIFICATION_SCALAR_SET)
 scores = scoring.score_classification(y_test_df.values, predicted,
                                       classification_metrics,
