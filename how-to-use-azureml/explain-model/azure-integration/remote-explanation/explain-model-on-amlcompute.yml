@@ -11,4 +11,3 @@ dependencies:
   - matplotlib
   - azureml-dataset-runtime
   - ipywidgets
-  - raiwidgets==0.4.0

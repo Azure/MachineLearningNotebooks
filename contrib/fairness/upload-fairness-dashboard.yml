@@ -3,7 +3,6 @@ dependencies:
 - pip:
   - azureml-sdk
   - azureml-contrib-fairness
-  - fairlearn>=0.6.2
+  - fairlearn==0.4.6
   - joblib
   - liac-arff
-  - raiwidgets==0.4.0
