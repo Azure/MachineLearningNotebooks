@@ -2,11 +2,10 @@ import argparse
 import os
 import numpy as np
 import glob
+import joblib
+import mlflow
 
 from sklearn.linear_model import LogisticRegression
-import joblib
-
-from azureml.core import Run
 from utils import load_data
 
 # let user feed in 2 parameters, the dataset to mount or download,
@@ -58,8 +57,8 @@ y_test = load_data(
 
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep="\n")
 
-# get hold of the current run
-run = Run.get_context()
+# use mlflow autologging
+mlflow.autolog()
 
 print("Train a logistic regression model with regularization rate of", args.reg)
 clf = LogisticRegression(
@@ -73,10 +72,3 @@ y_hat = clf.predict(X_test)
 # calculate accuracy on the prediction
 acc = np.average(y_hat == y_test)
 print("Accuracy is", acc)
-
-run.log("regularization rate", np.float(args.reg))
-run.log("accuracy", np.float(acc))
-
-os.makedirs("outputs", exist_ok=True)
-# note file saved in the outputs folder is automatically uploaded into experiment record
-joblib.dump(value=clf, filename="outputs/sklearn_mnist_model.pkl")

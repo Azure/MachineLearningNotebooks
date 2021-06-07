@@ -10,3 +10,4 @@ dependencies:
   - ipython
   - matplotlib
   - ipywidgets
+  - raiwidgets==0.4.0
