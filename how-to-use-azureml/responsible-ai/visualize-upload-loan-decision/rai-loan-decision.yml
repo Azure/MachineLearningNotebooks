@@ -4,9 +4,9 @@ dependencies:
   - azureml-sdk
   - azureml-interpret
   - azureml-contrib-fairness
-  - fairlearn==0.4.6
+  - fairlearn>=0.6.2
   - matplotlib
   - azureml-dataset-runtime
   - ipywidgets
-  - raiwidgets
+  - raiwidgets==0.4.0
   - liac-arff
