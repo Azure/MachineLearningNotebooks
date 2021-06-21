@@ -49,6 +49,8 @@ print("Argument 1(ds_name): %s" % args.ds_name)
 
 dstor = ws.get_default_datastore()
 register_dataset = False
+end_time = datetime.utcnow()
+
 try:
     ds = Dataset.get_by_name(ws, args.ds_name)
     end_time_last_slice = ds.data_changed_time.replace(tzinfo=None)
@@ -58,9 +60,9 @@ except Exception:
     print(traceback.format_exc())
     print("Dataset with name {0} not found, registering new dataset.".format(args.ds_name))
     register_dataset = True
-    end_time_last_slice = datetime.today() - relativedelta(weeks=4)
+    end_time = datetime(2021, 5, 1, 0, 0)
+    end_time_last_slice = end_time - relativedelta(weeks=2)
 
-end_time = datetime.utcnow()
 train_df = get_noaa_data(end_time_last_slice, end_time)
 
 if train_df.size > 0:

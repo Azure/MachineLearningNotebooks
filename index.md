@@ -112,6 +112,8 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [automl-databricks-local-with-deployment](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-databricks/automl/automl-databricks-local-with-deployment.ipynb) |  |  |  |  |  |  |
 | [spark_job_on_synapse_spark_pool](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) |  |  |  |  |  |  |
 | [spark_session_on_synapse_spark_pool](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) |  |  |  |  |  |  |
+| [Synapse_Job_Scala_Support](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-synapse/Synapse_Job_Scala_Support.ipynb) |  |  |  |  |  |  |
+| [Synapse_Session_Scala_Support](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-synapse/Synapse_Session_Scala_Support.ipynb) |  |  |  |  |  |  |
 | [multi-model-register-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-multi-model/multi-model-register-and-deploy.ipynb) |  |  |  |  |  |  |
 | [register-model-deploy-local-advanced](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb) |  |  |  |  |  |  |
 | [enable-app-insights-in-production-service](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) |  |  |  |  |  |  |
