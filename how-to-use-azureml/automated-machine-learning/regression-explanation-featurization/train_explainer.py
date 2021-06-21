@@ -50,11 +50,13 @@ X_test = test_dataset.drop_columns(columns=['<<target_column_name>>'])
 # Setup the class for explaining the AutoML models
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, '<<task>>',
                                                              X=X_train, X_test=X_test,
-                                                             y=y_train)
+                                                             y=y_train,
+                                                             automl_run=automl_run)
 
 # Initialize the Mimic Explainer
 explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
-                         init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
+                         init_dataset=automl_explainer_setup_obj.X_transform,
+                         run=automl_explainer_setup_obj.automl_run,
                          features=automl_explainer_setup_obj.engineered_feature_names,
                          feature_maps=[automl_explainer_setup_obj.feature_map],
                          classes=automl_explainer_setup_obj.classes)
