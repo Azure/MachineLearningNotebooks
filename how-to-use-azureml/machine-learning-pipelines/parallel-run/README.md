@@ -122,4 +122,8 @@ pipeline_run.wait_for_completion(show_output=True)
 -  [tabular-dataset-inference-iris.ipynb](./tabular-dataset-inference-iris.ipynb) demonstrates how to run batch inference on an IRIS dataset using TabularDataset.
 -  [pipeline-style-transfer.ipynb](../pipeline-style-transfer/pipeline-style-transfer-parallel-run.ipynb) demonstrates using ParallelRunStep in multi-step pipeline and using output from one step as input to ParallelRunStep.
 
+# Troubleshooting guide
+
+- [Troubleshooting the ParallelRunStep](https://aka.ms/prstsg) includes answers to frequently asked questions. You can find more references there.
+
 ![Impressions](https://PixelServer20190423114238.azurewebsites.net/api/impressions/MachineLearningNotebooks/how-to-use-azureml/machine-learning-pipelines/parallel-run/README.png)
