@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-univariate-recipe-run-experiment
+dependencies:
+- pip:
+  - azureml-sdk
