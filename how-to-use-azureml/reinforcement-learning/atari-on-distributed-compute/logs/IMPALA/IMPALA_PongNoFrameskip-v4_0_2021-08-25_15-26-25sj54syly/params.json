@@ -1,0 +1,15 @@
+{
+  "callbacks": {
+    "on_train_result": "<function on_train_result at 0x7f1556da57b8>"
+  },
+  "env": "PongNoFrameskip-v4",
+  "model": {
+    "dim": 42
+  },
+  "num_data_loader_buffers": 2,
+  "num_gpus": 1,
+  "num_sgd_iter": 2,
+  "num_workers": 13,
+  "sample_batch_size": 50,
+  "train_batch_size": 1000
+}
