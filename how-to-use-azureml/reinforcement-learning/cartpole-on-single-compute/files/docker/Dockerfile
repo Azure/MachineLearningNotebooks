@@ -17,6 +17,7 @@ RUN conda install -y conda=4.7.12 python=3.7 && conda clean -ay && \
     cloudpickle==1.3.0 \
     tensorboardX \
     tensorflow==1.14.0 \
+    scipy \
     tabulate \
     dm_tree \
     lz4 \
@@ -24,6 +25,8 @@ RUN conda install -y conda=4.7.12 python=3.7 && conda clean -ay && \
     ray[rllib,dashboard,tune]==0.8.3 \
     psutil \
     setproctitle \
+    pyglet \
+    numpy \
     gym[atari] && \
     conda install -y -c conda-forge x264='1!152.20180717' ffmpeg=4.0.2 && \
     conda install -c anaconda opencv
