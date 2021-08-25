@@ -1,0 +1,2 @@
+VNet_Name,VNet_Subscription_ID,VNet_Resource_Group,VNet_Location,Subnet_Name,NSG_Name,NSG_Subscription_ID,NSG_Resource_Group,Rule_Priority,Rule_Name,Rule_Source,Rule_Destination_Ports,Rule_Direction,Rule_Provisioning_State
+rl_pong_vnet,ea5d97cf-5265-410e-85f9-9bbe0ed6d9b5,ragweed,northeurope,default,rl_pong_vnet-nsg,ea5d97cf-5265-410e-85f9-9bbe0ed6d9b5,ragweed,400,AllowAML,BatchNodeManagement,29876-29877,Inbound,Succeeded

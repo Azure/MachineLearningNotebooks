@@ -37,4 +37,8 @@ if __name__ == "__main__":
             "model": {"dim": 42},
         },
         stop=args.stop,
-        local_dir='./logs')
+      #  local_dir='./logs',
+       checkpoint_freq=args.checkpoint_freq,
+        checkpoint_at_end=args.checkpoint_at_end,
+        local_dir=args.local_dir
+    )
