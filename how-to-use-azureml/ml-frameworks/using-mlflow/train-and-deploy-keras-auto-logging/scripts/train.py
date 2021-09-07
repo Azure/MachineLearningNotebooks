@@ -6,15 +6,15 @@ import mlflow.keras
 import numpy as np
 import warnings
 
-import keras
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.optimizers import RMSprop
+from tensorflow import keras
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import RMSprop
 
 print("Keras version:", keras.__version__)
 
 # Enable auto-logging to MLflow to capture Keras metrics.
-mlflow.keras.autolog()
+mlflow.autolog()
 
 # Model / data parameters
 n_inputs = 28 * 28
