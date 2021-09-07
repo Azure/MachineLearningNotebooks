@@ -14,6 +14,8 @@ RUN conda install -y conda=4.7.12 python=3.7 && conda clean -ay && \
     azureml-dataset-runtime[fuse,pandas] \
     azureml-contrib-reinforcementlearning \
     gputil \
+    scipy \
+    pyglet \
     cloudpickle==1.3.0 \
     tensorboardX \
     tensorflow==1.14.0 \
