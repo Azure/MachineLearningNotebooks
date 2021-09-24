@@ -28,13 +28,21 @@ replaced_distance_vals_df = (replaced_stfor_vals_df.replace({"distance": ".00"},
 
 normalized_df = replaced_distance_vals_df.astype({"distance": 'float64'})
 
+
+def time_to_us(time_str):
+    hh, mm , ss = map(int, time_str.split(':'))
+    return (ss + 60 * (mm + 60 * hh)) * (10**6)
+
+
 temp = pd.DatetimeIndex(normalized_df["pickup_datetime"])
-normalized_df["pickup_date"] = temp.date
+normalized_df["pickup_date"] = pd.to_datetime(temp.date)
 normalized_df["pickup_time"] = temp.time
+normalized_df["pickup_time"] = normalized_df["pickup_time"].apply(lambda x: time_to_us(str(x)))
 
 temp = pd.DatetimeIndex(normalized_df["dropoff_datetime"])
-normalized_df["dropoff_date"] = temp.date
+normalized_df["dropoff_date"] = pd.to_datetime(temp.date)
 normalized_df["dropoff_time"] = temp.time
+normalized_df["dropoff_time"] = normalized_df["dropoff_time"].apply(lambda x: time_to_us(str(x)))
 
 del normalized_df["pickup_datetime"]
 del normalized_df["dropoff_datetime"]
