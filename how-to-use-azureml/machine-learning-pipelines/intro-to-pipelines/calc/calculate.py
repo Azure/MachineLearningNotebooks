@@ -40,7 +40,7 @@ def get_num(arg_num, file_num):
 
 
 def write_num_to_file(num, file_path):
-    if file_path is not None and file_path is not '':
+    if file_path is not None and file_path != '':
         output_dir = file_path
     else:
         output_dir = '.'

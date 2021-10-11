@@ -3,7 +3,7 @@ import platform
 
 try:
     import conda
-except:
+except Exception:
     print('Failed to import conda.')
     print('This setup is usually run from the base conda environment.')
     print('You can activate the base environment using the command "conda activate base"')

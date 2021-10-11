@@ -27,20 +27,31 @@ ws = run.experiment.workspace
 # get the input dataset by id
 test_dataset = Dataset.get_by_id(ws, id=test_dataset_id)
 
-X_test_df = test_dataset.drop_columns(columns=[target_column_name]).to_pandas_dataframe().reset_index(drop=True)
+X_test = test_dataset.drop_columns(columns=[target_column_name]).to_pandas_dataframe().reset_index(drop=True)
 y_test_df = test_dataset.with_timestamp_columns(None).keep_columns(columns=[target_column_name]).to_pandas_dataframe()
 
 # generate forecast
 fitted_model = joblib.load('model.pkl')
-y_pred, X_trans = fitted_model.forecast(X_test_df)
-
-# rename target column
-X_trans.reset_index(drop=False, inplace=True)
-X_trans.rename(columns={TimeSeriesInternal.DUMMY_TARGET_COLUMN: 'predicted'}, inplace=True)
-X_trans['actual'] = y_test_df[target_column_name].values
+# We have default quantiles values set as below(95th percentile)
+quantiles = [0.025, 0.5, 0.975]
+predicted_column_name = 'predicted'
+PI = 'prediction_interval'
+fitted_model.quantiles = quantiles
+pred_quantiles = fitted_model.forecast_quantiles(X_test)
+pred_quantiles[PI] = pred_quantiles[[min(quantiles), max(quantiles)]].apply(lambda x: '[{}, {}]'.format(x[0],
+                                                                                                        x[1]), axis=1)
+X_test[target_column_name] = y_test_df[target_column_name]
+X_test[PI] = pred_quantiles[PI]
+X_test[predicted_column_name] = pred_quantiles[0.5]
+# drop rows where prediction or actuals are nan
+# happens because of missing actuals
+# or at edges of time due to lags/rolling windows
+clean = X_test[X_test[[target_column_name,
+                       predicted_column_name]].notnull().all(axis=1)]
+clean.rename(columns={target_column_name: 'actual'}, inplace=True)
 
 file_name = 'outputs/predictions.csv'
-export_csv = X_trans.to_csv(file_name, header=True, index=False)  # added Index
+export_csv = clean.to_csv(file_name, header=True, index=False)  # added Index
 
 # Upload the predictions into artifacts
 run.upload_file(name=file_name, path_or_stream=file_name)
