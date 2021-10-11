@@ -1,0 +1,5 @@
+name: train-explain-model-gpu-tree-explainer
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-interpret

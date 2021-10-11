@@ -25,8 +25,8 @@ def get_class_label_dict(labels_dir):
     label = []
     labels_path = os.path.join(labels_dir, 'labels.txt')
     proto_as_ascii_lines = tf.gfile.GFile(labels_path).readlines()
-    for l in proto_as_ascii_lines:
-        label.append(l.rstrip())
+    for temp in proto_as_ascii_lines:
+        label.append(temp.rstrip())
     return label
 
 

@@ -1,6 +1,7 @@
 # Copyright (c) Microsoft. All rights reserved.
 # Licensed under the MIT license.
 
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets import load_diabetes
 from sklearn.linear_model import Ridge
@@ -11,7 +12,6 @@ import mlflow.sklearn
 
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 
 with mlflow.start_run():
     X, y = load_diabetes(return_X_y=True)
