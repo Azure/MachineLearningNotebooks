@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-hierarchical-timeseries
+dependencies:
+- pip:
+  - azureml-sdk
