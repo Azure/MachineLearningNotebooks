@@ -32,6 +32,7 @@ To run a Batch Inference job, you will need to gather some configuration data.
     - **node_count**: number of compute nodes to use.
     - **process_count_per_node**: number of processes per node (optional, default value is 1).
     - **mini_batch_size**: the approximate amount of input data passed to each run() invocation.  For FileDataset input, this is number of files user script can process in one run() call. For TabularDataset input it is approximate size of data user script can process in one run() call. E.g. 1024, 1024KB, 10MB, 1GB (optional, default value 10 files for FileDataset and 1MB for TabularDataset.)
+    - **partition_keys**: the keys used to partition the input data into mini-batches passed to each run() invocation. This parameter is mutually exclusive with `mini_batch_size`, and it requires the input datasets to have `partition_keys` attribute, the value of which is a superset of the value of this parameter. Each run() call would process a part of data that has identical value on the `partition_keys` specified. You can follow the examples in [file-dataset-partition-per-folder.ipynb](./file-dataset-partition-per-folder.ipynb) and [tabular-dataset-partition-per-column.ipynb](./tabular-dataset-partition-per-column.ipynb) to see how to create such datasets.
     - **logging_level**: log verbosity. Values in increasing verbosity are: 'WARNING', 'INFO', 'DEBUG' (optional, default value is 'INFO').
     - **run_invocation_timeout**: run method invocation timeout period in seconds (optional, default value is 60).
     - **environment**: The environment definition. This field configures the Python environment. It can be configured to use an existing Python environment or to set up a temp environment for the experiment. The definition is also responsible for setting the required application dependencies.
@@ -121,6 +122,8 @@ pipeline_run.wait_for_completion(show_output=True)
 -  [file-dataset-image-inference-mnist.ipynb](./file-dataset-image-inference-mnist.ipynb) demonstrates how to run batch inference on an MNIST dataset using FileDataset.
 -  [tabular-dataset-inference-iris.ipynb](./tabular-dataset-inference-iris.ipynb) demonstrates how to run batch inference on an IRIS dataset using TabularDataset.
 -  [pipeline-style-transfer.ipynb](../pipeline-style-transfer/pipeline-style-transfer-parallel-run.ipynb) demonstrates using ParallelRunStep in multi-step pipeline and using output from one step as input to ParallelRunStep.
+-  [file-dataset-partition-per-folder.ipynb](./file-dataset-partition-per-folder.ipynb) demonstrates how to run batch inference on file data by treating files inside each leaf folder as a mini-batch.
+-  [tabular-dataset-partition-per-column.ipynb](./tabular-dataset-partition-per-column.ipynb) demonstrates how to run batch inference on tabular data by treating rows with identical value on specified columns as a mini-batch.
 
 # Troubleshooting guide
 
