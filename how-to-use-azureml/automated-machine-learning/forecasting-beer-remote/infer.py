@@ -19,9 +19,14 @@ except ImportError:
     _torch_present = False
 
 
-def align_outputs(y_predicted, X_trans, X_test, y_test,
-                  predicted_column_name='predicted',
-                  horizon_colname='horizon_origin'):
+def align_outputs(
+    y_predicted,
+    X_trans,
+    X_test,
+    y_test,
+    predicted_column_name="predicted",
+    horizon_colname="horizon_origin",
+):
     """
     Demonstrates how to get the output aligned to the inputs
     using pandas indexes. Helps understand what happened if
@@ -33,9 +38,13 @@ def align_outputs(y_predicted, X_trans, X_test, y_test,
     * model was asked to predict past max_horizon -> increase max horizon
     * data at start of X_test was needed for lags -> provide previous periods
     """
-    if (horizon_colname in X_trans):
-        df_fcst = pd.DataFrame({predicted_column_name: y_predicted,
-                                horizon_colname: X_trans[horizon_colname]})
+    if horizon_colname in X_trans:
+        df_fcst = pd.DataFrame(
+            {
+                predicted_column_name: y_predicted,
+                horizon_colname: X_trans[horizon_colname],
+            }
+        )
     else:
         df_fcst = pd.DataFrame({predicted_column_name: y_predicted})
 
@@ -48,20 +57,21 @@ def align_outputs(y_predicted, X_trans, X_test, y_test,
 
     # X_test_full's index does not include origin, so reset for merge
     df_fcst.reset_index(inplace=True)
-    X_test_full = X_test_full.reset_index().drop(columns='index')
-    together = df_fcst.merge(X_test_full, how='right')
+    X_test_full = X_test_full.reset_index().drop(columns="index")
+    together = df_fcst.merge(X_test_full, how="right")
 
     # drop rows where prediction or actuals are nan
     # happens because of missing actuals
     # or at edges of time due to lags/rolling windows
-    clean = together[together[[target_column_name,
-                               predicted_column_name]].notnull().all(axis=1)]
-    return (clean)
+    clean = together[
+        together[[target_column_name, predicted_column_name]].notnull().all(axis=1)
+    ]
+    return clean
 
 
-def do_rolling_forecast_with_lookback(fitted_model, X_test, y_test,
-                                      max_horizon, X_lookback, y_lookback,
-                                      freq='D'):
+def do_rolling_forecast_with_lookback(
+    fitted_model, X_test, y_test, max_horizon, X_lookback, y_lookback, freq="D"
+):
     """
     Produce forecasts on a rolling origin over the given test set.
 
@@ -72,7 +82,7 @@ def do_rolling_forecast_with_lookback(fitted_model, X_test, y_test,
     origin time for constructing lag features.
 
     This function returns a concatenated DataFrame of rolling forecasts.
-     """
+    """
     print("Using lookback of size: ", y_lookback.size)
     df_list = []
     origin_time = X_test[time_column_name].min()
@@ -83,22 +93,28 @@ def do_rolling_forecast_with_lookback(fitted_model, X_test, y_test,
         horizon_time = origin_time + max_horizon * to_offset(freq)
 
         # Extract test data from an expanding window up-to the horizon
-        expand_wind = (X[time_column_name] < horizon_time)
+        expand_wind = X[time_column_name] < horizon_time
         X_test_expand = X[expand_wind]
         y_query_expand = np.zeros(len(X_test_expand)).astype(np.float)
         y_query_expand.fill(np.NaN)
 
         if origin_time != X[time_column_name].min():
             # Set the context by including actuals up-to the origin time
-            test_context_expand_wind = (X[time_column_name] < origin_time)
-            context_expand_wind = (X_test_expand[time_column_name] < origin_time)
+            test_context_expand_wind = X[time_column_name] < origin_time
+            context_expand_wind = X_test_expand[time_column_name] < origin_time
             y_query_expand[context_expand_wind] = y[test_context_expand_wind]
 
         # Print some debug info
-        print("Horizon_time:", horizon_time,
-              " origin_time: ", origin_time,
-              " max_horizon: ", max_horizon,
-              " freq: ", freq)
+        print(
+            "Horizon_time:",
+            horizon_time,
+            " origin_time: ",
+            origin_time,
+            " max_horizon: ",
+            max_horizon,
+            " freq: ",
+            freq,
+        )
         print("expand_wind: ", expand_wind)
         print("y_query_expand")
         print(y_query_expand)
@@ -124,9 +140,14 @@ def do_rolling_forecast_with_lookback(fitted_model, X_test, y_test,
         trans_tindex = X_trans.index.get_level_values(time_column_name)
         trans_roll_wind = (trans_tindex >= origin_time) & (trans_tindex < horizon_time)
         test_roll_wind = expand_wind & (X[time_column_name] >= origin_time)
-        df_list.append(align_outputs(
-            y_fcst[trans_roll_wind], X_trans[trans_roll_wind],
-            X[test_roll_wind], y[test_roll_wind]))
+        df_list.append(
+            align_outputs(
+                y_fcst[trans_roll_wind],
+                X_trans[trans_roll_wind],
+                X[test_roll_wind],
+                y[test_roll_wind],
+            )
+        )
 
         # Advance the origin time
         origin_time = horizon_time
@@ -134,7 +155,7 @@ def do_rolling_forecast_with_lookback(fitted_model, X_test, y_test,
     return pd.concat(df_list, ignore_index=True)
 
 
-def do_rolling_forecast(fitted_model, X_test, y_test, max_horizon, freq='D'):
+def do_rolling_forecast(fitted_model, X_test, y_test, max_horizon, freq="D"):
     """
     Produce forecasts on a rolling origin over the given test set.
 
@@ -145,7 +166,7 @@ def do_rolling_forecast(fitted_model, X_test, y_test, max_horizon, freq='D'):
     origin time for constructing lag features.
 
     This function returns a concatenated DataFrame of rolling forecasts.
-     """
+    """
     df_list = []
     origin_time = X_test[time_column_name].min()
     while origin_time <= X_test[time_column_name].max():
@@ -153,23 +174,28 @@ def do_rolling_forecast(fitted_model, X_test, y_test, max_horizon, freq='D'):
         horizon_time = origin_time + max_horizon * to_offset(freq)
 
         # Extract test data from an expanding window up-to the horizon
-        expand_wind = (X_test[time_column_name] < horizon_time)
+        expand_wind = X_test[time_column_name] < horizon_time
         X_test_expand = X_test[expand_wind]
         y_query_expand = np.zeros(len(X_test_expand)).astype(np.float)
         y_query_expand.fill(np.NaN)
 
         if origin_time != X_test[time_column_name].min():
             # Set the context by including actuals up-to the origin time
-            test_context_expand_wind = (X_test[time_column_name] < origin_time)
-            context_expand_wind = (X_test_expand[time_column_name] < origin_time)
-            y_query_expand[context_expand_wind] = y_test[
-                test_context_expand_wind]
+            test_context_expand_wind = X_test[time_column_name] < origin_time
+            context_expand_wind = X_test_expand[time_column_name] < origin_time
+            y_query_expand[context_expand_wind] = y_test[test_context_expand_wind]
 
         # Print some debug info
-        print("Horizon_time:", horizon_time,
-              " origin_time: ", origin_time,
-              " max_horizon: ", max_horizon,
-              " freq: ", freq)
+        print(
+            "Horizon_time:",
+            horizon_time,
+            " origin_time: ",
+            origin_time,
+            " max_horizon: ",
+            max_horizon,
+            " freq: ",
+            freq,
+        )
         print("expand_wind: ", expand_wind)
         print("y_query_expand")
         print(y_query_expand)
@@ -193,10 +219,14 @@ def do_rolling_forecast(fitted_model, X_test, y_test, max_horizon, freq='D'):
         trans_tindex = X_trans.index.get_level_values(time_column_name)
         trans_roll_wind = (trans_tindex >= origin_time) & (trans_tindex < horizon_time)
         test_roll_wind = expand_wind & (X_test[time_column_name] >= origin_time)
-        df_list.append(align_outputs(y_fcst[trans_roll_wind],
-                                     X_trans[trans_roll_wind],
-                                     X_test[test_roll_wind],
-                                     y_test[test_roll_wind]))
+        df_list.append(
+            align_outputs(
+                y_fcst[trans_roll_wind],
+                X_trans[trans_roll_wind],
+                X_test[test_roll_wind],
+                y_test[test_roll_wind],
+            )
+        )
 
         # Advance the origin time
         origin_time = horizon_time
@@ -230,20 +260,31 @@ def map_location_cuda(storage, loc):
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '--max_horizon', type=int, dest='max_horizon',
-    default=10, help='Max Horizon for forecasting')
+    "--max_horizon",
+    type=int,
+    dest="max_horizon",
+    default=10,
+    help="Max Horizon for forecasting",
+)
 parser.add_argument(
-    '--target_column_name', type=str, dest='target_column_name',
-    help='Target Column Name')
+    "--target_column_name",
+    type=str,
+    dest="target_column_name",
+    help="Target Column Name",
+)
 parser.add_argument(
-    '--time_column_name', type=str, dest='time_column_name',
-    help='Time Column Name')
+    "--time_column_name", type=str, dest="time_column_name", help="Time Column Name"
+)
 parser.add_argument(
-    '--frequency', type=str, dest='freq',
-    help='Frequency of prediction')
+    "--frequency", type=str, dest="freq", help="Frequency of prediction"
+)
 parser.add_argument(
-    '--model_path', type=str, dest='model_path',
-    default='model.pkl', help='Filename of model to be loaded')
+    "--model_path",
+    type=str,
+    dest="model_path",
+    default="model.pkl",
+    help="Filename of model to be loaded",
+)
 
 args = parser.parse_args()
 max_horizon = args.max_horizon
@@ -252,7 +293,7 @@ time_column_name = args.time_column_name
 freq = args.freq
 model_path = args.model_path
 
-print('args passed are: ')
+print("args passed are: ")
 print(max_horizon)
 print(target_column_name)
 print(time_column_name)
@@ -261,39 +302,41 @@ print(model_path)
 
 run = Run.get_context()
 # get input dataset by name
-test_dataset = run.input_datasets['test_data']
-lookback_dataset = run.input_datasets['lookback_data']
+test_dataset = run.input_datasets["test_data"]
+lookback_dataset = run.input_datasets["lookback_data"]
 
 grain_column_names = []
 
 df = test_dataset.to_pandas_dataframe()
 
-print('Read df')
+print("Read df")
 print(df)
 
 X_test_df = test_dataset.drop_columns(columns=[target_column_name])
-y_test_df = test_dataset.with_timestamp_columns(
-    None).keep_columns(columns=[target_column_name])
+y_test_df = test_dataset.with_timestamp_columns(None).keep_columns(
+    columns=[target_column_name]
+)
 
 X_lookback_df = lookback_dataset.drop_columns(columns=[target_column_name])
-y_lookback_df = lookback_dataset.with_timestamp_columns(
-    None).keep_columns(columns=[target_column_name])
+y_lookback_df = lookback_dataset.with_timestamp_columns(None).keep_columns(
+    columns=[target_column_name]
+)
 
 _, ext = os.path.splitext(model_path)
-if ext == '.pt':
+if ext == ".pt":
     # Load the fc-tcn torch model.
     assert _torch_present
     if torch.cuda.is_available():
         map_location = map_location_cuda
     else:
-        map_location = 'cpu'
-    with open(model_path, 'rb') as fh:
+        map_location = "cpu"
+    with open(model_path, "rb") as fh:
         fitted_model = torch.load(fh, map_location=map_location)
 else:
     # Load the sklearn pipeline.
     fitted_model = joblib.load(model_path)
 
-if hasattr(fitted_model, 'get_lookback'):
+if hasattr(fitted_model, "get_lookback"):
     lookback = fitted_model.get_lookback()
     df_all = do_rolling_forecast_with_lookback(
         fitted_model,
@@ -302,26 +345,28 @@ if hasattr(fitted_model, 'get_lookback'):
         max_horizon,
         X_lookback_df.to_pandas_dataframe()[-lookback:],
         y_lookback_df.to_pandas_dataframe().values.T[0][-lookback:],
-        freq)
+        freq,
+    )
 else:
     df_all = do_rolling_forecast(
         fitted_model,
         X_test_df.to_pandas_dataframe(),
         y_test_df.to_pandas_dataframe().values.T[0],
         max_horizon,
-        freq)
+        freq,
+    )
 
 print(df_all)
 
 print("target values:::")
 print(df_all[target_column_name])
 print("predicted values:::")
-print(df_all['predicted'])
+print(df_all["predicted"])
 
 # Use the AutoML scoring module
 regression_metrics = list(constants.REGRESSION_SCALAR_SET)
 y_test = np.array(df_all[target_column_name])
-y_pred = np.array(df_all['predicted'])
+y_pred = np.array(df_all["predicted"])
 scores = scoring.score_regression(y_test, y_pred, regression_metrics)
 
 print("scores:")
@@ -331,12 +376,11 @@ for key, value in scores.items():
     run.log(key, value)
 
 print("Simple forecasting model")
-rmse = np.sqrt(mean_squared_error(
-    df_all[target_column_name], df_all['predicted']))
+rmse = np.sqrt(mean_squared_error(df_all[target_column_name], df_all["predicted"]))
 print("[Test Data] \nRoot Mean squared error: %.2f" % rmse)
-mae = mean_absolute_error(df_all[target_column_name], df_all['predicted'])
-print('mean_absolute_error score: %.2f' % mae)
-print('MAPE: %.2f' % MAPE(df_all[target_column_name], df_all['predicted']))
+mae = mean_absolute_error(df_all[target_column_name], df_all["predicted"])
+print("mean_absolute_error score: %.2f" % mae)
+print("MAPE: %.2f" % MAPE(df_all[target_column_name], df_all["predicted"]))
 
-run.log('rmse', rmse)
-run.log('mae', mae)
+run.log("rmse", rmse)
+run.log("mae", mae)

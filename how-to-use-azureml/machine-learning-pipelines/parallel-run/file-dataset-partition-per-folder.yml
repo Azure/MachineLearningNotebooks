@@ -1,0 +1,7 @@
+name: file-dataset-partition-per-folder
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-pipeline-steps
+  - azureml-widgets
+  - pandas

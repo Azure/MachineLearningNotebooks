@@ -8,5 +8,5 @@ dependencies:
   - matplotlib
   - azureml-dataset-runtime
   - ipywidgets
-  - raiwidgets~=0.11.0
+  - raiwidgets~=0.13.0
   - liac-arff
