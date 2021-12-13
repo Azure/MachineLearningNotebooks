@@ -1,6 +1,6 @@
 import argparse
 import os
-import azureml.core
+# import azureml.core
 from azureml.core import Run
 from sklearn.model_selection import train_test_split
 
@@ -32,7 +32,7 @@ output_split_train, output_split_test = train_test_split(transformed_df, test_si
 output_split_train.reset_index(inplace=True, drop=True)
 output_split_test.reset_index(inplace=True, drop=True)
 
-if not (args.output_split_train is None and
-        args.output_split_test is None):
+if not (args.output_split_train
+        is None and args.output_split_test is None):
     write_output(output_split_train, args.output_split_train)
     write_output(output_split_test, args.output_split_test)
