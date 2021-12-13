@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-backtest-many-models
+dependencies:
+- pip:
+  - azureml-sdk

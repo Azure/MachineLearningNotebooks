@@ -29,14 +29,14 @@ print("Argument (output filtered taxi data path): %s" % args.output_filter)
 combined_df = combined_df.astype({"pickup_longitude": 'float64', "pickup_latitude": 'float64',
                                   "dropoff_longitude": 'float64', "dropoff_latitude": 'float64'})
 
-latlong_filtered_df = combined_df[(combined_df.pickup_longitude <= -73.72) &
-                                  (combined_df.pickup_longitude >= -74.09) &
-                                  (combined_df.pickup_latitude <= 40.88) &
-                                  (combined_df.pickup_latitude >= 40.53) &
-                                  (combined_df.dropoff_longitude <= -73.72) &
-                                  (combined_df.dropoff_longitude >= -74.72) &
-                                  (combined_df.dropoff_latitude <= 40.88) &
-                                  (combined_df.dropoff_latitude >= 40.53)]
+latlong_filtered_df = combined_df[(combined_df.pickup_longitude <= -73.72)
+                                  & (combined_df.pickup_longitude >= -74.09)
+                                  & (combined_df.pickup_latitude <= 40.88)
+                                  & (combined_df.pickup_latitude >= 40.53)
+                                  & (combined_df.dropoff_longitude <= -73.72)
+                                  & (combined_df.dropoff_longitude >= -74.72)
+                                  & (combined_df.dropoff_latitude <= 40.88)
+                                  & (combined_df.dropoff_latitude >= 40.53)]
 
 latlong_filtered_df.reset_index(inplace=True, drop=True)
 

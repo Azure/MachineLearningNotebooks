@@ -20,7 +20,7 @@ if not (args.output_extract is None):
     os.makedirs(args.output_extract, exist_ok=True)
     print("%s created" % args.output_extract)
 
-with open(os.path.join(args.input_extract, '20news.pkl'), 'rb') as f:
+with open(os.path.join(args.input_extract, 'Titanic.csv'), 'rb') as f:
     content = f.read()
-    with open(os.path.join(args.output_extract, '20news.pkl'), 'wb') as fw:
+    with open(os.path.join(args.output_extract, 'Titanic.csv'), 'wb') as fw:
         fw.write(content)
