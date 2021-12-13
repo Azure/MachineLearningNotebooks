@@ -7,7 +7,7 @@ from azureml.core import Run
 
 
 def get_dict(dict_str):
-    pairs = dict_str.strip("{}").split("\;")
+    pairs = dict_str.strip("{}").split(r'\;')
     new_dict = {}
     for pair in pairs:
         key, value = pair.strip().split(":")
@@ -31,14 +31,14 @@ parser.add_argument("--columns", type=str, help="rename column pattern")
 
 args = parser.parse_args()
 
-print("Argument 1(columns to keep): %s" % str(args.useful_columns.strip("[]").split("\;")))
-print("Argument 2(columns renaming mapping): %s" % str(args.columns.strip("{}").split("\;")))
+print("Argument 1(columns to keep): %s" % str(args.useful_columns.strip("[]").split(r'\;')))
+print("Argument 2(columns renaming mapping): %s" % str(args.columns.strip("{}").split(r'\;')))
 print("Argument 3(output cleansed taxi data path): %s" % args.output_cleanse)
 
 # These functions ensure that null data is removed from the dataset,
 # which will help increase machine learning model accuracy.
 
-useful_columns = [s.strip().strip("'") for s in args.useful_columns.strip("[]").split("\;")]
+useful_columns = [s.strip().strip("'") for s in args.useful_columns.strip("[]").split(r'\;')]
 columns = get_dict(args.columns)
 
 new_df = (raw_data.to_pandas_dataframe()
