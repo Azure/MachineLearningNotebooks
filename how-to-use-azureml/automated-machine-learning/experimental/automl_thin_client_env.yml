@@ -4,7 +4,6 @@ dependencies:
   # Currently Azure ML only supports 3.5.2 and later.
 - pip<=19.3.1
 - python>=3.5.2,<3.8
-- nb_conda
 - cython
 - urllib3<1.24
 - PyJWT < 2.0.0
