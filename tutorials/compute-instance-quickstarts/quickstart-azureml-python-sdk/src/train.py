@@ -2,7 +2,7 @@ import argparse
 import os
 import numpy as np
 import glob
-import joblib
+# import joblib
 import mlflow
 
 from sklearn.linear_model import LogisticRegression
@@ -30,8 +30,7 @@ X_train = (
             os.path.join(data_folder, "**/train-images-idx3-ubyte.gz"), recursive=True
         )[0],
         False,
-    ) /
-    255.0
+    ) / 255.0
 )
 X_test = (
     load_data(
@@ -39,8 +38,7 @@ X_test = (
             os.path.join(data_folder, "**/t10k-images-idx3-ubyte.gz"), recursive=True
         )[0],
         False,
-    ) /
-    255.0
+    ) / 255.0
 )
 y_train = load_data(
     glob.glob(
