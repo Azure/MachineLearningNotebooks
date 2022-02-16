@@ -31,7 +31,7 @@ try:
     model = Model(ws, args.model_name)
     last_train_time = model.created_time
     print("Model was last trained on {0}.".format(last_train_time))
-except Exception:
+except Exception as e:
     print("Could not get last model train time.")
     last_train_time = datetime.min.replace(tzinfo=pytz.UTC)
 

@@ -25,9 +25,11 @@ datasets = [(Dataset.Scenario.TRAINING, train_ds)]
 
 # Register model with training dataset
 
-model = Model.register(workspace=ws,
-                       model_path=args.model_path,
-                       model_name=args.model_name,
-                       datasets=datasets)
+model = Model.register(
+    workspace=ws,
+    model_path=args.model_path,
+    model_name=args.model_name,
+    datasets=datasets,
+)
 
 print("Registered version {0} of model {1}".format(model.version, model.name))
