@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-github-dau
+dependencies:
+- pip:
+  - azureml-sdk
