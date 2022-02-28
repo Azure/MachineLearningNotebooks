@@ -105,13 +105,8 @@ def run_inference(
     train_run.download_file(
         "outputs/{}".format(model_base_name), "inference/{}".format(model_base_name)
     )
-    train_run.download_file("outputs/conda_env_v_1_0_0.yml", "inference/condafile.yml")
 
-    inference_env = Environment("myenv")
-    inference_env.docker.enabled = True
-    inference_env.python.conda_dependencies = CondaDependencies(
-        conda_dependencies_file_path="inference/condafile.yml"
-    )
+    inference_env = train_run.get_environment()
 
     est = Estimator(
         source_directory=script_folder,
