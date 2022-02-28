@@ -46,11 +46,11 @@ def kpss_test(series, **kw):
     """
     if kw["store"]:
         statistic, p_value, critical_values, rstore = stattools.kpss(
-            series, regression=kw["reg_type"], lags=kw["lags"], store=kw["store"]
+            series, regression=kw["reg_type"], nlags=kw["lags"], store=kw["store"]
         )
     else:
         statistic, p_value, lags, critical_values = stattools.kpss(
-            series, regression=kw["reg_type"], lags=kw["lags"]
+            series, regression=kw["reg_type"], nlags=kw["lags"]
         )
     output = {
         "statistic": statistic,
