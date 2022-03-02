@@ -12,4 +12,4 @@ dependencies:
   - azureml-dataset-runtime
   - azureml-core
   - ipywidgets
-  - raiwidgets~=0.16.0
+  - raiwidgets~=0.17.0

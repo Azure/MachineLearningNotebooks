@@ -10,4 +10,5 @@ dependencies:
   - ipython
   - matplotlib
   - ipywidgets
-  - raiwidgets~=0.16.0
+  - raiwidgets~=0.17.0
+  - packaging>=20.9

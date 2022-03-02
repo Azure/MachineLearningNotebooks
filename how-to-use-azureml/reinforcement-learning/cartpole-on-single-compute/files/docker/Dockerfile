@@ -26,6 +26,6 @@ RUN conda install -y conda=4.7.12 python=3.7 && conda clean -ay && \
     ray[rllib,dashboard,tune]==0.8.3 \
     psutil \
     setproctitle \
-    gym[atari] && \
+    gym[classic_control] && \
     conda install -y -c conda-forge x264='1!152.20180717' ffmpeg=4.0.2 && \
     conda install -c anaconda opencv
