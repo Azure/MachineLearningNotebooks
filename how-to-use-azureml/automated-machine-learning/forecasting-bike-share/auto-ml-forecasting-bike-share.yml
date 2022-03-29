@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-bike-share
+dependencies:
+- pip:
+  - azureml-sdk

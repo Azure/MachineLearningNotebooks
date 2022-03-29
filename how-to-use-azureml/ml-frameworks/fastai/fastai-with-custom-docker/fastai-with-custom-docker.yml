@@ -1,0 +1,5 @@
+name: fastai-with-custom-docker
+dependencies:
+- pip:
+  - azureml-sdk
+  - fastai==1.0.61
