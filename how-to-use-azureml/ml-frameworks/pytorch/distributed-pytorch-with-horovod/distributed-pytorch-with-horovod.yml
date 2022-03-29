@@ -1,5 +1,0 @@
-name: distributed-pytorch-with-horovod
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets
