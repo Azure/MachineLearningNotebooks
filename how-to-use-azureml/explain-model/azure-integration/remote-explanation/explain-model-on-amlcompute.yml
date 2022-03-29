@@ -12,3 +12,5 @@ dependencies:
   - azureml-dataset-runtime
   - ipywidgets
   - raiwidgets~=0.17.0
+  - itsdangerous==2.0.1
+  - markupsafe<2.1.0

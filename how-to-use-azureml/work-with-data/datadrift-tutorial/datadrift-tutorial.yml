@@ -1,5 +1,0 @@
-name: datadrift-tutorial
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-datadrift

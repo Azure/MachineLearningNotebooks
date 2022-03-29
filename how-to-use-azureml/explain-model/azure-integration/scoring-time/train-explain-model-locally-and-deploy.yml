@@ -12,3 +12,6 @@ dependencies:
   - ipywidgets
   - raiwidgets~=0.17.0
   - packaging>=20.9
+  - itsdangerous==2.0.1
+  - markupsafe<2.1.0
+  - raiutils

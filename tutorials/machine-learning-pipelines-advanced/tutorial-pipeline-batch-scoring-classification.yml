@@ -1,9 +1,0 @@
-name: tutorial-pipeline-batch-scoring-classification
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-pipeline-core
-  - azureml-pipeline-steps
-  - pandas
-  - requests
-  - azureml-widgets
