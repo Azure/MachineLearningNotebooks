@@ -1,0 +1,4 @@
+name: how-to-use-scriptrun
+dependencies:
+- pip:
+  - azureml-sdk

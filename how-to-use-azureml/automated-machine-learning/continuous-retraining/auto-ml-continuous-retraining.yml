@@ -1,0 +1,4 @@
+name: auto-ml-continuous-retraining
+dependencies:
+- pip:
+  - azureml-sdk

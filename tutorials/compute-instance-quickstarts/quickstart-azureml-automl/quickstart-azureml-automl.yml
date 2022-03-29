@@ -1,0 +1,4 @@
+name: quickstart-azureml-automl
+dependencies:
+- pip:
+  - azureml-sdk

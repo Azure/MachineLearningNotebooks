@@ -1,0 +1,11 @@
+name: distributed-tensorflow-with-horovod
+dependencies:
+- pip:
+  - azureml-sdk
+  - azureml-widgets
+  - keras
+  - tensorflow-gpu==1.13.2
+  - horovod==0.19.1
+  - matplotlib
+  - pandas
+  - fuse
