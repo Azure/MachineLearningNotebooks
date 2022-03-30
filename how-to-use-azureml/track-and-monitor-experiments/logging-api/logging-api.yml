@@ -1,8 +1,0 @@
-name: logging-api
-dependencies:
-- numpy
-- matplotlib
-- tqdm
-- pip:
-  - azureml-sdk
-  - azureml-widgets

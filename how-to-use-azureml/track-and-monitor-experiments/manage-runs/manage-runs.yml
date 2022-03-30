@@ -1,4 +1,0 @@
-name: manage-runs
-dependencies:
-- pip:
-  - azureml-sdk
