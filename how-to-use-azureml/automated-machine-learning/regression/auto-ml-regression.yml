@@ -1,4 +1,0 @@
-name: auto-ml-regression
-dependencies:
-- pip:
-  - azureml-sdk
