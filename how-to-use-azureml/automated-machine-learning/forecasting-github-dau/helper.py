@@ -79,9 +79,7 @@ def get_result_df(remote_run):
             if "goal" in run.properties:
                 goal_minimize = run.properties["goal"].split("_")[-1] == "min"
 
-    summary_df = summary_df.T.sort_values(
-        "Score", ascending=goal_minimize
-    ).drop_duplicates(["run_algorithm"])
+    summary_df = summary_df.T.sort_values("Score", ascending=goal_minimize)
     summary_df = summary_df.set_index("run_algorithm")
     return summary_df
 
