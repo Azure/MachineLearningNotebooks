@@ -14,6 +14,8 @@ dependencies:
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
+  - azure-core==1.21.1
+  - azure-identity==1.7.0
   - azureml-defaults
   - azureml-sdk
   - azureml-widgets
