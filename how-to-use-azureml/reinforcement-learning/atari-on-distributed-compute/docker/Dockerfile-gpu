@@ -57,6 +57,10 @@ RUN pip install --no-cache-dir \
     lz4 \
     psutil \
     setproctitle
+
+# This is required for ray 0.8.7
+RUN pip install -U aiohttp==3.7.4
+
 # This is needed for mpi to locate libpython
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 
