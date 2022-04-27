@@ -15,8 +15,9 @@ dependencies:
 - cudatoolkit=10.1.243
 - scipy==1.5.2
 - notebook
-- pywin32==225
+- pywin32==227
 - PySocks==1.7.1
+- Pygments==2.11.2
 - conda-forge::pyqt==5.12.3
 
 - pip:
