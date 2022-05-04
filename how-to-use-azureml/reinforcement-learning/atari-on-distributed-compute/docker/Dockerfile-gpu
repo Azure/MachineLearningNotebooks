@@ -1,5 +1,11 @@
 FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211111.v1
 
+# CUDA repository key rotation: https://forums.developer.nvidia.com/t/notice-cuda-linux-repository-key-rotation/212771
+RUN apt-key del 7fa2af80
+ENV distro ubuntu1804
+ENV arch x86_64
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python-opengl \
     rsync \
