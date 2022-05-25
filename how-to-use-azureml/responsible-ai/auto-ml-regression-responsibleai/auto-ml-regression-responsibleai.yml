@@ -1,5 +1,0 @@
-name: auto-ml-regression-responsibleai
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-responsibleai
