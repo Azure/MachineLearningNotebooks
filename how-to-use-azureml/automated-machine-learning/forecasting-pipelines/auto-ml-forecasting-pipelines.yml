@@ -1,0 +1,4 @@
+name: auto-ml-forecasting-pipelines
+dependencies:
+- pip:
+  - azureml-sdk

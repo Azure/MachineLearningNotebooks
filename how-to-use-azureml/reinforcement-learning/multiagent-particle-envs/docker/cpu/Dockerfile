@@ -1,5 +1,7 @@
 FROM akdmsft/particle-cpu
 
+RUN conda install -c anaconda python=3.7
+
 # Install required pip packages
 RUN pip3 install --upgrade pip setuptools && pip3 install --upgrade \
     pandas \

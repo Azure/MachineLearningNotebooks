@@ -1,4 +1,7 @@
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211111.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
+
+USER root
+RUN conda install -c anaconda python=3.7
 
 # CUDA repository key rotation: https://forums.developer.nvidia.com/t/notice-cuda-linux-repository-key-rotation/212771
 RUN apt-key del 7fa2af80

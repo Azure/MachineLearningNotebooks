@@ -6,5 +6,5 @@ dependencies:
   - pillow==5.4.1
   - matplotlib
   - numpy==1.19.3
-  - https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp38-cp38-win_amd64.whl
-  - https://download.pytorch.org/whl/cpu/torchvision-0.7.0%2Bcpu-cp38-cp38-win_amd64.whl
+  - pytorch==1.8.1
+  - torchvision==0.9.1

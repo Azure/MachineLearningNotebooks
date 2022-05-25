@@ -6,6 +6,6 @@ dependencies:
   - fairlearn>=0.6.2
   - joblib
   - liac-arff
-  - raiwidgets~=0.17.0
+  - raiwidgets~=0.18.1
   - itsdangerous==2.0.1
   - markupsafe<2.1.0
