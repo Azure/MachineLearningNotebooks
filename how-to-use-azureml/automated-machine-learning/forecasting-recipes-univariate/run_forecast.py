@@ -11,7 +11,7 @@ def run_remote_inference(
     target_column_name,
     inference_folder="./forecast",
 ):
-    # Create local directory to copy the model.pkl and forecsting_script.py files into.
+    # Create local directory to copy the model.pkl and forecasting_script.py files into.
     # These files will be uploaded to and executed on the compute instance.
     os.makedirs(inference_folder, exist_ok=True)
     shutil.copy("forecasting_script.py", inference_folder)

@@ -103,7 +103,7 @@ args = parser.parse_args()
 
 print("Argument 1(ds_name): %s" % args.ds_name)
 
-dstor = ws.get_default_datastore()
+dstore = ws.get_default_datastore()
 register_dataset = False
 end_time = datetime.utcnow()
 
@@ -143,7 +143,7 @@ if train_df.size > 0:
     os.makedirs(folder_name, exist_ok=True)
     train_df.to_csv(file_path, index=False)
 
-    dstor.upload_files(
+    dstore.upload_files(
         files=[file_path], target_path=folder_name, overwrite=True, show_progress=True
     )
 else:
@@ -151,7 +151,7 @@ else:
 
 if register_dataset:
     ds = Dataset.Tabular.from_delimited_files(
-        dstor.path("{}/**/*.csv".format(args.ds_name)),
+        dstore.path("{}/**/*.csv".format(args.ds_name)),
         partition_format="/{partition_date:yyyy/MM/dd/HH/mm/ss}/data.csv",
     )
     ds.register(ws, name=args.ds_name)
