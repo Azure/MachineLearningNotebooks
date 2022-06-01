@@ -28,6 +28,8 @@ RUN cd multiagent-particle-envs && \
 
 RUN pip3 install ray-on-aml==0.1.6
 
+RUN pip install protobuf==3.20.0
+
 RUN pip3 install --upgrade \
     ray==0.8.7 \
     ray[rllib]==0.8.7 \

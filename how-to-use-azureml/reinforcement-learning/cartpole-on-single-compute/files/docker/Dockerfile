@@ -30,5 +30,7 @@ RUN pip install ray-on-aml==0.1.6 & \
     conda install -y -c conda-forge x264='1!152.20180717' ffmpeg=4.0.2 && \
     conda install -c anaconda opencv
 
+RUN pip install protobuf==3.20.0
+
 RUN pip install --upgrade ray==0.8.3 \
     ray[rllib,dashboard,tune]==0.8.3
