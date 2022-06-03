@@ -5,17 +5,19 @@ import os
 import argparse
 import datetime
 import time
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from math import ceil
 import numpy as np
+import sys
 import shutil
-from tensorflow.contrib.slim.python.slim.nets import inception_v3
+import subprocess
+import tf_slim
 
 from azureml.core import Run
 from azureml.core.model import Model
 from azureml.core.dataset import Dataset
 
-slim = tf.contrib.slim
+slim = tf_slim
 
 image_size = 299
 num_channel = 3
@@ -32,16 +34,18 @@ def get_class_label_dict(labels_dir):
 
 def init():
     global g_tf_sess, probabilities, label_dict, input_images
+    subprocess.run(["git", "clone", "https://github.com/tensorflow/models/"])
+    sys.path.append("./models/research/slim")
 
     parser = argparse.ArgumentParser(description="Start a tensorflow model serving")
     parser.add_argument('--model_name', dest="model_name", required=True)
     parser.add_argument('--labels_dir', dest="labels_dir", required=True)
     args, _ = parser.parse_known_args()
-
+    from nets import inception_v3, inception_utils
     label_dict = get_class_label_dict(args.labels_dir)
     classes_num = len(label_dict)
-
-    with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
+    tf.disable_v2_behavior()
+    with slim.arg_scope(inception_utils.inception_arg_scope()):
         input_images = tf.placeholder(tf.float32, [1, image_size, image_size, num_channel])
         logits, _ = inception_v3.inception_v3(input_images,
                                               num_classes=classes_num,
