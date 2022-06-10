@@ -34,3 +34,5 @@ RUN pip install protobuf==3.20.0
 
 RUN pip install --upgrade ray==0.8.3 \
     ray[rllib,dashboard,tune]==0.8.3
+
+RUN pip install 'msrest<0.7.0'
