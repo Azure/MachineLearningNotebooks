@@ -12,6 +12,7 @@ RUN pip install azureml-dataset-runtime
 RUN pip install ray==0.8.7
 RUN pip install ray[rllib,tune,serve]==0.8.7
 RUN pip install tensorflow==1.14.0
+RUN pip install 'msrest<0.7.0'
 
 RUN apt-get update
 RUN apt-get install -y jq

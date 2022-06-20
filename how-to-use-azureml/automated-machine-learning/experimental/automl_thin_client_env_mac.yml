@@ -11,9 +11,11 @@ dependencies:
 - urllib3==1.26.7
 - PyJWT < 2.0.0
 - numpy==1.19.5
+- cryptography<37.0.0
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
+  - azure-mgmt-core==1.3.0
   - azure-core==1.21.1
   - azure-identity==1.7.0
   - azureml-defaults
