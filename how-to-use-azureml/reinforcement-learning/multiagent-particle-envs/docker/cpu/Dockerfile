@@ -34,3 +34,5 @@ RUN pip3 install --upgrade \
     ray==0.8.7 \
     ray[rllib]==0.8.7 \
     ray[tune]==0.8.7
+
+RUN pip install 'msrest<0.7.0'
