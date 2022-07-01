@@ -17,7 +17,7 @@ dependencies:
 - notebook
 - pywin32==227
 - PySocks==1.7.1
-- jsonschema==4.5.1
+- jsonschema==4.6.0
 - conda-forge::pyqt==5.12.3
 
 - pip:
