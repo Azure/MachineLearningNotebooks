@@ -149,12 +149,7 @@ def get_backtest_pipeline(
         inputs=[forecasts.as_mount()],
         outputs=[data_results],
         source_directory=PROJECT_FOLDER,
-        arguments=[
-            "--forecasts",
-            forecasts,
-            "--output-dir",
-            data_results,
-        ],
+        arguments=["--forecasts", forecasts, "--output-dir", data_results],
         runconfig=run_config,
         compute_target=compute_target,
         allow_reuse=False,

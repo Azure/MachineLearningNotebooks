@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/*
 
-RUN conda install -y conda=4.12.0 python=3.7 && conda clean -ay
-RUN pip install ray-on-aml==0.1.6 & \
+RUN conda install -y conda=4.13.0 python=3.7 && conda clean -ay
+RUN pip install ray-on-aml==0.2.1 & \
     pip install --no-cache-dir \
     azureml-defaults \
     azureml-dataset-runtime[fuse,pandas] \
