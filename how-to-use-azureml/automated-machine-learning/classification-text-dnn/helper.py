@@ -1,6 +1,5 @@
 import pandas as pd
-from azureml.core import Environment
-from azureml.train.estimator import Estimator
+from azureml.core import Environment, ScriptRunConfig
 from azureml.core.run import Run
 
 
@@ -16,16 +15,19 @@ def run_inference(
 
     inference_env = train_run.get_environment()
 
-    est = Estimator(
+    est = ScriptRunConfig(
         source_directory=script_folder,
-        entry_script="infer.py",
-        script_params={
-            "--target_column_name": target_column_name,
-            "--model_name": model_name,
-        },
-        inputs=[test_dataset.as_named_input("test_data")],
+        script="infer.py",
+        arguments=[
+            "--target_column_name",
+            target_column_name,
+            "--model_name",
+            model_name,
+            "--input-data",
+            test_dataset.as_named_input("data"),
+        ],
         compute_target=compute_target,
-        environment_definition=inference_env,
+        environment=inference_env,
     )
 
     run = test_experiment.submit(

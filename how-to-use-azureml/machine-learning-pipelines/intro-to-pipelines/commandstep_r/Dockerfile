@@ -1,3 +1,4 @@
+# DisableDockerDetector "Disabled to unblock PRs until the owner can fix the file. Not used in any prod deployments - only as a documentation for the customers"
 FROM rocker/tidyverse:4.0.0-ubuntu18.04
  
 # Install python

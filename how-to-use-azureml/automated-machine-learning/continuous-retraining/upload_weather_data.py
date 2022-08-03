@@ -120,9 +120,13 @@ except Exception:
     end_time = datetime(2021, 5, 1, 0, 0)
     end_time_last_slice = end_time - relativedelta(weeks=2)
 
-train_df = get_noaa_data(end_time_last_slice, end_time)
+try:
+    train_df = get_noaa_data(end_time_last_slice, end_time)
+except Exception as ex:
+    print("get_noaa_data failed:", ex)
+    train_df = None
 
-if train_df.size > 0:
+if train_df is not None and train_df.size > 0:
     print(
         "Received {0} rows of new data after {1}.".format(
             train_df.shape[0], end_time_last_slice
