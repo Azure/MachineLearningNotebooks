@@ -1,0 +1,4 @@
+name: custom-model-training-from-autofeaturization-run
+dependencies:
+- pip:
+  - azureml-sdk

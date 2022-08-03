@@ -95,7 +95,7 @@ def do_rolling_forecast_with_lookback(
         # Extract test data from an expanding window up-to the horizon
         expand_wind = X[time_column_name] < horizon_time
         X_test_expand = X[expand_wind]
-        y_query_expand = np.zeros(len(X_test_expand)).astype(np.float)
+        y_query_expand = np.zeros(len(X_test_expand)).astype(float)
         y_query_expand.fill(np.NaN)
 
         if origin_time != X[time_column_name].min():
@@ -176,7 +176,7 @@ def do_rolling_forecast(fitted_model, X_test, y_test, max_horizon, freq="D"):
         # Extract test data from an expanding window up-to the horizon
         expand_wind = X_test[time_column_name] < horizon_time
         X_test_expand = X_test[expand_wind]
-        y_query_expand = np.zeros(len(X_test_expand)).astype(np.float)
+        y_query_expand = np.zeros(len(X_test_expand)).astype(float)
         y_query_expand.fill(np.NaN)
 
         if origin_time != X_test[time_column_name].min():

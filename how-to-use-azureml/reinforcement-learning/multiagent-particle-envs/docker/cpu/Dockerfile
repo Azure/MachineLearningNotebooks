@@ -1,3 +1,4 @@
+# DisableDockerDetector "Disabled to unblock PRs until the owner can fix the file. Not used in any prod deployments - only as a documentation for the customers"
 FROM akdmsft/particle-cpu
 
 RUN conda install -c anaconda python=3.7

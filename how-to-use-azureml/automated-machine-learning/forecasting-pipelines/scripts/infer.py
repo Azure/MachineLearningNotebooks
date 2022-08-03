@@ -107,7 +107,7 @@ def get_data(run, fitted_model, target_column_name, test_dataset_name):
     test_dataset = Dataset.get_by_name(run.experiment.workspace, test_dataset_name)
     test_df = test_dataset.to_pandas_dataframe()
     if target_column_name in test_df:
-        y_test = test_df.pop(target_column_name)
+        y_test = test_df.pop(target_column_name).values
     else:
         y_test = np.full(test_df.shape[0], np.nan)
 
