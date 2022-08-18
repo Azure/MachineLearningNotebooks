@@ -19,6 +19,7 @@ dependencies:
 - PySocks==1.7.1
 - conda-forge::pyqt==5.12.3
 - jsonschema==4.9.1
+- Pygments==2.12.0
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
