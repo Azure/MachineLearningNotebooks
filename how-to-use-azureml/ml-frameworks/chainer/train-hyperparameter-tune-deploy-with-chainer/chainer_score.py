@@ -2,7 +2,7 @@ import numpy as np
 import os
 import json
 
-from utils import download_mnist
+from datautils import download_mnist
 
 from chainer import serializers, using_config, Variable, datasets
 import chainer.functions as F

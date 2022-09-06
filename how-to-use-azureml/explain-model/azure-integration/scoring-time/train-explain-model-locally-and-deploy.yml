@@ -10,7 +10,7 @@ dependencies:
   - ipython
   - matplotlib
   - ipywidgets
-  - raiwidgets~=0.19.0
+  - raiwidgets~=0.21.0
   - packaging>=20.9
   - itsdangerous==2.0.1
   - markupsafe<2.1.0
