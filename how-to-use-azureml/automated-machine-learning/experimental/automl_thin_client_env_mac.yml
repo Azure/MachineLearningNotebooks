@@ -7,7 +7,7 @@ dependencies:
   # Currently Azure ML only supports 3.6.0 and later.
 - pip<=20.2.4
 - nomkl
-- python>=3.6.0,<3.9
+- python>=3.6.0,<3.10
 - urllib3==1.26.7
 - PyJWT < 2.0.0
 - numpy>=1.21.6,<=1.22.3
@@ -20,4 +20,6 @@ dependencies:
   - azureml-defaults
   - azureml-sdk
   - azureml-widgets
+  - azureml-mlflow
   - pandas
+  - mlflow

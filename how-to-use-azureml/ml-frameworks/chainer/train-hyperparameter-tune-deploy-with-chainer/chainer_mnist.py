@@ -4,7 +4,7 @@ import os
 
 import numpy as np
 
-from utils import download_mnist
+from datautils import download_mnist
 
 import chainer
 from chainer import backend
