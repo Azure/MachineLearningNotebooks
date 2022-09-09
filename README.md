@@ -2,7 +2,7 @@
 
 > a community-driven repository of examples using mlflow for tracking can be found at https://github.com/Azure/azureml-examples
 
-Welcome to the Azure Machine Learning Python SDK notebooks repository!
+Welcome to the Azure Machine Learning Python SDK notebooks repository!!
 
 ## Getting started
 
