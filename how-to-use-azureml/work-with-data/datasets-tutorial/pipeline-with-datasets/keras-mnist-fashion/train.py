@@ -1,10 +1,11 @@
-import keras
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D
-from keras.layers.normalization import BatchNormalization
-from keras.utils import to_categorical
-from keras.callbacks import Callback
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.losses import categorical_crossentropy
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.callbacks import Callback
 
 import numpy as np
 import pandas as pd
@@ -64,8 +65,8 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.3))
 model.add(Dense(num_classes, activation='softmax'))
 
-model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.Adam(),
+model.compile(loss=categorical_crossentropy,
+              optimizer=Adam(),
               metrics=['accuracy'])
 
 # start an Azure ML run
