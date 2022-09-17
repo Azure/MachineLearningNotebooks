@@ -71,9 +71,9 @@ def get_args():
     )
 
     parser.add_argument(
-        "--ouput_dataset_name",
+        "--output_dataset_name",
         type=str,
-        dest="ouput_dataset_name",
+        dest="output_dataset_name",
         default="results",
         help="Dataset name of the final output",
     )
@@ -131,14 +131,14 @@ if __name__ == "__main__":
 
     args = get_args()
     model_name = args.model_name
-    ouput_dataset_name = args.ouput_dataset_name
+    output_dataset_name = args.output_dataset_name
     test_dataset_name = args.test_dataset_name
     target_column_name = args.target_column_name
     print("args passed are: ")
 
     print(model_name)
     print(test_dataset_name)
-    print(ouput_dataset_name)
+    print(output_dataset_name)
     print(target_column_name)
 
     model_path = Model.get_model_path(model_name)
@@ -151,5 +151,5 @@ if __name__ == "__main__":
     )
 
     infer_forecasting_dataset_tcn(
-        X_test_df, y_test, fitted_model, args.output_path, ouput_dataset_name
+        X_test_df, y_test, fitted_model, args.output_path, output_dataset_name
     )

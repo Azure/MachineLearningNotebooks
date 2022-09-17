@@ -20,7 +20,7 @@ We recommend you create a Python virtual environment ([Miniconda](https://conda.
 # install just the base SDK
 pip install azureml-sdk
 
-# clone the sample repoistory
+# clone the sample repository
 git clone https://github.com/Azure/MachineLearningNotebooks.git
 
 # below steps are optional
@@ -57,10 +57,10 @@ Please make sure you start with the [Configuration](configuration.ipynb) noteboo
 
 You need to have Docker engine installed locally and running. Open a command line window and type the following command. 
 
-__Note:__ We use version `1.0.10` below as an exmaple, but you can replace that with any available version number you like.
+__Note:__ We use version `1.0.10` below as an example, but you can replace that with any available version number you like.
 
 ```sh
-# clone the sample repoistory
+# clone the sample repository
 git clone https://github.com/Azure/MachineLearningNotebooks.git
 
 # change current directory to the folder 

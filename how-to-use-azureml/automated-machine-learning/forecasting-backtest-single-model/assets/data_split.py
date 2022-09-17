@@ -22,7 +22,7 @@ for argname, arg in args.items():
 parsed_args, _ = parser.parse_known_args()
 step_number = int(parsed_args.step_number)
 step_size = int(parsed_args.step_size)
-# Create the working dirrectory to store the temporary csv files.
+# Create the working directory to store the temporary csv files.
 working_dir = parsed_args.out_dir
 os.makedirs(working_dir, exist_ok=True)
 # Set input and output
