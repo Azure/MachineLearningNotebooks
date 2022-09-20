@@ -18,6 +18,7 @@ dependencies:
 - pywin32==227
 - PySocks==1.7.1
 - conda-forge::pyqt==5.12.3
+- jsonschema==4.15.0
 - jinja2<=2.11.2
 - markupsafe<2.1.0
 - tqdm==4.64.0
