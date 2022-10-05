@@ -20,8 +20,8 @@ dependencies:
 - conda-forge::pyqt==5.12.3
 - jinja2<=2.11.2
 - markupsafe<2.1.0
-- tqdm==4.64.0
-- jsonschema==4.15.0
+- tqdm==4.64.1
+- jsonschema==4.16.0
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
