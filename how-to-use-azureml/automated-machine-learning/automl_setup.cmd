@@ -33,6 +33,8 @@ if not errorlevel 1 (
   call conda env create -f %automl_env_file% -n %conda_env_name%
 )
 
+python "%conda_prefix%\scripts\pywin32_postinstall.py" -install
+
 call conda activate %conda_env_name% 2>nul:
 if errorlevel 1 goto ErrorExit
 

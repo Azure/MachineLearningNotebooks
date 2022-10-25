@@ -1,4 +1,4 @@
-from distutils.version import LooseVersion
+from setuptools._vendor.packaging import version
 import platform
 
 try:
@@ -17,7 +17,7 @@ if architecture != "64bit":
 
 minimumVersion = "4.7.8"
 
-versionInvalid = (LooseVersion(conda.__version__) < LooseVersion(minimumVersion))
+versionInvalid = (version.parse(conda.__version__) < version.parse(minimumVersion))
 
 if versionInvalid:
     print('Setup requires conda version ' + minimumVersion + ' or higher.')
