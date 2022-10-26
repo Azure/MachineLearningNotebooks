@@ -11,7 +11,6 @@ dependencies:
 - urllib3==1.26.7
 - PyJWT < 2.0.0
 - numpy>=1.21.6,<=1.22.3
-- cryptography<37.0.0
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.

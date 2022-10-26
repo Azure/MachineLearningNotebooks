@@ -9,7 +9,6 @@ dependencies:
 - PyJWT < 2.0.0
 - numpy==1.22.3
 - pywin32==227
-- cryptography<37.0.0
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
