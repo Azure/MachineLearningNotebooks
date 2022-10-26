@@ -10,12 +10,11 @@ dependencies:
 - python>=3.6,<3.9
 - matplotlib==3.2.1
 - py-xgboost==1.3.3
-- pytorch::pytorch=1.4.0
+- pytorch::pytorch=1.11.0
 - conda-forge::fbprophet==0.7.1
 - cudatoolkit=10.1.243
 - scipy==1.5.3
 - notebook
-- pywin32==227
 - PySocks==1.7.1
 - conda-forge::pyqt==5.12.3
 - jinja2<=2.11.2
@@ -25,12 +24,12 @@ dependencies:
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-widgets~=1.46.0
-  - azureml-defaults~=1.46.0
+  - azureml-widgets~=1.47.0
+  - azureml-defaults~=1.47.0
   - pytorch-transformers==1.0.0
   - spacy==2.2.4
   - pystan==2.19.1.1
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.46.0/validated_win32_requirements.txt [--no-deps]
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.47.0/validated_win32_requirements.txt [--no-deps]
   - arch==4.14
   - wasabi==0.9.1
