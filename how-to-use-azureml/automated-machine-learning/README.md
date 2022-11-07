@@ -112,7 +112,7 @@ jupyter notebook
       - **[Jupyter Notebook](classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)**
           - run the experiment remotely on AML Compute cluster
           - test the performance of the best model in the local environment
-      - **[Jupyter Notebook (local run)](local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb)**
+      - **[Jupyter Notebook](local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb)**
           - run experiment in the local environment
           - use Mimic Explainer for computing feature importance
           - deploy the best model along with the explainer to an Azure Kubernetes (AKS) cluster, which will compute the raw and engineered feature importances at inference time
