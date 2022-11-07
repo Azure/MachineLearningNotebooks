@@ -109,7 +109,7 @@ jupyter notebook
 ## Classification
 - **Classify Credit Card Fraud**
     - Dataset: [Kaggle's credit card fraud detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud)
-      - **[Jupyter Notebook (remote run)](classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)**
+      - **[Jupyter Notebook](classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)**
           - run the experiment remotely on AML Compute cluster
           - test the performance of the best model in the local environment
       - **[Jupyter Notebook (local run)](local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb)**
