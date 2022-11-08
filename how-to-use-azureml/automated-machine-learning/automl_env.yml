@@ -21,6 +21,7 @@ dependencies:
 - markupsafe<2.1.0
 - tqdm==4.64.1
 - jsonschema==4.16.0
+- websocket-client==1.4.1
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.

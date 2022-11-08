@@ -43,11 +43,20 @@ def init():
     global output_dir
     global automl_settings
     global model_uid
+    global forecast_quantiles
+
     logger.info("Initialization of the run.")
     parser = argparse.ArgumentParser("Parsing input arguments.")
     parser.add_argument("--output-dir", dest="out", required=True)
     parser.add_argument("--model-name", dest="model", default=None)
     parser.add_argument("--model-uid", dest="model_uid", default=None)
+    parser.add_argument(
+        "--forecast_quantiles",
+        nargs="*",
+        type=float,
+        help="forecast quantiles list",
+        default=None,
+    )
 
     parsed_args, _ = parser.parse_known_args()
     model_name = parsed_args.model
@@ -55,6 +64,7 @@ def init():
     target_column_name = automl_settings.get("label_column_name")
     output_dir = parsed_args.out
     model_uid = parsed_args.model_uid
+    forecast_quantiles = parsed_args.forecast_quantiles
     os.makedirs(output_dir, exist_ok=True)
     os.environ["AUTOML_IGNORE_PACKAGE_VERSION_INCOMPATIBILITIES".lower()] = "True"
 
@@ -126,23 +136,18 @@ def run_backtest(data_input_name: str, file_name: str, experiment: Experiment):
         )
         print(f"The model {best_run.properties['model_name']} was registered.")
 
-    _, x_pred = fitted_model.forecast(X_test)
-    x_pred.reset_index(inplace=True, drop=False)
-    columns = [automl_settings[constants.TimeSeries.TIME_COLUMN_NAME]]
-    if automl_settings.get(constants.TimeSeries.GRAIN_COLUMN_NAMES):
-        # We know that fitted_model.grain_column_names is a list.
-        columns.extend(fitted_model.grain_column_names)
-    columns.append(constants.TimeSeriesInternal.DUMMY_TARGET_COLUMN)
-    # Remove featurized columns.
-    x_pred = x_pred[columns]
-    x_pred.rename(
-        {constants.TimeSeriesInternal.DUMMY_TARGET_COLUMN: "predicted_level"},
-        axis=1,
-        inplace=True,
-    )
+    # By default we will have forecast quantiles of 0.5, which is our target
+    if forecast_quantiles:
+        if 0.5 not in forecast_quantiles:
+            forecast_quantiles.append(0.5)
+        fitted_model.quantiles = forecast_quantiles
+
+    x_pred = fitted_model.forecast_quantiles(X_test)
     x_pred["actual_level"] = y_test
     x_pred["backtest_iteration"] = f"iteration_{last_training_date}"
+    x_pred.rename({0.5: "predicted_level"}, axis=1, inplace=True)
     date_safe = RE_INVALID_SYMBOLS.sub("_", last_training_date)
+
     x_pred.to_csv(os.path.join(output_dir, f"iteration_{date_safe}.csv"), index=False)
     return x_pred
 

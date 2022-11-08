@@ -31,6 +31,7 @@ def get_backtest_pipeline(
     step_number: int,
     model_name: Optional[str] = None,
     model_uid: Optional[str] = None,
+    forecast_quantiles: Optional[list] = None,
 ) -> Pipeline:
     """
     :param experiment: The experiment used to run the pipeline.
@@ -44,6 +45,7 @@ def get_backtest_pipeline(
     :param step_size: The number of periods to step back in backtesting.
     :param step_number: The number of backtesting iterations.
     :param model_uid: The uid to mark models from this run of the experiment.
+    :param forecast_quantiles: The forecast quantiles that are required in the inference.
     :return: The pipeline to be used for model retraining.
              **Note:** The output will be uploaded in the pipeline output
              called 'score'.
@@ -135,6 +137,9 @@ def get_backtest_pipeline(
     if model_uid is not None:
         prs_args.append("--model-uid")
         prs_args.append(model_uid)
+    if forecast_quantiles:
+        prs_args.append("--forecast_quantiles")
+        prs_args.extend(forecast_quantiles)
     backtest_prs = ParallelRunStep(
         name=parallel_step_name,
         parallel_run_config=back_test_config,
