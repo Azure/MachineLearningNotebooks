@@ -36,18 +36,18 @@ y_test_df = (
 
 fitted_model = joblib.load("model.pkl")
 
-y_pred, X_trans = fitted_model.rolling_evaluation(X_test_df, y_test_df.values)
+X_rf = fitted_model.rolling_forecast(X_test_df, y_test_df.values, step=1)
 
 # Add predictions, actuals, and horizon relative to rolling origin to the test feature data
 assign_dict = {
-    "horizon_origin": X_trans["horizon_origin"].values,
-    "predicted": y_pred,
-    target_column_name: y_test_df[target_column_name].values,
+    fitted_model.forecast_origin_column_name: "forecast_origin",
+    fitted_model.forecast_column_name: "predicted",
+    fitted_model.actual_column_name: target_column_name,
 }
-df_all = X_test_df.assign(**assign_dict)
+X_rf.rename(columns=assign_dict, inplace=True)
 
 file_name = "outputs/predictions.csv"
-export_csv = df_all.to_csv(file_name, header=True)
+export_csv = X_rf.to_csv(file_name, header=True)
 
 # Upload the predictions into artifacts
 run.upload_file(name=file_name, path_or_stream=file_name)
