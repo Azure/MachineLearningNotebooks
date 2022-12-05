@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
 
 USER root
 RUN conda install -c anaconda python=3.7

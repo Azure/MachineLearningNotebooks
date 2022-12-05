@@ -61,8 +61,6 @@ def main():
     run.log('Epochs', np.int(epochs))
 
     train_iter = iterators.SerialIterator(train, batchsize)
-    test_iter = iterators.SerialIterator(test, batchsize,
-                                         repeat=False, shuffle=False)
 
     model = MyNetwork()
 
@@ -106,6 +104,8 @@ def main():
 
             test_losses = []
             test_accuracies = []
+            test_iter = iterators.SerialIterator(test, batchsize,
+                                                 repeat=False, shuffle=False)
             while True:
                 test_batch = test_iter.next()
                 image_test, target_test = concat_examples(test_batch, gpu_id)
@@ -123,10 +123,6 @@ def main():
                 test_accuracies.append(accuracy.array)
 
                 if test_iter.is_new_epoch:
-                    test_iter.epoch = 0
-                    test_iter.current_position = 0
-                    test_iter.is_new_epoch = False
-                    test_iter._pushed_position = None
                     break
 
             val_accuracy = np.mean(test_accuracies)

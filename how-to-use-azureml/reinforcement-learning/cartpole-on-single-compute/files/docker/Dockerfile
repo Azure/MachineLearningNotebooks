@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20200423.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python-opengl \
@@ -16,7 +16,7 @@ RUN pip install ray-on-aml==0.2.1 & \
     azureml-contrib-reinforcementlearning \
     gputil \
     scipy \
-    pyglet \
+    pyglet==1.5.27 \
     cloudpickle==1.3.0 \
     tensorboardX \
     tensorflow==1.14.0 \
