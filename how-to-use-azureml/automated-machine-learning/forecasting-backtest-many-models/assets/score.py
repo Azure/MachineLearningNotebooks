@@ -122,7 +122,10 @@ def calculate_scores_and_build_plots(
     input_dir: str, output_dir: str, automl_settings: Dict[str, Any]
 ):
     os.makedirs(output_dir, exist_ok=True)
-    grains = automl_settings.get(constants.TimeSeries.TIME_SERIES_ID_COLUMN_NAMES)
+    grains = automl_settings.get(
+        constants.TimeSeries.TIME_SERIES_ID_COLUMN_NAMES,
+        automl_settings.get(constants.TimeSeries.GRAIN_COLUMN_NAMES, None),
+    )
     time_column_name = automl_settings.get(constants.TimeSeries.TIME_COLUMN_NAME)
     if grains is None:
         grains = []

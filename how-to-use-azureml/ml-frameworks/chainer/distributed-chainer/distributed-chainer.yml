@@ -1,5 +1,0 @@
-name: distributed-chainer
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets
