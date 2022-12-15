@@ -2,7 +2,7 @@ name: quickstart-azureml-python-sdk
 dependencies:
 - pip:
   - azureml-sdk
-  - sklearn
+  - scikit-learn
   - numpy
   - matplotlib
   - joblib

@@ -3,7 +3,7 @@ dependencies:
 - pip:
   - azureml-sdk
   - matplotlib
-  - sklearn
+  - scikit-learn
   - pandas
   - azureml-opendatasets
   - encrypted-inference==0.9

@@ -2,7 +2,7 @@ name: quickstart-azureml-in-10mins
 dependencies:
 - pip:
   - azureml-sdk
-  - sklearn
+  - scikit-learn
   - numpy
   - matplotlib
   - joblib
