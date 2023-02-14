@@ -8,13 +8,17 @@ dependencies:
   # Azure ML only supports 3.7.0 and later.
 - pip==22.3.1
 - python>=3.7,<3.9
+- conda-forge::fbprophet==0.7.1
+- pandas==1.1.5
+- scipy==1.5.3
+- Cython==0.29.14
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-widgets~=1.48.0
-  - azureml-defaults~=1.48.0
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.48.0/validated_win32_requirements.txt [--no-deps]
+  - azureml-widgets~=1.49.0
+  - azureml-defaults~=1.49.0
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.49.0/validated_win32_requirements.txt [--no-deps]
   - matplotlib==3.6.2
   - xgboost==1.3.3
-  - arch==4.14
-  - mlflow-skinny==1.30.0
+  - cmdstanpy==0.9.5
+  - setuptools-git==1.2

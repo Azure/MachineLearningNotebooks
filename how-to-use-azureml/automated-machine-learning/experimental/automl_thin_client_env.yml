@@ -3,7 +3,7 @@ dependencies:
   # The python interpreter version.
   # Currently Azure ML only supports 3.7.0 and later.
 - pip<=22.3.1
-- python>=3.7.0,<3.10
+- python>=3.7.0,<3.11
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.

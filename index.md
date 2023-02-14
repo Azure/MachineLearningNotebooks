@@ -138,7 +138,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [pong_rllib](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb) |  |  |  |  |  |  |
 | [cartpole_ci](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/cartpole-on-compute-instance/cartpole_ci.ipynb) |  |  |  |  |  |  |
 | [cartpole_sc](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/cartpole-on-single-compute/cartpole_sc.ipynb) |  |  |  |  |  |  |
-| [particle](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/reinforcement-learning/multiagent-particle-envs/particle.ipynb) |  |  |  |  |  |  |
 | [rai-loan-decision](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/responsible-ai/visualize-upload-loan-decision/rai-loan-decision.ipynb) |  |  |  |  |  |  |
 | [Logging APIs](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb) | Logging APIs and analyzing results | None | None | None | None | None |
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master//setup-environment/configuration.ipynb) |  |  |  |  |  |  |
