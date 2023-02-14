@@ -6,7 +6,8 @@ dependencies:
   - fairlearn>=0.6.2
   - joblib
   - liac-arff
-  - raiwidgets~=0.23.0
+  - raiwidgets~=0.24.0
   - itsdangerous==2.0.1
   - markupsafe<2.1.0
   - protobuf==3.20.0
+  - numpy<1.24.0

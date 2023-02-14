@@ -36,8 +36,6 @@ Using these samples, you will learn how to do the following.
 | [cartpole_ci.ipynb](cartpole-on-compute-instance/cartpole_ci.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Instance |
 | [cartpole_sc.ipynb](cartpole-on-single-compute/cartpole_sc.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Cluster (single node) |
 | [pong_rllib.ipynb](atari-on-distributed-compute/pong_rllib.ipynb)   | Notebook for distributed training of Pong agent using RLlib on multiple compute targets |
-| [minecraft.ipynb](minecraft-on-distributed-compute/minecraft.ipynb)   | Notebook to train an agent to navigate through a lava maze in the Minecraft game |
-| [particle.ipynb](multiagent-particle-envs/particle.ipynb)  | Notebook to train policies in a multiagent cooperative navigation scenario based on OpenAI's Particle environments |
 
 ## Prerequisites
 
