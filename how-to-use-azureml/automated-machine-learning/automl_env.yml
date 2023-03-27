@@ -12,12 +12,13 @@ dependencies:
 - pandas==1.1.5
 - scipy==1.5.3
 - Cython==0.29.14
+- tqdm==4.64.1
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-widgets~=1.49.0
-  - azureml-defaults~=1.49.0
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.49.0/validated_win32_requirements.txt [--no-deps]
+  - azureml-widgets~=Latest
+  - azureml-defaults~=Latest
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/Latest/validated_win32_requirements.txt [--no-deps]
   - matplotlib==3.6.2
   - xgboost==1.3.3
   - cmdstanpy==0.9.5
