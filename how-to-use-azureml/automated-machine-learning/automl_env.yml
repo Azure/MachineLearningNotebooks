@@ -16,9 +16,9 @@ dependencies:
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-widgets~=1.49.0
-  - azureml-defaults~=1.49.0
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.49.0/validated_win32_requirements.txt [--no-deps]
+  - azureml-widgets~=1.50.0
+  - azureml-defaults~=1.50.0
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.50.0/validated_win32_requirements.txt [--no-deps]
   - matplotlib==3.6.2
   - xgboost==1.3.3
   - cmdstanpy==0.9.5
