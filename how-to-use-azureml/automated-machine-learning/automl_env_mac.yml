@@ -23,10 +23,10 @@ dependencies:
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-widgets~=1.49.0
-  - azureml-defaults~=1.49.0
+  - azureml-widgets~=1.50.0
+  - azureml-defaults~=1.50.0
   - pytorch-transformers==1.0.0
   - spacy==2.2.4
   - pystan==2.19.1.1
   - https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.49.0/validated_darwin_requirements.txt [--no-deps]
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.50.0/validated_darwin_requirements.txt [--no-deps]
