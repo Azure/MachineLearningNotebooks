@@ -16,6 +16,7 @@ import tf_slim
 from azureml.core import Run
 from azureml.core.model import Model
 from azureml.core.dataset import Dataset
+from tf_slim import nets
 
 slim = tf_slim
 
@@ -41,15 +42,14 @@ def init():
     parser.add_argument('--model_name', dest="model_name", required=True)
     parser.add_argument('--labels_dir', dest="labels_dir", required=True)
     args, _ = parser.parse_known_args()
-    from nets import inception_v3, inception_utils
     label_dict = get_class_label_dict(args.labels_dir)
     classes_num = len(label_dict)
     tf.disable_v2_behavior()
-    with slim.arg_scope(inception_utils.inception_arg_scope()):
+    with slim.arg_scope(nets.inception.inception_v3_arg_scope()):
         input_images = tf.placeholder(tf.float32, [1, image_size, image_size, num_channel])
-        logits, _ = inception_v3.inception_v3(input_images,
-                                              num_classes=classes_num,
-                                              is_training=False)
+        logits, _ = nets.inception.inception_v3(input_images,
+                                                num_classes=classes_num,
+                                                is_training=False)
         probabilities = tf.argmax(logits, 1)
 
     config = tf.ConfigProto()
