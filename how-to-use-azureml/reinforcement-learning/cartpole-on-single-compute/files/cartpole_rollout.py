@@ -1,121 +1,108 @@
 import os
 import sys
+import argparse
 
-import ray
-from ray.rllib import rollout
-from ray.tune.registry import get_trainable_cls
+from ray.rllib.evaluate import RolloutSaver, rollout
+from ray_on_aml.core import Ray_On_AML
+import ray.cloudpickle as cloudpickle
+from ray.tune.utils import merge_dicts
+from ray.tune.registry import get_trainable_cls, _global_registry, ENV_CREATOR
 
 from azureml.core import Run
-
 from utils import callbacks
 
+import collections
+import copy
+import gymnasium as gym
+import json
+from pathlib import Path
 
-def run_rollout(args, parser):
 
-    config = args.config
-    if not args.env:
-        if not config.get("env"):
-            parser.error("the following arguments are required: --env")
-        args.env = config.get("env")
+def run_rollout(checkpoint, algo, render, steps, episodes):
+    config_dir = os.path.dirname(checkpoint)
+    config_path = os.path.join(config_dir, "params.pkl")
+    config = None
 
-    # Create the Trainer from config.
-    cls = get_trainable_cls(args.run)
-    agent = cls(env=args.env, config=config)
+    # Try parent directory.
+    if not os.path.exists(config_path):
+        config_path = os.path.join(config_dir, "../params.pkl")
 
-    # Load state from checkpoint.
-    agent.restore(args.checkpoint)
-    num_steps = int(args.steps)
-    num_episodes = int(args.episodes)
+    # Load the config from pickled.
+    if os.path.exists(config_path):
+        with open(config_path, "rb") as f:
+            config = cloudpickle.load(f)
+    # If no pkl file found, require command line `--config`.
+    else:
+        raise ValueError("Could not find params.pkl in either the checkpoint dir or its parent directory")
 
-    # Determine the video output directory.
-    use_arg_monitor = False
-    try:
-        args.video_dir
-    except AttributeError:
-        print("There is no such attribute: args.video_dir")
-        use_arg_monitor = True
+    # Make sure worker 0 has an Env.
+    config["create_env_on_driver"] = True
 
-    video_dir = None
-    if not use_arg_monitor:
-        if args.monitor:
-            video_dir = os.path.join("./logs", "video")
-        elif args.video_dir:
-            video_dir = os.path.expanduser(args.video_dir)
+    # Merge with `evaluation_config` (first try from command line, then from
+    # pkl file).
+    evaluation_config = copy.deepcopy(config.get("evaluation_config", {}))
+    config = merge_dicts(config, evaluation_config)
+    env = config.get("env")
+
+    # Make sure we have evaluation workers.
+    if not config.get("evaluation_num_workers"):
+        config["evaluation_num_workers"] = config.get("num_workers", 0)
+    if not config.get("evaluation_duration"):
+        config["evaluation_duration"] = 1
+
+    # Hard-override this as it raises a warning by Algorithm otherwise.
+    # Makes no sense anyways, to have it set to None as we don't call
+    # `Algorithm.train()` here.
+    config["evaluation_interval"] = 1
+
+    # Rendering settings.
+    config["render_env"] = render
+
+    # Create the Algorithm from config.
+    cls = get_trainable_cls(algo)
+    algorithm = cls(env=env, config=config)
+
+    # Load state from checkpoint, if provided.
+    if checkpoint:
+        algorithm.restore(checkpoint)
 
     # Do the actual rollout.
-    with rollout.RolloutSaver(
-            args.out,
-            args.use_shelve,
-            write_update_file=args.track_progress,
-            target_steps=num_steps,
-            target_episodes=num_episodes,
-            save_info=args.save_info) as saver:
-        if use_arg_monitor:
-            rollout.rollout(
-                agent,
-                args.env,
-                num_steps,
-                num_episodes,
-                saver,
-                args.no_render,
-                args.monitor)
-        else:
-            rollout.rollout(
-                agent, args.env,
-                num_steps,
-                num_episodes,
-                saver,
-                args.no_render, video_dir)
+    with RolloutSaver(
+        outfile=None,
+        use_shelve=False,
+        write_update_file=False,
+        target_steps=steps,
+        target_episodes=episodes,
+        save_info=False,
+    ) as saver:
+        rollout(algorithm, env, steps, episodes, saver, not render)
+    algorithm.stop()
 
 
 if __name__ == "__main__":
-
     # Start ray head (single node)
-    os.system('ray start --head')
-    ray.init(address='auto')
+    ray_on_aml = Ray_On_AML()
+    ray = ray_on_aml.getRay()
+    if ray:
+        parser = argparse.ArgumentParser()
+        parser.add_argument('--dataset_path', required=True, help='Path to artifacts dataset')
+        parser.add_argument('--checkpoint', required=True, help='Name of checkpoint file directory')
+        parser.add_argument('--algo', required=True, help='Name of RL algorithm')
+        parser.add_argument('--render', default=False, required=False, help='True to render')
+        parser.add_argument('--steps', required=False, type=int, help='Number of steps to run')
+        parser.add_argument('--episodes', required=False, type=int, help='Number of episodes to run')
+        args = parser.parse_args()
 
-    # Add positional argument - serves as placeholder for checkpoint
-    argvc = sys.argv[1:]
-    argvc.insert(0, 'checkpoint-placeholder')
+        # Get a handle to run
+        run = Run.get_context()
 
-    # Parse arguments
-    rollout_parser = rollout.create_parser()
+        # Get handles to the tarining artifacts dataset and mount path
+        dataset_path = run.input_datasets['dataset_path']
 
-    rollout_parser.add_argument(
-        '--checkpoint-number', required=False, type=int, default=1,
-        help='Checkpoint number of the checkpoint from which to roll out')
+        # Find checkpoint file to be evaluated
+        checkpoint = os.path.join(dataset_path, args.checkpoint)
+        print('Checkpoint:', checkpoint)
 
-    rollout_parser.add_argument(
-        '--artifacts-dataset', required=True,
-        help='The checkpoints artifacts dataset')
-
-    rollout_parser.add_argument(
-        '--artifacts-path', required=True,
-        help='The checkpoints artifacts path')
-
-    args = rollout_parser.parse_args(argvc)
-
-    # Get a handle to run
-    run = Run.get_context()
-
-    # Get handles to the tarining artifacts dataset and mount path
-    artifacts_dataset = run.input_datasets['artifacts_dataset']
-    artifacts_path = run.input_datasets['artifacts_path']
-
-    # Find checkpoint file to be evaluated
-    checkpoint_id = '-' + str(args.checkpoint_number)
-    checkpoint_files = list(filter(
-        lambda filename: filename.endswith(checkpoint_id),
-        artifacts_dataset.to_path()))
-
-    checkpoint_file = checkpoint_files[0]
-    if checkpoint_file[0] == '/':
-        checkpoint_file = checkpoint_file[1:]
-    checkpoint = os.path.join(artifacts_path, checkpoint_file)
-    print('Checkpoint:', checkpoint)
-
-    # Set rollout checkpoint
-    args.checkpoint = checkpoint
-
-    # Start rollout
-    run_rollout(args, rollout_parser)
+        # Start rollout
+        ray.init(address='auto')
+        run_rollout(checkpoint, args.algo, args.render, args.steps, args.episodes)

@@ -1,35 +1,35 @@
 from ray_on_aml.core import Ray_On_AML
-
-import ray.tune as tune
-from ray.rllib import train
-
+import yaml
+from ray.tune.tune import run_experiments
 from utils import callbacks
+import argparse
+
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config', help='Path to yaml configuration file')
+    args = parser.parse_args()
 
     ray_on_aml = Ray_On_AML()
     ray = ray_on_aml.getRay()
     if ray:  # in the headnode
-        # Parse arguments
-        train_parser = train.create_parser()
+        ray.init(address="auto")
+        print("Configuring run from file: ", args.config)
+        experiment_config = None
+        with open(args.config, "r") as file:
+            experiment_config = yaml.safe_load(file)
+        print(f'Config: {experiment_config}')
 
-        args = train_parser.parse_args()
-        print("Algorithm config:", args.config)
+        # Set local_dir in each experiment configuration to ensure generated logs get picked up
+        # by Azure ML
+        for experiment in experiment_config.values():
+            experiment["local_dir"] = "./logs"
 
-        tune.run(
-            run_or_experiment=args.run,
-            config={
-                "env": args.env,
-                "num_gpus": args.config["num_gpus"],
-                "num_workers": args.config["num_workers"],
-                "callbacks": {"on_train_result": callbacks.on_train_result},
-                "sample_batch_size": 50,
-                "train_batch_size": 1000,
-                "num_sgd_iter": 2,
-                "num_data_loader_buffers": 2,
-                "model": {"dim": 42},
-            },
-            stop=args.stop,
-            local_dir='./logs')
+        trials = run_experiments(
+            experiment_config,
+            callbacks=[callbacks.TrialCallback()],
+            verbose=2
+        )
+
     else:
         print("in worker node")

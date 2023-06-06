@@ -3,21 +3,20 @@
 '''
 
 from azureml.core import Run
+from ray import tune
+from ray.tune import Callback
+from ray.air import session
 
 
-def on_train_result(info):
-    '''Callback on train result to record metrics returned by trainer.
-    '''
-    run = Run.get_context()
-    run.log(
-        name='episode_reward_mean',
-        value=info["result"]["episode_reward_mean"])
-    run.log(
-        name='episodes_total',
-        value=info["result"]["episodes_total"])
-    run.log(
-        name='perf_cpu_percent',
-        value=info["result"]["perf"]["cpu_util_percent"])
-    run.log(
-        name='perf_memory_percent',
-        value=info["result"]["perf"]["ram_util_percent"])
+class TrialCallback(Callback):
+
+    def on_trial_result(self, iteration, trials, trial, result, **info):
+        '''Callback on train result to record metrics returned by trainer.
+        '''
+        run = Run.get_context()
+        run.log(
+            name='episode_reward_mean',
+            value=result["episode_reward_mean"])
+        run.log(
+            name='episodes_total',
+            value=result["episodes_total"])
