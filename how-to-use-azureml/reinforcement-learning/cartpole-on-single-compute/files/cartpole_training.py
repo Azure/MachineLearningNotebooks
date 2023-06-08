@@ -1,32 +1,34 @@
-import os
-import ray
-from ray.rllib import train
-from ray import tune
-
+from ray_on_aml.core import Ray_On_AML
+import yaml
+from ray.tune.tune import run_experiments
 from utils import callbacks
+import argparse
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config', help='Path to yaml configuration file')
+    args = parser.parse_args()
 
-    # Parse arguments and add callbacks to config
-    train_parser = train.create_parser()
+    ray_on_aml = Ray_On_AML()
+    ray = ray_on_aml.getRay()
+    if ray:  # in the headnode
+        ray.init(address="auto")
+        print("Configuring run from file: ", args.config)
+        experiment_config = None
+        with open(args.config, "r") as file:
+            experiment_config = yaml.safe_load(file)
 
-    args = train_parser.parse_args()
-    args.config["callbacks"] = {"on_train_result": callbacks.on_train_result}
+        # Set local_dir in each experiment configuration to ensure generated logs get picked up
+        # Also set monitor to ensure videos are captured
+        for experiment_name, experiment in experiment_config.items():
+            experiment["storage_path"] = "./logs"
+            experiment['config']['monitor'] = True
+        print(f'Config: {experiment_config}')
 
-    # Trace if video capturing is on
-    if 'monitor' in args.config and args.config['monitor']:
-        print("Video capturing is ON!")
-
-    # Start ray head (single node)
-    os.system('ray start --head')
-    ray.init(address='auto')
-
-    # Run training task using tune.run
-    tune.run(
-        run_or_experiment=args.run,
-        config=dict(args.config, env=args.env),
-        stop=args.stop,
-        checkpoint_freq=args.checkpoint_freq,
-        checkpoint_at_end=args.checkpoint_at_end,
-        local_dir=args.local_dir
-    )
+        trials = run_experiments(
+            experiment_config,
+            callbacks=[callbacks.TrialCallback()],
+            verbose=2
+        )
+else:
+    print("in worker node")
