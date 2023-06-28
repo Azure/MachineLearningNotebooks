@@ -1,6 +1,8 @@
 # Azure Machine Learning Python SDK notebooks
 
-> a community-driven repository of examples using mlflow for tracking can be found at https://github.com/Azure/azureml-examples
+
+** **With the introduction of AzureML SDK v2, this samples repository for the v1 SDK is now deprecated and will not be monitored or updated. Users are encouraged to visit the [v2 SDK samples repository](https://github.com/Azure/azureml-examples) instead for up-to-date and enhanced examples of how to build, train, and deploy machine learning models with AzureML's newest features.** **
+
 
 Welcome to the Azure Machine Learning Python SDK notebooks repository!
 
