@@ -44,7 +44,7 @@ To make use of these samples, you need the following.
 * A Microsoft Azure subscription.
 * A Microsoft Azure resource group.
 * An Azure Machine Learning Workspace in the resource group.
-* Azure Machine Learning training compute. These samples use the VM sizes `STANDARD_NC6` and `STANDARD_D2_V2`.  If these are not available in your region,
+* Azure Machine Learning training compute. These samples use the VM sizes `Standard_NC6s_v3` and `STANDARD_D2_V2`.  If these are not available in your region,
 you can replace them with other sizes.
 * A virtual network set up in the resource group for samples that use multiple compute targets.  The Cartpole and Multi-agent Particle examples do not need a virtual network. Any network security group defined on the virtual network must allow network traffic on ports used by Azure infrastructure services. Sample instructions are provided in Atari Pong and Minecraft example notebooks.
 

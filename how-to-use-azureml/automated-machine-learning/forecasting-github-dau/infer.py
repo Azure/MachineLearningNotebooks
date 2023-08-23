@@ -4,7 +4,7 @@ import os
 import numpy as np
 import pandas as pd
 
-from sklearn.externals import joblib
+import joblib
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 from azureml.automl.runtime.shared.score import scoring, constants

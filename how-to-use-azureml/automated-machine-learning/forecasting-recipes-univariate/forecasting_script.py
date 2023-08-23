@@ -7,7 +7,7 @@ compute instance.
 import argparse
 from azureml.core import Dataset, Run
 from azureml.automl.core.shared.constants import TimeSeriesInternal
-from sklearn.externals import joblib
+import joblib
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
