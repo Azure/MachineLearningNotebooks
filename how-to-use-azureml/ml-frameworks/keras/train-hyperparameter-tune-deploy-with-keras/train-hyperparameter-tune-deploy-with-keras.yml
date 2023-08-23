@@ -3,6 +3,4 @@ dependencies:
 - pip:
   - azureml-sdk
   - azureml-widgets
-  - tensorflow
-  - keras<=2.3.1
   - matplotlib

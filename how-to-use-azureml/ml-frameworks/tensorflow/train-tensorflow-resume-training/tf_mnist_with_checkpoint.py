@@ -5,7 +5,7 @@ import numpy as np
 import argparse
 import os
 import re
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import glob
 
 from azureml.core import Run
@@ -41,8 +41,8 @@ y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyt
                              recursive=True)[0], True).reshape(-1)
 
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep='\n')
-
 training_set_size = X_train.shape[0]
+tf.disable_v2_behavior()
 
 n_inputs = 28 * 28
 n_h1 = 100

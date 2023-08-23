@@ -6,7 +6,7 @@ compute instance.
 
 import argparse
 from azureml.core import Dataset, Run
-from sklearn.externals import joblib
+import joblib
 from pandas.tseries.frequencies import to_offset
 
 parser = argparse.ArgumentParser()

@@ -2,4 +2,3 @@ name: production-deploy-to-aks-gpu
 dependencies:
 - pip:
   - azureml-sdk
-  - tensorflow

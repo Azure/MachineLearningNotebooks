@@ -1,6 +1,6 @@
 import argparse
 from azureml.core import Dataset, Run
-from sklearn.externals import joblib
+import joblib
 
 parser = argparse.ArgumentParser()
 parser.add_argument(

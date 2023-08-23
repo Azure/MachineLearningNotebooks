@@ -3,7 +3,7 @@ import argparse
 import pandas as pd
 import numpy as np
 
-from sklearn.externals import joblib
+import joblib
 
 from azureml.automl.runtime.shared.score import scoring, constants
 from azureml.core import Run, Dataset

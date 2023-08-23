@@ -6,7 +6,5 @@ dependencies:
   - azureml-sdk
   - azureml-widgets
   - pandas
-  - keras
-  - tensorflow==2.0.0
   - matplotlib
   - fuse

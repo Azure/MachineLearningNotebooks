@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 from pandas.tseries.frequencies import to_offset
-from sklearn.externals import joblib
+import joblib
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 from azureml.data.dataset_factory import TabularDatasetFactory
@@ -30,7 +30,7 @@ def infer_forecasting_dataset_tcn(
 
     run = Run.get_context()
 
-    registered_train = TabularDatasetFactory.register_pandas_dataframe(
+    TabularDatasetFactory.register_pandas_dataframe(
         df_all,
         target=(
             run.experiment.workspace.get_default_datastore(),
