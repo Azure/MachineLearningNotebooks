@@ -9,9 +9,8 @@ dependencies:
 - pip==22.3.1
 - python>=3.8,<3.9
 - holidays==0.10.3
-- conda-forge::fbprophet==0.7.1
-- pandas==1.1.5
-- scipy==1.5.3
+- pandas==1.3.5
+- scipy==1.10.1
 - Cython==0.29.14
 - tqdm==4.66.1
 
@@ -19,8 +18,9 @@ dependencies:
   # Required packages for AzureML execution, history, and data preparation.
   - azureml-widgets~=1.53.0
   - azureml-defaults~=1.53.0
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.53.0/validated_win32_requirements.txt [--no-deps]
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.53.2/validated_win32_requirements.txt [--no-deps]
   - matplotlib==3.7.1
   - xgboost==1.3.3
-  - cmdstanpy==0.9.5
+  - prophet==1.1.4
+  - cmdstanpy==1.1.0
   - setuptools-git==1.2
