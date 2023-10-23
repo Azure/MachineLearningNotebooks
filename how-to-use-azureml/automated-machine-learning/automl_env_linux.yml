@@ -20,6 +20,7 @@ dependencies:
 - pytorch::pytorch=1.11.0
 - cudatoolkit=10.1.243
 - notebook
+- scikit-learn<1.1
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
