@@ -1,10 +1,10 @@
-import io
+# import io
 import pickle
 import argparse
-import numpy as np
+# import numpy as np
 
 from azureml.core.model import Model
-from sklearn.linear_model import LogisticRegression
+# from sklearn.linear_model import LogisticRegression
 
 from azureml_user.parallel_run import EntryScript
 
