@@ -8,11 +8,12 @@ import tensorflow as tf
 from PIL import Image
 from azureml.core import Model
 
-# Disable eager execution
-tf.compat.v1.disable_eager_execution()
 
 def init():
     global g_tf_sess
+    
+    # Disable eager execution
+    tf.compat.v1.disable_eager_execution()
 
     # pull down model from workspace
     model_path = Model.get_model_path("mnist-prs")
