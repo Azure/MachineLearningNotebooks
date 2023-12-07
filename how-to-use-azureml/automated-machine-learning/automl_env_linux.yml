@@ -7,7 +7,7 @@ dependencies:
   # The python interpreter version.
   # Azure ML only supports 3.7 and later.
 - pip==22.3.1
-- python>=3.9,<3.10
+- python>=3.8,<3.9
 - matplotlib==3.7.1
 - numpy>=1.21.6,<=1.23.5
 - urllib3==1.26.7
