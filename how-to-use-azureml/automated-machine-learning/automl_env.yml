@@ -5,21 +5,18 @@ channels:
   - main
 dependencies:
   # The python interpreter version.
-  # Azure ML only supports 3.7.0 and later.
+  # Azure ML only supports 3.8 and later.
 - pip==22.3.1
-- python>=3.8,<3.9
+- python>=3.9,<3.10
 - holidays==0.29
 - scipy==1.10.1
 - tqdm==4.66.1
-  # TODO: Remove this requirement when azureml-responsibleai will
-  # upgrade responsibleai to version to >=0.30.0
-- scikit-learn<1.1
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-widgets~=1.54.0
-  - azureml-defaults~=1.54.0
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.54.0/validated_win32_requirements.txt [--no-deps]
+  - azureml-widgets~=1.55.0
+  - azureml-defaults~=1.55.0
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.55.0/validated_win32_requirements.txt [--no-deps]
   - matplotlib==3.7.1
   - xgboost==1.3.3
   - prophet==1.1.4

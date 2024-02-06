@@ -84,8 +84,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
-| [Deploy MNIST digit recognition with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-inference-mnist-deploy.ipynb) | Image Classification | MNIST | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
-| [Deploy Facial Expression Recognition (FER+) with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb) | Facial Expression Recognition | Emotion FER | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
 | [Train MNIST in PyTorch, convert, and deploy with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb) | Image Classification | MNIST | AML Compute | Azure Container Instance | ONNX | ONNX Converter |
 | [Deploy ResNet50 with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb) | Image Classification | ImageNet | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
 | :star:[Convert and deploy TinyYolo with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb) | Object Detection | PASCAL VOC | local | Azure Container Instance | ONNX | ONNX Converter |
@@ -94,7 +92,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 ## Other Notebooks
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
-| [DNN Text Featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) | Text featurization using DNNs for classification | None | AML Compute | None | None | None |
 | [configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) |  |  |  |  |  |  |
 | [fairlearn-azureml-mitigation](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/fairness/fairlearn-azureml-mitigation.ipynb) |  |  |  |  |  |  |
 | [upload-fairness-dashboard](https://github.com/Azure/MachineLearningNotebooks/blob/master//contrib/fairness/upload-fairness-dashboard.ipynb) |  |  |  |  |  |  |
