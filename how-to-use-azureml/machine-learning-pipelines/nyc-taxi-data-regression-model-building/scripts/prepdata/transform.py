@@ -21,11 +21,9 @@ print("Argument 2(output final transformed taxi data): %s" % args.output_transfo
 # These functions transform the renamed data to be used finally for training.
 
 # Split the pickup and dropoff date further into the day of the week, day of the month, and month values.
-# To get the day of the week value, use the derive_column_by_example() function.
 # The function takes an array parameter of example objects that define the input data,
 # and the preferred output. The function automatically determines your preferred transformation.
 # For the pickup and dropoff time columns, split the time into the hour, minute, and second by using
-# the split_column_by_example() function with no example parameter. After you generate the new features,
 # use the drop_columns() function to delete the original fields as the newly generated features are preferred.
 # Rename the rest of the fields to use meaningful descriptions.
 
