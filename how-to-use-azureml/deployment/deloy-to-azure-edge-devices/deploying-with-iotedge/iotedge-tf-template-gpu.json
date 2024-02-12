@@ -1,0 +1,157 @@
+{
+
+  "modulesContent": {
+
+    "$edgeAgent": {
+
+      "properties.desired": {
+
+        "schemaVersion": "1.0",
+
+        "runtime": {
+
+          "type": "docker",
+
+          "settings": {
+
+            "minDockerVersion": "v1.25",
+
+            "loggingOptions": "",
+
+            "registryCredentials": {
+
+              "__REGISTRY_NAME": {
+
+          			"username": "__REGISTRY_USER_NAME",
+
+          			"password":"__REGISTRY_PASSWORD",
+
+          			"address":"__REGISTRY_NAME.azurecr.io"
+
+          		}
+
+            }
+
+          }
+
+        },
+
+        "systemModules": {
+
+          "edgeAgent": {
+
+            "type": "docker",
+
+            "settings": {
+
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+
+              "createOptions": "{}",
+
+              "env": {
+
+                "UpstreamProtocol": {
+
+                  "value": "MQTT"
+
+                }
+
+              }
+
+            }
+
+          },
+
+          "edgeHub": {
+
+            "type": "docker",
+
+            "status": "running",
+
+            "restartPolicy": "always",
+
+            "settings": {
+
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+
+              "createOptions": "{\"User\":\"root\",\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}",
+
+              "env": {
+
+                "UpstreamProtocol": {
+
+                  "value": "MQTT "
+
+                }
+
+              }
+
+            }
+
+          }
+
+        },
+
+        "modules": {
+
+          
+          "__MODULE_NAME": {
+
+            "version": "1.0",
+
+            "type": "docker",
+
+            "status": "running",
+
+            "restartPolicy": "always",
+
+            "settings": {
+
+              "image": "__REGISTRY_IMAGE_LOCATION",
+
+              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5001/tcp\":[{\"HostPort\":\"5001\"}], \"8883/tcp\":[{\"HostPort\":\"5002\"}],},\"runtime\":\"nvidia\"},\"WorkingDir\":\"/var/azureml-app\"}"
+			        
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "$edgeHub": {
+
+      "properties.desired": {
+
+        "schemaVersion": "1.0",
+
+        "routes": {
+
+      
+          "machineLearningToIoTHub": "FROM /messages/modules/__MODULE_NAME/outputs/amlOutput INTO $upstream"
+
+        },
+
+        "storeAndForwardConfiguration": {
+
+          "timeToLiveSecs": 7200
+
+        }
+
+      }
+
+    },
+
+
+    "__MODULE_NAME": {
+
+      "properties.desired": {}
+
+    }
+
+  }
+
+}
