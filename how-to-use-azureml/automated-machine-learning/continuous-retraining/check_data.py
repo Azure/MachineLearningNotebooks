@@ -36,7 +36,10 @@ except Exception:
     last_train_time = datetime.min.replace(tzinfo=pytz.UTC)
 
 train_ds = Dataset.get_by_name(ws, args.ds_name)
-dataset_changed_time = train_ds.data_changed_time
+dataset_changed_time = train_ds.data_changed_time.replace(tzinfo=pytz.UTC)
+
+print("dataset_changed_time=" + str(dataset_changed_time))
+print("last_train_time=" + str(last_train_time))
 
 if not dataset_changed_time > last_train_time:
     print("Cancelling run since there is no new data.")
