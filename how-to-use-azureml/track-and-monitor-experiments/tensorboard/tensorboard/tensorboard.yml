@@ -1,7 +1,0 @@
-name: tensorboard
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-tensorboard
-  - tensorboard
-  - setuptools>=41.0.0

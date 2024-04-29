@@ -1,5 +1,0 @@
-name: aml-pipelines-with-commandstep
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets

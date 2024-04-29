@@ -1,4 +1,0 @@
-name: onnx-model-register-and-deploy
-dependencies:
-- pip:
-  - azureml-sdk

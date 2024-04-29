@@ -1,8 +1,0 @@
-name: production-deploy-to-aks-ssl
-dependencies:
-- pip:
-  - azureml-sdk
-  - matplotlib
-  - tqdm
-  - scipy
-  - scikit-learn

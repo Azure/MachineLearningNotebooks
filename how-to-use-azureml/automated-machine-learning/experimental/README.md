@@ -9,7 +9,7 @@ To run these notebook on your own notebook server, use these installation instru
 The instructions below will install everything you need and then start a Jupyter notebook.
 If you would like to use a lighter-weight version of the client that does not install all of the machine learning libraries locally, you can leverage the [experimental notebooks.](experimental/README.md)
 
-### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose 64-bit Python 3.7 or higher.
+### 1. Install mini-conda from [here](https://conda.io/miniconda.html), choose 64-bit Python 3.8 or higher.
 - **Note**: if you already have conda installed, you can keep using it but it should be version 4.4.10 or later (as shown by: conda -V).  If you have a previous version installed, you can update it using the command: conda update conda.
 There's no need to install mini-conda specifically.
 

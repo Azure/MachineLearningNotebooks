@@ -1,4 +1,0 @@
-name: train-remote
-dependencies:
-- pip:
-  - azureml-sdk

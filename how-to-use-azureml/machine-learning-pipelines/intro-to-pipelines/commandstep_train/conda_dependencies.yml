@@ -1,7 +1,7 @@
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
+  - python=3.8
   - pip:
     - azureml-defaults
     - tensorflow-gpu==2.3.0

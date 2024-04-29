@@ -1,4 +1,0 @@
-name: auto-ml-classification-bank-marketing-all-features
-dependencies:
-- pip:
-  - azureml-sdk
