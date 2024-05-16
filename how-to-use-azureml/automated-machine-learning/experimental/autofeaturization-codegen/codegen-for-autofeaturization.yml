@@ -1,4 +1,0 @@
-name: codegen-for-autofeaturization
-dependencies:
-- pip:
-  - azureml-sdk

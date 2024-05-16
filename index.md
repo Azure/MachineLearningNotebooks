@@ -18,7 +18,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [Forecasting BikeShare Demand](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb) | Forecasting | BikeShare | Remote | None | Azure ML AutoML | Forecasting |
 | [Forecasting orange juice sales with deployment](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb) | Forecasting | Orange Juice Sales | Remote | Azure Container Instance | Azure ML AutoML | None |
 | [Forecasting orange juice sales with deployment](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/automated-machine-learning/forecasting-pipelines/auto-ml-forecasting-pipelines.ipynb) | Forecasting | Orange Juice Sales | Remote | Azure Container Instance | Azure ML AutoML | None |
-| [Register a model and deploy locally](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) | Deployment | None | Local | Local | None | None |
 | :star:[Data drift quickdemo](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) | Filtering | NOAA | Remote | None | Azure ML | Dataset, Timeseries, Drift |
 | :star:[Datasets with ML Pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) | Train | Fashion MNIST | Remote | None | Azure ML | Dataset, Pipeline, Estimator, ScriptRun |
 | :star:[Filtering data using Tabular Timeseiries Dataset related API](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) | Filtering | NOAA | Local | None | Azure ML | Dataset, Tabular Timeseries |
@@ -84,9 +83,7 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 
 |Title| Task | Dataset | Training Compute | Deployment Target | ML Framework | Tags |
 |:----|:-----|:-------:|:----------------:|:-----------------:|:------------:|:------------:|
-| [Train MNIST in PyTorch, convert, and deploy with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb) | Image Classification | MNIST | AML Compute | Azure Container Instance | ONNX | ONNX Converter |
-| [Deploy ResNet50 with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb) | Image Classification | ImageNet | Local | Azure Container Instance | ONNX | ONNX Model Zoo |
-| :star:[Convert and deploy TinyYolo with ONNX Runtime](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb) | Object Detection | PASCAL VOC | local | Azure Container Instance | ONNX | ONNX Converter |
+
 
 
 ## Other Notebooks
@@ -114,13 +111,6 @@ Machine Learning notebook samples and encourage efficient retrieval of topics an
 | [spark_session_on_synapse_spark_pool](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) |  |  |  |  |  |  |
 | [Synapse_Job_Scala_Support](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-synapse/Synapse_Job_Scala_Support.ipynb) |  |  |  |  |  |  |
 | [Synapse_Session_Scala_Support](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/azure-synapse/Synapse_Session_Scala_Support.ipynb) |  |  |  |  |  |  |
-| [multi-model-register-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-multi-model/multi-model-register-and-deploy.ipynb) |  |  |  |  |  |  |
-| [register-model-deploy-local-advanced](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb) |  |  |  |  |  |  |
-| [enable-app-insights-in-production-service](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) |  |  |  |  |  |  |
-| [onnx-model-register-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/onnx/onnx-model-register-and-deploy.ipynb) |  |  |  |  |  |  |
-| [production-deploy-to-aks-ssl](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks-ssl.ipynb) |  |  |  |  |  |  |
-| [production-deploy-to-aks](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/production-deploy-to-aks/production-deploy-to-aks.ipynb) |  |  |  |  |  |  |
-| [production-deploy-to-aks-gpu](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb) |  |  |  |  |  |  |
 | [explain-model-on-amlcompute](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/remote-explanation/explain-model-on-amlcompute.ipynb) |  |  |  |  |  |  |
 | [save-retrieve-explanations-run-history](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/run-history/save-retrieve-explanations-run-history.ipynb) |  |  |  |  |  |  |
 | [train-explain-model-locally-and-deploy](https://github.com/Azure/MachineLearningNotebooks/blob/master//how-to-use-azureml/explain-model/azure-integration/scoring-time/train-explain-model-locally-and-deploy.ipynb) |  |  |  |  |  |  |

@@ -7,7 +7,7 @@ dependencies:
   # The python interpreter version.
   # Currently Azure ML only supports 3.7 and later.
 - pip==22.3.1
-- python>=3.9,<3.10
+- python>=3.10,<3.11
 - numpy>=1.21.6,<=1.23.5
 - scipy==1.10.1
 - scikit-learn==1.1.3
@@ -15,12 +15,12 @@ dependencies:
 
 - pip:
   # Required packages for AzureML execution, history, and data preparation.
-  - azureml-widgets~=1.55.0
-  - azureml-defaults~=1.55.0
+  - azureml-widgets~=1.56.0
+  - azureml-defaults~=1.56.0
   - pytorch-transformers==1.0.0
   - prophet==1.1.4
-  - xgboost==1.3.3
-  - spacy==2.3.9
+  - xgboost==1.5.2
+  - spacy==3.4.4
   - matplotlib==3.7.1
-  - https://aka.ms/automl-resources/packages/en_core_web_sm-2.3.1.tar.gz
-  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.55.0/validated_darwin_requirements.txt [--no-deps]
+  - https://aka.ms/automl-resources/packages/en_core_web_sm-3.4.1.tar.gz
+  - -r https://automlsdkdataresources.blob.core.windows.net/validated-requirements/1.56.0/validated_darwin_requirements.txt [--no-deps]

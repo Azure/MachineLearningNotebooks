@@ -1,4 +1,0 @@
-name: aml-pipelines-with-automated-machine-learning-step
-dependencies:
-- pip:
-  - azureml-sdk

@@ -1,5 +1,0 @@
-name: aml-pipelines-how-to-use-pipeline-drafts
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets

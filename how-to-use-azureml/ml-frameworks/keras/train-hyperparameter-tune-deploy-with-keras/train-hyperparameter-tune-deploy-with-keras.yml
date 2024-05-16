@@ -1,6 +1,0 @@
-name: train-hyperparameter-tune-deploy-with-keras
-dependencies:
-- pip:
-  - azureml-sdk
-  - azureml-widgets
-  - matplotlib
