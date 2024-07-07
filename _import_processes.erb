@@ -1,0 +1,21 @@
+While group Import follows the Manage's process described above, we utilize additional flows that help us better prepare issues for scheduling into milestones.
+
+#### Issue Triage
+
+_Note: We are currently iterating on a more formal process to improve communication and set more accurate expectations when handling customer escalations: [Escalation Triage Process](/handbook/engineering/development/dev/manage/import/escalation-triage-process)_.
+
+In order to assign an [incoming issue](/handbook/engineering/infrastructure/engineering-productivity/triage-operations/#triage-reports) to a milestone or close it, the product manager may require input from the engineers.
+
+To facilitate an asynchronous triage question and answer flow, the issue is labeled with the `triage question` label and the team members are invited into a thread where the question is discussed. Any team member can answer the question and mention the product manager in the answer. If the product manager has enough information to triage the issue, the `triage question` label is removed and the issue is assigned to the appropriate milestone or closed as infeasible.
+
+#### Issue Refinement
+
+For an issue to be deemed `workflow::ready for development`, the issue goes through a refinement stage, where the engineers, the product manager, and other stable counterparts are able to evaluate the issue, ask any clarifying questions, and discuss potential approaches. At the end of that conversation, the issue can be deemed `workflow::ready for development`, marked for further breakdown or even canceled if determined not feasible. As the team creates context around the issue, they also estimate the weight during this phase.
+
+To place an issue into refinement, the issue is labeled with `workflow::refinement` so it appears in the relevant list on our [kanban board](https://gitlab.com/groups/gitlab-org/-/boards/2013571). To ensure a steady flow of work that is ready for development, engineers should attempt to refine an issue that is `workflow::refinement` before picking up their next `workflow::ready for development` issue. For issues with high urgency, issues can be assigned directly to engineers asking them to complete the refinement process as a top priority so it can be moved to `workflow::ready for development` faster.
+
+Our refinement process is asynchronous and encourages input from all team members. We vote (using emojis) whether the issue is ready for development or not. Any "no" votes are explained and further discussed in comments until the vote becomes a "yes", or the issue is removed from consideration.
+
+Emojis are also used to vote for the issue weight. Any outlier votes are discussed in comments until a compromise is reached. Large estimates are also discussed to determine if the issue can be broken down further.
+
+If the issue has all "yes" votes and has a weight estimate, it is deemed `workflow::ready for development`.

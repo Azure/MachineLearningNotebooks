@@ -1,0 +1,50 @@
+- id = [project.key]
+%h2{ id: id }= project.name
+
+%h3{ id: [project.key, 'description'] } Description
+
+:markdown
+  #{project.description}
+
+%h4{ id: [project.key, 'assignments'] } Assignments
+
+%table.table
+  - if project.owners.any?
+    %tr
+      %td{id: [project.key, 'owners'] } Product owners
+      %td
+        = partial 'assignment', locals: { id: [project.key, 'owners'], assignments: project.owners }
+
+  - if project.maintainers.any?
+    %tr
+      %td{id: [project.key, 'maintainers'] }
+        = link_to 'Maintainers', '/handbook/engineering/workflow/code-review/#maintainer'
+      %td
+        = partial 'assignment', locals: { id: [project.key, 'maintainers'], assignments: project.maintainers }
+
+  - if project.trainee_maintainers.any?
+    %tr
+      %td{id: [project.key, 'trainee-maintainers'] }
+        = link_to 'Trainee maintainers', '/handbook/engineering/workflow/code-review/#trainee-maintainer'
+      %td
+        = partial 'assignment', locals: { id: [project.key, 'trainee-maintainers'], assignments: project.trainee_maintainers }
+
+  - if project.reviewers.any?
+    %tr
+      %td{id: [project.key, 'reviewers'] }
+        = link_to 'Reviewers', '/handbook/engineering/workflow/code-review/#reviewer'
+      %td
+        = partial 'assignment', locals: { id: [project.key, 'reviewers'], assignments: project.reviewers }
+
+%h4{ id: [project.key, 'location'] } Location
+
+%ul
+  %li
+    = link_to project.link, project.link
+
+- if project.mirrors.any?
+  %h4{ id: [project.key, 'mirrors'] } Mirrors
+
+  %ul
+    - project.mirrors.each do |mirror_url|
+      %li= link_to mirror_url, mirror_url

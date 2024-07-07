@@ -1,0 +1,21 @@
+ls:
+  content:
+    .dir: kebab-case
+    .md: kebab-case
+
+ignore:
+  - content/**/_index.md
+  - .git
+  - .gitlab
+  - .idea
+  - .vscode
+  - .hugo_build.lock
+  - public
+  - resources
+  - static
+  - node_modules
+  - layouts
+  - assets
+  - .nova
+  - archetypes
+  - config

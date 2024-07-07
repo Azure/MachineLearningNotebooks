@@ -1,0 +1,10 @@
+%table.table.table-responsive
+  %tr
+    %th Name
+    %th Location
+
+  - projects.each do |project|
+    %tr
+      %td= link_to project.name, "##{project.key}"
+      %td= link_to project.path, project.link
+

@@ -1,0 +1,52 @@
+{
+  "outputFormatters": [
+    [ "markdownlint-cli2-formatter-codequality" ],
+    [ "markdownlint-cli2-formatter-pretty" ]
+  ],
+  "config": {
+    "default": true,
+    "blanks-around-lists": false,
+    "heading-increment": false,
+    "line-length": false,
+    "no-bare-urls": false,
+    "no-duplicate-heading": { "siblings_only": true, "allow_different_nesting": true },
+    "no-emphasis-as-heading": false,
+    "no-inline-html": false,
+    "no-multiple-blanks": false,
+    "no-trailing-punctuation": false,
+    "table-column-count": false,
+    "table-pipe-style": false,
+    "ul-indent": false
+  },
+  "fix": false,
+  "ignores": [
+    "content/handbook/markdown-guide/**/*.md",
+    "content/handbook/dmca/**/*.md",
+    "content/handbook/engineering/**/*.md",
+    "content/handbook/use-cases/**/*.md",
+    "content/handbook/acquisitions/**/*.md",
+    "content/handbook/marketing/developer-relations/**/*.md",
+    "content/handbook/marketing/emergency-response/**/*.md",
+    "content/handbook/marketing/efficiency-wg-fy24/**/*.md",
+    "content/handbook/marketing/digital-experience/**/*.md",
+    "content/handbook/marketing/demand-generation/**/*.md",
+    "content/handbook/marketing/corporate-communications/**/*.md",
+    "content/handbook/marketing/cmo-shadow/**/*.md",
+    "content/handbook/marketing/career-development/**/*.md",
+    "content/handbook/marketing/cmo/**/*.md",
+    "content/handbook/marketing/channel-marketing/**/*.md",
+    "content/handbook/marketing/campaigns/**/*.md",
+    "content/handbook/marketing/brand-and-product-marketing/**/*.md",
+    "content/handbook/marketing/account-based-marketing/**/*.md",
+    "content/handbook/marketing/blog/**/*.md",
+    "content/handbook/marketing/**/*.md",
+    "content/handbook/alliances/**/*.md",
+    "content/handbook/resellers/**/*.md",
+    "content/handbook/customer-success/**/*.md",
+    "content/handbook/sales/**/*.md",
+    "content/handbook/business-technology/**/*.md",
+    "content/handbook/product-development-flow/**/*.md",
+    "content/handbook/product-development-budgeting/**/*.md",
+    "content/handbook/product/**/*.md"
+  ]
+}
