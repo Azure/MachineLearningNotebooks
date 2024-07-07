@@ -1,0 +1,138 @@
+From steffen@sdaoden.eu  Sat Apr 13 18:53:17 2024
+Return-Path: <steffen@sdaoden.eu>
+X-Original-To: ietf-dkim@ietfa.amsl.com
+Delivered-To: ietf-dkim@ietfa.amsl.com
+Received: from localhost (localhost [127.0.0.1])
+ by ietfa.amsl.com (Postfix) with ESMTP id 2DE37C14F615
+ for <ietf-dkim@ietfa.amsl.com>; Sat, 13 Apr 2024 18:53:17 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at amsl.com
+X-Spam-Flag: NO
+X-Spam-Score: -2.094
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.094 tagged_above=-999 required=5
+ tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+ DKIM_VALID_AU=-0.1, DKIM_VALID_EF=-0.1,
+ RCVD_IN_ZEN_BLOCKED_OPENDNS=0.001, SPF_HELO_NONE=0.001,
+ SPF_NONE=0.001, URIBL_BLOCKED=0.001, URIBL_DBL_BLOCKED_OPENDNS=0.001,
+ URIBL_ZEN_BLOCKED_OPENDNS=0.001] autolearn=ham autolearn_force=no
+Authentication-Results: ietfa.amsl.com (amavisd-new); dkim=pass (2048-bit key)
+ header.d=sdaoden.eu header.b="Kz+yjYIq"; dkim=neutral
+ reason="invalid (unsupported algorithm ed25519-sha256)"
+ header.d=sdaoden.eu header.b="t9MXD35v"
+Received: from mail.ietf.org ([50.223.129.194])
+ by localhost (ietfa.amsl.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 7qvfx989LuYs for <ietf-dkim@ietfa.amsl.com>;
+ Sat, 13 Apr 2024 18:53:12 -0700 (PDT)
+Received: from sdaoden.eu (sdaoden.eu [217.144.132.164])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by ietfa.amsl.com (Postfix) with ESMTPS id DA036C14F5EA
+ for <ietf-dkim@ietf.org>; Sat, 13 Apr 2024 18:53:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sdaoden.eu;
+ s=citron; t=1713059588; x=1713726254; h=date:author:from:to:cc:subject:
+ message-id:in-reply-to:references:mail-followup-to:openpgp:blahblahblah:
+ mime-version:content-type:content-transfer-encoding:author:from:subject:
+ date:to:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to:
+ references:mime-version:content-type:content-transfer-encoding:message-id:
+ mail-followup-to:openpgp:blahblahblah;
+ bh=gTlAaxU/C99RrfjFhuxf+WMRRv4f67mTrswDbHUb4lY=;
+ b=Kz+yjYIquM65BybYGI7HT3fKZ4wbzzWQgLQmJntZpTyg/djhs4LF5GGH2cPL2bwFNMZEvNl0
+ 5NrRP/IeLFrtc4hFA3G8bjJCJlof8olMYxnU45Eo+PoHzZBMoH3som8RV2z1lvWd6Dl0aHlaV2
+ 0BhdIJ8YLCAxTD+Xxy68IUAqoH/jWK6egai/2VGkI9/n0R6hgrrLN57m2mZxpy35A8L6s3P2wy
+ ABdc9NdKLVdfNm79lGalUSev0ZZFmcJd+w9rG73zthA0wnLKn4ZVkjFBDs4feMjreIKWcUoJTn
+ X/ZCoHcVDwMCwFAQVyWWG4uwHe0bVY76i/TEdqHNvDqYqYtg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=sdaoden.eu;
+ s=orange; t=1713059588; x=1713726254; h=date:author:from:to:cc:subject:
+ message-id:in-reply-to:references:mail-followup-to:openpgp:blahblahblah:
+ mime-version:content-type:content-transfer-encoding:author:from:subject:
+ date:to:cc:resent-date:resent-from:resent-to:resent-cc:in-reply-to:
+ references:mime-version:content-type:content-transfer-encoding:message-id:
+ mail-followup-to:openpgp:blahblahblah;
+ bh=gTlAaxU/C99RrfjFhuxf+WMRRv4f67mTrswDbHUb4lY=;
+ b=t9MXD35vuQFYjgBuo+7QmFb04dEqrvy61KAPYi8rndWBzaxp2jIx407bZ4QSAK+rKynLY+vJ
+ 6exqhsS3OWyuBg==
+Date: Sun, 14 Apr 2024 03:53:07 +0200
+Author: Steffen Nurpmeso <steffen@sdaoden.eu>
+From: Steffen Nurpmeso <steffen@sdaoden.eu>
+To: Scott Kitterman <ietf-dkim@kitterman.com>
+Cc: ietf-dkim@ietf.org
+Message-ID: <20240414015307.JiO8yjFG@steffen%sdaoden.eu>
+In-Reply-To: <5368AC9A-51D5-4AEC-AB19-613DBEAD7C5B@kitterman.com>
+References: <20240414005126.pzjJO4pr@steffen%sdaoden.eu>
+ <5368AC9A-51D5-4AEC-AB19-613DBEAD7C5B@kitterman.com>
+Mail-Followup-To: Scott Kitterman <ietf-dkim@kitterman.com>, ietf-dkim@ietf.org
+User-Agent: s-nail v14.9.24-612-g7e3bfac540
+OpenPGP: id=EE19E1C1F2F7054F8D3954D8308964B51883A0DD;
+ url=https://ftp.sdaoden.eu/steffen.asc; preference=signencrypt
+BlahBlahBlah: Any stupid boy can crush a beetle. But all the professors in
+ the world can make no bugs.
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Archived-At: <https://mailarchive.ietf.org/arch/msg/ietf-dkim/idupuNf7VWBfVS7ZQBLhnjD5oFk>
+Subject: Re: [Ietf-dkim] RFC 8463: DNS textual form underspecified
+X-BeenThere: ietf-dkim@ietf.org
+X-Mailman-Version: 2.1.39
+Precedence: list
+List-Id: IETF DKIM List <ietf-dkim.ietf.org>
+List-Unsubscribe: <https://www.ietf.org/mailman/options/ietf-dkim>,
+ <mailto:ietf-dkim-request@ietf.org?subject=unsubscribe>
+List-Archive: <https://mailarchive.ietf.org/arch/browse/ietf-dkim/>
+List-Post: <mailto:ietf-dkim@ietf.org>
+List-Help: <mailto:ietf-dkim-request@ietf.org?subject=help>
+List-Subscribe: <https://www.ietf.org/mailman/listinfo/ietf-dkim>,
+ <mailto:ietf-dkim-request@ietf.org?subject=subscribe>
+X-List-Received-Date: Sun, 14 Apr 2024 01:53:17 -0000
+
+Scott Kitterman wrote in
+ <5368AC9A-51D5-4AEC-AB19-613DBEAD7C5B@kitterman.com>:
+ |On April 14, 2024 12:51:26 AM UTC, Steffen Nurpmeso <steffen@sdaoden.eu> \
+ |wrote:
+ |>Hello.
+ |>
+ |>Thanks to Hanno B=C3=B6ck (known from ossec and more) i was pointed to
+ |>my falsely published ED25519 DKIM key.
+ |>Until now that simply was the complete ED25519 public key, just
+ |>like for RSA, instead of extracting the actual "bitstring data"
+ |>from the standardized ASN.1 container, which starts at offset 16
+ |>(or -offset=3D12 if you use "openssl asn1parse -noout -out -" aka
+ |>the binary blob).
+ |>
+ |>I realize that RFC 8463 says repeatedly that the base64-encoded
+ |>representation of an ED25519 key is 44 bytes, and that the
+ |>examples go for this.  Still there is no wording that the entire
+ |>ASN.1 structure shall be thrown away.
+ |
+ |At the time we wrote what became RFC 8463, ASN.1 for ED25519 was not \
+ |specified yet.  Openssl didn't support ED25119 either.  I'm not sure \
+ |what you think we should have put in that we didn't.
+ |
+ |It seems to me that you are saying that the RFC is correct and clear, \
+ |but that you were certain you knew better than the RFC.  That's not \
+ |a thing an RFC can fix.
+
+There *is* RFC 8410 to which 8463 refers, around the same time.
+It defines exactly this, no?  It says there are no further
+parameters, but it does not say "hey so you can go and just leave
+that niche container off".
+Sure it is 44 bytes, but the entire thing is 64.
+It is de-facto only the single example in A.2 which reveals the
+total ignorance of ASN.1, and it is about brisbane and football,
+which i cannot glue together (letting aside it is written by an
+american, and who knows what kind of "football" that is?, as
+i seem to know they say "soccer" for what i would think, but it is
+4am so i do not truly think anyhow.  Saturday night all right for
+fighting, ah.)  (OpenSSL in mid 2017, at least a bit.)
+Thus: smart, very smart.  Is always too smart for some.
+Just leave them behind.
+
+Ciao from Germany,
+
+--steffen
+|
+|Der Kragenbaer,                The moon bear,
+|der holt sich munter           he cheerfully and one by one
+|einen nach dem anderen runter  wa.ks himself off
+|(By Robert Gernhardt)
+

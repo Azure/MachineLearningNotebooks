@@ -1,0 +1,24 @@
+.row
+  - unless pages[nil].nil?
+    - pages[''] = pages[nil]
+    - pages.delete(nil)
+  - pages.sort.each do |category, workflow_pages|
+    - category_name = category.blank? ? 'Uncategorized' : category
+    - category_anchor = [parent.parameterize, category_name.parameterize].join('-')
+
+    .col-xs-6
+      %h3.support-header-link-title{ id: category_anchor }
+        - unless pages.count == 1 && category_name == 'Uncategorized'
+          %i.far.fa-folder-open.fa-fw.text-muted
+          = category_name
+          %small.text-muted
+            = "(#{workflow_pages.count})"
+          %a.header-link-anchor{ href: "##{category_anchor}" }
+
+      -# Order workflow pages by title instead of filename
+      - workflow_pages.sort_by { |page| page.data.title }.each do |page|
+        %ul.fa-ul
+          %li
+            %i.fa-li.far.fa-list-alt.fa-fw.text-muted
+            %h5
+              = link_to page.data.title, "/" + page.path

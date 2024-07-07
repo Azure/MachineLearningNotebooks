@@ -1,0 +1,56 @@
+We generally follow the [Product Development Flow](/handbook/product-development-flow/#workflow-summary):
+1. `workflow::problem validation` - needs clarity on the problem to solve
+1. `workflow::design` - needs a clear proposal (and mockups for any visual aspects)
+1. `workflow::solution validation` - needs refinement and acceptance from engineering
+1. `workflow::planning breakdown` - needs a Weight estimate
+1. `workflow::scheduling` - needs a milestone assignment
+1. `workflow::ready for development`
+1. `workflow::in dev`
+1. `workflow::in review`
+1. `workflow::verification` - code is in production and pending verification by the DRI engineer
+
+Generally speaking, issues are in one of two states:
+* Discovery/refinement: we're still answering questions that prevent us from starting development,
+* Implementation: an issue is waiting for an engineer to work on it, or is actively being built.
+
+Basecamp thinks about these stages in relation to the [climb and descent of a hill](https://www.feltpresence.com/hills.html).
+
+While individual groups are free to use as many stages in the [Product Development Flow](/handbook/product-development-flow/#workflow-summary) workflow as they find useful, we should be somewhat prescriptive on how issues transition from discovery/refinement to implementation.
+
+##### Backlog management
+
+Backlog management is very challenging, but we try to do so with the use of labels and milestones.
+
+###### Refinement
+
+**The end goal is defined,** where all direct stakeholders says “yes, this is ready for development”. Some issues get there quickly, some require a few passes back and forth to figure out.
+
+The goal is for engineers to have buy-in and feel connected to the roadmap. By having engineering included earlier on, the process can be much more natural and smooth.
+
+To do so, engineering managers, engineers, and designers can be pinged directly from the issue. We're currently exploring [converting the Manage project into a group](https://gitlab.com/gitlab-org/manage/-/issues/16983) to be able to create groups to more easily ping group members.
+
+To find issues that require refinement, please see the [Next Up](#next-up) label and its purpose.
+
+###### Next Up
+
+* To identify issues that need refinement, use the "Next Up" label.
+  * The purpose of the "Next Up" label is to identify issues that are currently in _any_ workflow stage before `workflow::ready for development`. By using this "Next Up" label in addition to workflow labels, we're able to see exactly what is being refined, e.g., problem, design, solution. This helps identify which issues are closer to being ready to schedule.
+* Issues shouldn't receive a milestone for a specific release (e.g. 13.0) until they've received a 👍 from both Product and Engineering. This also means the issue should not be labeled as `workflow::ready for development`.
+  * Product approval is represented by an issue moving into `workflow::planning breakdown`.
+  * Engineering approval is represented by an issue weight measuring its complexity.
+
+##### Breaking down or promoting issues
+
+Depending on the complexity of an issue, it may be necessary to break down or promote issues. A couple sample scenarios may be:
+
+- We need to do discovery on the design, before we do anything else. A "Discovery:" issue may work best here as it helps to contain the design thinking and discussion there, with the end result being transferred over to a "Implementation:" issue. These prefixes also help to organize what type of issue they are, in the case they are linked to parent issues or epics.
+- The scope of work is larger than anticipated, and needs to be broken down further, e.g., it currently has a weight higher than 5. It may suit you to then promote said issue to an epic, to break it down into smaller issues to list out the different iterations or phases of work that need to happen to deliver the overall feature that was originally proposed.
+- The scope of work is clear, but a bit unwieldy for one issue. It may make sense to keep the given issue as is, to keep the conversation and activity visible to everyone, but create separate child design, backend, or frontend issues to track the more nuanced progress of a given issue.
+
+If none of the above applies, then the issue is probably fine as-is! It's likely then that the weight of this issue is quite low, e.g., 1-2.
+
+##### Managing discussions, information, decisions, and action items in an issue.
+
+As part of [breaking down or promoting issues](#breaking-down-or-promoting-issues), you may find that there are a significant number of threads and comments in a given issue.
+
+It's very important that we make sure any proposal details, pending action items, and decisions are easily visible to any stakeholder coming into an issue. Therefore, it's paramount that the issue description is kept up-to-date, or otherwise broken down or promoted as per the above section.
