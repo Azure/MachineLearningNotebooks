@@ -1,0 +1,8 @@
+- subpages = pages.group_by { |page| page.data.subcategory }
+- category_anchor = category.parameterize
+
+%h2.header-link-title{id: category_anchor }
+  = category
+  %a.header-link-anchor{ href: "##{category_anchor}" }
+
+= partial "handbook/support/workflows/workflows", locals: { parent: category, pages: subpages }

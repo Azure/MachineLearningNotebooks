@@ -1,0 +1,16 @@
+<% career_matrix = Gitlab::Homepage::CareerMatrix.engineering_ic %>
+
+<% career_matrix.levels.each do |level|  %>
+### <%=level %>
+  <% career_matrix.categories.each do |category|  %>
+#### <%=category %>
+
+<dl>
+  <% career_matrix.behaviours_for(category).each do |behaviour| %>
+    <dt><%= behaviour %></dt>
+    <dd><%= kramdown(career_matrix.descriptions_for(level, category, behaviour).join(' ')) %></dd>
+  <% end %>
+</dl>
+
+  <% end %>
+<% end %>

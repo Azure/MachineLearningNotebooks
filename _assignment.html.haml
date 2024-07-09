@@ -1,0 +1,19 @@
+- grouped_assignments = assignments.group_by(&:description)
+- grouped_assignments.each do |description, assignments|
+  - if description.present?
+    %h5{ id: [*id, description] }
+      - group_header = "#{description.capitalize} (#{assignments.count})"
+
+      - if show_maintainers_link?(id, description)
+        = link_to group_header, maintainer_url(description)
+      - else
+        = group_header
+  %ul
+    - assignments.each do |assignment|
+      %li
+        = link_to "@#{assignment.username}", "https://gitlab.com/#{assignment.username}"
+
+        %ul{ class: "domain-expertise"}
+          - assignment.domain_expertise.each do |domain|
+            %li
+              = link_to "#{domain.display_name}", "#{domain.link}", :class => "flex-item domain"

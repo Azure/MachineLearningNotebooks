@@ -1,0 +1,32 @@
+<% career_matrix = data.engineering_ic_career_matrix %>
+
+<div class="table-responsive">
+  <div class="career-matrix-table-wrapper">
+    <table class="table-bordered career-matrix-table">
+      <thead>
+      <tr>
+        <th class="top-sticky"></th>
+        <% career_matrix.each do |level| %>
+          <th class="top-sticky"><%= level.name %></th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <% career_matrix[0][category].keys.each do |behaviour| %>
+        <tr>
+          <th><%= "#{category}: #{behaviour}" %></th>
+          <% career_matrix.each do |level| %>
+            <td>
+              <ul>
+                <% level[category][behaviour]&.each do |item| %>
+                  <li><%= kramdown(item) %></li>
+                <% end %>
+              </ul>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

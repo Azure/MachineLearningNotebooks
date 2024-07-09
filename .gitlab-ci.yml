@@ -1,0 +1,263 @@
+# NOTE: Static Sites often want to optimize for fast build and deploy
+#       pipeline times, so changes are published as quickly as possible.
+#       Therefore, this default config includes optional variables, settings,
+#       and caching, which help minimize job run times. For example,
+#       disabling support for git LFS and submodules. There are also retry
+#       and reliability settings which help prevent false build failures
+#       due to occasional infrastructure availability problems. These are
+#       all documented inline below, and can be changed or removed as
+#       necessary, depending on the requirements for your repo or project.
+
+###################################
+#
+# GENERAL/DEFAULT CONFIG:
+#
+###################################
+
+stages:
+  - prepare
+  - deploy
+  - test
+  - notify
+  - cleanup
+
+.assume_role: &assume_role
+  - >
+    STS=($(aws sts assume-role-with-web-identity
+    --role-arn ${ROLE_ARN}
+    --role-session-name "GitLabRunner-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
+    --web-identity-token $ID_TOKEN
+    --duration-seconds 3600
+    --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
+    --output text))
+  - export AWS_ACCESS_KEY_ID="${STS[0]}"
+  - export AWS_SECRET_ACCESS_KEY="${STS[1]}"
+  - export AWS_SESSION_TOKEN="${STS[2]}"
+
+include:
+  - component: gitlab.com/components/secret-detection/secret-detection@~latest
+  - component: gitlab.com/gitlab-org/components/danger-review/danger-review@~latest
+
+default:
+  interruptible: true # All jobs are interruptible by default
+  # The following 'retry' configuration settings may help avoid false build failures
+  #  during brief problems with CI/CD infrastructure availability
+  retry:
+    max: 2 # This is confusing but this means "3 runs at max".
+    when:
+      - unknown_failure
+      - api_failure
+      - runner_system_failure
+      - job_execution_timeout
+      - stuck_or_timeout_failure
+
+variables:
+  # NOTE: The following PERFORMANCE and RELIABILITY variables are optional, but may
+  #       improve performance of larger repositories, or improve reliability during
+  #       brief problems with CI/CD infrastructure availability
+
+  ### PERFORMANCE ###
+  # GIT_* variables to speed up repo cloning/fetching
+  GIT_DEPTH: 0
+  # Disabling LFS and submodules will speed up jobs, because runners don't have to perform
+  # the submodule steps during repo clone/fetch. These settings can be deleted if you are using
+  # LFS or submodules.
+  GIT_LFS_SKIP_SMUDGE: 1
+  GIT_SUBMODULE_STRATEGY: none
+
+  ### RELIABILITY ###
+  # Reduce potential of flaky builds via https://docs.gitlab.com/ee/ci/yaml/#job-stages-attempts variables
+  GET_SOURCES_ATTEMPTS: 3
+  ARTIFACT_DOWNLOAD_ATTEMPTS: 3
+  RESTORE_CACHE_ATTEMPTS: 3
+  EXECUTOR_JOB_SECTION_ATTEMPTS: 3
+
+.security-scanning: &security-scanning-rules
+    if: '$CI_MERGE_REQUEST_IID || $CI_COMMIT_TAG'
+
+.hugo:
+  image: registry.gitlab.com/pages/hugo/hugo_extended:0.123.7
+  stage: deploy
+  needs: []
+  script:
+    - apk update
+    - apk upgrade
+    - apk add go npm yq curl coreutils
+    - ./scripts/sync-data.sh
+    - npm ci
+    - hugo --enableGitInfo
+  rules:
+    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+  artifacts:
+    paths:
+      - public
+
+###################################
+#
+# DEPLOY STAGE
+#
+###################################
+
+pages-review:
+  extends: [.hugo]
+  rules:
+    - if: $CI_MERGE_REQUEST_IID
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    # There is no predefined CI variable that is formatted quite right
+    # neither $CI_PAGES_URL nor $CI_JOB_URL have /-/ directly after the hostname
+    # TODO @dnsmichi improve and make review apps work https://gitlab.com/groups/gitlab-com/content-sites/-/epics/11 
+    url: https://gitlab-com.gitlab.io/-/content-sites/handbook/-/jobs/$CI_JOB_ID/artifacts/public/
+    on_stop: stop-pages-review
+  variables:
+    HUGO_ENVIRONMENT: review
+    RUN_TYPE: MR
+
+stop-pages-review:
+  image: busybox
+  stage: cleanup
+  script:
+    - echo "stop review app"
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    action: stop
+  rules:
+    - if: $CI_MERGE_REQUEST_IID
+      when: manual
+      allow_failure: true
+  variables:
+    GIT_STRATEGY: none
+
+pages:
+  extends: [.hugo]
+  environment:
+    # tracking DORA deployment frequency
+    name: production
+    deployment_tier: production
+  rules:
+    # Only run the deploy on the default branch. If you want to deploy from Merge Request branches,
+    # you can use Review Apps: https://docs.gitlab.com/ee/ci/review_apps
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULED_DEPLOY == "true"'
+
+# TODO @dnsmichi: What does this job do?
+deploy s3:
+    stage: deploy
+    needs:
+      - pages
+    image:
+      name: amazon/aws-cli:latest
+      entrypoint:
+        - '/usr/bin/env'
+    id_tokens:
+        ID_TOKEN:
+          aud: handbook_s3
+    script:
+      - *assume_role
+      - aws s3 sync public/ s3://$S3_BUCKET
+    rules:
+      # Never try to deploy on merge requests.
+      - if: $CI_MERGE_REQUEST_IID
+        when: never
+      - if: '$CI_SERVER_HOST == "gitlab.com" && $CI_PROJECT_NAMESPACE == "gitlab-com/content-sites" && $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH'
+        when: on_success
+
+####################################
+##
+## TEST STAGE
+##
+####################################
+
+markdownlint:
+  image:
+    name: davidanson/markdownlint-cli2:v0.12.1
+    entrypoint: ["/bin/sh", "-c"]
+  stage: test
+  needs: []
+  before_script:
+    - npm install markdownlint-cli2-formatter-codequality markdownlint-cli2-formatter-pretty
+  script:
+    - markdownlint-cli2 "content/**/*.md"
+  rules:
+    - <<: *security-scanning-rules
+  artifacts:
+    when: always
+    expire_in: 1 month
+    paths:
+      - markdownlint-cli2-codequality.json
+    reports:
+      codequality: markdownlint-cli2-codequality.json
+
+handbooklint:
+  image:
+    name: gitlab/glab
+    entrypoint: ["/bin/sh", "-c"]
+  stage: test
+  needs: []
+  before_script:
+    - apk update
+    - apk upgrade
+    - apk add jq sed bash
+  script:
+    - bash ./scripts/handbook-lint.sh
+  rules:
+    - <<: *security-scanning-rules
+  artifacts:
+    when: always
+    expire_in: 1 month
+    paths:
+      - handbook-codequality.json
+    reports:
+      codequality: handbook-codequality.json
+
+hugolint:
+  stage: test
+  needs: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      allow_failure: true
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+      allow_failure: true
+  image:
+    name: registry.gitlab.com/gitlab-com/content-sites/handbook-tools/hugolint:latest
+  script:
+    - hugolint linkcheck --format=json $(find content -type f -name '*.md' | grep -v ' ') >linkcheck.json
+    - hugolint missinglinks --num 30 $(find content -name '*.md' | grep -v ' ') >missinglinks.txt 2>/dev/null
+    - head -n 20 missinglinks.txt
+  artifacts:
+    when: always
+    expire_in: 1 month
+    paths:
+      - linkcheck.json
+      - missinglinks.txt
+    reports:
+      codequality: linkcheck.json
+
+####################################
+##
+## NOTIFY STAGE
+##
+####################################
+
+post_comment_on_failure:
+  needs: ["markdownlint", "handbooklint"]
+  when: on_failure
+  stage: notify
+  image:
+    name: gitlab/glab
+    entrypoint: ["/bin/sh", "-c"]
+  script:
+    - apk add yq
+    - getconf ARG_MAX
+    - ./scripts/parse-codequality-report.sh -r ./codequality.json > msg.txt
+    - glab auth login -t $MR_UPDATE_TOKEN
+    - glab mr note --unique $CI_MERGE_REQUEST_IID -m "$(cat msg.txt)"
+  rules:
+  - <<: *security-scanning-rules
+
+secret_detection:
+  needs: []
+  dependencies: [] # Don't download artifacts, especially `./public/`
+  rules:
+    - <<: *security-scanning-rules
+

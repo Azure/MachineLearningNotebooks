@@ -1,0 +1,60 @@
+Before work can begin on an issue, we should estimate it first after a preliminary investigation.
+
+If the scope of work of a given issue touches several disciplines (docs, design, frontend, backend, etc.) and involves significant complexity across them, consider creating separate issues for each discipline (see [an example](https://gitlab.com/gitlab-org/gitlab-ee/issues/9288)).
+
+Issues without a weight should be assigned the "workflow::planning breakdown" label.
+
+When estimating development work, please assign an issue an appropriate weight:
+
+| Weight | Description (Engineering) |
+| ------ | ------ |
+| 1 | The simplest possible change. We are confident there will be no side effects. |
+| 2 | A simple change (minimal code changes), where we understand all of the requirements. |
+| 3 | A simple change, but the code footprint is bigger (e.g. lots of different files, or tests affected). The requirements are clear. |
+| 5 | A more complex change that will impact multiple areas of the codebase, there may also be some refactoring involved. Requirements are understood but you feel there are likely to be some gaps along the way. We should challenge ourselves to break this issue in to smaller pieces. |
+| 8 | A complex change, that will involve much of the codebase or will require lots of input from others to determine the requirements. These issues will often need further investigation or discovery before being `~workflow::ready for development` and we will likely benefit from multiple, smaller issues. |
+| 13 | A significant change that may have dependencies (other teams or third-parties) and we likely still don't understand all of the requirements. It's unlikely we would commit to this in a milestone, and the preference would be to further clarify requirements and/or break in to smaller Issues. |
+
+As part of estimation, if you feel the issue is in an appropriate state for an engineer to start working on it, please add the ~"workflow::ready for development" label. Alternatively, if there are still requirements to be defined or questions to be answered that you feel an engineer won't be able to easily resolve, please add the ~"workflow::blocked" label. Issues with the `workflow::blocked` label will appear in their own column on our planning board, making it clear that they need further attention. When applying the `workflow::blocked` label, please make sure to leave a comment and ping the DRI on the blocked issue and/or link the blocking issue to raise visibility.
+
+##### Implementation Approach
+
+For engineers, you may want to create an implementation approach when moving an issue out of `~workflow::planning breakdown`. A proposed implementation approach isn't required to be followed, but is helpful to justify a recorded weight.
+
+As the DRI for `workflow::planning breakdown`, consider following the example below to signal the end of your watch and the issues preparedness to move into scheduling. While more straightforward issues that have already been broken down may use a shorter format, the plan should (at a minimum) always justify the "why" behind an estimation.
+
+The following is an example of an implementation approach from [https://gitlab.com/gitlab-org/gitlab/-/issues/247900#implementation-plan](https://gitlab.com/gitlab-org/gitlab/-/issues/247900#implementation-plan). It illustrates that the issue should likely be broken down into smaller sub-issues for each part of the work:
+
+```md
+### Implementation approach
+
+~database
+
+1. Add new `merge_requests_author_approval` column to `namespace_settings` table (The final table is TBD)
+
+~"feature flag"
+
+1. Create new `group_merge_request_approvers_rules` flag for everything to live behind
+
+~backend
+
+1. Add new field to `ee/app/services/ee/groups/update_service.rb:117`
+1. Update `ee/app/services/ee/namespace_settings/update_service.rb` to support more than just one setting
+1. *(if feature flag enabled)* Update the `Projects::CreateService` and `Groups::CreateService` to update newly created projects and sub-groups with the main groups setting
+1. *(if feature flag enabled)* Update the Groups API to show the settings value
+1. Tests tests and more tests :muscle:
+
+~frontend
+
+1. *(if feature flag enabled)* Add new `Merge request approvals` section to Groups general settings
+1. Create new Vue app to render the contents of the section
+1. Create new setting and submission process to save the value
+1. Tests tests and more tests :muscle:
+```
+
+The DRI is **highly** recommended to ping a relevant counterpart or domain expert if an issue covers multiple
+disciplines (for example backend and frontend) before moving the issue to `workflow::scheduling`. This gives
+the domain expert the opportunity to approve the implementation plan or raise any potential pitfalls or
+concerns before work begins.
+
+Once an issue has been estimated, it can then be moved to `workflow::scheduling` to be assigned a milestone before finally being `workflow::ready for development`.
