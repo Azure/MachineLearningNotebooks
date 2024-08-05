@@ -33,8 +33,6 @@ Using these samples, you will learn how to do the following.
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| [cartpole_ci.ipynb](cartpole-on-compute-instance/cartpole_ci.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Instance |
-| [cartpole_sc.ipynb](cartpole-on-single-compute/cartpole_sc.ipynb)  | Notebook to train a Cartpole playing agent on an Azure Machine Learning Compute Cluster (single node) |
 | [pong_rllib.ipynb](atari-on-distributed-compute/pong_rllib.ipynb)   | Notebook for distributed training of Pong agent using RLlib on multiple compute targets |
 
 ## Prerequisites
