@@ -178,7 +178,7 @@ os.makedirs('./outputs/model', exist_ok=True)
 
 # files saved in the "./outputs" folder are automatically uploaded into run history
 # this is workaround for https://github.com/tensorflow/tensorflow/issues/33913 and will be fixed once we move to >tf2.1
-neural_net._set_inputs(X_train)
+# neural_net._set_inputs(X_train)
 tf.saved_model.save(neural_net, './outputs/model/')
 
 stop_time = time.perf_counter()
