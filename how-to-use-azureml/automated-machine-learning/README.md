@@ -155,7 +155,7 @@ jupyter notebook
           - get the best model, use it to forecast on test data and compare the accuracy of predictions against real data
 - **Forecast Orange Juice Sales (Multi-Series)**
     - Dataset: [Dominick's grocery sales of orange juice](forecasting-orange-juice-sales/dominicks_OJ.csv)
-        - **[Jupyter Notebook](forecasting-orange-juice-sales/dominicks_OJ.csv)**
+        - **[Jupyter Notebook](forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)**
           - run experiment remotely on AML Compute cluster
           - customize time-series featurization, change column purpose and override transformer hyper parameters
           - evaluate locally the performance of the generated best model
