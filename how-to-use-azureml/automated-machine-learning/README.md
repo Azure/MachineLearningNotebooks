@@ -109,16 +109,16 @@ jupyter notebook
 ## Classification
 - **Classify Credit Card Fraud**
     - Dataset: [Kaggle's credit card fraud detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud)
-      - **[Jupyter Notebook (remote run)](classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)**
+      - **[Jupyter Notebook (remote run)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)**
           - run the experiment remotely on AML Compute cluster
           - test the performance of the best model in the local environment
-      - **[Jupyter Notebook (local run)](local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb)**
+      - **[Jupyter Notebook (local run)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb)**
           - run experiment in the local environment
           - use Mimic Explainer for computing feature importance
           - deploy the best model along with the explainer to an Azure Kubernetes (AKS) cluster, which will compute the raw and engineered feature importances at inference time
 - **Predict Term Deposit Subscriptions in a Bank**
     - Dataset: [UCI's bank marketing dataset](https://www.kaggle.com/janiobachmann/bank-marketing-dataset)
-        - **[Jupyter Notebook](classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)**
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)**
           - run experiment remotely on AML Compute cluster to generate ONNX compatible models
           - view the featurization steps that were applied during training
           - view feature importance for the best model
@@ -126,7 +126,7 @@ jupyter notebook
           - deploy the best model in PKL format to Azure Container Instance (ACI)
 - **Predict Newsgroup based on Text from News Article**
     - Dataset: [20 newsgroups text dataset](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html)
-        - **[Jupyter Notebook](classification-text-dnn/auto-ml-classification-text-dnn.ipynb)**
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)**
           - AutoML highlights here include using deep neural networks (DNNs) to create embedded features from text data
           - AutoML will use Bidirectional Encoder Representations from Transformers (BERT) when a GPU compute is used
           - Bidirectional Long-Short Term neural network (BiLSTM) will be utilized when a CPU compute is used, thereby optimizing the choice of DNN
@@ -134,11 +134,11 @@ jupyter notebook
 ## Regression
 - **Predict Performance of Hardware Parts**
     - Dataset: Hardware Performance Dataset
-        - **[Jupyter Notebook](regression/auto-ml-regression.ipynb)**
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb)**
             - run the experiment remotely on AML Compute cluster
             - get best trained model for a different metric than the one the experiment was optimized for
             - test the performance of the best model in the local environment
-        - **[Jupyter Notebook (advanced)](regression/auto-ml-regression.ipynb)**
+        - **[Jupyter Notebook (advanced)](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb)**
             - run the experiment remotely on AML Compute cluster
             - customize featurization: override column purpose within the dataset, configure transformer parameters
             - get best trained model for a different metric than the one the experiment was optimized for
@@ -148,41 +148,35 @@ jupyter notebook
 ## Time Series Forecasting
 - **Forecast Energy Demand**
     - Dataset: [NYC energy demand data](http://mis.nyiso.com/public/P-58Blist.htm)
-        - **[Jupyter Notebook](forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)**
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)**
           - run experiment remotely on AML Compute cluster
           - use lags and rolling window features
           - view the featurization steps that were applied during training
           - get the best model, use it to forecast on test data and compare the accuracy of predictions against real data
 - **Forecast Orange Juice Sales (Multi-Series)**
-    - Dataset: [Dominick's grocery sales of orange juice](forecasting-orange-juice-sales/dominicks_OJ.csv)
-        - **[Jupyter Notebook](forecasting-orange-juice-sales/dominicks_OJ.csv)**
+    - Dataset: [Dominick's grocery sales of orange juice](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)**
           - run experiment remotely on AML Compute cluster
           - customize time-series featurization, change column purpose and override transformer hyper parameters
           - evaluate locally the performance of the generated best model
           - deploy the best model as a webservice on Azure Container Instance (ACI)
           - get online predictions from the deployed model
 - **Forecast Demand of a Bike-Sharing Service**
-    - Dataset: [Bike demand data](forecasting-bike-share/bike-no.csv)
-        - **[Jupyter Notebook](forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)**
+    - Dataset: [Bike demand data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)**
           - run experiment remotely on AML Compute cluster
           - integrate holiday features
           - run rolling forecast for test set that is longer than the forecast horizon
           - compute metrics on the predictions from the remote forecast
 - **The Forecast Function Interface**
     - Dataset: Generated for sample purposes
-        - **[Jupyter Notebook](forecasting-forecast-function/auto-ml-forecasting-function.ipynb)**
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)**
           - train a forecaster using a remote AML Compute cluster
           - capabilities of forecast function (e.g. forecast farther into the horizon)
           - generate confidence intervals
-- **Forecast Beverage Production**
-    - Dataset: [Monthly beer production data](forecasting-beer-remote/Beer_no_valid_split_train.csv)
-        - **[Jupyter Notebook](forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)**
-          - train using a remote AML Compute cluster
-          - enable the DNN learning model
-          - forecast on a remote compute cluster and compare different model performance
 - **Continuous Retraining with NOAA Weather Data**
     - Dataset: [NOAA weather data from Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/)
-        - **[Jupyter Notebook](continuous-retraining/auto-ml-continuous-retraining.ipynb)**
+        - **[Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)**
           - continuously retrain a model using Pipelines and AutoML
           - create a Pipeline to upload a time series dataset to an Azure blob
           - create a Pipeline to run an AutoML experiment and register the best resulting model in the Workspace
