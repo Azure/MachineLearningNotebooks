@@ -65,7 +65,7 @@ base_image_registry.password = "password"
 
 ## Create a batch inference job
 
-**ParallelRunStep** is a newly added step in the azureml.pipeline.steps package. You will use it to add a step to create a batch inference job with your Azure machine learning pipeline. (Use batch inference without an Azure machine learning pipeline is not supported yet). ParallelRunStep has all the following parameters:
+**ParallelRunStep** is in the azureml.pipeline.steps package. You will use it to add a step to create a batch inference job with your Azure machine learning pipeline. (Use batch inference without an Azure machine learning pipeline is not supported yet). ParallelRunStep has all the following parameters:
   - **name**: this name will be used to register batch inference service, has the following naming restrictions: (unique, 3-32 chars and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$)
   - **parallel_run_config**: ParallelRunConfig as defined above.
   - **inputs**: one or more Dataset objects.
